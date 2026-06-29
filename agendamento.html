@@ -80,7 +80,7 @@
 const AP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJmS2PAGTGcjq7Of0109AfdR5lr2TOEe_rCRNCI1iWz9SnrqXF5moav_uBYRwSUQ/exec';
 
 // Pega dados da ficha
-const ficha = JSON.parse(localStorage.getItem('fichaPretaNails') || '{}');
+const ficha = JSON.parse(localStorage.getItem('Minha agenda') || '{}');
 document.getElementById('nome').value = ficha.nome || '';
 document.getElementById('zap').value = ficha.whatsapp || '';
 
