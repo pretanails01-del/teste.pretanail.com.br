@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -28,7 +27,7 @@
 .dia { padding:14px 0; border-radius:14px; background: rgba(0,0,0,0.3); border:1px solid var(--borda); text-align:center; font-weight:600; cursor:pointer; transition:.2s; user-select:none; backdrop-filter: blur(4px);}
 .dia:hover:not(.off) { border-color:var(--rosa); transform: translateY(-2px); box-shadow:0 8px 20px var(--rosa-glow); }
 .dia.off { background: rgba(0,0,0,0.2); color:#444; border-color:transparent; cursor:not-allowed; }
-.dia.on { border-color: rgba(255,255,255,0.2); }
+.dia.on { border-color: var(--rosa); background: rgba(233,30,99,0.15); box-shadow: 0 0 10px var(--rosa-glow); } /* CORRIGIDO: AGORA FICA ROSA */
 .dia.sel { background:var(--rosa); color:#000; border-color:var(--rosa); box-shadow: 0 0 25px var(--rosa-glow); font-weight:800; }
 .box { display:none; margin-top:24px; padding-top:20px; border-top:1px solid var(--borda); }
 .titulo-bloco{font-weight:700; margin:0 0 12px; font-size:15px; color:#ddd;}
@@ -43,6 +42,7 @@
 .btn-whats:hover{transform: translateY(-2px); box-shadow: 0 12px 30px rgba(37,211,102,0.6)}
 .msg{text-align:center; margin-top:14px; font-weight:600}
 .msg.ok{color:#4ade80; text-shadow:0 0 10px #4ade80}
+.msg.erro{color:#f87171; text-shadow:0 0 10px #f87171; font-size:12px} /* NOVO: ERRO NA TELA */
 .loading{text-align:center; color:#aaa; padding:40px 0;}
 </style>
 </head>
@@ -76,7 +76,7 @@
   </div>
 
 <script>
-// URL NA LINHA CERTA - 1 LINHA SÓ
+// SUA API
 const AP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJmS2PAGTGcjq7Of0109AfdR5lr2TOEe_rCRNCI1iWz9SnrqXF5moav_uBYRwSUQ/exec';
 
 // Pega dados da ficha
@@ -101,11 +101,10 @@ function mudarMes(dir){
   const novoMes = mesAtual + dir;
   const novoAno = anoAtual + (novoMes < 0? -1 : novoMes > 11? 1 : 0);
   const mesAjustado = (novoMes + 12) % 12;
-  
-  // BUG #1 CORRIGIDO: Não deixa voltar antes do mês atual
+
   if(novoAno < hoje.getFullYear() || (novoAno === hoje.getFullYear() && mesAjustado < hoje.getMonth())) return;
   if(novoAno > LIMITE_ANO) return;
-  
+
   mesAtual = mesAjustado;
   anoAtual = novoAno;
   atualizarBotoesMes();
@@ -118,21 +117,25 @@ function atualizarBotoesMes(){
 }
 
 async function carregar(){
+  const msgBox = document.getElementById('msg');
+  msgBox.className = 'msg';
+  msgBox.textContent = 'Conectando com a agenda...';
+
   try{
-    const r = await fetch(AP_SCRIPT_URL + '?action=getAvailability');
-    if(!r.ok) throw new Error('API off');
-    agenda = await r.json();
-    if(!agenda || Object.keys(agenda).length === 0) throw new Error('Agenda vazia');
-  }catch(e){ 
-    console.warn('API falhou. Ativando MODO TESTE por 30 dias:', e);
-    // BUG #2 CORRIGIDO: MODO TESTE se API falhar
+    // CORREÇÃO 1: CORS + NO-CACHE pra matar o bug
+    const r = await fetch(AP_SCRIPT_URL + '?action=getAvailability&nocache=' + Date.now(), {mode: 'cors', cache: 'no-store'});
+    if(!r.ok) throw new Error('API off: ' + r.status);
+    const dados = await r.json();
+    console.log('API Retornou:', dados);
+    if(!dados || Object.keys(dados).length === 0) throw new Error('Agenda vazia na planilha');
+    agenda = dados;
+    msgBox.textContent = '';
+  }catch(e){
+    console.error('ERRO API:', e);
+    // CORREÇÃO 2: Mostra erro na tela
+    msgBox.className = 'msg erro';
+    msgBox.textContent = 'Erro API: ' + e.message;
     agenda = {};
-    for(let i=1; i<=30; i++){
-      const d = new Date(hoje);
-      d.setDate(hoje.getDate() + i);
-      const key = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-      agenda[key] = ['09:00','10:00','14:00','15:00','16:00'];
-    }
   }
   atualizarBotoesMes();
   montarCalendario();
@@ -147,19 +150,19 @@ function montarCalendario(){
 
   for(let i=0; i<primeiroDia; i++) cal.innerHTML += `<div></div>`;
   for(let dia=1; dia<=diasNoMes; dia++){
-    const dataDoDia = new Date(anoAtual, mesAtual, dia); 
-    dataDoDia.setHours(0,0,0,0); // BUG #3 CORRIGIDO: Zera hora pra comparar certo
+    const dataDoDia = new Date(anoAtual, mesAtual, dia);
+    dataDoDia.setHours(0,0,0,0);
     const key = `${anoAtual}-${String(mesAtual+1).padStart(2,'0')}-${String(dia).padStart(2,'0')}`;
-    
+
     const div = document.createElement('div');
     div.className = 'dia';
     div.textContent = dia;
-    
-    if(dataDoDia < hoje ||!agenda[key] || agenda[key].length === 0){
-      div.classList.add('off');
-    } else {
-      div.classList.add('on');
+
+    if(dataDoDia >= hoje && agenda[key] && agenda[key].length > 0){
+      div.classList.add('on'); // AGORA VAI FICAR ROSA
       div.onclick = () => selecionarDia(key, div);
+    } else {
+      div.classList.add('off');
     }
     cal.appendChild(div);
   }
@@ -200,7 +203,7 @@ document.getElementById('btn').onclick = async ()=>{
   document.getElementById('msg').className = 'msg';
 
   try{
-    const r = await fetch(AP_SCRIPT_URL + '?action=book', {method:'POST', body:JSON.stringify(payload)});
+    const r = await fetch(AP_SCRIPT_URL + '?action=book', {method:'POST', mode: 'cors', body:JSON.stringify(payload)});
     const res = await r.json();
 
     if(res.ok){
@@ -215,6 +218,7 @@ document.getElementById('btn').onclick = async ()=>{
     }
   }catch(e){
     document.getElementById('msg').textContent = 'Erro ao reservar. Tente novamente.';
+    document.getElementById('msg').className = 'msg erro';
     document.getElementById('btn').disabled = false;
     console.error('Erro ao bookar:', e);
   }
