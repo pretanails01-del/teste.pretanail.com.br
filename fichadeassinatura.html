@@ -185,7 +185,7 @@
         <button type="button" class="btn btn-secondary" onclick="clearSignature()">Limpar Assinatura</button>
       </div>
       <button type="submit" class="btn btn-primary" id="submitBtn">
-        <span id="btnText">ENVIAR FORMULÁRIO</span>
+        <span id="btnText">CONTINUAR → ESCOLHER HORÁRIO</span> <!-- ALTERADO -->
       </button>
       <div id="erroContainer" class="hidden"></div>
     </form>
@@ -210,8 +210,8 @@ const DURACAO_BLOQUEIO = "0"; // ← SÓ MUDA ESSA LINHA
 const WHATSAPP_BLOQUEIO = "5511991233172"; // Teu número que vai no botão
 // ============================================================
 
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwuuqYuvDyl5igfaY9LkC6dDus-KP8bQuWDMGLBXnY4bU41QAN3gNng5S5rj6D0vQs/exec";
-const WHATSAPP_NUMBER = "5511982311608";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwuuqYuvDyl5igfaY9LkC6dDus-KP8bQuWDMGLBXnY4bU41QAN3gNng5S5rj6D0vQs/exec"; // MANTIDO MAS NÃO USADO
+const WHATSAPP_NUMBER = "5511982311608"; // MANTIDO MAS NÃO USADO
 
 // CONVERTE "1d", "1h", "1min", "30s" PARA MINUTOS
 function converterParaMinutos(tempo) {
@@ -376,6 +376,13 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     return;
   }
 
+  // VALIDAÇÃO DE IDADE - BLOQUEIA 999 E OUTROS VALORES ABSURDOS
+  const idade = parseInt(document.getElementById('idade').value, 10);
+  if (isNaN(idade) || idade < 16 || idade > 100) {
+    showErro('Idade inválida. Digite um valor entre 16 e 100 anos.');
+    return;
+  }
+
   let procs = [];
   document.querySelectorAll('#procedimentosGroup input[type="checkbox"]:checked').forEach(c => {
     if (c.value === 'Outro') {
@@ -394,11 +401,12 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
   const btn = document.getElementById('submitBtn');
   const btnText = document.getElementById('btnText');
   btn.disabled = true;
-  btnText.innerHTML = '<span class="loader"></span>Enviando...';
+  btnText.innerHTML = '<span class="loader"></span>Salvando...'; // ALTERADO
 
+  // MONTAR DADOS E SALVAR NO LOCALSTORAGE AO INVÉS DE ENVIAR
   const dados = {
     nome: document.getElementById('nome').value.trim(),
-    idade: document.getElementById('idade').value,
+    idade: idade,
     whatsapp: document.getElementById('whatsapp').value.trim(),
     procedimento: procs.join(", "),
     outroTexto: document.getElementById('outroTexto').value,
@@ -414,38 +422,8 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     observacoes: document.getElementById('observacoes').value
   };
 
-  try {
-    const response = await fetch(WEB_APP_URL, {
-      method: "POST",
-      mode: "cors",
-      body: JSON.stringify(dados)
-    });
-
-    const data = await response.json();
-
-    if (data.status === 'ok') {
-      document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
-
-      const texto = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*%0A%0A*👤 Cliente:* ${dados.nome}%0A*📱 WhatsApp:* ${dados.whatsapp}%0A*💅 Procedimento:* ${dados.procedimento}%0A*📋 OS:* ${data.os}%0A%0A*📄 PDF:* ${data.pdf}`;
-      const linkWhats = `https://wa.me/${WHATSAPP_NUMBER}?text=${texto}`;
-
-      document.getElementById('btnWhatsContainer').innerHTML = `
-        <a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;">
-          <i class="fab fa-whatsapp"></i> ABRIR WHATSAPP
-        </a>
-      `;
-
-      document.getElementById('sucessoOverlay').classList.remove('hidden');
-
-    } else {
-      throw new Error(data.msg || 'Erro desconhecido');
-    }
-  } catch (err) {
-    showErro('Erro ao enviar formulário. Verifique se implantou como "Qualquer pessoa" no Apps Script.');
-    console.error(err);
-    btn.disabled = false;
-    btnText.textContent = 'ENVIAR FORMULÁRIO';
-  }
+  localStorage.setItem('fichaPretaNails', JSON.stringify(dados)); // SALVA AQUI
+  window.location.href = 'agendamento.html'; // REDIRECIONA AQUI
 });
 
 document.getElementById('whatsapp').addEventListener('input', function(e) {
