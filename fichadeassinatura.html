@@ -156,7 +156,6 @@
       z-index: 9999; animation: fadeIn 0.4s ease; 
       overflow: hidden;
     }
-    /* Overlay mais leve pra foto ficar nítida */
     .sucesso-overlay::before {
       content: '';
       position: absolute;
@@ -166,7 +165,6 @@
       backdrop-filter: blur(4px);
       z-index: -1;
     }
-    /* Partículas + brilho flutuante */
     .sucesso-overlay::after {
       content: '';
       position: absolute;
@@ -239,7 +237,6 @@
     .bloqueio-texto { color: #ccc; font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
     .bloqueio-texto strong { color: var(--primary); }
     
-    /* BOTÃO WHATSAPP - IGUAL */
     .btn-whatsapp { background: linear-gradient(135deg, #25D366, #1fa855); color: white; padding: 16px 35px; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
     .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6); }
     .btn-whatsapp i { font-size: 22px; }
@@ -255,7 +252,6 @@
   </style>
 </head>
 <body>
-<!-- TELA DE BLOQUEIO -->
 <div id="bloqueioOverlay" class="bloqueio-overlay hidden">
   <div class="bloqueio-card">
     <div class="bloqueio-icon"> 
@@ -387,11 +383,8 @@
 </div>
 
 <script>
-// ===== CONFIGURAÇÃO DE BLOQUEIO AUTOMÁTICO =====
 const DURACAO_BLOQUEIO = "0"; 
 const WHATSAPP_BLOQUEIO = "5511991233172";
-// ============================================================
-
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwuuqYuvDyl5igfaY9LkC6dDus-KP8bQuWDMGLBXnY4bU41QAN3gNng5S5rj6D0vQs/exec";
 const WHATSAPP_NUMBER = "5511982311608";
 
