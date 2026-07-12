@@ -6,70 +6,252 @@
   <title>Formulário de Avaliação Inicial • Preta NailS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
-    :root { --primary: #C13584; --primary-dark: #a02c6e; --success: #25D366; --card: #ffffff; --text: #1a1a1a; --border: #f0c1d9; }
+    :root { 
+      --primary: #C13584; 
+      --primary-dark: #a02c6e; 
+      --success: #25D366; 
+      --bg: #0a0a0a;
+      --card: rgba(255,255,255,0.04);
+      --text: #ffffff; 
+      --border: rgba(193,53,132,0.25);
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #1a0f14 0%, #2d1b24 50%, #fff0f5 100%); min-height: 100vh; padding: 20px; color: var(--text); -webkit-font-smoothing: antialiased; }
-  .container { max-width: 720px; margin: 20px auto; background: var(--card); border-radius: 24px; box-shadow: 0 30px 80px rgba(193, 53, 132, 0.3); overflow: hidden; animation: slideUp 0.6s ease; }
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); 
+      min-height: 100vh; 
+      padding: 20px; 
+      color: var(--text); 
+      -webkit-font-smoothing: antialiased; 
+    }
+    .container { 
+      max-width: 720px; 
+      margin: 40px auto; 
+      background: var(--card); 
+      border: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+      border-radius: 24px; 
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6); 
+      overflow: hidden; 
+      animation: slideUp 0.6s ease; 
+    }
     @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-  .header { background: linear-gradient(135deg, #000 0%, var(--primary) 100%); color: white; text-align: center; padding: 40px 20px 35px; position: relative; }
-  .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, #fff, transparent); opacity: 0.3; }
-  .header img { max-width: 220px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
-  .header h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; letter-spacing: 1px; }
-  .header p { margin-top: 8px; opacity: 0.9; font-size: 14px; font-weight: 500; }
-  .form-body { padding: 40px 35px; }
-  .form-group { margin-bottom: 24px; }
-    label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary); font-size: 14px; letter-spacing: 0.3px; }
+    
+    .header { 
+      background: linear-gradient(135deg, #000 0%, var(--primary) 100%); 
+      color: white; 
+      text-align: center; 
+      padding: 50px 20px 40px; 
+      position: relative; 
+    }
+    .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: 0.5; }
+    .header img { max-width: 200px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
+    .header h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; letter-spacing: 1px; }
+    .header p { margin-top: 8px; opacity: 0.85; font-size: 14px; font-weight: 600; letter-spacing: 1px; }
+    
+    .form-body { padding: 40px 35px; }
+    .form-group { margin-bottom: 24px; }
+    label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--primary); font-size: 14px; letter-spacing: 0.5px; }
     label.required::after { content: ' *'; color: #e74c3c; }
-    input, textarea, select { width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: 12px; font-size: 15px; font-family: 'Inter', sans-serif; transition: all 0.3s ease; background: #fff; }
-    input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(193, 53, 132, 0.1); }
+    
+    input, textarea, select { 
+      width: 100%; 
+      padding: 14px 16px; 
+      border: 2px solid rgba(255,255,255,0.1); 
+      border-radius: 12px; 
+      font-size: 15px; 
+      font-family: 'Inter', sans-serif; 
+      transition: all 0.3s ease; 
+      background: rgba(0,0,0,0.3);
+      color: #fff;
+    }
+    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.4); }
+    input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(193, 53, 132, 0.15); background: rgba(0,0,0,0.5); }
     select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C13584' d='M6 9L1 4h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
     textarea { resize: vertical; min-height: 90px; }
-  .checkbox-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
-  .checkbox-item { display: flex; align-items: center; background: #fff9fb; padding: 12px 14px; border-radius: 12px; border: 2px solid var(--border); cursor: pointer; transition: all 0.3s ease; }
-  .checkbox-item:hover { border-color: var(--primary); background: #fff5f9; }
-  .checkbox-item input { width: 18px; height: 18px; margin-right: 10px; cursor: pointer; accent-color: var(--primary); }
-  .foto-box { border: 3px dashed var(--primary); border-radius: 16px; padding: 35px 20px; text-align: center; background: #fff9fb; cursor: pointer; transition: all 0.3s ease; }
-  .foto-box:hover { background: #fff5f9; border-color: var(--primary-dark); }
-  .foto-box p { color: var(--primary); font-weight: 600; margin-top: 8px; }
-  .foto-obs { font-size: 13px; color: #888; margin-top: 8px; text-align: center; }
-    #previewContainer img { max-width: 100%; max-height: 300px; border: 3px solid var(--primary); border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-    canvas { border: 2px solid var(--primary); border-radius: 12px; background: #fff; width: 100%; touch-action: none; cursor: crosshair; }
-  .btn { width: 100%; padding: 16px; border: none; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif; letter-spacing: 0.5px; }
-  .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; margin-top: 30px; box-shadow: 0 8px 20px rgba(193, 53, 132, 0.3); }
-  .btn-primary:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(193, 53, 132, 0.4); }
-  .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-  .btn-secondary { background: #e0e0e0; color: #555; width: auto; padding: 10px 20px; font-size: 14px; margin-top: 10px; }
-  .btn-secondary:hover { background: #d0d0d0; }
-  .loader { display: inline-block; width: 16px; height: 16px; border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
+    
+    .checkbox-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
+    .checkbox-item { 
+      display: flex; 
+      align-items: center; 
+      background: rgba(0,0,0,0.3); 
+      padding: 14px 16px; 
+      border-radius: 12px; 
+      border: 2px solid rgba(255,255,255,0.1); 
+      cursor: pointer; 
+      transition: all 0.3s ease;
+      color: #fff;
+      font-weight: 600;
+    }
+    .checkbox-item:hover { border-color: var(--primary); background: rgba(193,53,132,0.1); }
+    .checkbox-item input { width: 18px; height: 18px; margin-right: 10px; cursor: pointer; accent-color: var(--primary); }
+    
+    .foto-box { 
+      border: 3px dashed var(--primary); 
+      border-radius: 16px; 
+      padding: 35px 20px; 
+      text-align: center; 
+      background: rgba(193,53,132,0.05); 
+      cursor: pointer; 
+      transition: all 0.3s ease; 
+    }
+    .foto-box:hover { background: rgba(193,53,132,0.1); border-color: var(--primary-dark); }
+    .foto-box p { color: var(--primary); font-weight: 700; margin-top: 8px; }
+    .foto-obs { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px; text-align: center; }
+    #previewContainer img { max-width: 100%; max-height: 300px; border: 3px solid var(--primary); border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+    
+    canvas { 
+      border: 2px solid var(--primary); 
+      border-radius: 12px; 
+      background: #000; 
+      width: 100%; 
+      touch-action: none; 
+      cursor: crosshair; 
+    }
+    
+    .btn { 
+      width: 100%; 
+      padding: 16px; 
+      border: none; 
+      border-radius: 12px; 
+      font-size: 16px; 
+      font-weight: 800; 
+      cursor: pointer; 
+      transition: all 0.3s ease; 
+      font-family: 'Inter', sans-serif; 
+      letter-spacing: 0.5px; 
+    }
+    .btn-primary { 
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
+      color: white; 
+      margin-top: 30px; 
+      box-shadow: 0 10px 30px rgba(193,53,132,0.4); 
+    }
+    .btn-primary:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
+    .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .btn-secondary { 
+      background: rgba(255,255,255,0.1); 
+      color: #fff; 
+      width: auto; 
+      padding: 10px 20px; 
+      font-size: 14px; 
+      margin-top: 10px; 
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+    
+    .loader { display: inline-block; width: 16px; height: 16px; border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
     @keyframes spin { to { transform: rotate(360deg); } }
-  .sucesso-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 9999; animation: fadeIn 0.3s ease; }
+    
+    /* OVERLAY COM FUNDO DE UNHAS NÍTIDO + EFEITOS PRO LUXO */
+    .sucesso-overlay { 
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+      background-image: url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      display: flex; align-items: center; justify-content: center; 
+      z-index: 9999; animation: fadeIn 0.4s ease; 
+      overflow: hidden;
+    }
+    /* Overlay mais leve pra foto ficar nítida */
+    .sucesso-overlay::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(0,0,0,0.35) 0%, rgba(193,53,132,0.2) 100%);
+      backdrop-filter: blur(4px);
+      z-index: -1;
+    }
+    /* Partículas + brilho flutuante */
+    .sucesso-overlay::after {
+      content: '';
+      position: absolute;
+      top: -50%; left: 0;
+      width: 100%; height: 200%;
+      background-image: 
+        radial-gradient(4px 4px at 10% 20%, rgba(193,53,132,1), transparent),
+        radial-gradient(3px 3px at 90% 30%, rgba(255,255,255,0.95), transparent),
+        radial-gradient(5px 5px at 30% 70%, rgba(193,53,132,0.9), transparent),
+        radial-gradient(3px 3px at 70% 80%, rgba(255,255,255,0.8), transparent);
+      background-size: 100% 100%;
+      animation: floatParticles 20s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+    @keyframes floatParticles {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+    }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  .sucesso-card { background: white; padding: 50px 40px; border-radius: 24px; text-align: center; max-width: 400px; animation: scaleUp 0.4s ease; }
+    
+    .sucesso-card { 
+      background: rgba(10,10,10,0.6); 
+      border: 2px solid rgba(193,53,132,0.7); 
+      backdrop-filter: blur(45px); 
+      padding: 60px 45px; 
+      border-radius: 32px; 
+      text-align: center; 
+      max-width: 440px; 
+      animation: scaleUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); 
+      box-shadow: 0 40px 120px rgba(0,0,0,0.9), 0 0 150px rgba(193,53,132,0.7);
+      position: relative;
+      z-index: 1;
+    }
     @keyframes scaleUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-  .sucesso-icon { width: 80px; height: 80px; background: linear-gradient(135deg, #25D366, #1fa855); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; animation: bounce 0.6s ease; }
-    @keyframes bounce { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
-  .sucesso-icon i { color: white; font-size: 40px; }
-  .sucesso-titulo { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--primary); margin-bottom: 10px; }
-  .sucesso-texto { color: #666; font-size: 15px; margin-bottom: 20px; }
-  .erro-msg { background: #FFEBEE; border-left: 4px solid #F44336; color: #C62828; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 600; }
-  .hidden { display: none!important; }
+    
+    .sucesso-icon { 
+      width: 100px; height: 100px; 
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
+      border-radius: 50%; 
+      display: flex; align-items: center; justify-content: center; 
+      margin: 0 auto 25px; animation: pulseGlow 1.8s ease infinite; 
+      box-shadow: 0 0 70px rgba(193,53,132,1);
+    }
+    @keyframes pulseGlow { 
+      0%, 100% { transform: scale(1); box-shadow: 0 0 70px rgba(193,53,132,1); } 
+      50% { transform: scale(1.15); box-shadow: 0 0 100px rgba(193,53,132,1); } 
+    }
+    .sucesso-icon i { color: white; font-size: 50px; }
+    .sucesso-titulo { 
+      font-family: 'Playfair Display', serif; 
+      font-size: 34px; 
+      color: var(--primary); 
+      margin-bottom: 14px; 
+      text-shadow: 0 0 40px rgba(193,53,132,1);
+      letter-spacing: 1.5px;
+    }
+    .sucesso-texto { color: rgba(255,255,255,0.98); font-size: 16px; margin-bottom: 25px; font-weight: 600; }
+    .erro-msg { background: rgba(244,67,54,0.1); border-left: 4px solid #F44336; color: #ff8a80; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 600; }
+    .hidden { display: none!important; }
 
     /* TELA DE BLOQUEIO */
-  .bloqueio-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 20px; }
-  .bloqueio-card { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); border: 2px solid var(--primary); border-radius: 24px; padding: 50px 40px; text-align: center; max-width: 500px; box-shadow: 0 30px 80px rgba(193, 53, 132, 0.5); }
-  .bloqueio-icon { width: 90px; height: 90px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; }
-  .bloqueio-icon i { color: white; font-size: 45px; }
-  .bloqueio-titulo { font-family: 'Playfair Display', serif; font-size: 32px; color: white; margin-bottom: 15px; font-weight: 700; }
-  .bloqueio-texto { color: #ccc; font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
-  .bloqueio-texto strong { color: var(--primary); }
-  .btn-whatsapp { background: linear-gradient(135deg, #25D366, #1fa855); color: white; padding: 16px 35px; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
-  .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6); }
-  .btn-whatsapp i { font-size: 22px; }
+    .bloqueio-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .bloqueio-card { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); border: 2px solid var(--primary); border-radius: 24px; padding: 50px 40px; text-align: center; max-width: 500px; box-shadow: 0 30px 80px rgba(193, 53, 132, 0.5); }
+    .bloqueio-icon { width: 90px; height: 90px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; }
+    .bloqueio-icon i { color: white; font-size: 45px; }
+    .bloqueio-titulo { font-family: 'Playfair Display', serif; font-size: 32px; color: white; margin-bottom: 15px; font-weight: 700; }
+    .bloqueio-texto { color: #ccc; font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
+    .bloqueio-texto strong { color: var(--primary); }
+    
+    /* BOTÃO WHATSAPP - IGUAL */
+    .btn-whatsapp { background: linear-gradient(135deg, #25D366, #1fa855); color: white; padding: 16px 35px; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
+    .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6); }
+    .btn-whatsapp i { font-size: 22px; }
 
-    @media (max-width: 640px) {.form-body { padding: 30px 20px; }.header h1 { font-size: 28px; }.checkbox-group { grid-template-columns: 1fr; }.sucesso-card { margin: 20px; padding: 40px 30px; }.bloqueio-card { padding: 40px 25px; }.bloqueio-titulo { font-size: 26px; } }
+    @media (max-width: 640px) {
+      .form-body { padding: 30px 20px; }
+      .header h1 { font-size: 28px; }
+      .checkbox-group { grid-template-columns: 1fr; }
+      .sucesso-card { margin: 20px; padding: 40px 30px; }
+      .bloqueio-card { padding: 40px 25px; }
+      .bloqueio-titulo { font-size: 26px; }
+    }
   </style>
 </head>
 <body>
@@ -95,7 +277,7 @@
   <div class="header">
     <img src="https://dl.dropboxusercontent.com/scl/fi/r0nz5dgz3ijxtvoc0ozpw/1781981208006_image_1781981207662.jpg?rlkey=ozppeww4pwyc1b0x4ma8gakm7&dl=1" alt="Preta NailS">
     <h1>FORMULÁRIO DE AVALIAÇÃO INICIAL</h1>
-    <p>Preencha com atenção para um atendimento seguro</p>
+    <p>PREENCHA COM ATENÇÃO PARA UM ATENDIMENTO SEGURO</p>
   </div>
   <div class="form-body">
     <form id="anamneseForm">
@@ -122,6 +304,7 @@
           <label class="checkbox-item"><input type="checkbox" value="Reparação de Unhas"> Reparação de Unhas</label>
           <label class="checkbox-item"><input type="checkbox" id="outroCheck" value="Outro"> Outro</label>
         </div>
+      </div>
       <div id="outroContainer" class="form-group hidden">
         <label>Especifique o procedimento desejado</label>
         <input type="text" id="outroTexto" placeholder="Descreva aqui...">
@@ -185,7 +368,7 @@
         <button type="button" class="btn btn-secondary" onclick="clearSignature()">Limpar Assinatura</button>
       </div>
       <button type="submit" class="btn btn-primary" id="submitBtn">
-        <span id="btnText">VAMOS AGENDAR ❤</Obj></span>
+        <span id="btnText">VAMOS AGENDAR ❤</span>
       </button>
       <div id="erroContainer" class="hidden"></div>
     </form>
@@ -205,15 +388,13 @@
 
 <script>
 // ===== CONFIGURAÇÃO DE BLOQUEIO AUTOMÁTICO =====
-// Aceita: "30s", "1min", "5min", "1h", "6h", "1d", "10d", "50d", "0" = infinito
-const DURACAO_BLOQUEIO = "0"; // ← SÓ MUDA ESSA LINHA
-const WHATSAPP_BLOQUEIO = "5511991233172"; // Teu número que vai no botão
+const DURACAO_BLOQUEIO = "0"; 
+const WHATSAPP_BLOQUEIO = "5511991233172";
 // ============================================================
 
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwuuqYuvDyl5igfaY9LkC6dDus-KP8bQuWDMGLBXnY4bU41QAN3gNng5S5rj6D0vQs/exec";
 const WHATSAPP_NUMBER = "5511982311608";
 
-// CONVERTE "1d", "1h", "1min", "30s" PARA MINUTOS
 function converterParaMinutos(tempo) {
   if (typeof tempo === 'number') return tempo;
   const valor = parseFloat(tempo);
@@ -229,29 +410,22 @@ function converterParaMinutos(tempo) {
   }
 }
 
-// VERIFICA SE DEVE BLOQUEAR
 (function verificarBloqueio() {
   const duracaoMinutos = converterParaMinutos(DURACAO_BLOQUEIO);
-  if (duracaoMinutos <= 0) return; // 0 = infinito, nunca bloqueia
-
+  if (duracaoMinutos <= 0) return;
   const CHAVE_STORAGE = 'sistemaBloqueio_inicio';
   let dataInicio = localStorage.getItem(CHAVE_STORAGE);
-  
   if (!dataInicio) {
     dataInicio = new Date().toISOString();
     localStorage.setItem(CHAVE_STORAGE, dataInicio);
   }
-
   const inicio = new Date(dataInicio).getTime();
   const agora = new Date().getTime();
   const minutosPassados = (agora - inicio) / 60000;
-
   if (minutosPassados >= duracaoMinutos) {
     document.getElementById('bloqueioOverlay').classList.remove('hidden');
     document.getElementById('mainContainer').style.display = 'none';
     document.body.style.overflow = 'hidden';
-    
-    // Atualiza link do WhatsApp no botão de bloqueio
     const btnWhats = document.querySelector('#bloqueioOverlay a');
     if (btnWhats) btnWhats.href = `https://wa.me/${WHATSAPP_BLOQUEIO}`;
   }
@@ -294,7 +468,7 @@ document.getElementById('outroCheck').addEventListener('change', function() {
 
 const canvas = document.getElementById('signatureCanvas');
 const ctx = canvas.getContext('2d');
-ctx.strokeStyle = '#1a1a1a';
+ctx.strokeStyle = '#ffffff';
 ctx.lineWidth = 3;
 ctx.lineCap = 'round';
 
@@ -303,37 +477,14 @@ function getPos(e) {
   const scaleX = canvas.width / rect.width;
   const scaleY = canvas.height / rect.height;
   if (e.touches) {
-    return {
-      x: (e.touches[0].clientX - rect.left) * scaleX,
-      y: (e.touches[0].clientY - rect.top) * scaleY
-    };
+    return { x: (e.touches[0].clientX - rect.left) * scaleX, y: (e.touches[0].clientY - rect.top) * scaleY };
   }
-  return {
-    x: (e.clientX - rect.left) * scaleX,
-    y: (e.clientY - rect.top) * scaleY
-  };
+  return { x: (e.clientX - rect.left) * scaleX, y: (e.clientY - rect.top) * scaleY };
 }
 
-function startDraw(e) {
-  isDrawing = true;
-  hasSignature = true;
-  const pos = getPos(e);
-  ctx.beginPath();
-  ctx.moveTo(pos.x, pos.y);
-  e.preventDefault();
-}
-
-function draw(e) {
-  if (!isDrawing) return;
-  const pos = getPos(e);
-  ctx.lineTo(pos.x, pos.y);
-  ctx.stroke();
-  e.preventDefault();
-}
-
-function endDraw() {
-  isDrawing = false;
-}
+function startDraw(e) { isDrawing = true; hasSignature = true; const pos = getPos(e); ctx.beginPath(); ctx.moveTo(pos.x, pos.y); e.preventDefault(); }
+function draw(e) { if (!isDrawing) return; const pos = getPos(e); ctx.lineTo(pos.x, pos.y); ctx.stroke(); e.preventDefault(); }
+function endDraw() { isDrawing = false; }
 
 canvas.addEventListener('mousedown', startDraw);
 canvas.addEventListener('mousemove', draw);
@@ -343,10 +494,7 @@ canvas.addEventListener('touchstart', startDraw);
 canvas.addEventListener('touchmove', draw);
 canvas.addEventListener('touchend', endDraw);
 
-function clearSignature() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  hasSignature = false;
-}
+function clearSignature() { ctx.clearRect(0, 0, canvas.width, canvas.height); hasSignature = false; }
 
 function toggleDetalhes(select, textareaId) {
   const textarea = document.getElementById(textareaId);
@@ -370,32 +518,19 @@ function showErro(msg) {
 document.getElementById('anamneseForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   document.getElementById('erroContainer').classList.add('hidden');
-
-  if (!hasSignature) {
-    showErro('A assinatura digital é obrigatória. Por favor, assine no campo acima.');
-    return;
-  }
-
+  if (!hasSignature) { showErro('A assinatura digital é obrigatória. Por favor, assine no campo acima.'); return; }
   let procs = [];
   document.querySelectorAll('#procedimentosGroup input[type="checkbox"]:checked').forEach(c => {
     if (c.value === 'Outro') {
       const outro = document.getElementById('outroTexto').value.trim();
       if (outro) procs.push(`Outro: ${outro}`);
-    } else {
-      procs.push(c.value);
-    }
+    } else { procs.push(c.value); }
   });
-
-  if (procs.length === 0) {
-    showErro('Selecione pelo menos um procedimento desejado.');
-    return;
-  }
-
+  if (procs.length === 0) { showErro('Selecione pelo menos um procedimento desejado.'); return; }
   const btn = document.getElementById('submitBtn');
   const btnText = document.getElementById('btnText');
   btn.disabled = true;
   btnText.innerHTML = '<span class="loader"></span>Enviando...';
-
   const dados = {
     nome: document.getElementById('nome').value.trim(),
     idade: document.getElementById('idade').value,
@@ -413,33 +548,16 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     alongamento_texto: document.getElementById('alongamento_texto').value,
     observacoes: document.getElementById('observacoes').value
   };
-
   try {
-    const response = await fetch(WEB_APP_URL, {
-      method: "POST",
-      mode: "cors",
-      body: JSON.stringify(dados)
-    });
-
+    const response = await fetch(WEB_APP_URL, { method: "POST", mode: "cors", body: JSON.stringify(dados) });
     const data = await response.json();
-
     if (data.status === 'ok') {
       document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
-
       const mensagem = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*\n\n*👤 Cliente:* ${dados.nome}\n*📱 WhatsApp:* ${dados.whatsapp}\n*💅 Procedimento:* ${dados.procedimento}\n*📋 OS:* ${data.os}\n\n*📄 PDF:* ${data.pdf}`;
       const linkWhats = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
-
-      document.getElementById('btnWhatsContainer').innerHTML = `
-        <a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;">
-          <i class="fab fa-whatsapp"></i> ABRIR WHATSAPP
-        </a>
-      `;
-
+      document.getElementById('btnWhatsContainer').innerHTML = `<a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP</a>`;
       document.getElementById('sucessoOverlay').classList.remove('hidden');
-
-    } else {
-      throw new Error(data.msg || 'Erro desconhecido');
-    }
+    } else { throw new Error(data.msg || 'Erro desconhecido'); }
   } catch (err) {
     showErro('Erro ao enviar formulário. Verifique se implantou como "Qualquer pessoa" no Apps Script.');
     console.error(err);
@@ -451,11 +569,8 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
 document.getElementById('whatsapp').addEventListener('input', function(e) {
   let value = e.target.value.replace(/\D/g, '');
   if (value.length > 11) value = value.slice(0, 11);
-  if (value.length > 6) {
-    value = `(${value.slice(0,2)}) ${value.slice(2,7)}-${value.slice(7)}`;
-  } else if (value.length > 2) {
-    value = `(${value.slice(0,2)}) ${value.slice(2)}`;
-  }
+  if (value.length > 6) { value = `(${value.slice(0,2)}) ${value.slice(2,7)}-${value.slice(7)}`; } 
+  else if (value.length > 2) { value = `(${value.slice(0,2)}) ${value.slice(2)}`; }
   e.target.value = value;
 });
 </script>
