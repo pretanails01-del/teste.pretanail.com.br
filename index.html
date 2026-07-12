@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head> 
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Preta NailS | Beleza • Confiança • Poder</title>
@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- SWIPER CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
   <style>
     :root {
@@ -42,15 +44,100 @@
     .btn { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 18px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); transition: all 0.3s; border: none; cursor: pointer; }
     .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
 
+    /* SEÇÃO CARROSSEL PROFISSIONAL */
+    .galeria { padding: 100px 20px; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); }
+    .titulo-galeria { text-align: center; margin-bottom: 60px; }
+    .titulo-galeria h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 48px); }
+    .titulo-galeria h2 span { color: var(--primary); }
+
+    /* SWIPER */
+    .swiper { max-width: 900px; margin: auto; padding: 20px 0 70px 0; }
+    
+    /* CARD GLASS COM FOTO INTEIRA */
+    .card-glass {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(193,53,132,0.25);
+      border-radius: 25px;
+      backdrop-filter: blur(20px);
+      padding: 20px;
+      transition: all 0.4s;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.6);
+    }
+    .card-glass:hover { border-color: var(--primary); transform: translateY(-10px); }
+    
+    /* FOTO INTEIRA - NÃO CORTA */
+    .card-glass img {
+      width: 100%;
+      height: auto;
+      max-height: 650px;
+      object-fit: contain; /* ESSENCIAL PRA MOSTRAR INTEIRA */
+      border-radius: 18px;
+      display: block;
+      background: #000; /* Fundo preto se sobrar espaço */
+    }
+
+    /* CONTROLES NA COR DA MARCA */
+    .swiper-button-next, .swiper-button-prev { 
+      color: var(--primary) !important; 
+      background: rgba(0,0,0,0.6); 
+      width: 55px; height: 55px; 
+      border-radius: 50%; 
+      border: 1.5px solid var(--primary);
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+    }
+    .swiper-button-next:hover, .swiper-button-prev:hover { background: var(--primary); color: #fff !important; }
+    .swiper-button-next:after, .swiper-button-prev:after { font-size: 20px !important; font-weight: 900; }
+    .swiper-pagination-bullet { background: rgba(255,255,255,0.3) !important; width: 12px; height: 12px; }
+    .swiper-pagination-bullet-active { background: var(--primary) !important; }
+
+    /* FOTO DESTAQUE MÃO NEGRA - ATUALIZADO */
+    .foto-destaque-wrap {
+      max-width: 450px; 
+      margin: 0 auto 100px; 
+      padding: 0 20px; 
+      text-align: center;
+    }
+    .foto-destaque-wrap img {
+      width: 100%; 
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      box-shadow: 0 0 60px rgba(193,53,132,0.5);
+      aspect-ratio: 1/1; 
+      object-fit: cover;
+      margin-bottom: 25px;
+    }
+    .nome-sabrina {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .texto-sabrina { 
+      font-size: 15px; 
+      line-height: 1.7; 
+      color: rgba(255,255,255,0.85);
+      font-weight: 400;
+    }
+
     /* Mobile */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .slogan { letter-spacing: 2px; font-size: 11px; }
       .tag { font-size: 12px; padding: 10px 20px; }
       .btn { width: 100%; justify-content: center; }
+      .card-glass img { max-height: 500px; }
+      .swiper-button-next, .swiper-button-prev { width: 45px; height: 45px; }
     }
   </style>
 </head>
 <body>
+  <!-- Botão ADM -->
+  <div class="header-adm">
+    <a href="agendamento.html" class="btn-adm">
+      <i class="fas fa-lock"></i> Meu cantinho ❤️
+    </a>
   </div>
 
   <!-- Catálogo Principal -->
@@ -59,17 +146,93 @@
       <div class="coroa">👑</div>
       <h1>PRETA<span>NAILS</span></h1>
       <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
-      <div class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS</div>
+      <div class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS </div>
       <div class="destaque">
         MELHOR<br><small>versão! ♡</small>
       </div>
       
-      <!-- Botão que leva pro teu form -->
       <a href="fichadeassinatura.html" class="btn">
         QUERO MINHAS UNHAS PERFEITAS 
         <i class="fas fa-arrow-right"></i>
       </a>
     </div>
   </section>
+
+  <!-- SEÇÃO CARROSSEL -->
+  <section class="galeria">
+    <div class="titulo-galeria">
+      <h2>Portfólio <span>Preta Nails</span></h2>
+    </div>
+
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <!-- SLIDE 1 -->
+        <div class="swiper-slide">
+          <div class="card-glass">
+            <img src="https://dl.dropboxusercontent.com/scl/fi/i10b3935vkft1zad8a6qj/1783781217476_image_1783781216930.jpg?rlkey=b30hrafew1g3mpth6y8iywku9&dl=1" alt="Trabalho Preta Nails">
+          </div>
+        </div>
+        <!-- SLIDE 2 -->
+        <div class="swiper-slide">
+          <div class="card-glass">
+            <img src="https://dl.dropboxusercontent.com/scl/fi/jhtnazc88ncsj7fywhe0m/1783781236193_image_1783781235430.jpg?rlkey=yosfv3u3lriorsqtcr5x3qkwa&dl=1" alt="Trabalho Preta Nails">
+          </div>
+        </div>
+        <!-- SLIDE 3 -->
+        <div class="swiper-slide">
+          <div class="card-glass">
+            <img src="https://dl.dropboxusercontent.com/scl/fi/jlxpz7vy24di5386fllso/1783781244691_image_1783781244053.jpg?rlkey=93pl4if52da0rxc5m8vetxtcn&dl=1" alt="Trabalho Preta Nails">
+          </div>
+        </div>
+        <!-- SLIDE 4 -->
+        <div class="swiper-slide">
+          <div class="card-glass">
+            <img src="https://dl.dropboxusercontent.com/scl/fi/ekvi5h6lzj232g8w3a5gv/1783781553157_image_1783781552187.jpg?rlkey=mbbq9r2unvtde96c2ey3yy0hn&dl=1" alt="Trabalho Preta Nails">
+          </div>
+        </div>
+      </div>
+      <!-- Controles -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- FOTO DESTAQUE ATUALIZADA -->
+    <div class="foto-destaque-wrap">
+      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Mão negra linda Preta Nails">
+      
+      <h3 class="nome-sabrina">Sabrina Lemos</h3>
+      <p class="texto-sabrina">
+        Fundadora da PretaNails.<br><br>
+        Acredito que unhas bem cuidadas são muito mais do que um detalhe:<br>
+        elas refletem autoestima, confiança e elegância.<br><br>
+        Cada atendimento é feito com técnica, carinho e atenção aos detalhes.<br>
+        Para você se sentir acolhida, valorizada e sair com unhas impecáveis.
+      </p>
+    </div>
+  </section>
+
+  <!-- SWIPER JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script>
 </body>
 </html>
