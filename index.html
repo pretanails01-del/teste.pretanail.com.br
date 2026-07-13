@@ -76,7 +76,7 @@
     }
 
     /* SEÇÃO CARROSSEL PROFISSIONAL */
-    .galeria { padding: 40px 20px 100px 20px; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); } /* DIMINUI DE 100px PRA 40px */
+    .galeria { padding: 40px 20px 100px 20px; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); }
     .titulo-galeria { text-align: center; margin-bottom: 60px; }
     .titulo-galeria h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 48px); }
     .titulo-galeria h2 span { color: var(--primary); }
@@ -134,9 +134,9 @@
     }
     .foto-destaque-wrap p { margin-top: 15px; font-size: 14px; opacity: 0.7; }
 
-    /* Mobile */
+    /* Mobile - CORRIGIDO */
     @media (max-width: 768px) {
-      .hero { min-height: 90vh; padding: 20px 16px 80px 16px; } /* MENOS ALTURA PRA APARECER PORTFOLIO */
+      .hero { min-height: 85vh; padding: 20px 16px 40px 16px; } /* DIMINUI PRA APARECER PORTFOLIO */
       .wrap { max-width: 100%; }
       .slogan { letter-spacing: 2px; font-size: 11px; }
       .tag { font-size: 12px; padding: 10px 20px; }
@@ -145,8 +145,8 @@
       .destaque { font-size: clamp(40px, 12vw, 56px); }
       .destaque small { font-size: 24px; }
       .btn { width: 100%; justify-content: center; margin-top: 20px; padding: 16px 24px; font-size: 15px; }
-      .scroll-down { bottom: 20px; font-size: 20px; }
-      .galeria { padding: 30px 16px 80px 16px; } /* PORTFOLIO MAIS PERTO */
+      .scroll-down { bottom: 15px; font-size: 20px; } /* COLA MAIS EMBAIXO */
+      .galeria { padding: 30px 16px 80px 16px; }
       .card-glass img { max-height: 500px; }
       .swiper-button-next, .swiper-button-prev { width: 45px; height: 45px; }
     }
