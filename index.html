@@ -29,7 +29,7 @@
     .btn-adm:hover { color: var(--primary); border-color: var(--primary); background: rgba(193,53,132,0.1); }
 
     /* Hero - Tela principal */
-    .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+    .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; position: relative; }
     .wrap { max-width: 600px; animation: fadeIn 1s ease; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .coroa { font-size: 40px; color: var(--primary); margin-bottom: 15px; filter: drop-shadow(0 0 20px rgba(193,53,132,0.5)); }
@@ -40,12 +40,43 @@
     .destaque { font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 80px); font-weight: 900; color: var(--primary); line-height: 0.9; }
     .destaque small { font-size: 32px; font-style: italic; color: #fff; display: block; line-height: 1.2; font-weight: 400; }
 
-    /* Botão principal */
-    .btn { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 18px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); transition: all 0.3s; border: none; cursor: pointer; }
+    /* Botão principal com efeito glitter */
+    .btn { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 18px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); transition: all 0.3s; border: none; cursor: pointer; }
     .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      animation: glitter 2.5s infinite;
+    }
+    @keyframes glitter {
+      0% { left: -100%; }
+      100% { left: 200%; }
+    }
+
+    /* SETA ANIMADA PRA ROLAR */
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--primary);
+      font-size: 24px;
+      animation: bounce 2s infinite;
+      opacity: 0.8;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
 
     /* SEÇÃO CARROSSEL PROFISSIONAL */
-    .galeria { padding: 100px 20px; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); }
+    .galeria { padding: 40px 20px 100px 20px; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); } /* DIMINUI DE 100px PRA 40px */
     .titulo-galeria { text-align: center; margin-bottom: 60px; }
     .titulo-galeria h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 48px); }
     .titulo-galeria h2 span { color: var(--primary); }
@@ -70,10 +101,10 @@
       width: 100%;
       height: auto;
       max-height: 650px;
-      object-fit: contain; /* ESSENCIAL PRA MOSTRAR INTEIRA */
+      object-fit: contain;
       border-radius: 18px;
       display: block;
-      background: #000; /* Fundo preto se sobrar espaço */
+      background: #000;
     }
 
     /* CONTROLES NA COR DA MARCA */
@@ -105,9 +136,17 @@
 
     /* Mobile */
     @media (max-width: 768px) {
+      .hero { min-height: 90vh; padding: 20px 16px 80px 16px; } /* MENOS ALTURA PRA APARECER PORTFOLIO */
+      .wrap { max-width: 100%; }
       .slogan { letter-spacing: 2px; font-size: 11px; }
       .tag { font-size: 12px; padding: 10px 20px; }
-      .btn { width: 100%; justify-content: center; }
+      .coroa { font-size: 32px; margin-bottom: 10px; }
+      h1 { font-size: clamp(36px, 10vw, 48px); }
+      .destaque { font-size: clamp(40px, 12vw, 56px); }
+      .destaque small { font-size: 24px; }
+      .btn { width: 100%; justify-content: center; margin-top: 20px; padding: 16px 24px; font-size: 15px; }
+      .scroll-down { bottom: 20px; font-size: 20px; }
+      .galeria { padding: 30px 16px 80px 16px; } /* PORTFOLIO MAIS PERTO */
       .card-glass img { max-height: 500px; }
       .swiper-button-next, .swiper-button-prev { width: 45px; height: 45px; }
     }
@@ -136,6 +175,11 @@
         QUERO MINHAS UNHAS PERFEITAS 
         <i class="fas fa-arrow-right"></i>
       </a>
+    </div>
+
+    <!-- SETA ANIMADA -->
+    <div class="scroll-down">
+      <i class="fas fa-chevron-down"></i>
     </div>
   </section>
 
