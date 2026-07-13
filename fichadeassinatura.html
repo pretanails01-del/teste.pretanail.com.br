@@ -43,22 +43,14 @@
 
   /* NOVO: Ajuste específico pra mobile */
   @media (max-width: 768px) {
-  body {
-    padding: 0 !important; /* ZERA TUDO */
-    margin: 0 !important;
-  }
-  
-  .container {
-    max-width: 100% !important; /* USA 100% */
-    width: 100% !important;
-    margin: 0 !important; /* ZERA MARGIN */
-    border-radius: 0 !important; /* ZERA BORDA */
-    border: none !important; /* TIRA BORDA */
-    box-shadow: none !important; /* TIRA SOMBRA */
-    min-height: 100vh; /* OCUPA TELA TODA NA ALTURA */
-    backdrop-filter: blur(16px); /* BLUR MENOR PRA FICAR LEVE */
-  }
-}
+    body {
+      padding: 8px; /* quase grudado nas bordas */
+    }
+    .container {
+      margin: 8px auto; /* cabeçalho cola mais no topo */
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
   }
 
   @keyframes slideUp {
