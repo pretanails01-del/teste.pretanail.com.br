@@ -43,21 +43,29 @@
 
   /* NOVO: Ajuste específico pra mobile */
   @media (max-width: 768px) {
-    body {
-      padding: 8px; /* quase grudado nas bordas */
-    }
-    .container {
-      margin: 8px auto; /* cabeçalho cola mais no topo */
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
+  body {
+    padding: 0 !important; /* ZERA TUDO */
+    margin: 0 !important;
+  }
+  
+  .container {
+    max-width: 100% !important; /* USA 100% */
+    width: 100% !important;
+    margin: 0 !important; /* ZERA MARGIN */
+    border-radius: 0 !important; /* ZERA BORDA */
+    border: none !important; /* TIRA BORDA */
+    box-shadow: none !important; /* TIRA SOMBRA */
+    min-height: 100vh; /* OCUPA TELA TODA NA ALTURA */
+    backdrop-filter: blur(16px); /* BLUR MENOR PRA FICAR LEVE */
+  }
+}
   }
 
   @keyframes slideUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-    @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+   
     
     .header { 
       background: linear-gradient(135deg, #000 0%, var(--primary) 100%); 
@@ -283,6 +291,23 @@
     .btn-whatsapp { background: linear-gradient(135deg, #25D366, #1fa855); color: white; padding: 16px 35px; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
     .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6); }
     .btn-whatsapp i { font-size: 22px; }
+   
+    /* CAIXA DE ASSINATURA ROSA CHOCK */
+.signature-wrapper {
+  background: #C13584; /* ROSA CHOCK */
+  border: 2px solid #a02c6e; /* BORDA ROSA ESCURO */
+  border-radius: 16px;
+  margin: 12px 0;
+  overflow: hidden;
+}
+#signatureCanvas {
+  background: #C13584; /* FUNDO ROSA PRA ASSINAR EM CIMA */
+  width: 100%;
+  height: 160px;
+  display: block;
+  touch-action: none;
+  cursor: crosshair;
+}
 
     @media (max-width: 640px) {
       .form-body { padding: 30px 20px; }
@@ -504,7 +529,7 @@ document.getElementById('outroCheck').addEventListener('change', function() {
 
 const canvas = document.getElementById('signatureCanvas');
 const ctx = canvas.getContext('2d');
-ctx.strokeStyle = '#ffffff';
+ctx.strokeStyle = '#000000';
 ctx.lineWidth = 3;
 ctx.lineCap = 'round';
 
