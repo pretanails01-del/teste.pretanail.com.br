@@ -128,17 +128,23 @@
     .swiper-pagination-bullet { background: rgba(255,255,255,0.3) !important; width: 12px; height: 12px; }
     .swiper-pagination-bullet-active { background: var(--primary) !important; }
 
-    /* FOTO DE DESTAQUE MÃO NEGRA */
+    /* FOTO DESTAQUE MÃO NEGRA - ATUALIZADO ROSA */
     .foto-destaque-wrap {
-      max-width: 350px; margin: 0 auto 100px; padding: 0 20px; text-align: center;
+      max-width: 400px; margin: 0 auto 100px; padding: 30px 25px; text-align: center;
+      background: linear-gradient(135deg, rgba(193,53,132,0.15) 0%, rgba(160,44,110,0.1) 100%);
+      border: 1px solid rgba(193,53,132,0.3);
+      border-radius: 25px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 15px 50px rgba(193,53,132,0.2);
     }
     .foto-destaque-wrap img {
-      width: 100%; border-radius: 50%;
+      width: 160px; height: 160px; border-radius: 50%;
       border: 3px solid var(--primary);
-      box-shadow: 0 0 60px rgba(193,53,132,0.5);
-      aspect-ratio: 1/1; object-fit: cover;
+      box-shadow: 0 0 40px rgba(193,53,132,0.5);
+      object-fit: cover; margin-bottom: 20px;
     }
-    .foto-destaque-wrap p { margin-top: 15px; font-size: 14px; opacity: 0.7; }
+    .foto-destaque-wrap h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--primary); margin-bottom: 12px; }
+    .foto-destaque-wrap p { margin-top: 0; font-size: 14px; opacity: 0.9; line-height: 1.7; }
 
     /* RODAPÉ COM SELOS */
     .footer { background: #050505; border-top: 1px solid rgba(193,53,132,0.2); padding: 50px 20px 30px; text-align: center; }
@@ -147,8 +153,8 @@
     .selo i { color: var(--primary); font-size: 18px; }
     .footer p { font-size: 12px; opacity: 0.5; margin-top: 15px; }
 
-    /* BOTÃO WHATSAPP FLUTUANTE NOVO */
-    .whatsapp-float { position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
+    /* BOTÃO WHATSAPP FLUTUANTE - SUBIU */
+    .whatsapp-float { position: fixed; bottom: 80px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
     .whatsapp-btn { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 32px; box-shadow: 0 8px 25px rgba(193,53,132,0.5); transition: all 0.3s; animation: pulse 2s infinite; }
     .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(193,53,132,0.7); }
     @keyframes pulse {
@@ -175,8 +181,9 @@
       .galeria { padding: 30px 16px 80px 16px; }
       .card-glass img { max-height: 500px; }
       .swiper-button-next, .swiper-button-prev { width: 45px; height: 45px; }
-      .whatsapp-float { bottom: 20px; right: 20px; }
+      .whatsapp-float { bottom: 70px; right: 20px; }
       .whatsapp-btn { width: 55px; height: 55px; font-size: 28px; }
+      .foto-destaque-wrap { margin: 0 16px 80px; padding: 25px 20px; }
     }
   </style>
 </head>
@@ -261,9 +268,10 @@
       <div class="swiper-pagination"></div>
     </div>
 
-    <!-- FOTO DESTAQUE -->
+    <!-- FOTO DESTAQUE - ATUALIZADO -->
     <div class="foto-destaque-wrap">
-      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Mão negra linda Preta Nails">
+      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos - Preta Nails">
+      <h3>Sabrina Lemos</h3>
       <p>Sou Sabrina Lemos, fundadora da PretaNails. Acredito que unhas bem cuidadas são muito mais do que um detalhe: elas refletem autoestima, confiança e elegância. Por isso, cada atendimento é realizado com técnica, carinho e atenção aos mínimos detalhes, para que você se sinta acolhida, valorizada e saia com unhas impecáveis, prontas para realçar ainda mais a sua beleza.</p>
     </div>
   </section>
@@ -291,8 +299,8 @@
     <p>© 2026 Preta Nails. Todos os direitos reservados. | Seus dados estão seguros conosco.</p>
   </footer>
 
-  <!-- BOTÃO WHATSAPP FLUTUANTE -->
-  <a href="https://wa.me/+5511982311608" target="_blank" class="whatsapp-float">
+  <!-- BOTÃO WHATSAPP FLUTUANTE - LINK ATUALIZADO -->
+  <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20tenho%20algumas%20d%C3%BAvidas.%20Poderia%20me%20ajudar%20%3F" target="_blank" class="whatsapp-float">
     <div class="whatsapp-btn">
       <i class="fab fa-whatsapp"></i>
     </div>
