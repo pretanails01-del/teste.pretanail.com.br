@@ -19,6 +19,7 @@
       --primary-dark: #a02c6e;
       --bg: #0a0a0a;
       --text: #ffffff;
+      --whatsapp: #25D366;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
@@ -57,6 +58,11 @@
       0% { left: -100%; }
       100% { left: 200%; }
     }
+
+    /* BOTÕES SOCIAIS */
+    .social-btns { display: flex; gap: 12px; justify-content: center; margin-top: 20px; }
+    .btn-social { background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.3); color: #fff; padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s; backdrop-filter: blur(10px); }
+    .btn-social:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-2px); }
 
     /* SETA ANIMADA PRA ROLAR */
     .scroll-down {
@@ -134,9 +140,27 @@
     }
     .foto-destaque-wrap p { margin-top: 15px; font-size: 14px; opacity: 0.7; }
 
+    /* RODAPÉ COM SELOS */
+    .footer { background: #050505; border-top: 1px solid rgba(193,53,132,0.2); padding: 50px 20px 30px; text-align: center; }
+    .footer-selos { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
+    .selo { background: rgba(193,53,132,0.08); border: 1px solid rgba(193,53,132,0.3); border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; }
+    .selo i { color: var(--primary); font-size: 18px; }
+    .footer p { font-size: 12px; opacity: 0.5; margin-top: 15px; }
+
+    /* BOTÃO WHATSAPP FLUTUANTE NOVO */
+    .whatsapp-float { position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
+    .whatsapp-btn { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 32px; box-shadow: 0 8px 25px rgba(193,53,132,0.5); transition: all 0.3s; animation: pulse 2s infinite; }
+    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(193,53,132,0.7); }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(193,53,132,0.6); }
+      70% { box-shadow: 0 0 0 15px rgba(193,53,132,0); }
+      100% { box-shadow: 0 0 0 0 rgba(193,53,132,0); }
+    }
+    .whatsapp-text { font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 20px; backdrop-filter: blur(10px); letter-spacing: 0.5px; text-align: center; }
+
     /* Mobile - CORRIGIDO */
     @media (max-width: 768px) {
-      .hero { min-height: 85vh; padding: 20px 16px 40px 16px; } /* DIMINUI PRA APARECER PORTFOLIO */
+      .hero { min-height: 85vh; padding: 20px 16px 40px 16px; }
       .wrap { max-width: 100%; }
       .slogan { letter-spacing: 2px; font-size: 11px; }
       .tag { font-size: 12px; padding: 10px 20px; }
@@ -145,10 +169,14 @@
       .destaque { font-size: clamp(40px, 12vw, 56px); }
       .destaque small { font-size: 24px; }
       .btn { width: 100%; justify-content: center; margin-top: 20px; padding: 16px 24px; font-size: 15px; }
-      .scroll-down { bottom: 15px; font-size: 20px; } /* COLA MAIS EMBAIXO */
+      .social-btns { flex-direction: column; }
+      .btn-social { width: 100%; justify-content: center; }
+      .scroll-down { bottom: 15px; font-size: 20px; }
       .galeria { padding: 30px 16px 80px 16px; }
       .card-glass img { max-height: 500px; }
       .swiper-button-next, .swiper-button-prev { width: 45px; height: 45px; }
+      .whatsapp-float { bottom: 20px; right: 20px; }
+      .whatsapp-btn { width: 55px; height: 55px; font-size: 28px; }
     }
   </style>
 </head>
@@ -175,6 +203,17 @@
         QUERO MINHAS UNHAS PERFEITAS 
         <i class="fas fa-arrow-right"></i>
       </a>
+
+      <!-- BOTÕES SOCIAIS -->
+      <div class="social-btns">
+        <a href="https://www.youtube.com/@PretaNails01" target="_blank" class="btn-social">
+          <i class="fab fa-youtube"></i> YouTube
+        </a>
+        <a href="https://www.instagram.com/pretanails001?utm_source=qr&igsh=Y3JkN2F2Y3BqbTRu" target="_blank" class="btn-social">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+      </div>
+
     </div>
 
     <!-- SETA ANIMADA -->
@@ -222,12 +261,43 @@
       <div class="swiper-pagination"></div>
     </div>
 
-    <!-- FOTO DE DESTAQUE -->
+    <!-- FOTO DESTAQUE -->
     <div class="foto-destaque-wrap">
       <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Mão negra linda Preta Nails">
       <p>Sou Sabrina Lemos, fundadora da PretaNails. Acredito que unhas bem cuidadas são muito mais do que um detalhe: elas refletem autoestima, confiança e elegância. Por isso, cada atendimento é realizado com técnica, carinho e atenção aos mínimos detalhes, para que você se sinta acolhida, valorizada e saia com unhas impecáveis, prontas para realçar ainda mais a sua beleza.</p>
     </div>
   </section>
+
+  <!-- RODAPÉ COM SELOS -->
+  <footer class="footer">
+    <div class="footer-selos">
+      <div class="selo">
+        <i class="fas fa-shield-halved"></i>
+        Dados Criptografados
+      </div>
+      <div class="selo">
+        <i class="fas fa-check-circle"></i>
+        Verificado Google
+      </div>
+      <div class="selo">
+        <i class="fas fa-file-contract"></i>
+        LGPD - Consentimento
+      </div>
+      <div class="selo">
+        <i class="fas fa-lock"></i>
+        Site Seguro SSL
+      </div>
+    </div>
+    <p>© 2026 Preta Nails. Todos os direitos reservados. | Seus dados estão seguros conosco.</p>
+  </footer>
+
+  <!-- BOTÃO WHATSAPP FLUTUANTE -->
+  <a href="https://wa.me/+5511982311608" target="_blank" class="whatsapp-float">
+    <div class="whatsapp-btn">
+      <i class="fab fa-whatsapp"></i>
+    </div>
+    <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
+  </a>
 
   <!-- SWIPER JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
