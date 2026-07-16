@@ -123,6 +123,27 @@
     .swiper-pagination-bullet { background: rgba(255,255,255,0.3) !important; width: 12px; height: 12px; }
     .swiper-pagination-bullet-active { background: var(--primary) !important; }
 
+    /* BLOCO DESCONTO ESPECIAL - NOVO */
+    .desconto-wrap {
+      max-width: 600px; margin: 0 auto 80px; padding: 35px 30px; text-align: center;
+      background: linear-gradient(135deg, rgba(193,53,132,0.18) 0%, rgba(160,44,110,0.12) 100%);
+      border: 1px solid rgba(193,53,132,0.4);
+      border-radius: 25px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 15px 50px rgba(193,53,132,0.25);
+    }
+    .desconto-wrap .tag-vip {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border: none; color: #fff; font-size: 12px; letter-spacing: 2px;
+    }
+    .desconto-wrap h3 {
+      font-family: 'Playfair Display', serif; font-size: clamp(26px, 5vw, 32px);
+      color: var(--primary); margin: 18px 0 15px; line-height: 1.2;
+    }
+    .desconto-wrap p {
+      font-size: 15px; opacity: 0.9; line-height: 1.7; margin-bottom: 25px;
+    }
+
     /* FOTO DESTAQUE MÃO NEGRA - ATUALIZADO ROSA */
     .foto-destaque-wrap {
       max-width: 400px; margin: 0 auto 100px; padding: 30px 25px; text-align: center;
@@ -180,6 +201,7 @@
       .whatsapp-float { bottom: 70px; right: 20px; }
       .whatsapp-btn { width: 55px; height: 55px; font-size: 28px; }
       .foto-destaque-wrap { margin: 0 16px 80px; padding: 25px 20px; }
+      .desconto-wrap { margin: 0 16px 80px; padding: 30px 20px; }
     }
   </style>
 </head>
@@ -256,6 +278,19 @@
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
       <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- BLOCO DESCONTO ESPECIAL - NOVO -->
+    <div class="desconto-wrap">
+      <div class="tag tag-vip">👑 PRIMEIRAS 20 CLIENTES</div>
+      <h3>Desconto Especial de Lançamento</h3>
+      <p>
+        Estou montando minha carteira VIP. As 20 primeiras clientes ganham condição especial + prioridade no agendamento + brinde surpresa no primeiro atendimento.
+      </p>
+      <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vi%20sobre%20o%20Desconto%20Especial%20de%20Lan%C3%A7amento.%20Quero%20garantir%20minha%20vaga%20%21%20%F0%9F%A4%8D" target="_blank" class="btn">
+        QUERO GARANTIR MINHA VAGA
+        <i class="fas fa-crown"></i>
+      </a>
     </div>
 
     <!-- FOTO DESTAQUE - ATUALIZADO -->
