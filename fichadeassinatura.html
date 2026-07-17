@@ -637,16 +637,58 @@ document.getElementById('whatsapp').addEventListener('input', function(e) {
   e.target.value = value;
 });
 </script>
-  <!-- BLOQUEIO DE SEGURANÇA - PRETANAILS -->
-<!-- Bloqueia F12, Ctrl+U, Ctrl+Shift+I e Botão Direito -->
+
+  <!-- BLOQUEIO DE SEGURANÇA PROFISSIONAL - PRETANAILS v4.5 -->
 <script>
-document.onkeydown = function(e) {
-  if(e.keyCode == 123) return false; // F12
-  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; // Ctrl+Shift+I
-  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // Ctrl+U
-}
-document.addEventListener('contextmenu', event => event.preventDefault()); // Botão direito
+(function() {
+  "use strict";
+  let bloqueado = false;
+
+  // 1. BLOQUEIA TODOS OS ATALHOS
+  window.addEventListener('keydown', function(e){
+    if(e.key === 'F12' || 
+       (e.ctrlKey && e.shiftKey && ['I','C','J'].includes(e.key.toUpperCase())) ||
+       (e.ctrlKey && ['u','s','p'].includes(e.key.toLowerCase()))) {
+        
+        if(!bloqueado) {
+          bloqueado = true;
+          e.preventDefault(); 
+          e.stopPropagation();
+          alert('🚫 Ação bloqueada pelo google');
+          setTimeout(() => location.reload(), 100);
+        }
+        return false;
+    }
+  }, true);
+
+  // 2. BLOQUEIA CLIQUE DIREITO
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  // 3. ANTI-DEVTOOLS LEVE
+  setInterval(() => { console.clear(); }, 2000);
+
+  // 4. SÓ RECARREGA SE SAIR DO SITE, NÃO SE NAVEGAR DENTRO
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden && document.visibilityState === 'hidden') {
+      setTimeout(() => { 
+        if(!document.hidden) return; // Se voltou rápido não recarrega
+        location.reload(); 
+      }, 2000); // Espera 2s. Se for só pra ir pra outra página do site não recarrega
+    }
+  });
+
+})();
 </script>
-<!-- FIM DO BLOQUEIO DE SEGURANÇA -->
+
+<!-- 5. FORÇA USAR JAVASCRIPT -->
+<noscript>
+  <div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:99999;display:flex;justify-content:center;align-items:center;">
+    <div style="text-align:center;color:#fff;font-family:Arial,sans-serif;padding:20px;">
+      <h1 style="color:#e91e63;font-size:32px;">💅 PRETANAILS</h1>
+      <h2>⚠️ ATIVE O JAVASCRIPT</h2>
+    </div>
+  </div>
+</noscript>
+<!-- FIM DO BLOQUEIO -->
 </body>
 </html>
