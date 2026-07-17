@@ -617,7 +617,20 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     if (data.status === 'ok') {
       document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
 
-      // MENSAGEM COM EMOJI - PROFISSIONAL
+      // 1. LIMPA O WHATSAPP: só números e força 11 dígitos
+      let numeroLimpo = dados.whatsapp.replace(/\D/g, ''); // tira tudo que não é número
+      numeroLimpo = numeroLimpo.slice(-11); // pega só os últimos 11 dígitos. Ex: 5525252525555 vira 25252525555
+      
+      // Se não tiver 11 dígitos, não deixa abrir
+      if(numeroLimpo.length !== 11){
+        showErro('WhatsApp inválido. Digite com DDD. Ex: (11) 91234-5678');
+        return;
+      }
+
+      // Adiciona o 55 do Brasil na frente pro link wa.me
+      const numeroWhatsLink = `55${numeroLimpo}`;
+
+      // 2. MENSAGEM COM EMOJI - PROFISSIONAL
       const mensagem = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*
 
 *👤 Cliente:* ${dados.nome}
@@ -627,8 +640,8 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
 
 *📄 PDF:* ${data.pdf}`;
 
-      // FIX FINAL: Só encodeURIComponent. NADA de unescape
-      const linkWhats = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
+      // 3. LINK COM NÚMERO CORRETO
+      const linkWhats = `https://wa.me/${numeroWhatsLink}?text=${encodeURIComponent(mensagem)}`;
       
       document.getElementById('btnWhatsContainer').innerHTML = `<a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP</a>`;
       document.getElementById('sucessoOverlay').classList.remove('hidden');
