@@ -617,16 +617,17 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     if (data.status === 'ok') {
       document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
 
-      // MENSAGEM COM EMOJI - FUNCIONA EM PC E CEL
-      const mensagem = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*\n
-*👤 CLIENTE:* ${dados.nome}
-*📱 WHATSAPP:* ${dados.whatsapp}
-*💅 PROCEDIMENTO:* ${dados.procedimento}
+      // MENSAGEM COM EMOJI - PROFISSIONAL
+      const mensagem = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*
+
+*👤 Cliente:* ${dados.nome}
+*📱 WhatsApp:* ${dados.whatsapp}
+*💅 Procedimento:* ${dados.procedimento}
 *📋 OS:* ${data.os}
 
 *📄 PDF:* ${data.pdf}`;
 
-      // CORREÇÃO FINAL: Só 1 encodeURIComponent direto na string
+      // FIX FINAL: Só encodeURIComponent. NADA de unescape
       const linkWhats = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
       
       document.getElementById('btnWhatsContainer').innerHTML = `<a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP</a>`;
