@@ -612,43 +612,33 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     observacoes: document.getElementById('observacoes').value
   };
   try {
-    const response = await fetch(WEB_APP_URL, { method: "POST", mode: "cors", body: JSON.stringify(dados) });
+    const response = await fetch(WEB_APP_URL, {
+      method: "POST",
+      mode: "cors",
+      body: JSON.stringify(dados)
+    });
+
     const data = await response.json();
+
     if (data.status === 'ok') {
       document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
 
-      // 1. LIMPA O WHATSAPP DA CLIENTE: só números
-      let numeroLimpo = dados.whatsapp.replace(/\D/g, '');
-      
-      // 2. VALIDAÇÃO: tem que ter 11 dígitos
-      if(numeroLimpo.length !== 11){
-        showErro('WhatsApp inválido. Digite 11 dígitos com DDD. Ex: (11) 91234-5678');
-        btn.disabled = false;
-        btnText.textContent = 'ENVIAR FORMULÁRIO';
-        return; // para aqui e não envia
-      }
+      const texto = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*%0A%0A*👤 Cliente:* ${dados.nome}%0A*📱 WhatsApp:* ${dados.whatsapp}%0A*💅 Procedimento:* ${dados.procedimento}%0A*📋 OS:* ${data.os}%0A%0A*📄 PDF:* ${data.pdf}`;
+      const linkWhats = `https://wa.me/${WHATSAPP_NUMBER}?text=${texto}`;
 
-      // 3. MONTA O LINK COM 55 + 11 DÍGITOS
-      const numeroWhatsLink = `55${numeroLimpo}`;
+      document.getElementById('btnWhatsContainer').innerHTML = `
+        <a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;">
+          <i class="fab fa-whatsapp"></i> ABRIR WHATSAPP
+        </a>
+      `;
 
-      // 4. MENSAGEM COM EMOJI - PROFISSIONAL
-      const mensagem = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*
-
-*👤 Cliente:* ${dados.nome}
-*📱 WhatsApp:* ${dados.whatsapp}
-*💅 Procedimento:* ${dados.procedimento}
-*📋 OS:* ${data.os}
-
-*📄 PDF:* ${data.pdf}`;
-
-      // 5. LINK CORRETO AGORA
-      const linkWhats = `https://wa.me/${numeroWhatsLink}?text=${encodeURIComponent(mensagem)}`;
-      
-      document.getElementById('btnWhatsContainer').innerHTML = `<a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP</a>`;
       document.getElementById('sucessoOverlay').classList.remove('hidden');
-    } else { throw new Error(data.msg || 'Erro desconhecido'); }
+
+    } else {
+      throw new Error(data.msg || 'Erro desconhecido');
+    }
   } catch (err) {
-    showErro('Erro ao enviar, comunicar a pretanails sobre o problema.');
+    showErro('Erro ao enviar formulário. Verifique se implantou como "Qualquer pessoa" no Apps Script.');
     console.error(err);
     btn.disabled = false;
     btnText.textContent = 'ENVIAR FORMULÁRIO';
