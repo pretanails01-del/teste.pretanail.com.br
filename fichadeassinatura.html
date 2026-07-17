@@ -611,21 +611,23 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     alongamento_texto: document.getElementById('alongamento_texto').value,
     observacoes: document.getElementById('observacoes').value
   };
-  try{
+  try {
+  // 1. VALIDA WHATSAPP DA CLIENTE ANTES DE ENVIAR - TEM QUE TER 11
+  let numeroCliente = dados.whatsapp.replace(/\D/g, '');
+  
+  if(numeroCliente.length !== 11){
+    showErro('WhatsApp inválido. Digite com DDD: (11) 99999-9999');
+    btn.disabled = false;
+    btnText.textContent = 'VAMOS AGENDAR ❤';
+    return; // para aqui e nem envia
+  }
+
+  try {
     const response = await fetch(WEB_APP_URL, { method: "POST", mode: "cors", body: JSON.stringify(dados) });
     const data = await response.json();
+    
     if (data.status === 'ok') {
       document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
-
-      // 1. VALIDA WHATSAPP DA CLIENTE - TEM QUE TER 11
-      let numeroCliente = dados.whatsapp.replace(/\D/g, '');
-      
-      if(numeroCliente.length !== 11){
-        showErro('WhatsApp inválido. Digite com DDD: (11) 99999-9999');
-        btn.disabled = false;
-        btnText.textContent = 'VAMOS AGENDAR ❤';
-        return;
-      }
 
       // 2. MONTA MENSAGEM COM EMOJI
       const mensagem = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*
@@ -642,10 +644,14 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
       
       document.getElementById('btnWhatsContainer').innerHTML = `<a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP</a>`;
       document.getElementById('sucessoOverlay').classList.remove('hidden');
-    } else { throw new Error(data.msg || 'Erro desconhecido'); }
+    } else { 
+      throw new Error(data.msg || 'Erro desconhecido'); 
+    }
   } catch (err) {
     showErro('Erro ao enviar, comunicar a pretanails sobre o problema.');
     console.error(err);
+  } finally {
+    // SEMPRE destrava o botão
     btn.disabled = false;
     btnText.textContent = 'VAMOS AGENDAR ❤';
   }
