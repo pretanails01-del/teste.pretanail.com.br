@@ -617,30 +617,28 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     if (data.status === 'ok') {
       document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
 
-      // 1. LIMPA E PEGA SÓ 11 DÍGITOS
-      let numeroLimpo = dados.whatsapp.replace(/\D/g, '').slice(0,11);
+      // 1. VALIDA WHATSAPP DA CLIENTE - TEM QUE TER 11
+      let numeroCliente = dados.whatsapp.replace(/\D/g, '');
       
-      // 2. VALIDA
-      if(numeroLimpo.length < 10){ // aceita 10 ou 11 pra fixo/cel antigo
-        showErro('WhatsApp inválido. Digite com DDD. Ex: (11) 91234-5678');
+      if(numeroCliente.length !== 11){
+        showErro('WhatsApp inválido. Digite com DDD: (11) 99999-9999');
         btn.disabled = false;
-        btnText.textContent = 'ENVIAR FORMULÁRIO';
+        btnText.textContent = 'VAMOS AGENDAR ❤';
         return;
       }
 
-      // 3. MONTA LINK CORRETO COM 55
-      const numeroWhatsLink = `55${numeroLimpo}`;
-
+      // 2. MONTA MENSAGEM COM EMOJI
       const mensagem = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*
 
 *👤 Cliente:* ${dados.nome}
-*📱 WhatsApp:* ${dados.whatsapp}
+*📱 WhatsApp Cliente:* ${dados.whatsapp}
 *💅 Procedimento:* ${dados.procedimento}
 *📋 OS:* ${data.os}
 
 *📄 PDF:* ${data.pdf}`;
 
-      const linkWhats = `https://wa.me/${numeroWhatsLink}?text=${encodeURIComponent(mensagem)}`;
+      // 3. LINK FIXO PRO SEU WHATSAPP
+      const linkWhats = `https://wa.me/5511982311608?text=${encodeURIComponent(mensagem)}`;
       
       document.getElementById('btnWhatsContainer').innerHTML = `<a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP</a>`;
       document.getElementById('sucessoOverlay').classList.remove('hidden');
@@ -649,7 +647,7 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     showErro('Erro ao enviar, comunicar a pretanails sobre o problema.');
     console.error(err);
     btn.disabled = false;
-    btnText.textContent = 'ENVIAR FORMULÁRIO';
+    btnText.textContent = 'VAMOS AGENDAR ❤';
   }
 });
 </script>
