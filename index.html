@@ -354,16 +354,55 @@
       },
     });
   </script>
-<!-- BLOQUEIO DE SEGURANÇA - PRETANAILS -->
-<!-- Bloqueia F12, Ctrl+U, Ctrl+Shift+I e Botão Direito -->
+<!-- BLOQUEIO DE SEGURANÇA PROFISSIONAL - PRETANAILS v4.0 -->
 <script>
+// 1. BLOQUEIA DEVTOOLS, CÓDIGO FONTE E SALVAR
 document.onkeydown = function(e) {
-  if(e.keyCode == 123) return false; // F12
-  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; // Ctrl+Shift+I
-  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // Ctrl+U
+  if(e.keyCode == 123) return false; // F12 DevTools - BLOQUEADO
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; // Ctrl+Shift+I - BLOQUEADO
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false; // Ctrl+Shift+C - BLOQUEADO
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false; // Ctrl+Shift+J - BLOQUEADO
+  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // Ctrl+U Ver código fonte - BLOQUEADO
+  if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) return false; // Ctrl+S Salvar página - BLOQUEADO
+  if(e.ctrlKey && e.keyCode == 'P'.charCodeAt(0)) return false; // Ctrl+P Imprimir - BLOQUEADO
+  // F5 e Ctrl+R LIBERADOS ✅
 }
-document.addEventListener('contextmenu', event => event.preventDefault()); // Botão direito
+
+// 2. BLOQUEIO ANTI-DEVTOOLS
+(function() {
+  let devtools = function() {};
+  devtools.toString = function() {
+    window.location.reload(); // Recarrega se abrir DevTools
+  }
+  console.log('%c', devtools);
+})();
+
+// 3. NOVO: ATUALIZA SOZINHO SE SAIR DA PÁGINA
+document.addEventListener('visibilitychange', function() {
+  if (document.hidden) {
+    // Pessoa trocou de aba ou minimizou
+    setTimeout(() => {
+      window.location.reload();
+    }, 100); // Recarrega em 0.1s quando voltar
+  }
+});
+
+window.addEventListener('blur', function() {
+  // Pessoa clicou fora da janela
+  window.location.reload();
+});
 </script>
-<!-- FIM DO BLOQUEIO DE SEGURANÇA -->
+
+<!-- 4. FORÇA USAR JAVASCRIPT -->
+<noscript>
+  <div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:999;display:flex;justify-content:center;align-items:center;">
+    <div style="text-align:center;color:#fff;font-family:Arial,sans-serif;padding:20px;">
+      <h1 style="color:#e91e63;font-size:32px;">💅 PRETANAILS</h1>
+      <h2>⚠️ ATIVE O JAVASCRIPT</h2>
+      <p>Para acessar o site você precisa ativar o JavaScript nas configurações do navegador.</p>
+    </div>
+  </div>
+</noscript>
+<!-- FIM DO BLOQUEIO DE SEGURANÇA PROFISSIONAL -->
 </body>
 </html>
