@@ -355,68 +355,43 @@
     });
   </script>
 
-<!-- BLOQUEIO DE SEGURANÇA PROFISSIONAL - PRETANAILS v4.3 FINAL -->
+<!-- BLOQUEIO DE SEGURANÇA PROFISSIONAL - PRETANAILS v4.5 -->
 <script>
 (function() {
   "use strict";
+  let bloqueado = false;
 
-  // 1. BLOQUEIA TODOS OS ATALHOS: F12, CTRL+U, CTRL+S, CTRL+P, CTRL+SHIFT+I/C/J
+  // 1. BLOQUEIA TODOS OS ATALHOS
   window.addEventListener('keydown', function(e){
-    // F12
-    if(e.key === 'F12') { 
-      e.preventDefault(); 
-      e.stopPropagation();
-      alert('🚫 Ação bloqueada pela PRETANAILS');
-      window.location.reload();
-      return false;
-    }
-    // Ctrl+Shift+I / C / J
-    if(e.ctrlKey && e.shiftKey && ['I','C','J'].includes(e.key.toUpperCase())) { 
-      e.preventDefault(); 
-      e.stopPropagation();
-      alert('🚫 Ação bloqueada pela PRETANAILS');
-      window.location.reload();
-      return false;
-    }
-    // Ctrl+U / S / P
-    if(e.ctrlKey && ['u','s','p'].includes(e.key.toLowerCase())) { 
-      e.preventDefault(); 
-      e.stopPropagation();
-      alert('🚫 Ação bloqueada pela PRETANAILS');
-      window.location.reload();
-      return false;
+    if(e.key === 'F12' || 
+       (e.ctrlKey && e.shiftKey && ['I','C','J'].includes(e.key.toUpperCase())) ||
+       (e.ctrlKey && ['u','s','p'].includes(e.key.toLowerCase()))) {
+        
+        if(!bloqueado) {
+          bloqueado = true;
+          e.preventDefault(); 
+          e.stopPropagation();
+          alert('🚫 Ação bloqueada pela PRETANAILS');
+          setTimeout(() => location.reload(), 100);
+        }
+        return false;
     }
   }, true);
 
   // 2. BLOQUEIA CLIQUE DIREITO
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-    return false;
-  });
+  document.addEventListener('contextmenu', e => e.preventDefault());
 
-  // 3. ANTI-DEVTOOLS: DETECTA SE ABRIU E RECARREGA
-  (function() {
-    const threshold = 160;
-    setInterval(() => {
-      if(window.outerWidth - window.innerWidth > threshold || 
-         window.outerHeight - window.innerHeight > threshold) {
-        document.body.innerHTML = '<h1 style="color:red;text-align:center;margin-top:20%;font-family:Arial">DEVTOOLS DETECTADO. RECARREGANDO...</h1>';
-        setTimeout(() => location.reload(), 500);
-      }
-    }, 500);
-  })();
+  // 3. ANTI-DEVTOOLS LEVE
+  setInterval(() => { console.clear(); }, 2000);
 
-  // 4. ATUALIZA SOZINHO SE SAIR DA PÁGINA/ABA
+  // 4. SÓ RECARREGA SE SAIR DO SITE, NÃO SE NAVEGAR DENTRO
   document.addEventListener('visibilitychange', function() {
-    if (document.hidden) {
+    if (document.hidden && document.visibilityState === 'hidden') {
       setTimeout(() => { 
-        window.location.reload(); 
-      }, 100);
+        if(!document.hidden) return; // Se voltou rápido não recarrega
+        location.reload(); 
+      }, 2000); // Espera 2s. Se for só pra ir pra outra página do site não recarrega
     }
-  });
-  
-  window.addEventListener('blur', function() {
-    window.location.reload();
   });
 
 })();
@@ -428,10 +403,9 @@
     <div style="text-align:center;color:#fff;font-family:Arial,sans-serif;padding:20px;">
       <h1 style="color:#e91e63;font-size:32px;">💅 PRETANAILS</h1>
       <h2>⚠️ ATIVE O JAVASCRIPT</h2>
-      <p>Para acessar o site você precisa ativar o JavaScript nas configurações do navegador.</p>
     </div>
   </div>
 </noscript>
-<!-- FIM DO BLOQUEIO DE SEGURANÇA PROFISSIONAL -->
+<!-- FIM DO BLOQUEIO -->
 </body>
 </html>
