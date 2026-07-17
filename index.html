@@ -355,48 +355,56 @@
     });
   </script>
 
-  <!-- BLOQUEIO DE SEGURANÇA PROFISSIONAL - PRETANAILS v4.0 -->
+<!-- BLOQUEIO DE SEGURANÇA PROFISSIONAL - PRETANAILS v4.1 -->
 <script>
-// 1. BLOQUEIA DEVTOOLS, CÓDIGO FONTE E SALVAR
-document.onkeydown = function(e) {
-  if(e.keyCode == 123) return false; // F12 DevTools - BLOQUEADO
-  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; // Ctrl+Shift+I - BLOQUEADO
-  if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false; // Ctrl+Shift+C - BLOQUEADO
-  if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false; // Ctrl+Shift+J - BLOQUEADO
-  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // Ctrl+U Ver código fonte - BLOQUEADO
-  if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) return false; // Ctrl+S Salvar página - BLOQUEADO
-  if(e.ctrlKey && e.keyCode == 'P'.charCodeAt(0)) return false; // Ctrl+P Imprimir - BLOQUEADO
-  // F5 e Ctrl+R LIBERADOS ✅
-}
-
-// 2. BLOQUEIO ANTI-DEVTOOLS
 (function() {
-  let devtools = function() {};
+  "use strict";
+
+  // 1. BLOQUEIA TODOS OS ATALHOS - VERSÃO NOVA
+  document.addEventListener('keydown', function(e) {
+    // F12
+    if(e.key === "F12") { e.preventDefault(); return false; }
+    
+    // Ctrl+Shift+I / C / J
+    if(e.ctrlKey && e.shiftKey && ['I','C','J'].includes(e.key.toUpperCase())) { e.preventDefault(); return false; }
+    
+    // Ctrl+U / S / P
+    if(e.ctrlKey && ['u','s','p'].includes(e.key.toLowerCase())) { e.preventDefault(); return false; }
+    
+    // Ctrl+Shift+C também
+    if(e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'c') { e.preventDefault(); return false; }
+  }, true);
+
+  // 2. BLOQUEIA CLIQUE DIREITO
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  // 3. ANTI-DEVTOOLS - DETECTA SE ABRIU
+  let devtools = /./;
   devtools.toString = function() {
-    window.location.reload(); // Recarrega se abrir DevTools
+    window.location.reload();
   }
-  console.log('%c', devtools);
+  setInterval(() => {
+    console.log('%c', devtools);
+    console.clear(); // Limpa o console pra não deixar rastro
+  }, 1000);
+
+  // 4. ATUALIZA SE SAIR DA PÁGINA
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      setTimeout(() => { window.location.reload(); }, 100);
+    }
+  });
+  
+  window.addEventListener('blur', function() {
+    window.location.reload();
+  });
+
 })();
-
-// 3. NOVO: ATUALIZA SOZINHO SE SAIR DA PÁGINA
-document.addEventListener('visibilitychange', function() {
-  if (document.hidden) {
-    // Pessoa trocou de aba ou minimizou
-    setTimeout(() => {
-      window.location.reload();
-    }, 100); // Recarrega em 0.1s quando voltar
-  }
-});
-
-window.addEventListener('blur', function() {
-  // Pessoa clicou fora da janela
-  window.location.reload();
-});
 </script>
 
-<!-- 4. FORÇA USAR JAVASCRIPT -->
+<!-- 5. FORÇA USAR JAVASCRIPT -->
 <noscript>
-  <div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:999;display:flex;justify-content:center;align-items:center;">
+  <div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;display:flex;justify-content:center;align-items:center;">
     <div style="text-align:center;color:#fff;font-family:Arial,sans-serif;padding:20px;">
       <h1 style="color:#e91e63;font-size:32px;">💅 PRETANAILS</h1>
       <h2>⚠️ ATIVE O JAVASCRIPT</h2>
@@ -404,6 +412,6 @@ window.addEventListener('blur', function() {
     </div>
   </div>
 </noscript>
-<!-- FIM DO BLOQUEIO DE SEGURANÇA PROFISSIONAL -->
+<!-- FIM DO BLOQUEIO -->
 </body>
 </html>
