@@ -611,14 +611,13 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     alongamento_texto: document.getElementById('alongamento_texto').value,
     observacoes: document.getElementById('observacoes').value
   };
-  try{
-    const response = await fetch(WEB_APP_URL, { method: "POST", mode: "cors", body: JSON.stringify(dados) });
+  try { const response = await fetch(WEB_APP_URL, { method: "POST", mode: "cors", body: JSON.stringify(dados) });
     const data = await response.json();
     if (data.status === 'ok') {
       document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
       const mensagem = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*\n\n*👤 Cliente:* ${dados.nome}\n*📱 WhatsApp:* ${dados.whatsapp}\n*💅 Procedimento:* ${dados.procedimento}\n*📋 OS:* ${data.os}\n\n*📄 PDF:* ${data.pdf}`;
       
-      // CORRIGIDO: Tira o unescape. Só 1 encode já resolve e não quebra emoji
+      // FIX: Só 1 encode. Sem unescape
       const linkWhats = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
       
       document.getElementById('btnWhatsContainer').innerHTML = `<a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP</a>`;
