@@ -611,21 +611,22 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     alongamento_texto: document.getElementById('alongamento_texto').value,
     observacoes: document.getElementById('observacoes').value
   };
-  try {
+  try{
     const response = await fetch(WEB_APP_URL, { method: "POST", mode: "cors", body: JSON.stringify(dados) });
     const data = await response.json();
     if (data.status === 'ok') {
       document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
 
-      // 1. MENSAGEM COM EMOJI - PRA WHATSAPP
+      // 1. MENSAGEM COM EMOJI - PRA WHATSAPP CELULAR
       const mensagemWhats = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*\n\n*👤 Cliente:* ${dados.nome}\n*📱 WhatsApp:* ${dados.whatsapp}\n*💅 Procedimento:* ${dados.procedimento}\n*📋 OS:* ${data.os}\n\n*📄 PDF:* ${data.pdf}`;
 
       // 2. MENSAGEM SEM EMOJI - PRA FICAR PROFISSIONAL NO PC
       const mensagemPC = `[*] NOVO FORMULARIO - PRETA NAILS\n[>] Cliente: ${dados.nome}\n[#] WhatsApp: ${dados.whatsapp}\n[+] Procedimento: ${dados.procedimento}\n[OS] OS: ${data.os}\n\n[PDF] PDF: ${data.pdf}`;
 
-      // Detecta se é PC. Se for PC manda sem emoji, se for cel manda com emoji
-      const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
-      const mensagemFinal = isMobile ? mensagemWhats : mensagemPC;
+      // FIX PC: Detecta PC de verdade. Windows, Mac, Linux = PC
+      const ua = navigator.userAgent;
+      const isPC = /Windows|Macintosh|Linux/i.test(ua);
+      const mensagemFinal = isPC ? mensagemPC : mensagemWhats;
       
       // CORREÇÃO: Só 1 encodeURIComponent. Sem unescape
       const linkWhats = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagemFinal)}`;
