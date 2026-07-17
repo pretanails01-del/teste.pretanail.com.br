@@ -24,175 +24,158 @@
     font-family: 'Inter', sans-serif; 
     background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); 
     min-height: 100vh; 
-    padding: 12px; /* 1. DIMINUI: era 20px */
+    padding: 12px; 
     color: var(--text); 
     -webkit-font-smoothing: antialiased; 
-  }
-  
-  .container { 
+  }  .container { 
     max-width: 720px; 
-    margin: 16px auto; /* 2. DIMINUI: era 40px auto */
+    margin: 16px auto; 
     background: var(--card); 
     border: 1px solid var(--border);
     backdrop-filter: blur(20px);
-    border-radius: 16px; /* 3. DIMINUI: era 24px */
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6); /* sombra menor */
+    border-radius: 16px; 
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6); 
     overflow: hidden; 
     animation: slideUp 0.6s ease; 
-  }
-
-  /* NOVO: Ajuste específico pra mobile */
+  }  /* NOVO: Ajuste específico pra mobile */
   @media (max-width: 768px) {
     body {
-      padding: 8px; /* quase grudado nas bordas */
+      padding: 8px; 
     }
     .container {
-      margin: 8px auto; /* cabeçalho cola mais no topo */
+      margin: 8px auto; 
       border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      overflow: hidden; /* CORTA O HEADER PRA FICAR REDONDO */
-    }
-    
-    .header {
-      border-radius: 0 0 12px 12px; /* MESMO RAIO DO CONTAINER */
-    }
-}
-  }
-
-  @keyframes slideUp {
+      overflow: hidden; 
+    }.header {
+  border-radius: 0 0 12px 12px; 
+}}
+  }  @keyframes slideUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
-  }
-   
-    
-    .header { 
-  background: linear-gradient(135deg, #000 0%, var(--primary) 100%); 
+  }.header {   background: linear-gradient(135deg, #000 0%, var(--primary) 100%); 
   color: white; 
   text-align: center; 
   padding: 50px 20px 40px; 
   position: relative; 
-  border-radius: 0 0 20px 20px; /* ARREDONDA EMBAIXO */
-  overflow: hidden; /* PRA NÃO VAZAR PRA FORA */
+  border-radius: 0 0 20px 20px; 
+  overflow: hidden; 
 }
     .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: 0.5; }
     .header img { max-width: 200px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
     .header h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; letter-spacing: 1px; }
-    .header p { margin-top: 8px; opacity: 0.85; font-size: 14px; font-weight: 600; letter-spacing: 1px; }
-    
-    .form-body { padding: 40px 35px; }
-    .form-group { margin-bottom: 24px; }
-    label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--primary); font-size: 14px; letter-spacing: 0.5px; }
-    label.required::after { content: ' *'; color: #e74c3c; }
-    
-    input, textarea, select { 
-      width: 100%; 
-      padding: 14px 16px; 
-      border: 2px solid rgba(255,255,255,0.1); 
-      border-radius: 12px; 
-      font-size: 15px; 
-      font-family: 'Inter', sans-serif; 
-      transition: all 0.3s ease; 
-      background: rgba(0,0,0,0.3);
-      color: #fff;
-    }
-    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.4); }
-    input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(193, 53, 132, 0.15); background: rgba(0,0,0,0.5); }
-    select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C13584' d='M6 9L1 4h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
-    textarea { resize: vertical; min-height: 90px; }
-    
-    .checkbox-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
-    .checkbox-item { 
-      display: flex; 
-      align-items: center; 
-      background: rgba(0,0,0,0.3); 
-      padding: 14px 16px; 
-      border-radius: 12px; 
-      border: 2px solid rgba(255,255,255,0.1); 
-      cursor: pointer; 
-      transition: all 0.3s ease;
-      color: #fff;
-      font-weight: 600;
-    }
-    .checkbox-item:hover { border-color: var(--primary); background: rgba(193,53,132,0.1); }
-    .checkbox-item input { width: 18px; height: 18px; margin-right: 10px; cursor: pointer; accent-color: var(--primary); }
-    
-    .foto-box { 
-      border: 3px dashed var(--primary); 
-      border-radius: 16px; 
-      padding: 35px 20px; 
-      text-align: center; 
-      background: rgba(193,53,132,0.05); 
-      cursor: pointer; 
-      transition: all 0.3s ease; 
-    }
-    .foto-box:hover { background: rgba(193,53,132,0.1); border-color: var(--primary-dark); }
-    .foto-box p { color: var(--primary); font-weight: 700; margin-top: 8px; }
-    .foto-obs { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px; text-align: center; }
-    #previewContainer img { max-width: 100%; max-height: 300px; border: 3px solid var(--primary); border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
-    
-    canvas { 
-      border: 2px solid var(--primary); 
-      border-radius: 12px; 
-      background: #000; 
-      width: 100%; 
-      touch-action: none; 
-      cursor: crosshair; 
-    }
-    
-    .btn { 
-      width: 100%; 
-      padding: 16px; 
-      border: none; 
-      border-radius: 12px; 
-      font-size: 16px; 
-      font-weight: 800; 
-      cursor: pointer; 
-      transition: all 0.3s ease; 
-      font-family: 'Inter', sans-serif; 
-      letter-spacing: 0.5px; 
-    }
-    .btn-primary { 
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
-      color: white; 
-      margin-top: 30px; 
-      box-shadow: 0 10px 30px rgba(193,53,132,0.4); 
-    }
-    .btn-primary:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
-    .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-    .btn-secondary { 
-      background: rgba(255,255,255,0.1); 
-      color: #fff; 
-      width: auto; 
-      padding: 10px 20px; 
-      font-size: 14px; 
-      margin-top: 10px; 
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    .btn-secondary:hover { background: rgba(255,255,255,0.2); }
-    
-    .loader { display: inline-block; width: 16px; height: 16px; border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    
-    /* OVERLAY COM FUNDO DE UNHAS 100% NÍTIDO */
-    .sucesso-overlay { 
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    .header p { margin-top: 8px; opacity: 0.85; font-size: 14px; font-weight: 600; letter-spacing: 1px; }.form-body { padding: 40px 35px; }
+.form-group { margin-bottom: 24px; }
+label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--primary); font-size: 14px; letter-spacing: 0.5px; }
+label.required::after { content: ' *'; color: #e74c3c; }
+
+input, textarea, select { 
+  width: 100%; 
+  padding: 14px 16px; 
+  border: 2px solid rgba(255,255,255,0.1); 
+  border-radius: 12px; 
+  font-size: 15px; 
+  font-family: 'Inter', sans-serif; 
+  transition: all 0.3s ease; 
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+}
+input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.4); }
+input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(193, 53, 132, 0.15); background: rgba(0,0,0,0.5); }
+select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C13584' d='M6 9L1 4h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+textarea { resize: vertical; min-height: 90px; }
+
+.checkbox-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
+.checkbox-item { 
+  display: flex; 
+  align-items: center; 
+  background: rgba(0,0,0,0.3); 
+  padding: 14px 16px; 
+  border-radius: 12px; 
+  border: 2px solid rgba(255,255,255,0.1); 
+  cursor: pointer; 
+  transition: all 0.3s ease;
+  color: #fff;
+  font-weight: 600;
+}
+.checkbox-item:hover { border-color: var(--primary); background: rgba(193,53,132,0.1); }
+.checkbox-item input { width: 18px; height: 18px; margin-right: 10px; cursor: pointer; accent-color: var(--primary); }
+
+.foto-box { 
+  border: 3px dashed var(--primary); 
+  border-radius: 16px; 
+  padding: 35px 20px; 
+  text-align: center; 
+  background: rgba(193,53,132,0.05); 
+  cursor: pointer; 
+  transition: all 0.3s ease; 
+}
+.foto-box:hover { background: rgba(193,53,132,0.1); border-color: var(--primary-dark); }
+.foto-box p { color: var(--primary); font-weight: 700; margin-top: 8px; }
+.foto-obs { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px; text-align: center; }
+#previewContainer img { max-width: 100%; max-height: 300px; border: 3px solid var(--primary); border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+
+canvas { 
+  border: 2px solid var(--primary); 
+  border-radius: 12px; 
+  background: #000; 
+  width: 100%; 
+  touch-action: none; 
+  cursor: crosshair; 
+}
+
+.btn { 
+  width: 100%; 
+  padding: 16px; 
+  border: none; 
+  border-radius: 12px; 
+  font-size: 16px; 
+  font-weight: 800; 
+  cursor: pointer; 
+  transition: all 0.3s ease; 
+  font-family: 'Inter', sans-serif; 
+  letter-spacing: 0.5px; 
+}
+.btn-primary { 
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
+  color: white; 
+  margin-top: 30px; 
+  box-shadow: 0 10px 30px rgba(193,53,132,0.4); 
+}
+.btn-primary:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.btn-secondary { 
+  background: rgba(255,255,255,0.1); 
+  color: #fff; 
+  width: auto; 
+  padding: 10px 20px; 
+  font-size: 14px; 
+  margin-top: 10px; 
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.2); }
+
+.loader { display: inline-block; width: 16px; height: 16px; border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* OVERLAY COM FUNDO DE UNHAS 100% NÍTIDO */
+.sucesso-overlay {   position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
   background-image: url('https://dl.dropboxusercontent.com/scl/fi/jg66vk8ay5vzdb7da1ns4/1783904530793_image_1783904529995.jpg?rlkey=u1xdg3grc0dcf3bow3fuuga7p&raw=1');
-  background-size: contain; /* CORRIGIDO: não corta mais a foto */
+  background-size: contain; 
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #0a0a0a; /* ADICIONADO: fundo preto nas sobras */
+  background-color: #0a0a0a; 
   display: flex; align-items: center; justify-content: center; 
   z-index: 9999; animation: fadeIn 0.4s ease; 
   overflow: hidden;
-  touch-action: none; /* ADICIONADO: trava o scroll com o dedo no celular */
+  touch-action: none; 
 }
 .sucesso-overlay::before {
   content: '';
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.2); /* SÓ UM VÉU LEVE PRA TEXTO LER */
-  /* TIREI O blur AQUI */
+  background: rgba(0,0,0,0.2); 
   z-index: -1;
 }
 .sucesso-overlay::after {
@@ -216,28 +199,21 @@
   90% { opacity: 1; }
   100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
 }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-.sucesso-card { 
-  background: rgba(0,0,0,0.15); /* QUASE TRANSPARENTE, SÓ PRA DAR CONTRASTE */
-  border: 1.5px solid rgba(193,53,132,0.5); /* BORDA ROSA FININHA LUXO */
-  /* TIREI O BLUR AQUI PRA NÃO EMBACAR A UNHA ATRÁS */
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }.sucesso-card { 
+  background: rgba(0,0,0,0.15); 
+  border: 1.5px solid rgba(193,53,132,0.5); 
   padding: 60px 45px; 
-  border-radius: 28px; /* um pouco menor fica mais clean */
+  border-radius: 28px; 
   text-align: center; 
   max-width: 440px; 
   width: 90%;
   animation: scaleUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); 
-  box-shadow: 0 0 0 1px rgba(193,53,132,0.3), 0 20px 60px rgba(193,53,132,0.25); /* GLOW SUTIL */
+  box-shadow: 0 0 0 1px rgba(193,53,132,0.3), 0 20px 60px rgba(193,53,132,0.25); 
   position: relative;
   z-index: 1;
   margin: 20px;
 }
-@keyframes scaleUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
-.sucesso-icon { 
+@keyframes scaleUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }.sucesso-icon { 
   width: 100px; height: 100px; 
   background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
   border-radius: 50%; 
@@ -279,48 +255,41 @@
     font-size: 42px;
   }
 }
-    }
+    }/* TELA DE BLOQUEIO */
+.bloqueio-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.bloqueio-card { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); border: 2px solid var(--primary); border-radius: 24px; padding: 50px 40px; text-align: center; max-width: 500px; box-shadow: 0 30px 80px rgba(193, 53, 132, 0.5); }
+.bloqueio-icon { width: 90px; height: 90px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; }
+.bloqueio-icon i { color: white; font-size: 45px; }
+.bloqueio-titulo { font-family: 'Playfair Display', serif; font-size: 32px; color: white; margin-bottom: 15px; font-weight: 700; }
+.bloqueio-texto { color: #ccc; font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
+.bloqueio-texto strong { color: var(--primary); }
 
-    /* TELA DE BLOQUEIO */
-    .bloqueio-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 20px; }
-    .bloqueio-card { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); border: 2px solid var(--primary); border-radius: 24px; padding: 50px 40px; text-align: center; max-width: 500px; box-shadow: 0 30px 80px rgba(193, 53, 132, 0.5); }
-    .bloqueio-icon { width: 90px; height: 90px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; }
-    .bloqueio-icon i { color: white; font-size: 45px; }
-    .bloqueio-titulo { font-family: 'Playfair Display', serif; font-size: 32px; color: white; margin-bottom: 15px; font-weight: 700; }
-    .bloqueio-texto { color: #ccc; font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
-    .bloqueio-texto strong { color: var(--primary); }
-    
-    .btn-whatsapp { background: linear-gradient(135deg, #25D366, #1fa855); color: white; padding: 16px 35px; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
-    .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6); }
-    .btn-whatsapp i { font-size: 22px; }
-   
-    /* CAIXA DE ASSINATURA ROSA CHOCK */
-.signature-wrapper {
-  background: #C13584; /* ROSA CHOCK */
-  border: 2px solid #a02c6e; /* BORDA ROSA ESCURO */
+.btn-whatsapp { background: linear-gradient(135deg, #25D366, #1fa855); color: white; padding: 16px 35px; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
+.btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6); }
+.btn-whatsapp i { font-size: 22px; }
+
+/* CAIXA DE ASSINATURA ROSA CHOCK */.signature-wrapper {
+  background: #C13584; 
+  border: 2px solid #a02c6e; 
   border-radius: 16px;
   margin: 12px 0;
   overflow: hidden;
 }
 #signatureCanvas {
-  background: #C13584; /* FUNDO ROSA PRA ASSINAR EM CIMA */
+  background: #C13584; 
   width: 100%;
   height: 160px;
   display: block;
   touch-action: none;
   cursor: crosshair;
-}
-
-    @media (max-width: 640px) {
-      .form-body { padding: 30px 20px; }
-      .header h1 { font-size: 28px; }
-      .checkbox-group { grid-template-columns: 1fr; }
-      .sucesso-card { margin: 20px; padding: 40px 30px; }
-      .bloqueio-card { padding: 40px 25px; }
-      .bloqueio-titulo { font-size: 26px; }
-    }
-  </style>
-</head>
+}@media (max-width: 640px) {
+  .form-body { padding: 30px 20px; }
+  .header h1 { font-size: 28px; }
+  .checkbox-group { grid-template-columns: 1fr; }
+  .sucesso-card { margin: 20px; padding: 40px 30px; }
+  .bloqueio-card { padding: 40px 25px; }
+  .bloqueio-titulo { font-size: 26px; }
+}  </style></head>
 <body>
 <div id="bloqueioOverlay" class="bloqueio-overlay hidden">
   <div class="bloqueio-card">
@@ -357,7 +326,7 @@
       </div>
       <div class="form-group">
         <label class="required">WhatsApp</label>
-        <input type="tel" id="whatsapp" required placeholder="(11) 99999-9999">
+        <input type="tel" id="whatsapp" required placeholder="(99) 99999-9999" maxlength="15">
       </div>
       <div class="form-group">
         <label class="required">Procedimentos Desejados</label>
@@ -415,7 +384,7 @@
         <textarea id="observacoes" rows="3" placeholder="Algo que devemos saber antes do procedimento..."></textarea>
       </div>
       <div class="form-group">
-        <label>📸 Foto do Procedimento / Referência que Deseja</label>
+        <label> Foto do Procedimento / Referência que Deseja</label>
         <div class="foto-box" onclick="document.getElementById('foto').click()">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C13584" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
           <p>Clique para enviar a foto</p>
@@ -429,12 +398,12 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="required">✍️ Assinatura Digital da Cliente</label>
+        <label class="required"> Assinatura Digital da Cliente</label>
         <canvas id="signatureCanvas" width="700" height="200"></canvas>
         <button type="button" class="btn btn-secondary" onclick="clearSignature()">Limpar Assinatura</button>
       </div>
       <button type="submit" class="btn btn-primary" id="submitBtn">
-        <span id="btnText">VAMOS AGENDAR ❤</span>
+        <span id="btnText">VAMOS AGENDAR </span>
       </button>
       <div id="erroContainer" class="hidden"></div>
     </form>
@@ -578,10 +547,26 @@ function showErro(msg) {
   window.scrollTo({ top: container.offsetTop - 20, behavior: 'smooth' });
 }
 
+// ==================== MÁSCARA WHATSAPP (99) 99999-9999 ====================
+document.getElementById('whatsapp').addEventListener('input', function(e) {
+  let valor = e.target.value.replace(/\D/g, ''); // só números
+  if (valor.length > 11) valor = valor.substring(0, 11);
+
+  if (valor.length <= 2) {
+    e.target.value = valor;
+  } else if (valor.length <= 7) {
+    e.target.value = `(${valor.substring(0,2)}) ${valor.substring(2)}`;
+  } else {
+    e.target.value = `(${valor.substring(0,2)}) ${valor.substring(2,7)}-${valor.substring(7)}`;
+  }
+});
+
+// ==================== SUBMIT ====================
 document.getElementById('anamneseForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   document.getElementById('erroContainer').classList.add('hidden');
   if (!hasSignature) { showErro('A assinatura digital é obrigatória. Por favor, assine no campo acima.'); return; }
+  
   let procs = [];
   document.querySelectorAll('#procedimentosGroup input[type="checkbox"]:checked').forEach(c => {
     if (c.value === 'Outro') {
@@ -590,10 +575,12 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     } else { procs.push(c.value); }
   });
   if (procs.length === 0) { showErro('Selecione pelo menos um procedimento desejado.'); return; }
+  
   const btn = document.getElementById('submitBtn');
   const btnText = document.getElementById('btnText');
   btn.disabled = true;
   btnText.innerHTML = '<span class="loader"></span>Enviando...';
+
   const dados = {
     nome: document.getElementById('nome').value.trim(),
     idade: document.getElementById('idade').value,
@@ -611,15 +598,14 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     alongamento_texto: document.getElementById('alongamento_texto').value,
     observacoes: document.getElementById('observacoes').value
   };
-  try {
-  // 1. VALIDA WHATSAPP DA CLIENTE ANTES DE ENVIAR - TEM QUE TER 11
+
+  // Validação final
   let numeroCliente = dados.whatsapp.replace(/\D/g, '');
-  
   if(numeroCliente.length !== 11){
-    showErro('WhatsApp inválido. Digite com DDD: (11) 99999-9999');
+    showErro('WhatsApp inválido. Digite no formato (99) 99999-9999');
     btn.disabled = false;
-    btnText.textContent = 'VAMOS AGENDAR ❤';
-    return; // para aqui e nem envia
+    btnText.textContent = 'VAMOS AGENDAR ';
+    return;
   }
 
   try {
@@ -629,17 +615,15 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     if (data.status === 'ok') {
       document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
 
-      // 2. MONTA MENSAGEM COM EMOJI
-      const mensagem = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*
+      const mensagem = `* NOVO FORMULÁRIO - PRETA NAILS*
 
-*👤 Cliente:* ${dados.nome}
-*📱 WhatsApp Cliente:* ${dados.whatsapp}
-*💅 Procedimento:* ${dados.procedimento}
-*📋 OS:* ${data.os}
+* Cliente:* ${dados.nome}
+* WhatsApp Cliente:* ${dados.whatsapp}
+* Procedimento:* ${dados.procedimento}
+* OS:* ${data.os}
 
-*📄 PDF:* ${data.pdf}`;
+* PDF:* ${data.pdf}`;
 
-      // 3. LINK FIXO PRO SEU WHATSAPP
       const linkWhats = `https://wa.me/5511982311608?text=${encodeURIComponent(mensagem)}`;
       
       document.getElementById('btnWhatsContainer').innerHTML = `<a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP</a>`;
@@ -651,63 +635,44 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     showErro('Erro ao enviar, comunicar a pretanails sobre o problema.');
     console.error(err);
   } finally {
-    // SEMPRE destrava o botão
     btn.disabled = false;
-    btnText.textContent = 'VAMOS AGENDAR ❤';
+    btnText.textContent = 'VAMOS AGENDAR ';
   }
 });
 </script>
-  <!-- BLOQUEIO DE SEGURANÇA PROFISSIONAL - PRETANAILS v4.5 -->
+
+<!-- BLOQUEIO DE SEGURANÇA -->
 <script>
 (function() {
   "use strict";
   let bloqueado = false;
-
-  // 1. BLOQUEIA TODOS OS ATALHOS
   window.addEventListener('keydown', function(e){
     if(e.key === 'F12' || 
        (e.ctrlKey && e.shiftKey && ['I','C','J'].includes(e.key.toUpperCase())) ||
        (e.ctrlKey && ['u','s','p'].includes(e.key.toLowerCase()))) {
-        
         if(!bloqueado) {
           bloqueado = true;
           e.preventDefault(); 
           e.stopPropagation();
-          alert('🚫 Ação bloqueada pelo google');
+          alert(' Ação bloqueada pelo google');
           setTimeout(() => location.reload(), 100);
         }
         return false;
     }
   }, true);
 
-  // 2. BLOQUEIA CLIQUE DIREITO
   document.addEventListener('contextmenu', e => e.preventDefault());
-
-  // 3. ANTI-DEVTOOLS LEVE
   setInterval(() => { console.clear(); }, 2000);
-
-  // 4. SÓ RECARREGA SE SAIR DO SITE, NÃO SE NAVEGAR DENTRO
-  document.addEventListener('visibilitychange', function() {
-    if (document.hidden && document.visibilityState === 'hidden') {
-      setTimeout(() => { 
-        if(!document.hidden) return; // Se voltou rápido não recarrega
-        location.reload(); 
-      }, 2000); // Espera 2s. Se for só pra ir pra outra página do site não recarrega
-    }
-  });
-
 })();
 </script>
 
-<!-- 5. FORÇA USAR JAVASCRIPT -->
 <noscript>
   <div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:99999;display:flex;justify-content:center;align-items:center;">
     <div style="text-align:center;color:#fff;font-family:Arial,sans-serif;padding:20px;">
-      <h1 style="color:#e91e63;font-size:32px;">💅 PRETANAILS</h1>
-      <h2>⚠️ ATIVE O JAVASCRIPT</h2>
+      <h1 style="color:#e91e63;font-size:32px;"> PRETANAILS</h1>
+      <h2> ATIVE O JAVASCRIPT</h2>
     </div>
   </div>
 </noscript>
-<!-- FIM DO BLOQUEIO -->
 </body>
 </html>
