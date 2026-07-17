@@ -296,10 +296,10 @@ canvas {
     <div class="bloqueio-icon"> 
       <i class="fas fa-lock"></i>
     </div>
-    <h2 class="bloqueio-titulo">Manutenção em Andamento</h2>
+    <h2 class="bloqueio-titulo" style="color: var(--primary);">🔒 Manutenção em Andamento</h2>
     <p class="bloqueio-texto">
       O site da proprietária está temporariamente indisponível.<br>
-      Estamos implementando manutenção para melhorar seu atendimento.<br><br>Voltamos em 2 horas. Agradecemos sua compreensão!<br><br>
+      Estamos implementando manutenção para melhorar seu atendimento.<br><br>Voltamos em breve. Agradecemos sua compreensão!<br><br>
       Para suporte técnico, entre em contato conosco:
     </p>
     <a href="https://wa.me/5511991233172?text=Vi%20que%20o%20meu%20site%20est%C3%A1%20em%20Manuten%C3%A7%C3%A3o%0AGostaria%20de%20solicitar%20o%20Desbloqueio%20dele" target="_blank" class="btn-whatsapp">
@@ -547,9 +547,9 @@ function showErro(msg) {
   window.scrollTo({ top: container.offsetTop - 20, behavior: 'smooth' });
 }
 
-// ==================== MÁSCARA WHATSAPP (99) 99999-9999 ====================
+// ==================== MÁSCARA WHATSAPP ====================
 document.getElementById('whatsapp').addEventListener('input', function(e) {
-  let valor = e.target.value.replace(/\D/g, ''); // só números
+  let valor = e.target.value.replace(/\D/g, '');
   if (valor.length > 11) valor = valor.substring(0, 11);
 
   if (valor.length <= 2) {
@@ -561,7 +561,7 @@ document.getElementById('whatsapp').addEventListener('input', function(e) {
   }
 });
 
-// ==================== SUBMIT ====================
+// ==================== SUBMIT - MENSAGEM COM EMOJIS ====================
 document.getElementById('anamneseForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   document.getElementById('erroContainer').classList.add('hidden');
@@ -599,7 +599,6 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     observacoes: document.getElementById('observacoes').value
   };
 
-  // Validação final
   let numeroCliente = dados.whatsapp.replace(/\D/g, '');
   if(numeroCliente.length !== 11){
     showErro('WhatsApp inválido. Digite no formato (99) 99999-9999');
@@ -615,14 +614,14 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     if (data.status === 'ok') {
       document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
 
-      const mensagem = `* NOVO FORMULÁRIO - PRETA NAILS*
+      const mensagem = `🔥 NOVO FORMULÁRIO - PRETA NAILS
 
-* Cliente:* ${dados.nome}
-* WhatsApp Cliente:* ${dados.whatsapp}
-* Procedimento:* ${dados.procedimento}
-* OS:* ${data.os}
+👤 Cliente: ${dados.nome}
+📱 WhatsApp: ${dados.whatsapp}
+💅 Procedimento: ${dados.procedimento}
+📋 OS: ${data.os}
 
-* PDF:* ${data.pdf}`;
+📄 PDF: ${data.pdf}`;
 
       const linkWhats = `https://wa.me/5511982311608?text=${encodeURIComponent(mensagem)}`;
       
@@ -654,7 +653,7 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
           bloqueado = true;
           e.preventDefault(); 
           e.stopPropagation();
-          alert(' Ação bloqueada pelo google');
+          alert('🔒 Ação bloqueada por segurança');
           setTimeout(() => location.reload(), 100);
         }
         return false;
