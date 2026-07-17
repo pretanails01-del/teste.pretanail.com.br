@@ -354,5 +354,16 @@
       },
     });
   </script>
+<!-- BLOQUEIO DE SEGURANÇA - PRETANAILS -->
+<!-- Bloqueia F12, Ctrl+U, Ctrl+Shift+I e Botão Direito -->
+<script>
+document.onkeydown = function(e) {
+  if(e.keyCode == 123) return false; // F12
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; // Ctrl+Shift+I
+  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // Ctrl+U
+}
+document.addEventListener('contextmenu', event => event.preventDefault()); // Botão direito
+</script>
+<!-- FIM DO BLOQUEIO DE SEGURANÇA -->
 </body>
 </html>
