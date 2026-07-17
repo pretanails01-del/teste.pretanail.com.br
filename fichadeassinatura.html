@@ -616,11 +616,19 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     const data = await response.json();
     if (data.status === 'ok') {
       document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
-      const mensagem = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*\n\n*👤 Cliente:* ${dados.nome}\n*📱 WhatsApp:* ${dados.whatsapp}\n*💅 Procedimento:* ${dados.procedimento}\n*📋 OS:* ${data.os}\n\n*📄 PDF:* ${data.pdf}`;
+
+      // 1. MENSAGEM COM EMOJI - PRA WHATSAPP
+      const mensagemWhats = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*\n\n*👤 Cliente:* ${dados.nome}\n*📱 WhatsApp:* ${dados.whatsapp}\n*💅 Procedimento:* ${dados.procedimento}\n*📋 OS:* ${data.os}\n\n*📄 PDF:* ${data.pdf}`;
+
+      // 2. MENSAGEM SEM EMOJI - PRA FICAR PROFISSIONAL NO PC
+      const mensagemPC = `[*] NOVO FORMULARIO - PRETA NAILS\n[>] Cliente: ${dados.nome}\n[#] WhatsApp: ${dados.whatsapp}\n[+] Procedimento: ${dados.procedimento}\n[OS] OS: ${data.os}\n\n[PDF] PDF: ${data.pdf}`;
+
+      // Detecta se é PC. Se for PC manda sem emoji, se for cel manda com emoji
+      const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+      const mensagemFinal = isMobile ? mensagemWhats : mensagemPC;
       
-      // FIX DEFINITIVO: Força UTF-8 antes do encode
-      const mensagemUTF8 = unescape(encodeURIComponent(mensagem));
-      const linkWhats = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagemUTF8)}`;
+      // CORREÇÃO: Só 1 encodeURIComponent. Sem unescape
+      const linkWhats = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagemFinal)}`;
       
       document.getElementById('btnWhatsContainer').innerHTML = `<a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP</a>`;
       document.getElementById('sucessoOverlay').classList.remove('hidden');
