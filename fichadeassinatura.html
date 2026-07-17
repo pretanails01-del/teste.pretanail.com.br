@@ -611,25 +611,23 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     alongamento_texto: document.getElementById('alongamento_texto').value,
     observacoes: document.getElementById('observacoes').value
   };
-  try{
+  try {
     const response = await fetch(WEB_APP_URL, { method: "POST", mode: "cors", body: JSON.stringify(dados) });
     const data = await response.json();
     if (data.status === 'ok') {
       document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
 
-      // 1. MENSAGEM COM EMOJI - PRA WHATSAPP CELULAR
-      const mensagemWhats = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*\n\n*👤 Cliente:* ${dados.nome}\n*📱 WhatsApp:* ${dados.whatsapp}\n*💅 Procedimento:* ${dados.procedimento}\n*📋 OS:* ${data.os}\n\n*📄 PDF:* ${data.pdf}`;
+      // MENSAGEM COM EMOJI - FUNCIONA EM PC E CEL
+      const mensagem = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*\n
+*👤 CLIENTE:* ${dados.nome}
+*📱 WHATSAPP:* ${dados.whatsapp}
+*💅 PROCEDIMENTO:* ${dados.procedimento}
+*📋 OS:* ${data.os}
 
-      // 2. MENSAGEM SEM EMOJI - PRA FICAR PROFISSIONAL NO PC
-      const mensagemPC = `[*] NOVO FORMULARIO - PRETA NAILS\n[>] Cliente: ${dados.nome}\n[#] WhatsApp: ${dados.whatsapp}\n[+] Procedimento: ${dados.procedimento}\n[OS] OS: ${data.os}\n\n[PDF] PDF: ${data.pdf}`;
+*📄 PDF:* ${data.pdf}`;
 
-      // FIX PC: Detecta PC de verdade. Windows, Mac, Linux = PC
-      const ua = navigator.userAgent;
-      const isPC = /Windows|Macintosh|Linux/i.test(ua);
-      const mensagemFinal = isPC ? mensagemPC : mensagemWhats;
-      
-      // CORREÇÃO: Só 1 encodeURIComponent. Sem unescape
-      const linkWhats = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagemFinal)}`;
+      // CORREÇÃO FINAL: Só 1 encodeURIComponent direto na string
+      const linkWhats = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
       
       document.getElementById('btnWhatsContainer').innerHTML = `<a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP</a>`;
       document.getElementById('sucessoOverlay').classList.remove('hidden');
@@ -640,14 +638,6 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     btn.disabled = false;
     btnText.textContent = 'ENVIAR FORMULÁRIO';
   }
-});
-
-document.getElementById('whatsapp').addEventListener('input', function(e) {
-  let value = e.target.value.replace(/\D/g, '');
-  if (value.length > 11) value = value.slice(0, 11);
-  if (value.length > 6) { value = `(${value.slice(0,2)}) ${value.slice(2,7)}-${value.slice(7)}`; } 
-  else if (value.length > 2) { value = `(${value.slice(0,2)}) ${value.slice(2)}`; }
-  e.target.value = value;
 });
 </script>
   <!-- BLOQUEIO DE SEGURANÇA PROFISSIONAL - PRETANAILS v4.5 -->
