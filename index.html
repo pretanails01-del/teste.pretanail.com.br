@@ -331,7 +331,7 @@
     }
   }, true);
 
-
+  document.addEventListener('contextmenu', e => { e.preventDefault(); bloquear(); }, true);
   document.addEventListener('selectstart', e => e.preventDefault());
   document.addEventListener('dragstart', e => e.preventDefault());
   document.addEventListener('copy', e => e.preventDefault());
