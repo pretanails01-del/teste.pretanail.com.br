@@ -355,43 +355,61 @@
     });
   </script>
 
-<!-- ==================== BLOQUEIO PROFISSIONAL MELHORADO ==================== -->
+<!-- ==================== BLOQUEIO PROFISSIONAL HARD ==================== -->
 <script>
 (function() {
   "use strict";
 
-  // Bloqueio de teclas (F12, Ctrl+Shift+I, etc.)
+  let attempts = 0;
+  const MAX_ATTEMPTS = 8;
+
+  // Bloqueio Avançado de Teclas
   document.addEventListener('keydown', function(e) {
     if (e.key === 'F12' || 
         (e.ctrlKey && e.shiftKey && ['I','C','J'].includes(e.key.toUpperCase())) ||
         (e.ctrlKey && ['u','s','p'].includes(e.key.toLowerCase()))) {
+      
+      attempts++;
       e.preventDefault();
       e.stopImmediatePropagation();
+
+      if (attempts >= MAX_ATTEMPTS) {
+        alert('🚨 Tentativas excessivas de acesso indevido detectadas.');
+        window.location.href = "about:blank";
+        return;
+      }
+
       alert('🔒 Esta ação foi bloqueada por motivos de segurança.');
-      return false;
     }
   }, true);
 
-  // Bloqueio clique direito
+  // Clique Direito (mais inteligente)
   document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-    return false;
+    attempts++;
+    if (e.target.tagName === "IMG") {
+      e.preventDefault();
+      alert('🔒 Imagem protegida.');
+    }
+    // Permite clique direito em textos para copiar
   });
 
-  // Detecção de DevTools
+  // Detecção de DevTools mais forte
   let devtoolsOpen = false;
   setInterval(() => {
     if (window.outerWidth - window.innerWidth > 150 || window.outerHeight - window.innerHeight > 150) {
       if (!devtoolsOpen) {
         devtoolsOpen = true;
         console.clear();
-        alert('🔒 Ferramentas de desenvolvedor detectadas.');
+        alert('🔒 Ferramentas de desenvolvedor detectadas.\nEsta página está protegida.');
       }
     }
-  }, 800);
+  }, 400);
 
-  // Limpeza constante do console
-  setInterval(() => { console.clear(); }, 1200);
+  // Limpeza agressiva do console
+  setInterval(() => { 
+    console.clear(); 
+  }, 600);
+
 })();
 </script>
 
