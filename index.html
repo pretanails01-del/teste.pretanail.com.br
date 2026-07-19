@@ -10,7 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- SWIPER CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
   <style>
@@ -24,7 +23,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-    /* Hero - Tela principal */
+    /* Todo o seu CSS original (mantido 100% igual) */
     .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; position: relative; }
     .wrap { max-width: 600px; animation: fadeIn 1s ease; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -36,7 +35,6 @@
     .destaque { font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 80px); font-weight: 900; color: var(--primary); line-height: 0.9; }
     .destaque small { font-size: 32px; font-style: italic; color: #fff; display: block; line-height: 1.2; font-weight: 400; }
 
-    /* Botão principal com efeito glitter */
     .btn { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 18px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); transition: all 0.3s; border: none; cursor: pointer; }
     .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
     .btn::after {
@@ -49,43 +47,22 @@
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
       animation: glitter 2.5s infinite;
     }
-    @keyframes glitter {
-      0% { left: -100%; }
-      100% { left: 200%; }
-    }
+    @keyframes glitter { 0% { left: -100%; } 100% { left: 200%; } }
 
-    /* BOTÕES SOCIAIS */
     .social-btns { display: flex; gap: 12px; justify-content: center; margin-top: 20px; }
     .btn-social { background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.3); color: #fff; padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s; backdrop-filter: blur(10px); }
     .btn-social:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-2px); }
 
-    /* SETA ANIMADA PRA ROLAR */
-    .scroll-down {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--primary);
-      font-size: 24px;
-      animation: bounce 2s infinite;
-      opacity: 0.8;
-    }
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-      40% { transform: translateX(-50%) translateY(-10px); }
-      60% { transform: translateX(-50%) translateY(-5px); }
-    }
+    .scroll-down { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: var(--primary); font-size: 24px; animation: bounce 2s infinite; opacity: 0.8; }
+    @keyframes bounce { 0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
 
-    /* SEÇÃO CARROSSEL PROFISSIONAL */
     .galeria { padding: 40px 20px 100px 20px; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); }
     .titulo-galeria { text-align: center; margin-bottom: 60px; }
     .titulo-galeria h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 48px); }
     .titulo-galeria h2 span { color: var(--primary); }
 
-    /* SWIPER */
     .swiper { max-width: 900px; margin: auto; padding: 20px 0 70px 0; }
     
-    /* CARD GLASS COM FOTO INTEIRA */
     .card-glass {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(193,53,132,0.25);
@@ -97,7 +74,6 @@
     }
     .card-glass:hover { border-color: var(--primary); transform: translateY(-10px); }
     
-    /* FOTO INTEIRA - NÃO CORTA */
     .card-glass img {
       width: 100%;
       height: auto;
@@ -108,7 +84,6 @@
       background: #000;
     }
 
-    /* CONTROLES NA COR DA MARCA */
     .swiper-button-next, .swiper-button-prev { 
       color: var(--primary) !important; 
       background: rgba(0,0,0,0.6); 
@@ -123,7 +98,6 @@
     .swiper-pagination-bullet { background: rgba(255,255,255,0.3) !important; width: 12px; height: 12px; }
     .swiper-pagination-bullet-active { background: var(--primary) !important; }
 
-    /* ==================== BOTÃO DESCONTO MELHORADO ==================== */
     .desconto-wrap {
       max-width: 600px; margin: 0 auto 80px; padding: 40px 30px; text-align: center;
       background: linear-gradient(135deg, rgba(193,53,132,0.22) 0%, rgba(160,44,110,0.15) 100%);
@@ -144,7 +118,6 @@
       font-size: 15.5px; opacity: 0.95; line-height: 1.7; margin-bottom: 28px;
     }
 
-    /* FOTO DESTAQUE MÃO NEGRA - ATUALIZADO ROSA */
     .foto-destaque-wrap {
       max-width: 400px; margin: 0 auto 100px; padding: 30px 25px; text-align: center;
       background: linear-gradient(135deg, rgba(193,53,132,0.15) 0%, rgba(160,44,110,0.1) 100%);
@@ -162,14 +135,12 @@
     .foto-destaque-wrap h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--primary); margin-bottom: 12px; }
     .foto-destaque-wrap p { margin-top: 0; font-size: 14px; opacity: 0.9; line-height: 1.7; }
 
-    /* RODAPÉ COM SELOS */
     .footer { background: #050505; border-top: 1px solid rgba(193,53,132,0.2); padding: 50px 20px 30px; text-align: center; }
     .footer-selos { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
     .selo { background: rgba(193,53,132,0.08); border: 1px solid rgba(193,53,132,0.3); border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; }
     .selo i { color: var(--primary); font-size: 18px; }
     .footer p { font-size: 12px; opacity: 0.5; margin-top: 15px; }
 
-    /* BOTÃO WHATSAPP FLUTUANTE - SUBIU */
     .whatsapp-float { position: fixed; bottom: 80px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
     .whatsapp-btn { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 32px; box-shadow: 0 8px 25px rgba(193,53,132,0.5); transition: all 0.3s; animation: pulse 2s infinite; }
     .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(193,53,132,0.7); }
@@ -180,7 +151,6 @@
     }
     .whatsapp-text { font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 20px; backdrop-filter: blur(10px); letter-spacing: 0.5px; text-align: center; }
 
-    /* Mobile */
     @media (max-width: 768px) {
       .hero { min-height: 85vh; padding: 20px 16px 40px 16px; }
       .wrap { max-width: 100%; }
@@ -207,7 +177,7 @@
 </head>
 <body>
 
-  <!-- Catálogo Principal -->
+  <!-- Todo o conteúdo mantido igual -->
   <section class="hero">
     <div class="wrap">
       <div class="coroa"></div>
@@ -223,7 +193,6 @@
     <i class="fas fa-arrow-right"></i>
   </a>
 
-  <!-- BOTÕES SOCIAIS -->
   <div class="social-btns">
     <a href="https://www.youtube.com/@PretaNails01" target="_blank" class="btn-social">
       <i class="fab fa-youtube"></i> YouTube
@@ -235,90 +204,56 @@
 
 </div>
 
-<!-- SETA ANIMADA -->
 <div class="scroll-down">
   <i class="fas fa-chevron-down"></i>
-</div>  </section>
+</div>  
+  </section>
 
-  <!-- SEÇÃO CARROSSEL -->
   <section class="galeria">
     <div class="titulo-galeria">
       <h2>Portfólio <span>Preta Nails</span></h2>
     </div>
 
-<div class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
-  <div class="swiper-wrapper" id="swiper-wrapper-9534f97610e744340" aria-live="off" style="transition-duration: 300ms; transform: translate3d(-2790px, 0px, 0px);">
-  <div class="swiper-slide swiper-slide-next" role="group" aria-label="3 / 4" data-swiper-slide-index="2" style="width: 900px; margin-right: 30px;">
-      <div class="card-glass">
-        <img src="https://dl.dropboxusercontent.com/scl/fi/jlxpz7vy24di5386fllso/1783781244691_image_1783781244053.jpg?rlkey=93pl4if52da0rxc5m8vetxtcn&dl=1" alt="Trabalho Preta Nails">
+    <div class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+      <div class="swiper-wrapper" id="swiper-wrapper-9534f97610e744340" aria-live="off" style="transition-duration: 300ms; transform: translate3d(-2790px, 0px, 0px);">
+        <div class="swiper-slide" style="width: 900px; margin-right: 30px;"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/jlxpz7vy24di5386fllso/1783781244691_image_1783781244053.jpg?rlkey=93pl4if52da0rxc5m8vetxtcn&dl=1" alt="Trabalho Preta Nails"></div></div>
+        <div class="swiper-slide" style="width: 900px; margin-right: 30px;"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/ekvi5h6lzj232g8w3a5gv/1783781553157_image_1783781552187.jpg?rlkey=mbbq9r2unvtde96c2ey3yy0hn&dl=1" alt="Trabalho Preta Nails"></div></div>
+        <div class="swiper-slide" style="width: 900px; margin-right: 30px;"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/i10b3935vkft1zad8a6qj/1783781217476_image_1783781216930.jpg?rlkey=b30hrafew1g3mpth6y8iywku9&dl=1" alt="Trabalho Preta Nails"></div></div>
+        <div class="swiper-slide" style="width: 900px; margin-right: 30px;"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/jhtnazc88ncsj7fywhe0m/1783781236193_image_1783781235430.jpg?rlkey=yosfv3u3lriorsqtcr5x3qkwa&dl=1" alt="Trabalho Preta Nails"></div></div>
       </div>
-    </div><div class="swiper-slide" role="group" aria-label="4 / 4" data-swiper-slide-index="3" style="width: 900px; margin-right: 30px;">
-      <div class="card-glass">
-        <img src="https://dl.dropboxusercontent.com/scl/fi/ekvi5h6lzj232g8w3a5gv/1783781553157_image_1783781552187.jpg?rlkey=mbbq9r2unvtde96c2ey3yy0hn&dl=1" alt="Trabalho Preta Nails">
-      </div>
-    </div><div class="swiper-slide swiper-slide-prev" role="group" aria-label="1 / 4" data-swiper-slide-index="0" style="width: 900px; margin-right: 30px;">
-      <div class="card-glass">
-        <img src="https://dl.dropboxusercontent.com/scl/fi/i10b3935vkft1zad8a6qj/1783781217476_image_1783781216930.jpg?rlkey=b30hrafew1g3mpth6y8iywku9&dl=1" alt="Trabalho Preta Nails">
-      </div>
-    </div><div class="swiper-slide swiper-slide-active" role="group" aria-label="2 / 4" data-swiper-slide-index="1" style="width: 900px; margin-right: 30px;">
-      <div class="card-glass">
-        <img src="https://dl.dropboxusercontent.com/scl/fi/jhtnazc88ncsj7fywhe0m/1783781236193_image_1783781235430.jpg?rlkey=yosfv3u3lriorsqtcr5x3qkwa&dl=1" alt="Trabalho Preta Nails">
-      </div>
-    </div></div>
-  <!-- Controles -->
-  <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-9534f97610e744340"></div>
-  <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-9534f97610e744340"></div>
-  <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 2" aria-current="true"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span></div>
-<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
 
-<!-- BLOCO DESCONTO ESPECIAL - NOVO -->
-<div class="desconto-wrap">
-  <div class="tag tag-vip"> VAGAS LIMITADAS</div>
-  <h3>Desconto Especial de Lançamento</h3>
-  <p>
-    Estou montando minha carteira VIP. As 20 primeiras clientes ganham condição especial + prioridade no agendamento + brinde surpresa no primeiro atendimento.
-  </p>
-  <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20quero%20garantir%20minha%20vaga%20no%20Desconto%20Especial%20de%20Lan%C3%A7amento%20%F0%9F%92%97" target="_blank" class="btn" style="font-size:17px; padding:20px 40px; margin-top:10px;">
-    QUERO GARANTIR MINHA VAGA AGORA 
-    <i class="fas fa-crown"></i>
-  </a>
-</div>
+    <div class="desconto-wrap">
+      <div class="tag tag-vip"> VAGAS LIMITADAS</div>
+      <h3>Desconto Especial de Lançamento</h3>
+      <p>Estou montando minha carteira VIP. As 20 primeiras clientes ganham condição especial + prioridade no agendamento + brinde surpresa no primeiro atendimento.</p>
+      <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20quero%20garantir%20minha%20vaga%20no%20Desconto%20Especial%20de%20Lan%C3%A7amento%20%F0%9F%92%97" target="_blank" class="btn" style="font-size:17px; padding:20px 40px; margin-top:10px;">
+        QUERO GARANTIR MINHA VAGA AGORA <i class="fas fa-crown"></i>
+      </a>
+    </div>
 
-<!-- FOTO DESTAQUE - ATUALIZADO -->
-<div class="foto-destaque-wrap">
-  <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos - Preta Nails">
-  <h3>Sabrina Lemos</h3>
-  <p>Sou Sabrina Lemos, fundadora da PretaNails. Acredito que unhas bem cuidadas são muito mais do que um detalhe: elas refletem autoestima, confiança e elegância. Por isso, cada atendimento é realizado com técnica, carinho e atenção aos mínimos detalhes, para que você se sinta acolhida, valorizada e saia com unhas impecáveis, prontas para realçar ainda mais a sua beleza.</p>
-</div>  </section>
+    <div class="foto-destaque-wrap">
+      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos - Preta Nails">
+      <h3>Sabrina Lemos</h3>
+      <p>Sou Sabrina Lemos, fundadora da PretaNails. Acredito que unhas bem cuidadas são muito mais do que um detalhe: elas refletem autoestima, confiança e elegância. Por isso, cada atendimento é realizado com técnica, carinho e atenção aos mínimos detalhes, para que você se sinta acolhida, valorizada e saia com unhas impecáveis, prontas para realçar ainda mais a sua beleza.</p>
+    </div>
+  </section>
 
-  <!-- RODAPÉ COM SELOS -->
   <footer class="footer">
     <div class="footer-selos">
-      <div class="selo">
-        <i class="fas fa-shield-halved"></i>
-        Dados Criptografados
-      </div>
-      <div class="selo">
-        <i class="fas fa-check-circle"></i>
-        Verificado Google
-      </div>
-      <div class="selo">
-        <i class="fas fa-file-contract"></i>
-        LGPD - Consentimento
-      </div>
-      <div class="selo">
-        <i class="fas fa-lock"></i>
-        Site Seguro SSL
-      </div>
+      <div class="selo"><i class="fas fa-shield-halved"></i> Dados Criptografados</div>
+      <div class="selo"><i class="fas fa-check-circle"></i> Verificado Google</div>
+      <div class="selo"><i class="fas fa-file-contract"></i> LGPD - Consentimento</div>
+      <div class="selo"><i class="fas fa-lock"></i> Site Seguro SSL</div>
     </div>
     <p>© 2026 Preta Nails. Todos os direitos reservados. | Seus dados estão seguros conosco.</p>
   </footer>
 
-  <!-- BOTÃO WHATSAPP FLUTUANTE - LINK ATUALIZADO -->
   <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20tenho%20algumas%20d%C3%BAvidas.%20Poderia%20me%20ajudar%20%3F" target="_blank" class="whatsapp-float">
-    <div class="whatsapp-btn">
-      <i class="fab fa-whatsapp"></i>
-    </div>
+    <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
     <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
   </a>
 
@@ -330,72 +265,91 @@
       slidesPerView: 1,
       spaceBetween: 30,
       centeredSlides: true,
-      autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
+      autoplay: { delay: 4000, disableOnInteraction: false },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      pagination: { el: '.swiper-pagination', clickable: true }
     });
   </script>
 
-<!-- ==================== BLOQUEIO PROFISSIONAL HARD ==================== -->
+<!-- ==================== BLOQUEIO INTELIGENTE (não bloqueia no VS Code) ==================== -->
 <script>
 (function() {
   "use strict";
 
-  let attempts = 0;
-  const MAX_ATTEMPTS = 6;
+  // Desativa bloqueio no Visual Studio Code / localhost
+  const isLocal = window.location.hostname === "localhost" || 
+                  window.location.hostname === "127.0.0.1" ||
+                  window.location.protocol === "file:";
 
-  function reloadPage() {
-    window.location.reload(true);
+  if (isLocal) {
+    console.log("%c🔓 Bloqueio desativado no Visual Studio Code", "color: lime; font-size: 14px");
+    return; // Sai do script - não bloqueia no VS Code
   }
 
-  // Bloqueio Avançado de Teclas
+  let tentativas = 0;
+
+  function mostrarTelaErroGoogle() {
+    document.documentElement.innerHTML = `
+      <body style="margin:0;padding:0;background:#fff;font-family:'Google Sans',Arial,sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;">
+        <div style="max-width:620px;text-align:center;padding:40px;">
+          <h1 style="font-size:52px;margin-bottom:8px;color:#d93025;">⚠️</h1>
+          <h2 style="font-size:28px;margin-bottom:20px;">Sua conexão não é privada</h2>
+          <p style="font-size:18px;line-height:1.6;color:#5f6368;">
+            O Google detectou atividade suspeita e bloqueou o acesso.<br>
+            <strong>NET::ERR_CERT_AUTHORITY_INVALID</strong>
+          </p>
+          <p style="margin-top:25px;font-size:15px;color:#8a8d92;">
+            Tentativas de burlar a proteção foram detectadas.
+          </p>
+          <button onclick="window.location.reload()" style="margin-top:35px;padding:14px 32px;font-size:16px;background:#1a73e8;color:#fff;border:none;border-radius:4px;cursor:pointer;">
+            Tentar Novamente
+          </button>
+        </div>
+      </body>`;
+  }
+
+  function bloquear() {
+    tentativas++;
+    if (tentativas >= 1) {
+      mostrarTelaErroGoogle();
+    } else {
+      window.location.reload(true);
+    }
+  }
+
+  // Bloqueio de teclas
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'F12' || 
-        (e.ctrlKey && e.shiftKey && ['I','C','J'].includes(e.key.toUpperCase())) ||
-        (e.ctrlKey && ['u','s','p'].includes(e.key.toLowerCase()))) {
-      
-      attempts++;
+    const key = e.key.toUpperCase();
+    if (key === 'F12' ||
+        (e.ctrlKey && ['U','S','P','F','H','A','I','J','C'].includes(key)) ||
+        (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','F'].includes(key)) ||
+        (e.metaKey && ['U','I','J','C'].includes(key))) {
       e.preventDefault();
       e.stopImmediatePropagation();
-      reloadPage();
+      bloquear();
+      return false;
     }
   }, true);
 
-  // Clique Direito (somente em imagens)
-  document.addEventListener('contextmenu', function(e) {
-    if (e.target.tagName === "IMG") {
-      attempts++;
-      e.preventDefault();
-      reloadPage();
-    }
-  });
+  document.addEventListener('contextmenu', e => { e.preventDefault(); bloquear(); }, true);
+  document.addEventListener('selectstart', e => e.preventDefault());
+  document.addEventListener('dragstart', e => e.preventDefault());
+  document.addEventListener('copy', e => e.preventDefault());
+  document.addEventListener('cut', e => e.preventDefault());
 
-  // Detecção de DevTools
-  let devtoolsOpen = false;
+  // Detecção DevTools
   setInterval(() => {
-    if (window.outerWidth - window.innerWidth > 150 || window.outerHeight - window.innerHeight > 150) {
-      if (!devtoolsOpen) {
-        devtoolsOpen = true;
-        console.clear();
-        reloadPage();
-      }
+    if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
+      bloquear();
     }
-  }, 400);
 
-  // Limpeza agressiva do console
-  setInterval(() => { 
-    console.clear(); 
-  }, 500);
+    const before = performance.now();
+    debugger;
+    const after = performance.now();
+    if (after - before > 25) bloquear();
+  }, 250);
 
+  setInterval(() => console.clear(), 400);
 })();
 </script>
 
