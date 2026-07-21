@@ -294,7 +294,7 @@
   <div id="full-faq-screen" class="full-faq-screen">
     <div class="full-faq-content">
       <div class="full-faq-header">
-        <button id="back-to-list" style="background:none; border:none; color:#d946ef; font-size:22px; cursor:pointer; margin-right:10px;">←</button>
+        <button id="back-to-list" style="display:none;">←</button>
         <h3 id="full-title" class="full-faq-title">Dúvida</h3>
         <span class="close-full" id="close-full">✕</span>
       </div>
@@ -329,7 +329,65 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 20px;
+      gap: 10px;
     }
+    .full-faq-title {
+      flex: 1;
+      text-align: center;
+      font-size: 22px;
+      margin: 0;
+      color: #fff;
+    }
+    
+    /* BOTÕES DO HEADER */
+    #back-to-list {
+      background: rgba(217, 70, 239, 0.1);
+      border: 1px solid rgba(217, 70, 239, 0.3);
+      color: #d946ef;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: 0.3s;
+      flex-shrink: 0;
+    }
+    #back-to-list:hover {
+      background: rgba(217, 70, 239, 0.2);
+    }
+    .close-full {
+      background: rgba(217, 70, 239, 0.1);
+      border: 1px solid rgba(217, 70, 239, 0.3);
+      color: #d946ef;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: 0.3s;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .close-full:hover {
+      background: rgba(217, 70, 239, 0.2);
+    }
+
+    /* RESPONSIVO PARA CELULAR */
+    @media (max-width: 768px) {
+      .full-faq-content {
+        margin: 0;
+        padding: 20px 15px;
+        border-radius: 0;
+        min-height: 100vh;
+        border: none;
+      }
+      .full-faq-title {
+        font-size: 18px;
+      }
+      #back-to-list, .close-full {
+        font-size: 16px;
+        padding: 6px 10px;
+      }
+    }
+
     /* BLOQUEIA O SCROLL DO BODY QUANDO ABRIR */
     body.no-scroll {
       overflow: hidden;
@@ -405,9 +463,8 @@
     const fullContent = document.getElementById('full-content');
     const closeFull = document.getElementById('close-full');
     const backBtn = document.getElementById('back-to-list');
-    let isInList = true; // controla se está na lista ou no conteúdo
+    let isInList = true;
 
-    // CABEÇALHO DA AUTORA - FUNDADORA
     const autorHeader = `
       <div style="display:flex; align-items:center; gap:14px; margin-bottom:25px; padding:16px; background:rgba(217, 70, 239, 0.08); border-radius:10px; border:1px solid rgba(217, 70, 239, 0.2);">
         <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos - Preta Nails" style="width:50px; height:50px; border-radius:50%; border:2px solid #d946ef; object-fit:cover;">
@@ -465,6 +522,8 @@
         </ul>
         <h3 style="color:#fff; font-size:19px; margin-top:25px; margin-bottom:10px;">3. AMBIENTE E SUPERFÍCIES</h3>
         <p style="font-size:15.8px; line-height:1.9;">A bancada é limpa com álcool 70% entre um cliente e outro. O espaço é arejado, tem exaustor e eu higienizo as mãos antes e depois de cada atendimento. O salão passa por limpeza profunda diária.</p>
+        <h3 style="color:#fff; font-size:19px; margin-top:25px; margin-bottom:10px;">4. PRODUTOS DE QUALIDADE</h3>
+        <p style="font-size:15.8px; line-height:1.9;">Uso apenas produtos liberados pela Anvisa, de marcas profissionais. Nada de produto vencido ou de procedência duvidosa. Sua saúde vem em primeiro lugar.</p>
         <p style="padding:18px; background:rgba(217, 70, 239, 0.1); border-radius:8px; margin-top:25px; font-size:15.8px;"><strong>RECADO DA PRETA:</strong><br>Fica tranquila. Aqui você é tratada com todo cuidado e respeito. Higiene não é luxo, é obrigação. Se tiver dúvida me pergunta no Whats 💜</p>`;
 
       } else if(title === 'Formulario'){
@@ -495,6 +554,8 @@
             <li><strong>Ambiente arejado:</strong> Meu espaço tem exaustor e janelas. Cheiro forte não tem.</li>
             <li><strong>Higienização total:</strong> Todos os alicates são esterilizados em estufa. Toalhas descartáveis.</li>
         </ul>
+        <h3 style="color:#fff; font-size:19px; margin-top:25px; margin-bottom:10px;">ÚNICO CUIDADO ESPECIAL</h3>
+        <p style="font-size:15.8px; line-height:1.9;">Se você estiver no primeiro trimestre e com enjoo forte, me avisa. A gente agenda num horário mais calmo pra você, com menos movimento no salão.</p>
         <p style="padding:18px; background:rgba(217, 70, 239, 0.1); border-radius:8px; margin-top:25px; font-size:15.8px;"><strong>RECADO DA PRETA:</strong><br>Amiga, esse é o momento de você se cuidar também. Me chama no Whats pra agendar 💜</p>`;
 
       } else if(title === 'Sinais de alergia'){
@@ -512,6 +573,8 @@
         </ul>
         <h3 style="color:#fff; font-size:19px; margin-top:25px; margin-bottom:10px;">O QUE FAZER IMEDIATAMENTE?</h3>
         <p style="font-size:15.8px; line-height:1.9;"><strong>1. Me chama IMEDIATO no WhatsApp</strong><br><strong>2. A gente remove com segurança</strong> e sem custo pra você<br><strong>3. Eu te oriento</strong> sobre o que fazer e qual produto usar</p>
+        <h3 style="color:#fff; font-size:19px; margin-top:25px; margin-bottom:10px;">COMO EU PREVINO?</h3>
+        <p style="font-size:15.8px; line-height:1.9;">Eu uso produtos hipoalergênicos e faço teste antes se você já teve alergia. Meu espaço é todo higienizado e uso materiais descartáveis.</p>
         <p style="padding:18px; background:rgba(217, 70, 239, 0.1); border-radius:8px; margin-top:25px; font-size:15.8px;"><strong>RECADO IMPORTANTE DA PRETA:</strong><br>Minha prioridade é sua saúde. Prefiro perder 1 cliente do que ver você mal. Conte comigo 💜</p>`;
 
       } else if(title === 'Site seguro'){
@@ -522,9 +585,11 @@
         <p style="font-size:15.8px; line-height:1.9; margin-bottom:20px;"><strong>RESPOSTA CURTA: SIM, MEU SITE É 100% SEGURO.</strong></p>
         <p style="font-size:15.8px; line-height:1.9; margin-bottom:20px;">Eu sei que na internet a gente tem que ter cuidado. Por isso me preocupei em deixar tudo blindado pra você navegar tranquila.</p>
         <h3 style="color:#fff; font-size:19px; margin-top:25px; margin-bottom:10px;">1. CRIPTOGRAFIA SSL - CADEADO VERDE 🔒</h3>
-        <p style="font-size:15.8px; line-height:1.9;">Todo o nosso site tem certificado SSL. É aquele cadeadinho que aparece do lado do endereço. Mesma segurança de banco.</p>
+        <p style="font-size:15.8px; line-height:1.9;">Todo o nosso site tem certificado SSL. É aquele cadeadinho que aparece do lado do endereço. Mesma segurança de banco. Seus dados viajam criptografados.</p>
         <h3 style="color:#fff; font-size:19px; margin-top:25px; margin-bottom:10px;">2. SEUS DADOS NÃO FICAM SALVOS</h3>
-        <p style="font-size:15.8px; line-height:1.9;">Quando você preenche o formulário, ele vai direto pro meu WhatsApp. Eu não guardo em banco de dados nenhum. Zero risco de vazamento.</p>
+        <p style="font-size:15.8px; line-height:1.9;">Quando você preenche o formulário, ele vai direto pro meu WhatsApp. Eu não guardo em banco de dados nenhum. Zero risco de vazamento ou hacker.</p>
+        <h3 style="color:#fff; font-size:19px; margin-top:25px; margin-bottom:10px;">3. LGPD - LEI GERAL DE PROTEÇÃO DE DADOS</h3>
+        <p style="font-size:15.8px; line-height:1.9;">Eu sigo a lei à risca. Se quiser que eu apague seus dados, é só pedir no WhatsApp que eu apago na hora. Você tem total controle.</p>
         <p style="padding:18px; background:rgba(217, 70, 239, 0.1); border-radius:8px; margin-top:25px; font-size:15.8px;"><strong>RECADO DA PRETA:</strong><br>Minha maior preocupação é você se sentir segura comigo 💜</p>`;
 
       } else if(title === 'Cuidados com a unha'){
@@ -536,9 +601,15 @@
         <h3 style="color:#fff; font-size:19px; margin-top:25px; margin-bottom:10px;">REGRA DE OURO #1: ÁGUA QUENTE É INIMIGA</h3>
         <p style="font-size:15.8px; line-height:1.9;">Nos primeiros 2 dias evita água muito quente e produtos de limpeza sem luva. A água quente amolece a cola e faz a fibra levantar mais rápido. Dica da Preta: usa luva pra lavar louça.</p>
         <h3 style="color:#fff; font-size:19px; margin-top:25px; margin-bottom:10px;">REGRA DE OURO #2: HIDRATAÇÃO TODO DIA</h3>
-        <p style="font-size:15.8px; line-height:1.9;">Passa óleo de cutícula antes de dormir. Só 10 segundos em cada mão. Isso evita que levante, dá brilho de salão todo dia e mantém a cutícula saudável.</p>
+        <p style="font-size:15.8px; line-height:1.9;">Passa óleo de cutícula antes de dormir. Só 10 segundos em cada mão. Isso evita que levante, dá brilho de salão todo dia e mantém a cutícula saudável. O óleo evita o aspecto ressecado.</p>
         <h3 style="color:#fff; font-size:19px; margin-top:25px; margin-bottom:10px;">REGRA DE OURO #3: NUNCA TIRA EM CASA</h3>
-        <p style="font-size:15.8px; line-height:1.9;">Se quebrar ou incomodar me chama no WhatsApp. Arrancar em casa arranca sua unha natural junto. A remoção correta comigo leva 20 minutinhos.</p>
+        <p style="font-size:15.8px; line-height:1.9;">Se quebrar ou incomodar me chama no WhatsApp. Arrancar em casa arranca sua unha natural junto. A remoção correta comigo leva 20 minutinhos e não agride.</p>
+        <h3 style="color:#fff; font-size:19px; margin-top:25px; margin-bottom:10px;">BÔNUS: O QUE MAIS EVITAR</h3>
+        <ul style="margin-left:20px; line-height:2.2; font-size:15.8px;">
+            <li><strong>Usar a unha como ferramenta:</strong> Abrir latinha, descascar etiqueta</li>
+            <li><strong>Morder ou roer:</strong> Isso enfraquece a fibra e a cola</li>
+            <li><strong>Acetona pura:</strong> Usa removedor sem acetona</li>
+        </ul>
         <p style="padding:18px; background:rgba(217, 70, 239, 0.1); border-radius:8px; margin-top:25px; font-size:15.8px;"><strong>RECADO FINAL DA PRETA:</strong><br>Cuida da sua unha como você cuida de você. Qualquer dúvida me chama 💜</p>`;
       
       } else if(title === 'Dica semanal'){
@@ -552,19 +623,20 @@
         <h3 style="color:#fff; font-size:19px; margin-top:25px; margin-bottom:10px;">POR QUE ISSO FAZ TODA DIFERENÇA?</h3>
         <ul style="margin-left:20px; line-height:2.2; font-size:15.8px;">
             <li><strong>Evita que a fibra levante:</strong> Hidrata e sela a ponta da unha</li>
-            <li><strong>Dá brilho</strong> de salão todos os dias</li>
-            <li><strong>Evita aspecto ressecado</strong> e esbranquiçado</li>
-            <li><strong>Fortalece</strong> sua unha natural por baixo</li>
-        </ul>`;
+            <li><strong>Dá brilho</strong> de salão todos os dias sem precisar de top coat</li>
+            <li><strong>Evita aspecto ressecado</strong> e esbranquiçado na cutícula</li>
+            <li><strong>Fortalece</strong> sua unha natural por baixo da fibra</li>
+        </ul>
+        <h3 style="color:#fff; font-size:19px; margin-top:25px; margin-bottom:10px;">COMO APLICAR CORRETO:</h3>
+        <p style="font-size:15.8px; line-height:1.9;">1 gotinha em cada cutícula, massageia por 10 segundos até absorver. Pode ser antes de dormir ou sempre que lavar as mãos.</p>
+        <p style="margin-top:25px; font-size:15.8px;"><strong>DESAFIO DA SEMANA:</strong><br>Tira uma foto da sua unha hoje e outra no domingo. Você vai se surpreender com a diferença!</p>`;
       }
     };
 
-    // BOTÃO VOLTAR PRA LISTA ←
     backBtn.addEventListener('click', () => {
       showList();
     });
 
-    // BOTÃO FECHAR TUDO X
     closeFull.addEventListener('click', () => {
       fullScreen.style.display = 'none';
       document.body.classList.remove('no-scroll');
