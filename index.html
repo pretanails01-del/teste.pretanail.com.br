@@ -342,6 +342,7 @@
       background: #000;
       z-index: 9999;
       overflow-y: auto;
+      overscroll-behavior: none; /* TRAVA GESTO DO NAVEGADOR */
     }
 .full-faq-content {
       position: relative;
@@ -352,7 +353,7 @@
       border-radius: 16px;
       border: 2px solid var(--rosa-brilhante);
       box-shadow: 0 0 30px rgba(255, 45, 146, 0.4), inset 0 0 20px rgba(255,45,146,0.1);
-      touch-action: none; /* IMPORTANTE: trava gesto do navegador */
+      touch-action: pan-y; /* volta a rolar pra cima e pra baixo */
       z-index: 2;
     }
 .full-faq-header {
@@ -374,41 +375,45 @@
       font-weight: 700;
     }
 
-    /* BOTÕES 3D ROSA BRILHANTE */
+    /* BOTÕES 3D ROSA BRILHANTE - MAIS NITIDOS */
     #back-to-list {
       background: linear-gradient(145deg, var(--rosa-brilhante), var(--rosa-escuro));
-      border: none;
-      color: #000;
-      font-size: 18px;
-      font-weight: 800;
+      border: 2px solid #fff;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
       cursor: pointer;
-      padding: 10px 14px;
-      border-radius: 10px;
+      padding: 8px 16px;
+      border-radius: 12px;
       transition: all 0.3s;
       flex-shrink: 0;
-      box-shadow: 0 4px 15px rgba(255, 45, 146, 0.6);
+      box-shadow: 0 0 20px rgba(255, 45, 146, 0.8), 0 4px 15px rgba(0,0,0,0.5);
+      text-shadow: 0 0 10px rgba(255,255,255,0.8);
     }
     #back-to-list:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 45, 146, 0.9);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 45, 146, 1), 0 6px 20px rgba(0,0,0,0.7);
+      background: linear-gradient(145deg, var(--rosa-claro), var(--rosa-brilhante));
     }
 .close-full {
       background: linear-gradient(145deg, var(--rosa-brilhante), var(--rosa-escuro));
-      border: none;
-      color: #000;
-      font-size: 18px;
-      font-weight: 800;
+      border: 2px solid #fff;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
       cursor: pointer;
-      padding: 10px 16px;
-      border-radius: 10px;
+      padding: 8px 18px;
+      border-radius: 12px;
       transition: all 0.3s;
       flex-shrink: 0;
       line-height: 1;
-      box-shadow: 0 4px 15px rgba(255, 45, 146, 0.6);
+      box-shadow: 0 0 20px rgba(255, 45, 146, 0.8), 0 4px 15px rgba(0,0,0,0.5);
+      text-shadow: 0 0 10px rgba(255,255,255,0.8);
     }
 .close-full:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 45, 146, 0.9);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 45, 146, 1), 0 6px 20px rgba(0,0,0,0.7);
+      background: linear-gradient(145deg, var(--rosa-claro), var(--rosa-brilhante));
     }
 
     /* LISTA DE DÚVIDAS */
@@ -458,7 +463,7 @@
         border-right: none;
       }
   .full-faq-title { font-size: 20px; }
-      #back-to-list,.close-full { font-size: 16px; padding: 8px 12px; }
+      #back-to-list,.close-full { font-size: 20px; padding: 10px 14px; }
     }
 
     body.no-scroll { overflow: hidden; }
@@ -473,9 +478,6 @@
     const backBtn = document.getElementById('back-to-list');
     const swipeArea = document.getElementById('swipe-area');
     let isInList = true;
-    let touchStartX = 0;
-    let touchEndX = 0;
-    let isTrackingSwipe = false;
 
     const autorHeader = `
       <div class="autor-header" style="display:flex; align-items:center; gap:14px; margin-bottom:25px; padding:18px; border-radius:12px;">
@@ -541,32 +543,7 @@
       document.body.classList.remove('no-scroll');
     });
 
-    // GESTO SWIPE CORRIGIDO - TRAVA O CHROME
-    swipeArea.addEventListener('touchstart', e => {
-      touchStartX = e.changedTouches[0].screenX;
-      isTrackingSwipe = true;
-    }, {passive: false});
-
-    swipeArea.addEventListener('touchmove', e => {
-      if(isTrackingSwipe) e.preventDefault(); // TRAVA o voltar do navegador
-    }, {passive: false});
-
-    swipeArea.addEventListener('touchend', e => {
-      if(!isTrackingSwipe) return;
-      touchEndX = e.changedTouches[0].screenX;
-      const diff = touchEndX - touchStartX;
-      isTrackingSwipe = false;
-
-      if (diff > 80) {
-        if (!isInList) {
-          // Dentro da dúvida: volta pra lista
-          showList();
-        } else {
-          // Na lista: só sobe pro topo. NÃO FECHA
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      }
-    }, {passive: false});
+    // SWIPE DESATIVADO COMPLETAMENTE
   </script>
 
   <!-- BLOQUEIO -->
