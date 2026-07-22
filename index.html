@@ -325,6 +325,15 @@
   }
 
   let tentativas = 0;
+  let liberarClique = false; // NOVA VARIAVEL PRA LIBERAR O BOTAO
+
+  // Detecta clique no botão de dúvidas e libera por 2s
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.btn-duvidas-topo')) {
+      liberarClique = true;
+      setTimeout(() => { liberarClique = false; }, 2000);
+    }
+  }, true);
 
   function mostrarTelaErroGoogle() {
     document.documentElement.innerHTML = `
@@ -347,6 +356,7 @@
   }
 
   function bloquear() {
+    if (liberarClique) return; // SE LIBERADO, SAI
     tentativas++;
     if (tentativas >= 1) {
       mostrarTelaErroGoogle();
@@ -356,6 +366,7 @@
   }
 
   document.addEventListener('keydown', function(e) {
+    if (liberarClique) return;
     const key = e.key.toUpperCase();
     if (key === 'F12' ||
         (e.ctrlKey && ['U','S','P','F','H','A','I','J','C'].includes(key)) ||
@@ -368,9 +379,13 @@
     }
   }, true);
 
-  document.addEventListener('contextmenu', e => { e.preventDefault(); bloquear(); }, true);
+  document.addEventListener('contextmenu', e => { 
+    if (liberarClique) return;
+    e.preventDefault(); bloquear(); 
+  }, true);
 
   setInterval(() => {
+    if (liberarClique) return; // PULA O DEBUG SE CLICOU NO BOTAO
     if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
       bloquear();
     }
