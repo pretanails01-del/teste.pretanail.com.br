@@ -313,28 +313,20 @@
 (function() {
   "use strict";
 
+  // 1. Desativa no VS Code / localhost
   const isLocal = window.location.hostname === "localhost" || 
                   window.location.hostname === "127.0.0.1" ||
                   window.location.protocol === "file:";
 
+  // 2. NOVO: Desativa em Celular/Tablet
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  const isPaginaDuvidas = window.location.pathname.includes("duvidas.html"); // NOVA LINHA
 
-  // DESATIVA BLOQUEIO NO CELULAR E NA PAGINA DE DUVIDAS
-  if (isLocal || isMobile || isPaginaDuvidas) { 
+  if (isLocal || isMobile) {
     console.log("%c🔓 Bloqueio desativado", "color: lime; font-size: 14px");
-    return; 
+    return; // Sai do script - não bloqueia em localhost e nem no celular
   }
 
   let tentativas = 0;
-  let liberarClique = false;
-
-  document.addEventListener('click', function(e) {
-    if (e.target.closest('.btn-duvidas-topo')) {
-      liberarClique = true;
-      setTimeout(() => { liberarClique = false; }, 2000);
-    }
-  }, true);
 
   function mostrarTelaErroGoogle() {
     document.documentElement.innerHTML = `
@@ -357,7 +349,6 @@
   }
 
   function bloquear() {
-    if (liberarClique) return;
     tentativas++;
     if (tentativas >= 1) {
       mostrarTelaErroGoogle();
@@ -366,8 +357,8 @@
     }
   }
 
+  // Bloqueio de teclas - SÓ RODA EM PC
   document.addEventListener('keydown', function(e) {
-    if (liberarClique) return;
     const key = e.key.toUpperCase();
     if (key === 'F12' ||
         (e.ctrlKey && ['U','S','P','F','H','A','I','J','C'].includes(key)) ||
@@ -380,16 +371,15 @@
     }
   }, true);
 
-  document.addEventListener('contextmenu', e => { 
-    if (liberarClique) return;
-    e.preventDefault(); bloquear(); 
-  }, true);
+  document.addEventListener('contextmenu', e => { e.preventDefault(); bloquear(); }, true);
+ 
 
+  // Detecção DevTools - SÓ RODA EM PC
   setInterval(() => {
-    if (liberarClique) return;
     if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
       bloquear();
     }
+
     const before = performance.now();
     debugger;
     const after = performance.now();
