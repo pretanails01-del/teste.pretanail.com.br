@@ -29,7 +29,7 @@
       top: 20px;
       right: 25px;
       z-index: 9998;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.06); /* transparente */
       border: 1px solid rgba(193,53,132,0.4);
       backdrop-filter: blur(10px);
       color: #fff;
@@ -49,11 +49,12 @@
       transform: translateY(-2px);
     }
     .btn-duvidas-topo:active {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); /* ROSA AO CLICAR */
       border-color: var(--primary);
       transform: scale(0.96);
     }
 
+    /* Todo o seu CSS original (mantido 100% igual) */
     .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; position: relative; }
     .wrap { max-width: 600px; animation: fadeIn 1s ease; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -208,8 +209,8 @@
 </head>
 <body>
 
-  <!-- BOTÃO DÚVIDAS FREQUENTES TOPO DIREITO - ABRE EM NOVA ABA -->
-  <a href="duvidas.html" target="_blank" rel="noopener noreferrer" class="btn-duvidas-topo">
+  <!-- BOTÃO DÚVIDAS FREQUENTES TOPO DIREITO - CORRIGIDO 1 CLIQUE -->
+  <a href="duvidas.html" class="btn-duvidas-topo" onclick="event.stopPropagation()">
     <i class="fas fa-circle-question"></i> Dúvidas Frequentes
   </a>
 
