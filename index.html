@@ -452,6 +452,32 @@
       box-shadow: 0 0 15px rgba(255,45,146,0.3);
     }
 
+.lista-duvidas li:hover {
+      border-left: 3px solid var(--rosa-brilhante);
+      transform: translateX(8px);
+      background: rgba(255,45,146,0.05);
+    }
+
+    /* TÍTULOS */
+    h2 { font-size: 26px!important; text-shadow: 0 0 12px rgba(255,45,146,0.6); margin-bottom: 20px; }
+    h3 { color: #fff!important; font-size: 19px; border-left: 3px solid var(--rosa-brilhante); padding-left: 12px; margin-top: 25px; }
+    strong { color: var(--rosa-brilhante); }
+
+    /* CAIXA DE RECADO VIP */
+.caixa-recado {
+      background: linear-gradient(135deg, rgba(255, 45, 146, 0.2), rgba(0,0,0,0.5));
+      border: 2px solid var(--rosa-brilhante);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 45, 146, 0.3), inset 0 0 10px rgba(255,45,146,0.1);
+    }
+
+    /* CABEÇALHO AUTORA */
+.autor-header {
+      background: linear-gradient(135deg, rgba(255, 45, 146, 0.2), rgba(0,0,0,0.7));
+      border: 2px solid var(--rosa-brilhante);
+      box-shadow: 0 0 15px rgba(255,45,146,0.3);
+    }
+
     /* RESPONSIVO */
     @media (max-width: 768px) {
   .full-faq-content {
@@ -466,7 +492,7 @@
       #back-to-list,.close-full { font-size: 20px; padding: 10px 14px; }
     }
 
-    body.no-scroll { overflow: hidden; }
+    body.no-scroll { overflow: hidden; height: 100%; } /* CORRIGIDO */
   </style>
 
   <!-- SCRIPT DA TELA INTEIRA -->
@@ -512,6 +538,7 @@
       e.preventDefault();
       fullScreen.style.display = 'block';
       document.body.classList.add('no-scroll');
+      document.body.style.overflow = 'hidden'; // CORRIGIDO
       showList();
     });
 
@@ -541,6 +568,7 @@
     closeFull.addEventListener('click', () => {
       fullScreen.style.display = 'none';
       document.body.classList.remove('no-scroll');
+      document.body.style.overflow = ''; // CORRIGIDO: DESTRAVA 100%
     });
 
     // SWIPE DESATIVADO COMPLETAMENTE
