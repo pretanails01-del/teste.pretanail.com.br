@@ -308,13 +308,13 @@
     });
   </script>
 
-<!-- ==================== BLOQUEIO INTELIGENTE V8 - DETECTA DEVTOOLS ==================== -->
+<!-- ==================== BLOQUEIO INTELIGENTE V9 - LIBERA PELO LINK ==================== -->
 <script>
 (function() {
   "use strict";
 
   // CONFIG: Sua senha pra liberar no PC
-  const SENHA_ADMIN = "72591324"; 
+  const SENHA_ADMIN = "preta2026"; 
 
   // 1. Desativa no VS Code / localhost
   const isLocal = window.location.hostname === "localhost" || 
@@ -324,7 +324,15 @@
   // 2. Desativa em Celular/Tablet
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-  // 3. Se já liberou com a senha, não bloqueia
+  // 3. NOVO: Libera se tiver ?admin=preta2026 na URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const liberouPorLink = urlParams.get('admin') === SENHA_ADMIN;
+
+  if(liberouPorLink) {
+    sessionStorage.setItem('adminLiberado', 'true');
+  }
+
+  // 4. Se já liberou com a senha ou pelo link, não bloqueia
   if (sessionStorage.getItem('adminLiberado') === 'true') {
     console.log("%c👑 Modo Admin ATIVO", "color: gold; font-size: 16px");
     return;
@@ -335,7 +343,7 @@
     return; 
   }
 
-  console.log("%c🔒 Proteção ATIVA. Para liberar digite: liberar('sua_senha') no console", "color: #E91E63; font-size: 14px");
+  console.log("%c🔒 Proteção ATIVA. Para liberar digite: liberar('sua_senha') no console ou use ?admin=sua_senha na URL", "color: #E91E63; font-size: 14px");
 
   let bloqueado = false; // Evita travar 2x
 
@@ -416,19 +424,17 @@
     mostrarAlertaSeguranca(); 
   }, true);
 
-  // 3. DETECÇÃO DE DEVTOOLS - VOLTOU A FUNCIONAR
-  // Método 1: Tamanho da janela mudou
+  // 3. DETECÇÃO DE DEVTOOLS - MANTIDO
   setInterval(() => {
     if (!bloqueado && (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160)) {
       mostrarAlertaSeguranca();
     }
   }, 500);
 
-  // Método 2: Truque do debugger
   setInterval(() => {
     if(!bloqueado) {
       const before = performance.now();
-      debugger; // Se DevTools aberto, isso pausa e demora
+      debugger;
       const after = performance.now();
       if (after - before > 100) mostrarAlertaSeguranca();
     }
