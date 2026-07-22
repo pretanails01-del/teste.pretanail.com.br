@@ -308,87 +308,133 @@
     });
   </script>
 
-<!-- ==================== BLOQUEIO INTELIGENTE (PC SIM, CELULAR NÃO) ==================== -->
+<!-- ==================== BLOQUEIO INTELIGENTE V8 - DETECTA DEVTOOLS ==================== -->
 <script>
 (function() {
   "use strict";
+
+  // CONFIG: Sua senha pra liberar no PC
+  const SENHA_ADMIN = "72591324"; 
 
   // 1. Desativa no VS Code / localhost
   const isLocal = window.location.hostname === "localhost" || 
                   window.location.hostname === "127.0.0.1" ||
                   window.location.protocol === "file:";
 
-  // 2. NOVO: Desativa em Celular/Tablet
+  // 2. Desativa em Celular/Tablet
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-  if (isLocal || isMobile) {
-    console.log("%c🔓 Bloqueio desativado", "color: lime; font-size: 14px");
-    return; // Sai do script - não bloqueia em localhost e nem no celular
+  // 3. Se já liberou com a senha, não bloqueia
+  if (sessionStorage.getItem('adminLiberado') === 'true') {
+    console.log("%c👑 Modo Admin ATIVO", "color: gold; font-size: 16px");
+    return;
   }
 
-  let tentativas = 0;
+  if (isLocal || isMobile) {
+    console.log("%c🔓 Bloqueio desativado: Localhost ou Mobile", "color: lime; font-size: 14px");
+    return; 
+  }
 
-  function mostrarTelaErroGoogle() {
+  console.log("%c🔒 Proteção ATIVA. Para liberar digite: liberar('sua_senha') no console", "color: #E91E63; font-size: 14px");
+
+  let bloqueado = false; // Evita travar 2x
+
+  function mostrarAlertaSeguranca() {
+    if(bloqueado) return;
+    bloqueado = true;
     document.documentElement.innerHTML = `
-      <body style="margin:0;padding:0;background:#fff;font-family:'Google Sans',Arial,sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;">
-        <div style="max-width:620px;text-align:center;padding:40px;">
-          <h1 style="font-size:52px;margin-bottom:8px;color:#d93025;">⚠️</h1>
-          <h2 style="font-size:28px;margin-bottom:20px;">Sua conexão com pretanails é segura🔒</h2>
-          <p style="font-size:18px;line-height:1.6;color:#5f6368;">
-            ⚠️ O Google detectou uma ação de desenvolvedor e por motivos de segurança para os clientes da pretanails, bloqueou o acesso.<br>
-            <strong>NET::ERR_CERT_AUTHORITY_INVALID</strong>
+      <body style="margin:0;padding:0;background:#F8F9FA;font-family:'Google Sans', Roboto, Arial, sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;">
+        <div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+          <div style="display:flex;align-items:center;margin-bottom:25px;">
+            <div style="font-size:40px;margin-right:15px;">🛡️</div>
+            <div>
+              <h2 style="font-size:24px;margin:0;color:#E91E63;">Preta Nails - Navegação Segura</h2>
+              <p style="font-size:13px;margin:2px 0 0 0;color:#5F6368;">Sistema de Proteção da Loja</p>
+            </div>
+          </div>
+          
+          <h3 style="font-size:18px;margin-bottom:12px;color:#202124;">Acesso ao código-fonte bloqueado</h3>
+          <p style="font-size:15px;line-height:1.6;color:#3C4043;margin-bottom:20px;">
+            Por motivos de segurança para proteger nossos produtos, preços e dados dos clientes da <strong>Preta Nails</strong>, 
+            o acesso avançado foi bloqueado neste dispositivo.
           </p>
-          <p style="margin-top:25px;font-size:15px;color:#8a8d92;">
-            Tentativas de burlar a proteção foram detectadas.
+          <p style="font-size:14px;line-height:1.6;color:#5F6368;margin-bottom:25px;">
+            <strong>O que você pode fazer:</strong><br>
+            - Continue suas compras normalmente pelo <strong>celular</strong> 💅<br>
+            - Use <strong>Ctrl+C</strong> para copiar textos, PIX e informações
           </p>
-          <button onclick="window.location.reload()" style="margin-top:35px;padding:14px 32px;font-size:16px;background:#1a73e8;color:#fff;border:none;border-radius:4px;cursor:pointer;">
-            Tentar Novamente
+
+          <div style="background:#FCE8E6;border-left:4px solid #E91E63;padding:12px 16px;border-radius:4px;margin-bottom:25px;">
+            <p style="margin:0;font-size:13px;color:#C5221F;">
+              <strong>Código:</strong> PNS_PROTECTION_ACTIVE
+            </p>
+          </div>
+
+          <button onclick="window.location.reload()" style="padding:12px 24px;font-size:14px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;font-weight:500;">
+            Entendi e Voltar para Loja
           </button>
+          <p style="font-size:12px;color:#80868B;margin-top:15px;">
+            Preta Nails Shop • Segurança e Confiança para você
+          </p>
         </div>
       </body>`;
   }
 
-  function bloquear() {
-    tentativas++;
-    if (tentativas >= 1) {
-      mostrarTelaErroGoogle();
+  // FUNÇÃO SECRETA PRA VOCÊ LIBERAR
+  window.liberar = function(senha) {
+    if(senha === SENHA_ADMIN) {
+      sessionStorage.setItem('adminLiberado', 'true');
+      alert('✅ Modo Admin liberado! Recarregue a página.');
+      location.reload();
     } else {
-      window.location.reload(true);
+      alert('❌ Senha incorreta');
     }
   }
 
-  // Bloqueio de teclas - SÓ RODA EM PC
+  // 1. BLOQUEIO DE TECLAS - MANTIDO
   document.addEventListener('keydown', function(e) {
     const key = e.key.toUpperCase();
+    
+    // LIBERA: Ctrl+C
+    if (e.ctrlKey && key === 'C') {
+      return true; 
+    }
+
+    // BLOQUEIA: F12, Ctrl+U, etc
     if (key === 'F12' ||
-        (e.ctrlKey && ['U','S','P','F','H','A','I','J','C'].includes(key)) ||
-        (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','F'].includes(key)) ||
-        (e.metaKey && ['U','I','J','C'].includes(key))) {
+        (e.ctrlKey && ['U','S','P','F','H','A','I','J'].includes(key)) ||
+        (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','F'].includes(key))) {
       e.preventDefault();
-      e.stopImmediatePropagation();
-      bloquear();
+      mostrarAlertaSeguranca();
       return false;
     }
   }, true);
 
-  document.addEventListener('contextmenu', e => { e.preventDefault(); bloquear(); }, true);
- 
+  // 2. BLOQUEIA BOTÃO DIREITO - MANTIDO
+  document.addEventListener('contextmenu', e => { 
+    e.preventDefault(); 
+    mostrarAlertaSeguranca(); 
+  }, true);
 
-  // Detecção DevTools - SÓ RODA EM PC
+  // 3. DETECÇÃO DE DEVTOOLS - VOLTOU A FUNCIONAR
+  // Método 1: Tamanho da janela mudou
   setInterval(() => {
-    if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
-      bloquear();
+    if (!bloqueado && (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160)) {
+      mostrarAlertaSeguranca();
     }
+  }, 500);
 
-    const before = performance.now();
-    debugger;
-    const after = performance.now();
-    if (after - before > 25) bloquear();
-  }, 250);
+  // Método 2: Truque do debugger
+  setInterval(() => {
+    if(!bloqueado) {
+      const before = performance.now();
+      debugger; // Se DevTools aberto, isso pausa e demora
+      const after = performance.now();
+      if (after - before > 100) mostrarAlertaSeguranca();
+    }
+  }, 1000);
 
-  setInterval(() => console.clear(), 400);
 })();
 </script>
-
 </body>
 </html>
