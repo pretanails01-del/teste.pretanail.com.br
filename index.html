@@ -318,16 +318,17 @@
                   window.location.protocol === "file:";
 
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isPaginaDuvidas = window.location.pathname.includes("duvidas.html"); // NOVA LINHA
 
-  if (isLocal || isMobile) {
+  // DESATIVA BLOQUEIO NO CELULAR E NA PAGINA DE DUVIDAS
+  if (isLocal || isMobile || isPaginaDuvidas) { 
     console.log("%c🔓 Bloqueio desativado", "color: lime; font-size: 14px");
     return; 
   }
 
   let tentativas = 0;
-  let liberarClique = false; // NOVA VARIAVEL PRA LIBERAR O BOTAO
+  let liberarClique = false;
 
-  // Detecta clique no botão de dúvidas e libera por 2s
   document.addEventListener('click', function(e) {
     if (e.target.closest('.btn-duvidas-topo')) {
       liberarClique = true;
@@ -356,7 +357,7 @@
   }
 
   function bloquear() {
-    if (liberarClique) return; // SE LIBERADO, SAI
+    if (liberarClique) return;
     tentativas++;
     if (tentativas >= 1) {
       mostrarTelaErroGoogle();
@@ -385,7 +386,7 @@
   }, true);
 
   setInterval(() => {
-    if (liberarClique) return; // PULA O DEBUG SE CLICOU NO BOTAO
+    if (liberarClique) return;
     if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
       bloquear();
     }
