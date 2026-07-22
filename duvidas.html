@@ -1,1 +1,233 @@
-.
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dúvidas Frequentes | Preta Nails</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #C13584;
+      --primary-dark: #a02c6e;
+      --bg: #0a0a0a;
+      --bg-light: #111;
+      --text: #ffffff;
+      --text-muted: #b0b0b0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+
+    .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; }
+    .voltar {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 14px;
+      transition: 0.3s;
+    }
+    .voltar:hover { color: var(--primary); gap: 12px; }
+
+    .hero-duvidas { text-align: center; margin-bottom: 60px; }
+    .hero-duvidas h1 { 
+      font-family: 'Playfair Display', serif; 
+      font-size: clamp(36px, 6vw, 56px); 
+      line-height: 1.1;
+    }
+    .hero-duvidas h1 span { color: var(--primary); }
+    .hero-duvidas p { color: var(--text-muted); margin-top: 15px; font-size: 16px; }
+
+    /* SEÇÃO DA CRIADORA */
+    .fundadora {
+      display: flex; gap: 30px; align-items: center;
+      background: linear-gradient(135deg, rgba(193,53,132,0.1) 0%, rgba(160,44,110,0.05) 100%);
+      border: 1px solid rgba(193,53,132,0.2);
+      border-radius: 25px;
+      padding: 40px;
+      margin-bottom: 70px;
+      backdrop-filter: blur(20px);
+    }
+    .fundadora img {
+      width: 140px; height: 140px; border-radius: 50%;
+      border: 3px solid var(--primary);
+      box-shadow: 0 0 30px rgba(193,53,132,0.4);
+      object-fit: cover; flex-shrink: 0;
+    }
+    .fundadora h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--primary); margin-bottom: 8px; }
+    .fundadora .cargo { font-size: 12px; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 15px; font-weight: 700; }
+    .fundadora p { font-size: 15px; line-height: 1.8; color: var(--text-muted); }
+
+    /* FAQ ACORDEÃO */
+    .faq-titulo { text-align: center; font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 40px; }
+    .faq { max-width: 750px; margin: 0 auto; }
+    
+    .faq-item {
+      background: var(--bg-light);
+      border: 1px solid rgba(193,53,132,0.2);
+      border-radius: 15px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+    .faq-item:hover { border-color: var(--primary); }
+
+    .faq-pergunta {
+      width: 100%;
+      background: none; border: none;
+      color: #fff; font-size: 16px; font-weight: 700;
+      padding: 22px 25px;
+      text-align: left;
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer;
+    }
+    .faq-pergunta i { transition: 0.3s; color: var(--primary); }
+    
+    .faq-resposta {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .faq-resposta-conteudo { padding: 0 25px 25px 25px; color: var(--text-muted); line-height: 1.8; font-size: 15px; }
+    .faq-item.ativo .faq-resposta { max-height: 500px; }
+    .faq-item.ativo .faq-pergunta i { transform: rotate(180deg); }
+
+    .cta-final { text-align: center; margin-top: 60px; }
+    .btn-whats {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff; padding: 18px 35px; border-radius: 50px;
+      text-decoration: none; font-weight: 800; font-size: 16px;
+      box-shadow: 0 10px 30px rgba(193,53,132,0.4);
+      transition: 0.3s;
+    }
+    .btn-whats:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
+
+    @media (max-width: 768px) {
+      .container { padding: 40px 16px; }
+      .fundadora { flex-direction: column; text-align: center; padding: 30px 20px; }
+      .faq-pergunta { font-size: 15px; padding: 18px 20px; }
+      .faq-resposta-conteudo { padding: 0 20px 20px 20px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <div class="header-top">
+      <a href="index.html" class="voltar">
+        <i class="fas fa-arrow-left"></i> Voltar para o site
+      </a>
+    </div>
+
+    <div class="hero-duvidas">
+      <h1>Dúvidas <span>Frequentes</span></h1>
+      <p>Aqui você encontra todas as respostas para ficar tranquila antes do seu atendimento ♡</p>
+    </div>
+
+    <!-- SEÇÃO FUNDADORA -->
+    <div class="fundadora">
+      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos - Preta Nails">
+      <div>
+        <h3>Sabrina Lemos</h3>
+        <div class="cargo">FUNDADORA & ESPECIALISTA PRETA NAILS</div>
+        <p>Minha missão é elevar sua autoestima através de unhas impecáveis. Cada atendimento é feito com técnica, carinho e atenção aos mínimos detalhes, para que você se sinta acolhida e saia daqui se sentindo a sua melhor versão.</p>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <h2 class="faq-titulo">Perguntas Frequentes</h2>
+    <div class="faq">
+
+      <div class="faq-item">
+        <button class="faq-pergunta">
+          Quanto tempo dura o alongamento?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-conteudo">
+            O alongamento tem duração média de 20 a 30 dias. Recomendo a manutenção a cada 15 dias para manter o formato perfeito e evitar descolamentos. A durabilidade depende também dos seus cuidados diários.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pergunta">
+          Qual o valor e as formas de pagamento?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-conteudo">
+            Os valores variam de acordo com a técnica escolhida: Fibra de Vidro, Gel ou Acrigel. Aceito Pix, Cartão de Débito e Crédito. Temos também a condição especial para as 20 primeiras clientes VIP. Chame no WhatsApp para receber a tabela completa.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pergunta">
+          Posso fazer alongamento com unhas fracas ou roídas?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-conteudo">
+            Pode sim! O alongamento é a melhor solução para quem rói as unhas. Ele cria uma barreira de proteção e te ajuda a parar com o hábito. Em 2 meses você já terá unhas naturais fortes e saudáveis por baixo.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pergunta">
+          Como funciona o agendamento e o tempo do procedimento?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-conteudo">
+            O agendamento é feito 100% pelo WhatsApp. O procedimento da primeira aplicação leva em média 2h30. Manutenções levam cerca de 1h30. Trabalho com horário marcado para te atender com exclusividade e sem atrasos.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pergunta">
+          O alongamento estraga a unha natural?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-conteudo">
+            Não, de forma alguma. O que estraga é a remoção incorreta. Aqui eu faço a remoção profissional e segura, sem lixar sua unha natural. Usamos apenas produtos de alta qualidade e esterilização total dos materiais.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cta-final">
+      <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vi%20as%20d%C3%BAvidas%20no%20site%20e%20quero%20agendar%20%F0%9F%92%97" target="_blank" class="btn-whats">
+        <i class="fab fa-whatsapp"></i> Não encontrou sua dúvida? Fale comigo
+      </a>
+    </div>
+
+  </div>
+
+<script>
+  // Script do Acordeão
+  const faqItens = document.querySelectorAll('.faq-item');
+  faqItens.forEach(item => {
+    const pergunta = item.querySelector('.faq-pergunta');
+    pergunta.addEventListener('click', () => {
+      const aberto = document.querySelector('.faq-item.ativo');
+      if(aberto && aberto !== item) {
+        aberto.classList.remove('ativo');
+      }
+      item.classList.toggle('ativo');
+    });
+  });
+</script>
+
+</body>
+</html>
