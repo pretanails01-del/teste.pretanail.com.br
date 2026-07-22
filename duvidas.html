@@ -37,13 +37,13 @@
     #back-to-list {
       background: none; border: 1px solid var(--rosa-brilhante); color: var(--rosa-brilhante);
       padding: 10px 18px; border-radius: 50px; font-weight: 700; cursor: pointer;
-      transition: 0.3s; font-size: 14px;
+      transition: 0.3s; font-size: 15px;
     }
     #back-to-list:hover {
       background: var(--rosa-brilhante); color: #fff; transform: scale(1.05);
     }
     .full-faq-title {
-      font-family: 'Playfair Display', serif; font-size: 28px;
+      font-family: 'Playfair Display', serif; font-size: 32px;
       text-shadow: 0 0 15px rgba(255,45,146,0.5);
     }
 
@@ -53,7 +53,7 @@
       background: rgba(255,255,255,0.03); border-radius: 12px;
       border-left: 3px solid transparent;
       transition: all 0.3s ease;
-      font-size: 15.8px; line-height: 1.6;
+      font-size: 17.5px; line-height: 1.7;
     }
     .lista-duvidas li:hover {
       border-left: 3px solid var(--rosa-brilhante);
@@ -63,11 +63,11 @@
     }
 
     /* TÍTULOS */
-    h2 { font-size: 26px!important; text-shadow: 0 0 12px rgba(255,45,146,0.6); margin-bottom: 20px; font-family: 'Playfair Display', serif; }
-    h3 { color: #fff!important; font-size: 19px; border-left: 3px solid var(--rosa-brilhante); padding-left: 12px; margin-top: 25px; margin-bottom: 12px; }
+    h2 { font-size: 30px!important; text-shadow: 0 0 12px rgba(255,45,146,0.6); margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+    h3 { color: #fff!important; font-size: 21px; border-left: 3px solid var(--rosa-brilhante); padding-left: 12px; margin-top: 25px; margin-bottom: 12px; }
     strong { color: var(--rosa-brilhante); }
-    p { line-height: 1.9; margin-bottom: 15px; font-size: 15.5px; color: #ddd; }
-    ul { margin-left: 20px; line-height: 2.2; }
+    p { line-height: 1.9; margin-bottom: 15px; font-size: 17px; color: #ddd; }
+    ul { margin-left: 20px; line-height: 2.2; font-size: 17px; }
 
     /* CAIXA DE RECADO VIP */
     .caixa-recado {
@@ -75,7 +75,7 @@
       border: 2px solid var(--rosa-brilhante);
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(255, 45, 146, 0.3), inset 0 0 10px rgba(255,45,146,0.1);
-      padding: 20px; margin-top: 25px;
+      padding: 20px; margin-top: 25px; font-size: 17px;
     }
 
     /* CABEÇALHO AUTORA */
@@ -89,13 +89,15 @@
       width:55px; height:55px; border-radius:50%; border:3px solid #ff2d92; object-fit:cover;
       box-shadow:0 0 15px rgba(255,45,146,0.6);
     }
+    .autor-header div p { font-size: 14px; }
+    .autor-header div p:nth-child(2) { font-size: 19px; font-weight:800; }
 
     /* BOTÃO FORMULÁRIO */
     .btn-form-full {
       display: inline-flex; align-items: center; gap: 10px;
       background: linear-gradient(135deg, var(--rosa-brilhante) 0%, var(--rosa-escuro) 100%);
       color: #fff; padding: 18px 35px; border-radius: 50px;
-      text-decoration: none; font-weight: 800; font-size: 16px;
+      text-decoration: none; font-weight: 800; font-size: 17.5px;
       box-shadow: 0 10px 30px rgba(255,45,146,0.5);
       margin-top: 30px;
       animation: pulse-rosa 2s infinite;
@@ -109,8 +111,8 @@
     /* RESPONSIVO */
     @media (max-width: 768px) {
       .full-faq-content { margin: 0; padding: 20px 15px; border-radius: 0; min-height: 100vh; border-left: none; border-right: none; }
-      .full-faq-title { font-size: 22px; }
-      #back-to-list { font-size: 13px; padding: 9px 14px; }
+      .full-faq-title { font-size: 26px; }
+      #back-to-list { font-size: 14px; padding: 9px 14px; }
     }
   </style>
 </head>
@@ -138,9 +140,9 @@
       <div class="autor-header">
         <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos">
         <div>
-          <p style="margin:0; font-size:12px; color:#aaa;">Conteúdo e atendimento por</p>
-          <p style="margin:2px 0 0 0; font-size:17px; font-weight:800;">Sabrina Lemos</p>
-          <p style="margin:0; font-size:12px; color:#aaa;">Fundadora • Preta Nails</p>
+          <p style="margin:0; color:#aaa;">Conteúdo e atendimento por</p>
+          <p style="margin:2px 0 0 0;">Sabrina Lemos</p>
+          <p style="margin:0; color:#aaa;">Fundadora • Preta Nails</p>
         </div>
       </div>
     `;
@@ -151,7 +153,7 @@
       fullTitle.textContent = "Dúvidas Frequentes";
       fullContent.innerHTML = `
         ${autorHeader}
-        <p style="margin-bottom:25px; font-size:16px; color:#fff;">Escolha uma dúvida e eu te explico tudinho com todo carinho:</p>
+        <p style="margin-bottom:25px; font-size:17.5px; color:#fff;">Escolha uma dúvida e eu te explico tudinho com todo carinho:</p>
         <ul class="lista-duvidas" style="list-style:none;">
           <li onclick="loadFaq('Higienização')">• 1. Como funciona a higienização e esterilização?</li>
           <li onclick="loadFaq('Sou gestante')">• 2. Sou gestante, posso fazer alongamento?</li>
@@ -190,57 +192,39 @@
         fullContent.innerHTML = `${autorHeader}<h2>CUIDADOS COMPLETOS COM A UNHA APÓS O ALONGAMENTO</h2><p><strong>Oi, linda 💅 Aqui é a Sabrina.</strong></p><p>Preparei um guia completo pra suas unhas durarem de 20 a 25 dias perfeitas e intactas.</p><h3>REGRA DE OURO #1: ÁGUA QUENTE É INIMIGA</h3><p>Nos primeiros 2 dias evita água muito quente e produtos de limpeza sem luva. Dica da Preta: usa luva pra lavar louça.</p><h3>REGRA DE OURO #2: HIDRATAÇÃO TODO DIA</h3><p>Passa óleo de cutícula antes de dormir. Só 10 segundos em cada mão. Isso evita que levante e dá brilho de salão todo dia.</p><h3>REGRA DE OURO #3: NUNCA TIRA EM CASA</h3><p>Se quebrar me chama no WhatsApp. Arrancar em casa arranca sua unha natural junto. A remoção correta comigo leva 20 minutinhos.</p><div class="caixa-recado"><strong>RECADO FINAL:</strong><br>Cuida da sua unha como você cuida de você. Fez isso? Vai durar 20-25 dias lindas. Qualquer dúvida me chama 💖</div>`;
       }
       else if(title === 'Dica semanal'){
-        fullContent.innerHTML = `${autorHeader}<h2>DICA SEMANAL DA PRETANAILS - #1: SEGREDO DA DURABILIDADE</h2><p><strong>Oi, linda! Aqui é a Sabrina 💅</strong></p><p>Toda semana eu vou te deixar 1 dica aqui pra sua unha durar mais e ficar mais linda. Salva esse post!</p><h3>DICA #1: O PODER DO ÓLEO DE CUTÍCULA</h3><div class="caixa-recado" style="text-align:center; font-size:18px;"><strong>Passa óleo de cutícula todo dia antes de dormir.</strong></div><h3>POR QUE ISSO FAZ TODA DIFERENÇA?</h3><ul><li><strong>Evita que a fibra levante:</strong> Hidrata e sela a ponta</li><li><strong>Dá brilho</strong> de salão todos os dias</li><li><strong>Fortalece</strong> sua unha natural por baixo</li></ul><h3>COMO APLICAR:</h3><p>1 gotinha em cada cutícula, massageia por 10 segundos. Pode usar o óleo da Preta Nails ou qualquer um de farmácia.</p>`;
+        fullContent.innerHTML = `${autorHeader}<h2>DICA SEMANAL DA PRETANAILS - #1: SEGREDO DA DURABILIDADE</h2><p><strong>Oi, linda! Aqui é a Sabrina 💅</strong></p><p>Toda semana eu vou te deixar 1 dica aqui pra sua unha durar mais e ficar mais linda. Salva esse post!</p><h3>DICA #1: O PODER DO ÓLEO DE CUTÍCULA</h3><div class="caixa-recado" style="text-align:center;"><strong>Passa óleo de cutícula todo dia antes de dormir.</strong></div><h3>POR QUE ISSO FAZ TODA DIFERENÇA?</h3><ul><li><strong>Evita que a fibra levante:</strong> Hidrata e sela a ponta</li><li><strong>Dá brilho</strong> de salão todos os dias</li><li><strong>Fortalece</strong> sua unha natural por baixo</li></ul><h3>COMO APLICAR:</h3><p>1 gotinha em cada cutícula, massageia por 10 segundos. Pode usar o óleo da Preta Nails ou qualquer um de farmácia.</p>`;
       }
     };
 
     backBtn.addEventListener('click', () => showList());
-    
-    // Abre a lista direto ao carregar
     showList();
   </script>
 
-<!-- ==================== BLOQUEIO INTELIGENTE V10 - LIBERA DÚVIDAS ==================== -->
+<!-- ==================== BLOQUEIO INTELIGENTE V12 - SÓ ATIVA NO COMANDO ==================== -->
 <script>
 (function() {
   "use strict";
 
-  // CONFIG: Sua senha pra liberar no PC
   const SENHA_ADMIN = "preta2026"; 
 
-  // 1. LIBERA PÁGINAS ESPECÍFICAS - NOVO
-  const paginaAtual = window.location.pathname.toLowerCase();
-  const paginasLiberadas = ['/duvidas.html', '/duvidas', '/faq.html', '/faq'];
-  const isPaginaLiberada = paginasLiberadas.some(p => paginaAtual.includes(p));
-
-  // 2. Desativa no VS Code / localhost
+  // 1. Libera Localhost e Celular pra você mexer
   const isLocal = window.location.hostname === "localhost" || 
                   window.location.hostname === "127.0.0.1" ||
                   window.location.protocol === "file:";
-
-  // 3. Desativa em Celular/Tablet
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-  // 4. Libera se tiver ?admin=preta2026 na URL
+  // 2. Libera se tiver ?admin=preta2026 na URL
   const urlParams = new URLSearchParams(window.location.search);
   const liberouPorLink = urlParams.get('admin') === SENHA_ADMIN;
+  if(liberouPorLink) sessionStorage.setItem('adminLiberado', 'true');
 
-  if(liberouPorLink) {
-    sessionStorage.setItem('adminLiberado', 'true');
-  }
-
-  // 5. Se já liberou OU é página liberada, não bloqueia
-  if (sessionStorage.getItem('adminLiberado') === 'true' || isPaginaLiberada) {
-    console.log("%c👑 Modo Admin/Liberado ATIVO", "color: gold; font-size: 16px");
+  // 3. Se já liberou, local ou mobile não bloqueia
+  if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile) {
+    console.log("%c👑 Modo Livre ATIVO", "color: gold; font-size: 16px");
     return;
   }
 
-  if (isLocal || isMobile) {
-    console.log("%c🔓 Bloqueio desativado: Localhost ou Mobile", "color: lime; font-size: 14px");
-    return; 
-  }
-
-  console.log("%c🔒 Proteção ATIVA", "color: #E91E63; font-size: 14px");
+  console.log("%c🔒 Proteção ATIVA. Só bloqueia se usar F12, Ctrl+U, Botão Direito", "color: #E91E63; font-size: 14px");
 
   let bloqueado = false;
 
@@ -257,11 +241,18 @@
               <p style="font-size:13px;margin:2px 0 0 0;color:#5F6368;">Sistema de Proteção da Loja</p>
             </div>
           </div>
-          <h3 style="font-size:18px;margin-bottom:12px;color:#202124;">Acesso ao código-fonte bloqueado</h3>
+          
+          <h3 style="font-size:18px;margin-bottom:12px;color:#202124;">Acesso avançado detectado</h3>
           <p style="font-size:15px;line-height:1.6;color:#3C4043;margin-bottom:20px;">
-            Por motivos de segurança para proteger nossos produtos, preços e dados dos clientes da <strong>Preta Nails</strong>, 
-            o acesso avançado foi bloqueado neste dispositivo.
+            Por segurança, detectamos uma tentativa de acesso ao código-fonte da <strong>Preta Nails</strong>. 
+            Para proteger nossos produtos e dados, o acesso foi bloqueado.
           </p>
+          <p style="font-size:14px;line-height:1.6;color:#5F6368;margin-bottom:25px;">
+            <strong>Você pode continuar:</strong><br>
+            - Navegando e comprando normalmente pelo <strong>celular</strong> 💅<br>
+            - Usando <strong>Ctrl+C</strong> para copiar PIX e informações
+          </p>
+
           <button onclick="window.location.reload()" style="padding:12px 24px;font-size:14px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;font-weight:500;">
             Entendi e Voltar para Loja
           </button>
@@ -280,11 +271,14 @@
     }
   }
 
-  // 1. BLOQUEIO DE TECLAS
+  // 1. BLOQUEIO DE TECLAS - SÓ ATIVA AQUI
   document.addEventListener('keydown', function(e) {
     const key = e.key.toUpperCase();
-    if (e.ctrlKey && key === 'C') return true; // LIBERA Ctrl+C
     
+    // LIBERA: Ctrl+C sempre
+    if (e.ctrlKey && key === 'C') return true; 
+
+    // BLOQUEIA SÓ SE USAR ESSES COMANDOS
     if (key === 'F12' ||
         (e.ctrlKey && ['U','S','P','F','H','A','I','J'].includes(key)) ||
         (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','F'].includes(key))) {
@@ -294,27 +288,11 @@
     }
   }, true);
 
-  // 2. BLOQUEIA BOTÃO DIREITO
+  // 2. BLOQUEIA BOTÃO DIREITO - SÓ ATIVA AQUI
   document.addEventListener('contextmenu', e => { 
     e.preventDefault(); 
     mostrarAlertaSeguranca(); 
   }, true);
-
-  // 3. DETECÇÃO DE DEVTOOLS
-  setInterval(() => {
-    if (!bloqueado && (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160)) {
-      mostrarAlertaSeguranca();
-    }
-  }, 500);
-
-  setInterval(() => {
-    if(!bloqueado) {
-      const before = performance.now();
-      debugger;
-      const after = performance.now();
-      if (after - before > 100) mostrarAlertaSeguranca();
-    }
-  }, 1000);
 
 })();
 </script>
