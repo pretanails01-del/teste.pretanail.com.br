@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -23,7 +22,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
 
-    .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+    .container { max-width: 950px; margin: 0 auto; padding: 60px 20px; }
 
     .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; }
     .voltar {
@@ -38,33 +37,53 @@
       font-family: 'Playfair Display', serif; 
       font-size: clamp(36px, 6vw, 56px); 
       line-height: 1.1;
+      text-shadow: 0 0 30px rgba(193,53,132,0.3);
     }
     .hero-duvidas h1 span { color: var(--primary); }
     .hero-duvidas p { color: var(--text-muted); margin-top: 15px; font-size: 16px; }
 
-    /* SEÇÃO DA CRIADORA */
+    /* SEÇÃO DA CRIADORA 3D */
     .fundadora {
       display: flex; gap: 30px; align-items: center;
-      background: linear-gradient(135deg, rgba(193,53,132,0.1) 0%, rgba(160,44,110,0.05) 100%);
-      border: 1px solid rgba(193,53,132,0.2);
+      background: linear-gradient(135deg, rgba(193,53,132,0.12) 0%, rgba(160,44,110,0.06) 100%);
+      border: 1px solid rgba(193,53,132,0.25);
       border-radius: 25px;
       padding: 40px;
       margin-bottom: 70px;
       backdrop-filter: blur(20px);
+      box-shadow: 0 20px 50px rgba(193,53,132,0.15);
+      transform: perspective(1000px) rotateX(2deg);
+      transition: 0.4s;
     }
+    .fundadora:hover { transform: perspective(1000px) rotateX(0deg); box-shadow: 0 25px 60px rgba(193,53,132,0.25); }
     .fundadora img {
-      width: 140px; height: 140px; border-radius: 50%;
+      width: 150px; height: 150px; border-radius: 50%;
       border: 3px solid var(--primary);
-      box-shadow: 0 0 30px rgba(193,53,132,0.4);
+      box-shadow: 0 0 40px rgba(193,53,132,0.5);
       object-fit: cover; flex-shrink: 0;
     }
-    .fundadora h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--primary); margin-bottom: 8px; }
+    .fundadora h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--primary); margin-bottom: 8px; }
     .fundadora .cargo { font-size: 12px; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 15px; font-weight: 700; }
     .fundadora p { font-size: 15px; line-height: 1.8; color: var(--text-muted); }
 
+    /* CARDS DE CONFIANÇA */
+    .blocos-confianca { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 70px; }
+    .card-confianca {
+      background: var(--bg-light);
+      border: 1px solid rgba(193,53,132,0.2);
+      border-radius: 18px;
+      padding: 25px;
+      transition: 0.3s;
+    }
+    .card-confianca:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 15px 40px rgba(193,53,132,0.2); }
+    .card-confianca i { font-size: 28px; color: var(--primary); margin-bottom: 15px; }
+    .card-confianca h4 { font-size: 17px; margin-bottom: 10px; }
+    .card-confianca p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
     /* FAQ ACORDEÃO */
-    .faq-titulo { text-align: center; font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 40px; }
-    .faq { max-width: 750px; margin: 0 auto; }
+    .faq-titulo { text-align: center; font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 15px; }
+    .faq-sub { text-align: center; color: var(--text-muted); margin-bottom: 40px; }
+    .faq { max-width: 800px; margin: 0 auto 60px; }
     
     .faq-item {
       background: var(--bg-light);
@@ -87,29 +106,57 @@
     }
     .faq-pergunta i { transition: 0.3s; color: var(--primary); }
     
-    .faq-resposta {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-    }
-    .faq-resposta-conteudo { padding: 0 25px 25px 25px; color: var(--text-muted); line-height: 1.8; font-size: 15px; }
-    .faq-item.ativo .faq-resposta { max-height: 500px; }
+    .faq-resposta { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+    .faq-resposta-conteudo { padding: 0 25px 25px 25px; color: var(--text-muted); line-height: 1.9; font-size: 15px; }
+    .faq-resposta-conteudo strong { color: var(--primary); }
+    .faq-item.ativo .faq-resposta { max-height: 900px; }
     .faq-item.ativo .faq-pergunta i { transform: rotate(180deg); }
 
-    .cta-final { text-align: center; margin-top: 60px; }
-    .btn-whats {
+    /* DICAS PRETANAILS */
+    .dicas { 
+      background: linear-gradient(135deg, rgba(193,53,132,0.1) 0%, rgba(160,44,110,0.05) 100%);
+      border: 1px solid rgba(193,53,132,0.2);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 60px;
+    }
+    .dicas h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--primary); text-align: center; margin-bottom: 25px; }
+    .dicas ul { list-style: none; }
+    .dicas li { padding: 12px 0; border-bottom: 1px dashed rgba(193,53,132,0.2); display: flex; gap: 12px; }
+    .dicas li:last-child { border: none; }
+    .dicas li i { color: var(--primary); margin-top: 3px; }
+
+    /* CTA FINAL */
+    .cta-final { 
+      text-align: center; 
+      background: linear-gradient(135deg, rgba(193,53,132,0.18) 0%, rgba(160,44,110,0.1) 100%);
+      border: 2px solid var(--primary);
+      border-radius: 25px;
+      padding: 50px 30px;
+      box-shadow: 0 20px 50px rgba(193,53,132,0.3);
+    }
+    .cta-final h3 { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 15px; }
+    .cta-final p { color: var(--text-muted); margin-bottom: 30px; font-size: 16px; }
+    .btn-form {
       display: inline-flex; align-items: center; gap: 10px;
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: #fff; padding: 18px 35px; border-radius: 50px;
-      text-decoration: none; font-weight: 800; font-size: 16px;
-      box-shadow: 0 10px 30px rgba(193,53,132,0.4);
+      color: #fff; padding: 20px 40px; border-radius: 50px;
+      text-decoration: none; font-weight: 800; font-size: 17px;
+      box-shadow: 0 10px 30px rgba(193,53,132,0.5);
       transition: 0.3s;
+      animation: pulse-rosa 2s infinite;
     }
-    .btn-whats:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
+    .btn-form:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 40px rgba(193,53,132,0.7); }
+    @keyframes pulse-rosa {
+      0% { box-shadow: 0 0 0 0 rgba(193,53,132,0.5); }
+      70% { box-shadow: 0 0 0 15px rgba(193,53,132,0); }
+      100% { box-shadow: 0 0 0 0 rgba(193,53,132,0); }
+    }
 
     @media (max-width: 768px) {
       .container { padding: 40px 16px; }
       .fundadora { flex-direction: column; text-align: center; padding: 30px 20px; }
+      .dicas { padding: 25px 20px; }
       .faq-pergunta { font-size: 15px; padding: 18px 20px; }
       .faq-resposta-conteudo { padding: 0 20px 20px 20px; font-size: 14px; }
     }
@@ -127,7 +174,7 @@
 
     <div class="hero-duvidas">
       <h1>Dúvidas <span>Frequentes</span></h1>
-      <p>Aqui você encontra todas as respostas para ficar tranquila antes do seu atendimento ♡</p>
+      <p>Transparência, segurança e cuidado. É assim que cuidamos de você ♡</p>
     </div>
 
     <!-- SEÇÃO FUNDADORA -->
@@ -136,79 +183,133 @@
       <div>
         <h3>Sabrina Lemos</h3>
         <div class="cargo">FUNDADORA & ESPECIALISTA PRETA NAILS</div>
-        <p>Minha missão é elevar sua autoestima através de unhas impecáveis. Cada atendimento é feito com técnica, carinho e atenção aos mínimos detalhes, para que você se sinta acolhida e saia daqui se sentindo a sua melhor versão.</p>
+        <p>Eu sei o quanto é importante se sentir segura e acolhida. Por isso cada unha que eu faço carrega técnica, carinho e respeito pela sua história. Meu objetivo é que você saia daqui não só com unhas lindas, mas se sentindo a sua melhor versão.</p>
       </div>
     </div>
 
-    <!-- FAQ -->
-    <h2 class="faq-titulo">Perguntas Frequentes</h2>
+    <!-- BLOCOS DE CONFIANÇA -->
+    <div class="blocos-confianca">
+      <div class="card-confianca">
+        <i class="fas fa-shield-halved"></i>
+        <h4>Seu Site é Seguro?</h4>
+        <p>Sim. Nosso site possui certificado SSL e criptografia de dados. Todas as informações do formulário são sigilosas e usadas apenas para seu atendimento, seguindo a LGPD.</p>
+      </div>
+      <div class="card-confianca">
+        <i class="fas fa-file-signature"></i>
+        <h4>Por que preencher o Formulário?</h4>
+        <p>Para te atender com excelência. Com ele eu entendo seu histórico, alergias e expectativas. Assim seu atendimento é 100% personalizado e seguro desde o primeiro minuto.</p>
+      </div>
+      <div class="card-confianca">
+        <i class="fas fa-heart"></i>
+        <h4>Atendimento Humanizado</h4>
+        <p>Aqui você não é só mais uma cliente. É prioridade. Cada detalhe é pensado para você se sentir confortável, valorizada e sair com autoestima lá em cima.</p>
+      </div>
+    </div>
+
+    <!-- FAQ COM ESTUDOS COMPLETOS -->
+    <h2 class="faq-titulo">Tire todas as suas dúvidas</h2>
+    <p class="faq-sub">Clique na pergunta para ver a resposta completa</p>
     <div class="faq">
 
       <div class="faq-item">
         <button class="faq-pergunta">
-          Quanto tempo dura o alongamento?
+          Quanto tempo dura o alongamento e como cuidar?
           <i class="fas fa-chevron-down"></i>
         </button>
         <div class="faq-resposta">
           <div class="faq-resposta-conteudo">
-            O alongamento tem duração média de 20 a 30 dias. Recomendo a manutenção a cada 15 dias para manter o formato perfeito e evitar descolamentos. A durabilidade depende também dos seus cuidados diários.
+            <p><strong>Duração média:</strong> De 20 a 30 dias. Isso varia de acordo com o crescimento natural da sua unha e dos cuidados que você tem em casa.</p>
+            <br>
+            <p><strong>Manutenção:</strong> Recomendo voltar a cada 15 dias. Na manutenção nós fazemos o preenchimento, corrigimos o formato e deixamos tudo novinho de novo. Fazer a manutenção em dia faz você economizar, porque evita que a unha descole ou quebre.</p>
+            <br>
+            <p><strong>Cuidados que fazem diferença:</strong> Use óleo de cutícula todo dia, use luvas para limpeza, evite roer ou usar a unha como ferramenta. Seguindo isso, suas unhas vão durar muito mais e vão continuar lindas até o último dia.</p>
           </div>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-pergunta">
-          Qual o valor e as formas de pagamento?
+          Posso fazer alongamento com unhas fracas, finas ou roídas?
           <i class="fas fa-chevron-down"></i>
         </button>
         <div class="faq-resposta">
           <div class="faq-resposta-conteudo">
-            Os valores variam de acordo com a técnica escolhida: Fibra de Vidro, Gel ou Acrigel. Aceito Pix, Cartão de Débito e Crédito. Temos também a condição especial para as 20 primeiras clientes VIP. Chame no WhatsApp para receber a tabela completa.
+            <p><strong>Sim, pode e é o mais indicado!</strong> Muitas das minhas clientes começaram exatamente assim.</p>
+            <br>
+            <p>O alongamento funciona como uma "capa protetora" para sua unha natural. Ele para com o hábito de roer porque cria uma barreira física. Além disso, com a técnica correta, sua unha natural consegue crescer forte e saudável por baixo.</p>
+            <br>
+            <p><strong>Em quanto tempo vejo resultado?</strong> Em 2 a 3 meses você já vai ter um comprimento natural bom. E o melhor: sem dor, sem trauma e com acompanhamento meu em cada etapa.</p>
           </div>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-pergunta">
-          Posso fazer alongamento com unhas fracas ou roídas?
+          O procedimento dói? Estraga a unha natural? Como é a remoção?
           <i class="fas fa-chevron-down"></i>
         </button>
         <div class="faq-resposta">
           <div class="faq-resposta-conteudo">
-            Pode sim! O alongamento é a melhor solução para quem rói as unhas. Ele cria uma barreira de proteção e te ajuda a parar com o hábito. Em 2 meses você já terá unhas naturais fortes e saudáveis por baixo.
+            <p><strong>Dói?</strong> Não. O procedimento é 100% indolor. Você só vai sentir o lixamento leve para preparar a unha, nada que cause desconforto.</p>
+            <br>
+            <p><strong>Estraga a unha?</strong> Não estraga quando é feito por uma profissional e removido do jeito certo. O que danifica a unha é quando a pessoa arranca em casa ou faz com material de baixa qualidade.</p>
+            <br>
+            <p><strong>Remoção:</strong> Aqui eu faço a remoção profissional. Usamos produto específico para amolecer o material e não lixamos sua unha natural. Por isso ela continua forte e saudável. Nunca tente remover em casa.</p>
           </div>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-pergunta">
-          Como funciona o agendamento e o tempo do procedimento?
+          Quanto tempo leva e como funciona o agendamento?
           <i class="fas fa-chevron-down"></i>
         </button>
         <div class="faq-resposta">
           <div class="faq-resposta-conteudo">
-            O agendamento é feito 100% pelo WhatsApp. O procedimento da primeira aplicação leva em média 2h30. Manutenções levam cerca de 1h30. Trabalho com horário marcado para te atender com exclusividade e sem atrasos.
+            <p><strong>Tempo do procedimento:</strong> A primeira aplicação leva em média 2h30. É um tempo necessário para fazer tudo com perfeição, desde a preparação até a finalização e esmaltação.</p>
+            <br>
+            <p><strong>Manutenção:</strong> Leva cerca de 1h30 porque já temos a base pronta.</p>
+            <br>
+            <p><strong>Agendamento:</strong> Funciona 100% pelo WhatsApp e com horário marcado. Eu atendo uma cliente por vez. Isso garante que você tenha atenção exclusiva, sem atrasos e sem correria. Por isso as vagas são limitadas.</p>
           </div>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-pergunta">
-          O alongamento estraga a unha natural?
+          Quais os valores e formas de pagamento? Tem garantia?
           <i class="fas fa-chevron-down"></i>
         </button>
         <div class="faq-resposta">
           <div class="faq-resposta-conteudo">
-            Não, de forma alguma. O que estraga é a remoção incorreta. Aqui eu faço a remoção profissional e segura, sem lixar sua unha natural. Usamos apenas produtos de alta qualidade e esterilização total dos materiais.
+            <p><strong>Valores:</strong> O valor varia de acordo com a técnica escolhida: Fibra de Vidro, Gel ou Acrigel, e também com o design. Por isso te envio a tabela completa assim que você preenche o formulário inicial.</p>
+            <br>
+            <p><strong>Pagamento:</strong> Aceito Pix, Cartão de Débito e Crédito. Temos também condição especial para as 20 primeiras clientes VIP.</p>
+            <br>
+            <p><strong>Garantia:</strong> Se acontecer algum descolamento em até 7 dias, você volta e eu faço o reparo sem custo. Isso mostra o quanto eu confio no meu trabalho e o quanto me importo com você.</p>
           </div>
         </div>
       </div>
 
     </div>
 
+    <!-- DICAS DA PRETANAILS -->
+    <div class="dicas">
+      <h3><i class="fas fa-lightbulb"></i> Dicas da PretaNails para manter suas unhas perfeitas</h3>
+      <ul>
+        <li><i class="fas fa-check"></i> <span>Hidrate suas cutículas com óleo diariamente. Isso evita ressecamento e deixa o acabamento perfeito.</span></li>
+        <li><i class="fas fa-check"></i> <span>Use luvas para lavar louça e mexer com produtos de limpeza. Química é a maior inimiga do alongamento.</span></li>
+        <li><i class="fas fa-check"></i> <span>Não use as unhas como ferramenta. Abrir lata, arranhar etiqueta... isso causa descolamento.</span></li>
+        <li><i class="fas fa-check"></i> <span>Volte para manutenção no prazo. Assim você mantém o formato, evita infiltração e economiza no longo prazo.</span></li>
+      </ul>
+    </div>
+
+    <!-- CTA FINAL COM PSICOLOGIA -->
     <div class="cta-final">
-      <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vi%20as%20d%C3%BAvidas%20no%20site%20e%20quero%20agendar%20%F0%9F%92%97" target="_blank" class="btn-whats">
-        <i class="fab fa-whatsapp"></i> Não encontrou sua dúvida? Fale comigo
+      <h3>Pronta para ter as unhas dos seus sonhos?</h3>
+      <p>As vagas são limitadas para manter o atendimento exclusivo. Dê o primeiro passo preenchendo sua avaliação inicial gratuita. Leva menos de 2 minutos e você já garante sua vaga.</p>
+      <a href="fichadeassinatura.html" class="btn-form">
+        <i class="fas fa-clipboard-list"></i> PREENCHER FORMULÁRIO PARA INICIAR
       </a>
     </div>
 
