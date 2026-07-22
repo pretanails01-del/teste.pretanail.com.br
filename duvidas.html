@@ -33,24 +33,14 @@
       transform: scale(0.96);
     }
 
-    /* TELA CHEIA - CORREÇÃO AQUI */
+    /* TELA CHEIA */
     #full-faq-screen {
-      opacity: 0; visibility: hidden; /* TROQUEI display:none por opacity */
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
       z-index: 99999; overflow-y: auto;
-      transition: opacity 0.3s ease; /* FADE SUAVE */
-    }
-    #full-faq-screen.ativo {
-      opacity: 1; visibility: visible;
     }
     .full-faq-content {
       max-width: 900px; margin: 0 auto; padding: 40px 25px; min-height: 100vh;
-      transform: translateY(20px); /* EFEITO SUBINDO */
-      transition: transform 0.3s ease;
-    }
-    #full-faq-screen.ativo .full-faq-content {
-      transform: translateY(0);
     }
     .full-faq-header {
       display: flex; justify-content: space-between; align-items: center;
@@ -141,11 +131,11 @@
 <body>
 
   <!-- BOTÃO PRA ABRIR -->
-  <a href="#" id="open-faq-btn">
+  <a href="javascript:void(0)" id="open-faq-btn">
     <i class="fas fa-circle-question"></i> Dúvidas Frequentes
   </a>
 
-  <!-- TELA CHEIA - JÁ COM CONTEÚDO PRA NÃO FICAR PRETO -->
+  <!-- TELA CHEIA -->
   <div id="full-faq-screen">
     <div class="full-faq-content">
       <div class="full-faq-header">
@@ -153,16 +143,37 @@
         <h1 class="full-faq-title" id="full-title">Dúvidas Frequentes</h1>
         <button class="close-full"><i class="fas fa-times"></i> Fechar</button>
       </div>
-      <div id="full-content">
-        <!-- LISTA JÁ CARREGA AQUI PRA NÃO DEMORAR -->
-        <div class="autor-header">
-          <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos">
-          <div>
-            <p style="margin:0; font-size:12px; color:#aaa;">Conteúdo e atendimento por</p>
-            <p style="margin:2px 0 0 0; font-size:17px; font-weight:800;">Sabrina Lemos</p>
-            <p style="margin:0; font-size:12px; color:#aaa;">Fundadora • Preta Nails</p>
-          </div>
+      <div id="full-content"></div>
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    const fullScreen = document.getElementById('full-faq-screen');
+    const fullTitle = document.getElementById('full-title');
+    const fullContent = document.getElementById('full-content');
+    const closeFull = document.querySelector('.close-full');
+    const backBtn = document.getElementById('back-to-list');
+    const openBtn = document.getElementById('open-faq-btn');
+    let isInList = true;
+
+    const autorHeader = `
+      <div class="autor-header">
+        <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos">
+        <div>
+          <p style="margin:0; font-size:12px; color:#aaa;">Conteúdo e atendimento por</p>
+          <p style="margin:2px 0 0 0; font-size:17px; font-weight:800;">Sabrina Lemos</p>
+          <p style="margin:0; font-size:12px; color:#aaa;">Fundadora • Preta Nails</p>
         </div>
+      </div>
+    `;
+
+    function showList() {
+      isInList = true;
+      backBtn.style.display = 'none';
+      fullTitle.textContent = "Dúvidas Frequentes";
+      fullContent.innerHTML = `
+        ${autorHeader}
         <p style="margin-bottom:25px; font-size:16px; color:#fff;">Escolha uma dúvida e eu te explico tudinho com todo carinho:</p>
         <ul class="lista-duvidas" style="list-style:none;">
           <li onclick="loadFaq('Higienização')">• 1. Como funciona a higienização e esterilização?</li>
@@ -175,58 +186,39 @@
         </ul>
         <div style="text-align:center;">
           <a href="fichadeassinatura.html" class="btn-form-full"><i class="fas fa-clipboard-list"></i> PREENCHER FORMULÁRIO E INICIAR</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SCRIPT -->
-  <script>
-    const fullScreen = document.getElementById('full-faq-screen');
-    const fullTitle = document.getElementById('full-title');
-    const fullContent = document.getElementById('full-content');
-    const closeFull = document.querySelector('.close-full');
-    const backBtn = document.getElementById('back-to-list');
-    const openBtn = document.getElementById('open-faq-btn');
-
-    function showList() {
-      backBtn.style.display = 'none';
-      fullTitle.textContent = "Dúvidas Frequentes";
-      // Não precisa mais reescrever a lista, ela já está no HTML
+        </div>`;
     }
 
     window.loadFaq = function(title) {
+      isInList = false;
       backBtn.style.display = 'inline-block';
       fullTitle.textContent = title;
 
       if(title === 'Higienização'){
-        fullContent.innerHTML = ` ... MESMO CONTEÚDO DE ANTES ... `;
+        fullContent.innerHTML = `${autorHeader}<h2>HIGIENIZAÇÃO E ESTERILIZAÇÃO NA PRETA NAILS</h2><p><strong>Oi, linda 💖 Aqui é a Sabrina.</strong></p><p>Segurança é prioridade máxima aqui. Todos os alicates passam por: <strong>Lavagem > Secagem > Estufa 180°C por 1 hora.</strong> Lixas descartáveis. Bancada limpa com álcool 70%.</p><div class="caixa-recado"><strong>RECADO DA PRETA:</strong><br>Fica tranquila. Higiene não é luxo, é obrigação 💖</div>`;
       } 
       else if(title === 'Formulario'){
-        fullContent.innerHTML = ` ... MESMO CONTEÚDO DE ANTES ... `;
+        fullContent.innerHTML = `${autorHeader}<h2>POR QUE PEDIMOS O FORMULÁRIO DE AVALIAÇÃO INICIAL?</h2><p><strong>Oi, linda 💖 Aqui é a Sabrina.</strong></p><p>Leva só 2 minutinhos e faz toda diferença pra sua segurança e pro resultado ficar perfeito.</p><h3>1. SUA SEGURANÇA EM PRIMEIRO LUGAR</h3><p>Preciso saber de alergias, diabetes e medicamentos pra escolher os produtos certos.</p><h3>2. PERSONALIZAR SEU ATENDIMENTO</h3><p>Formato, comprimento e técnica ideal pra você. Assim não perdemos tempo.</p><div class="caixa-recado"><strong>RECADO DA PRETA:</strong><br>É pra te cuidar melhor 💖</div><div style="text-align:center;"><a href="fichadeassinatura.html" class="btn-form-full"><i class="fas fa-clipboard-list"></i> PREENCHER FORMULÁRIO AGORA</a></div>`;
       }
-      // COPIA O RESTO IGUAL AQUI
-      else if(title === 'Sou gestante'){ fullContent.innerHTML = ` ... `; }
-      else if(title === 'Site seguro'){ fullContent.innerHTML = ` ... `; }
-      else if(title === 'Sinais de alergia'){ fullContent.innerHTML = ` ... `; }
-      else if(title === 'Cuidados com a unha'){ fullContent.innerHTML = ` ... `; }
-      else if(title === 'Dica semanal'){ fullContent.innerHTML = ` ... `; }
+      else if(title === 'Sou gestante'){ fullContent.innerHTML = `${autorHeader}<h2>GESTANTE PODE FAZER ALONGAMENTO?</h2><p><strong>Oi, mamãe 💖 SIM, PODE SIM!</strong></p><p>É Fibra de Vidro. Zero radiação. Produtos Anvisa. Ambiente arejado.</p><div class="caixa-recado"><strong>RECADO DA PRETA:</strong><br>Você merece se cuidar também 💖</div>`; }
+      else if(title === 'Site seguro'){ fullContent.innerHTML = `${autorHeader}<h2>SEU SITE É SEGURO?</h2><p><strong>Oi, linda 💖 SIM, 100% SEGURO.</strong></p><p>Tem certificado SSL, cadeado verde. Seus dados vão direto pro meu Whats. LGPD.</p><div class="caixa-recado"><strong>RECADO DA PRETA:</strong><br>Sua segurança é prioridade 💖</div>`; }
+      else if(title === 'Sinais de alergia'){ fullContent.innerHTML = `${autorHeader}<h2>SINAIS DE ALERGIA</h2><p><strong>Oi, linda 💖</strong></p><p>É rara, menos de 1%. Fique atenta: coceira, vermelhidão, inchaço nos 3 primeiros dias.</p><h3>O QUE FAZER?</h3><p>Me chama no Whats. Removemos sem custo.</p><div class="caixa-recado"><strong>IMPORTANTE:</strong><br>Sua saúde em primeiro lugar 💖</div>`; }
+      else if(title === 'Cuidados com a unha'){ fullContent.innerHTML = `${autorHeader}<h2>CUIDADOS APÓS O ALONGAMENTO</h2><p><strong>Oi, linda 💅</strong></p><p>1. Evite água quente 2 dias<br>2. Óleo de cutícula todo dia<br>3. Nunca tire em casa</p><div class="caixa-recado"><strong>RECADO FINAL:</strong><br>Seguindo isso dura 25 dias lindas 💖</div>`; }
+      else if(title === 'Dica semanal'){ fullContent.innerHTML = `${autorHeader}<h2>DICA SEMANAL #1</h2><div class="caixa-recado" style="text-align:center; font-size:18px;"><strong>Óleo de cutícula todo dia antes de dormir</strong></div><p>Evita que levante, dá brilho e fortalece sua unha natural.</p>`; }
     };
 
-    backBtn.addEventListener('click', () => {
-      showList();
-      location.reload(); // recarrega a lista inicial
-    });
-    
-    closeFull.addEventListener('click', () => {
-      fullScreen.classList.remove('ativo'); // TROQUEI display:none
-      document.body.classList.remove('no-scroll');
-    });
-    
-    openBtn.addEventListener('click', (e) => {
+    // CORREÇÃO: APENAS 1 EVENTO DE CLIQUE
+    openBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      fullScreen.classList.add('ativo'); // TROQUEI display:block
+      fullScreen.style.display = 'block';
       document.body.classList.add('no-scroll');
+      showList();
+    });
+
+    backBtn.addEventListener('click', () => showList());
+    closeFull.addEventListener('click', () => {
+      fullScreen.style.display = 'none';
+      document.body.classList.remove('no-scroll');
     });
   </script>
 
