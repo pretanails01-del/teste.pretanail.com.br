@@ -342,7 +342,6 @@
       background: #000;
       z-index: 9999;
       overflow-y: auto;
-      overscroll-behavior: none; /* TRAVA GESTO DO NAVEGADOR */
     }
 .full-faq-content {
       position: relative;
@@ -353,7 +352,7 @@
       border-radius: 16px;
       border: 2px solid var(--rosa-brilhante);
       box-shadow: 0 0 30px rgba(255, 45, 146, 0.4), inset 0 0 20px rgba(255,45,146,0.1);
-      touch-action: pan-y; /* volta a rolar pra cima e pra baixo */
+      touch-action: none; /* IMPORTANTE: trava gesto do navegador */
       z-index: 2;
     }
 .full-faq-header {
@@ -375,45 +374,41 @@
       font-weight: 700;
     }
 
-    /* BOTÕES 3D ROSA BRILHANTE - MAIS NITIDOS */
+    /* BOTÕES 3D ROSA BRILHANTE */
     #back-to-list {
       background: linear-gradient(145deg, var(--rosa-brilhante), var(--rosa-escuro));
-      border: 2px solid #fff;
-      color: #fff;
-      font-size: 22px;
-      font-weight: 900;
+      border: none;
+      color: #000;
+      font-size: 18px;
+      font-weight: 800;
       cursor: pointer;
-      padding: 8px 16px;
-      border-radius: 12px;
+      padding: 10px 14px;
+      border-radius: 10px;
       transition: all 0.3s;
       flex-shrink: 0;
-      box-shadow: 0 0 20px rgba(255, 45, 146, 0.8), 0 4px 15px rgba(0,0,0,0.5);
-      text-shadow: 0 0 10px rgba(255,255,255,0.8);
+      box-shadow: 0 4px 15px rgba(255, 45, 146, 0.6);
     }
     #back-to-list:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 0 30px rgba(255, 45, 146, 1), 0 6px 20px rgba(0,0,0,0.7);
-      background: linear-gradient(145deg, var(--rosa-claro), var(--rosa-brilhante));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 45, 146, 0.9);
     }
 .close-full {
       background: linear-gradient(145deg, var(--rosa-brilhante), var(--rosa-escuro));
-      border: 2px solid #fff;
-      color: #fff;
-      font-size: 22px;
-      font-weight: 900;
+      border: none;
+      color: #000;
+      font-size: 18px;
+      font-weight: 800;
       cursor: pointer;
-      padding: 8px 18px;
-      border-radius: 12px;
+      padding: 10px 16px;
+      border-radius: 10px;
       transition: all 0.3s;
       flex-shrink: 0;
       line-height: 1;
-      box-shadow: 0 0 20px rgba(255, 45, 146, 0.8), 0 4px 15px rgba(0,0,0,0.5);
-      text-shadow: 0 0 10px rgba(255,255,255,0.8);
+      box-shadow: 0 4px 15px rgba(255, 45, 146, 0.6);
     }
 .close-full:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 0 30px rgba(255, 45, 146, 1), 0 6px 20px rgba(0,0,0,0.7);
-      background: linear-gradient(145deg, var(--rosa-claro), var(--rosa-brilhante));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 45, 146, 0.9);
     }
 
     /* LISTA DE DÚVIDAS */
@@ -452,32 +447,6 @@
       box-shadow: 0 0 15px rgba(255,45,146,0.3);
     }
 
-.lista-duvidas li:hover {
-      border-left: 3px solid var(--rosa-brilhante);
-      transform: translateX(8px);
-      background: rgba(255,45,146,0.05);
-    }
-
-    /* TÍTULOS */
-    h2 { font-size: 26px!important; text-shadow: 0 0 12px rgba(255,45,146,0.6); margin-bottom: 20px; }
-    h3 { color: #fff!important; font-size: 19px; border-left: 3px solid var(--rosa-brilhante); padding-left: 12px; margin-top: 25px; }
-    strong { color: var(--rosa-brilhante); }
-
-    /* CAIXA DE RECADO VIP */
-.caixa-recado {
-      background: linear-gradient(135deg, rgba(255, 45, 146, 0.2), rgba(0,0,0,0.5));
-      border: 2px solid var(--rosa-brilhante);
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 45, 146, 0.3), inset 0 0 10px rgba(255,45,146,0.1);
-    }
-
-    /* CABEÇALHO AUTORA */
-.autor-header {
-      background: linear-gradient(135deg, rgba(255, 45, 146, 0.2), rgba(0,0,0,0.7));
-      border: 2px solid var(--rosa-brilhante);
-      box-shadow: 0 0 15px rgba(255,45,146,0.3);
-    }
-
     /* RESPONSIVO */
     @media (max-width: 768px) {
   .full-faq-content {
@@ -489,10 +458,10 @@
         border-right: none;
       }
   .full-faq-title { font-size: 20px; }
-      #back-to-list,.close-full { font-size: 20px; padding: 10px 14px; }
+      #back-to-list,.close-full { font-size: 16px; padding: 8px 12px; }
     }
 
-    body.no-scroll { overflow: hidden; height: 100%; } /* CORRIGIDO */
+    body.no-scroll { overflow: hidden; }
   </style>
 
   <!-- SCRIPT DA TELA INTEIRA -->
@@ -504,6 +473,9 @@
     const backBtn = document.getElementById('back-to-list');
     const swipeArea = document.getElementById('swipe-area');
     let isInList = true;
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let isTrackingSwipe = false;
 
     const autorHeader = `
       <div class="autor-header" style="display:flex; align-items:center; gap:14px; margin-bottom:25px; padding:18px; border-radius:12px;">
@@ -538,7 +510,6 @@
       e.preventDefault();
       fullScreen.style.display = 'block';
       document.body.classList.add('no-scroll');
-      document.body.style.overflow = 'hidden'; // CORRIGIDO
       showList();
     });
 
@@ -568,10 +539,34 @@
     closeFull.addEventListener('click', () => {
       fullScreen.style.display = 'none';
       document.body.classList.remove('no-scroll');
-      document.body.style.overflow = ''; // CORRIGIDO: DESTRAVA 100%
     });
 
-    // SWIPE DESATIVADO COMPLETAMENTE
+    // GESTO SWIPE CORRIGIDO - TRAVA O CHROME
+    swipeArea.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+      isTrackingSwipe = true;
+    }, {passive: false});
+
+    swipeArea.addEventListener('touchmove', e => {
+      if(isTrackingSwipe) e.preventDefault(); // TRAVA o voltar do navegador
+    }, {passive: false});
+
+    swipeArea.addEventListener('touchend', e => {
+      if(!isTrackingSwipe) return;
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchEndX - touchStartX;
+      isTrackingSwipe = false;
+
+      if (diff > 80) {
+        if (!isInList) {
+          // Dentro da dúvida: volta pra lista
+          showList();
+        } else {
+          // Na lista: só sobe pro topo. NÃO FECHA
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+    }, {passive: false});
   </script>
 
   <!-- BLOQUEIO -->
