@@ -42,6 +42,32 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  /* BOTÃO DÚVIDAS FREQUENTES TOPO DIREITO */
+.btn-duvidas-topo {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+    z-index: 9998;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(193,53,132,0.4);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+.btn-duvidas-topo:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+  }
+
 .horario-selecionado {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     padding: 18px;
@@ -70,10 +96,10 @@
   border-radius: 0 0 20px 20px;
   overflow: hidden;
 }
- .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: 0.5; }
- .header img { max-width: 200px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
- .header h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; letter-spacing: 1px; }
- .header p { margin-top: 8px; opacity: 0.85; font-size: 14px; font-weight: 600; letter-spacing: 1px; }.form-body { padding: 40px 35px; }
+.header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: 0.5; }
+.header img { max-width: 200px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
+.header h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; letter-spacing: 1px; }
+.header p { margin-top: 8px; opacity: 0.85; font-size: 14px; font-weight: 600; letter-spacing: 1px; }.form-body { padding: 40px 35px; }
 .form-group { margin-bottom: 24px; }
 label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--primary); font-size: 14px; letter-spacing: 0.5px; }
 label.required::after { content: ' *'; color: #e74c3c; }
@@ -164,6 +190,25 @@ canvas {
 }
 .btn-secondary:hover { background: rgba(255,255,255,0.2); }
 
+.btn-whatsapp-sucesso {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #fff;
+  padding: 16px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 30px rgba(193,53,132,0.4);
+  transition: all 0.3s;
+  width: 100%;
+  justify-content: center;
+  margin-top: 15px;
+}
+.btn-whatsapp-sucesso:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
+
 .loader { display: inline-block; width: 16px; height: 16px; border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
@@ -244,9 +289,15 @@ canvas {
 .form-body { padding: 30px 20px; }
 .header h1 { font-size: 28px; }
 .checkbox-group { grid-template-columns: 1fr; }
+.btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; }
 }
 </style></head>
 <body>
+
+<!-- BOTÃO DÚVIDAS FREQUENTES TOPO DIREITO -->
+<a href="duvidas.html" class="btn-duvidas-topo">
+  <i class="fas fa-circle-question"></i> Dúvidas Frequentes
+</a>
 
 <div class="container" id="mainContainer">
   <div class="header">
@@ -275,7 +326,6 @@ canvas {
         <input type="tel" id="whatsapp" required placeholder="(99) 99999-9999" maxlength="15">
       </div>
 
-      <!-- ORDEM NOVA: PROCEDIMENTOS PRIMEIRO -->
       <div class="form-group">
         <label class="required">Procedimentos Desejados</label>
         <div class="checkbox-group" id="procedimentosGroup">
@@ -293,7 +343,6 @@ canvas {
         <input type="text" id="outroTexto" placeholder="Descreva aqui...">
       </div>
 
-      <!-- INFORMAÇÕES DE SAÚDE TUDO JUNTO AGORA -->
       <div class="form-group">
         <label class="required">Possui Diabetes?</label>
         <select id="diabetes" required>
@@ -303,7 +352,7 @@ canvas {
         </select>
       </div>
       <div class="form-group">
-        <label class="required">Possui Anemia?</label> <!-- NOVO -->
+        <label class="required">Possui Anemia?</label>
         <select id="anemia" required>
           <option value="">Selecione uma opção</option>
           <option value="Não">Não</option>
@@ -391,12 +440,16 @@ canvas {
     </div>
     <h2 class="sucesso-titulo">Agendamento Confirmado!</h2>
     <p class="sucesso-texto" id="sucessoTexto">Sua ficha foi recebida com sucesso</p>
+    <!-- BOTÃO WHATSAPP NA TELA DE SUCESSO -->
+    <a id="btnWhatsappSucesso" href="#" target="_blank" class="btn-whatsapp-sucesso">
+      <i class="fab fa-whatsapp"></i> ABRIR WHATSAPP
+    </a>
   </div>
 </div>
 
 <script>
 // TROCA PELO SEU LINK DO APPS SCRIPT
-const WEB_APP_URL = "COLE_SEU_LINK_DO_APPS_SCRIPT_AQUI";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycby8-3_ueKJx-z3YsV4FdtLjovceLWvYbSP562gl9aSxJOmMcOELitTwmoapoNXfJA/exec";
 
 let fotoBase64 = null;
 let isDrawing = false;
@@ -532,8 +585,8 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     whatsapp: document.getElementById('whatsapp').value.trim(),
     dia: diaSelecionado,
     hora: horaSelecionada,
-    diabetes: document.getElementById('diabetes').value, // NOVO
-    anemia: document.getElementById('anemia').value, // NOVO
+    diabetes: document.getElementById('diabetes').value,
+    anemia: document.getElementById('anemia').value,
     maosSuam: document.getElementById('maosSuam').value,
     gravida: document.getElementById('gravida').value,
     procedimento: procs.join(", "),
@@ -553,8 +606,22 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     const data = await response.json();
 
     if (data.status === 'ok') {
+      document.getElementById('sucessoTexto').innerHTML = `Formulário <strong>${data.os}</strong> enviado com sucesso!`;
+
+      // MENSAGEM EXATA PRA WHATSAPP
+      const mensagem = `🔥 NOVO FORMULÁRIO - PRETA NAILS
+
+👤 Cliente: ${dados.nome}
+📱 WhatsApp: ${dados.whatsapp}
+💅 Procedimento: ${dados.procedimento}
+📋 OS: ${data.os}
+
+📄 PDF: ${data.pdf}`;
+
+      const numeroStudio = "5511982311608";
+      document.getElementById('btnWhatsappSucesso').href = `https://wa.me/${numeroStudio}?text=${encodeURIComponent(mensagem)}`;
+
       document.getElementById('sucessoOverlay').classList.remove('hidden');
-      setTimeout(() => { window.location.href = 'index.html'; }, 3000);
     } else {
       throw new Error(data.msg || 'Erro desconhecido');
     }
