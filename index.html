@@ -64,7 +64,7 @@
 
     .btn-duvidas-topo {
       position: fixed;
-      top: 20px;
+      top: 25px; /* AFASTADO 5px */
       right: 25px;
       z-index: 9998;
       background: rgba(255,255,255,0.06);
@@ -85,7 +85,7 @@
     .btn-duvidas-topo:hover { border-color: var(--primary); transform: translateY(-2px); }
     .btn-duvidas-topo:active { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-color: var(--primary); transform: scale(0.96); }
 
-    .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; position: relative; }
+    .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 20px 20px; /* ESPAÇO PRA COROA */ position: relative; }
     .wrap { max-width: 600px; animation: fadeIn 1s ease; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .coroa { font-size: 40px; color: var(--primary); margin-bottom: 15px; filter: drop-shadow(0 0 20px rgba(193,53,132,0.5)); }
@@ -148,7 +148,7 @@
 
     @media (max-width: 768px) {
       .btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; }
-      .hero { min-height: 85vh; padding: 20px 16px 40px 16px; }
+      .hero { min-height: 85vh; padding: 70px 16px 40px 16px; } /* ESPAÇO PRA COROA NO MOBILE */
       .wrap { max-width: 100%; }
       .slogan { letter-spacing: 2px; font-size: 11px; }
       .tag { font-size: 12px; padding: 10px 20px; }
@@ -179,7 +179,7 @@
 
   <section class="hero">
     <div class="wrap">
-      <div class="coroa"></div>
+      <div class="coroa">👑</div> <!-- COROA COLOCADA -->
       <h1>PRETA<span>NAILS</span></h1>
       <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
       <div class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS </div>
