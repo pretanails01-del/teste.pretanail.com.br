@@ -28,38 +28,32 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-    /* BOTÃO BAIXAR APP - ROSA DEGRADE */
+    /* BOTÃO BAIXAR APP - SECUNDÁRIO E MENOR */
     #btn-instalar-app {
-      display: none; /* Vai ser forçado pelo JS */
+      display: none; /* JS força aparecer */
       position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: #fff;
-      padding: 18px 30px;
+      background: transparent;
+      color: rgba(255,255,255,0.85);
+      padding: 12px 22px;
       border-radius: 50px;
       text-decoration: none;
-      font-weight: 800;
-      font-size: 16px;
-      border: none;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid rgba(193,53,132,0.4);
       cursor: pointer;
-      margin-top: 15px;
-      width: 100%;
+      margin-top: 12px;
+      width: auto; 
       justify-content: center;
       align-items: center;
-      gap: 12px;
-      box-shadow: 0 10px 30px rgba(193,53,132,0.4);
+      gap: 8px;
       transition: all 0.3s;
+      backdrop-filter: blur(10px);
     }
-    #btn-instalar-app:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
-    #btn-instalar-app::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-      animation: glitter 2.5s infinite;
+    #btn-instalar-app:hover { 
+      background: rgba(193,53,132,0.1);
+      border-color: var(--primary);
+      color: #fff;
+      transform: translateY(-2px); 
     }
 
     .btn-duvidas-topo {
@@ -95,7 +89,16 @@
     .destaque { font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 80px); font-weight: 900; color: var(--primary); line-height: 0.9; }
     .destaque small { font-size: 32px; font-style: italic; color: #fff; display: block; line-height: 1.2; font-weight: 400; }
 
-    .btn { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 18px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); transition: all 0.3s; border: none; cursor: pointer; }
+    /* GRUPO DE BOTOES CENTRALIZADO */
+    .botoes-centro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 18px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-flex; align-items: center; gap: 12px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); transition: all 0.3s; border: none; cursor: pointer; }
     .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
     .btn::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); animation: glitter 2.5s infinite; }
     @keyframes glitter { 0% { left: -100%; } 100% { left: 200%; } }
@@ -148,9 +151,25 @@
     @media (max-width: 768px) {
       .btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; }
       .hero { min-height: 85vh; padding: 20px 16px 40px 16px; }
-      .btn, #btn-instalar-app { width: 100%; justify-content: center; margin-top: 20px; padding: 16px 24px; font-size: 15px; }
+      .wrap { max-width: 100%; }
+      .slogan { letter-spacing: 2px; font-size: 11px; }
+      .tag { font-size: 12px; padding: 10px 20px; }
+      .coroa { font-size: 32px; margin-bottom: 10px; }
+      h1 { font-size: clamp(36px, 10vw, 48px); }
+      .destaque { font-size: clamp(40px, 12vw, 56px); }
+      .destaque small { font-size: 24px; }
+      .btn, #btn-instalar-app { width: 100%; justify-content: center; padding: 16px 24px; font-size: 15px; }
       .social-btns { flex-direction: column; }
       .btn-social { width: 100%; justify-content: center; }
+      .scroll-down { bottom: 15px; font-size: 20px; }
+      .galeria { padding: 30px 16px 80px 16px; }
+      .card-glass img { max-height: 500px; }
+      .swiper-button-next, .swiper-button-prev { width: 35px; height: 35px; }
+      .swiper-button-next:after, .swiper-button-prev:after { font-size: 14px !important; }
+      .whatsapp-float { bottom: 70px; right: 20px; }
+      .whatsapp-btn { width: 55px; height: 55px; font-size: 28px; }
+      .foto-destaque-wrap { margin: 0 16px 80px; padding: 25px 20px; }
+      .desconto-wrap { margin: 0 16px 80px; padding: 30px 20px; }
     }
   </style>
 </head>
@@ -170,14 +189,16 @@
         MELHOR<br><small>versão! ♡</small>
       </div>
       
-      <a href="agendamento.html" class="btn">
-        QUERO MINHAS UNHAS PERFEITAS 
-        <i class="fas fa-arrow-right"></i>
-      </a>
+      <div class="botoes-centro">
+        <a href="agendamento.html" class="btn">
+          QUERO MINHAS UNHAS PERFEITAS 
+          <i class="fas fa-arrow-right"></i>
+        </a>
 
-      <button id="btn-instalar-app">
-        <i class="fas fa-download"></i> BAIXAR APLICATIVO
-      </button>
+        <button id="btn-instalar-app">
+          <i class="fas fa-download"></i> BAIXAR APLICATIVO
+        </button>
+      </div>
 
       <div class="social-btns">
         <a href="https://www.youtube.com/@PretaNails01" target="_blank" class="btn-social">
@@ -252,21 +273,15 @@
 <script>
 // SCRIPT NOVO - FUNCIONA NO PC E CELULAR
 const btnInstalar = document.getElementById('btn-instalar-app');
-
-// 1. FORÇA O BOTÃO APARECER SEMPRE
-btnInstalar.style.display = 'inline-flex'; 
+btnInstalar.style.display = 'inline-flex'; // FORÇA APARECER
 
 let deferredPrompt;
-
-// 2. PEGA O EVENTO SE O NAVEGADOR LIBERAR - ANDROID
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
 });
 
-// 3. AO CLICAR
 btnInstalar.addEventListener('click', async () => {
-  // CASO 1: Celular Android - Instala direto
   if (deferredPrompt) {
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
@@ -275,27 +290,22 @@ btnInstalar.addEventListener('click', async () => {
       setTimeout(() => btnInstalar.style.display = 'none', 2000); 
     }
     deferredPrompt = null;
-  } 
-  // CASO 2: PC / iPhone / Safari - Mostra como instalar manual
-  else {
+  } else {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     const isDesktop = !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
     if(isDesktop){
-      alert('PARA INSTALAR NO COMPUTADOR 💻\n\n1. Clique nos 3 pontinhos do Chrome > "Instalar Preta Nails"\n2. Ou no ícone "Instalar" que aparece na barra de endereço\nPronto! Vai virar um app na sua área de trabalho')
+      alert('PARA INSTALAR NO COMPUTADOR 💻\n\n1. Clique nos 3 pontinhos do Chrome > "Instalar Preta Nails"\n2. Ou no ícone "Instalar" na barra de endereço')
     } else if(isIOS){
-      alert('PARA INSTALAR NO IPHONE 📱\n\n1. Toque no botão Compartilhar ⬆️\n2. Toque em "Adicionar à Tela Inicial"\n\nPronto! Vai aparecer o ícone na sua tela')
+      alert('PARA INSTALAR NO IPHONE 📱\n\n1. Toque em Compartilhar ⬆️\n2. Toque em "Adicionar à Tela Inicial"')
     } else {
-      alert('PARA INSTALAR:\n\nToque nos 3 pontinhos do Chrome > "Instalar aplicativo"')
+      alert('Toque nos 3 pontinhos do Chrome > "Instalar aplicativo"')
     }
   }
 });
-
 window.addEventListener('appinstalled', () => { 
   btnInstalar.innerHTML = '<i class="fas fa-check"></i> INSTALADO!';
   btnInstalar.style.display = 'none'; 
 });
-
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js'); }
 </script>
 
