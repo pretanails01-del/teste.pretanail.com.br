@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -100,6 +99,7 @@ h1 span { color:#fff; }
   color: #666;
   cursor: not-allowed;
   text-decoration: line-through;
+  opacity: 0.5;
 }
 
 .botoes-acao {
@@ -129,6 +129,7 @@ h1 span { color:#fff; }
 }
 
 .obs { text-align:center; opacity:0.6; font-size:12px; margin-top:15px; }
+.loading { text-align:center; padding:20px; color:var(--primary); font-weight:700; }
 
 @media(max-width:900px){
   .semana { grid-template-columns: repeat(2, 1fr); }
@@ -149,7 +150,9 @@ h1 span { color:#fff; }
     <div class="sub">ESCOLHA SEU HORÁRIO</div>
   </div>
 
-  <div class="semana">
+  <div id="loading" class="loading">Carregando horários...</div>
+
+  <div class="semana" id="semanaContainer" style="display:none;">
     
     <!-- TERÇA -->
     <div class="dia">
@@ -198,7 +201,7 @@ h1 span { color:#fff; }
       <div class="horario" data-dia="Sábado" data-hora="09:00 às 11:00">09:00 às 11:00</div>
       <div class="horario" data-dia="Sábado" data-hora="11:00 às 13:00">11:00 às 13:00</div>
       <div class="horario" data-dia="Sábado" data-hora="13:00 às 15:00">13:00 às 15:00</div>
-      <div class="horario ocupado">15:00 às 17:00</div>
+      <div class="horario" data-dia="Sábado" data-hora="15:00 às 17:00">15:00 às 17:00</div>
     </div>
 
   </div>
@@ -216,10 +219,39 @@ h1 span { color:#fff; }
 </div>
 
 <script>
+// LINK DO SEU APPS SCRIPT - JÁ COM ID DA SUA PLANILHA
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwuuqYuvDyl5igfaY9LkC6dDus-KP8bQuWDMGLBXnY4bU41QAN3gNng5S5rj6D0vQs/exec";
+
 let horarioSelecionado = null;
 
+// 1. CARREGA HORÁRIOS OCUPADOS DA PLANILHA
+async function carregarOcupados() {
+  try {
+    const res = await fetch(WEB_APP_URL);
+    const ocupados = await res.json(); // ["Terça|09:00 às 11:00", ...]
+    
+    document.querySelectorAll('.horario').forEach(h => {
+      const chave = h.dataset.dia + "|" + h.dataset.hora;
+      if(ocupados.includes(chave)){
+        h.classList.add('ocupado');
+      }
+    });
+    
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('semanaContainer').style.display = 'grid';
+    
+  } catch(e){ 
+    console.log("Erro ao carregar ocupados", e);
+    document.getElementById('loading').innerText = 'Erro ao carregar. Recarregue a página.';
+  }
+}
+carregarOcupados();
+
+// 2. SELEÇÃO DE HORÁRIO
 document.querySelectorAll('.horario:not(.ocupado)').forEach(h => {
   h.addEventListener('click', () => {
+    if(h.classList.contains('ocupado')) return;
+    
     // Remove seleção antiga
     document.querySelectorAll('.horario').forEach(x => x.classList.remove('selecionado'));
     
