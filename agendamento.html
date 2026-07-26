@@ -1,1 +1,239 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agendamento - Preta Nails</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root {
+  --primary: #C13584;
+  --primary-dark: #a02c6e;
+  --bg: #0a0a0a;
+  --card: #111;
+  --text: #ffffff;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { 
+  font-family: 'Inter', sans-serif; 
+  background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); 
+  color: var(--text); 
+  padding: 30px 20px; 
+  min-height:100vh;
+}
+
+.container { max-width: 1100px; margin: 0 auto; }
+
+.topo {
+  text-align:center; margin-bottom:40px;
+}
+.logo { 
+  width:120px; height:120px; border-radius:50%; 
+  border:3px solid var(--primary); 
+  box-shadow:0 0 30px rgba(193,53,132,0.4);
+  object-fit:cover; margin-bottom:15px;
+}
+h1 { 
+  font-family: 'Playfair Display', serif; 
+  font-size: clamp(32px, 5vw, 48px); 
+  color: var(--primary); 
+}
+h1 span { color:#fff; }
+.sub { opacity:0.7; margin-top:8px; font-size:14px; letter-spacing:2px; }
+
+.semana {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.dia {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(193,53,132,0.25);
+  border-radius: 18px;
+  padding: 20px 15px;
+  backdrop-filter: blur(15px);
+  transition: 0.3s;
+}
+.dia:hover { border-color: var(--primary); transform: translateY(-5px); }
+
+.dia h3 {
+  font-family: 'Playfair Display', serif;
+  text-align:center;
+  color: var(--primary);
+  font-size: 20px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(193,53,132,0.3);
+  padding-bottom: 10px;
+}
+
+.horario {
+  background: rgba(193,53,132,0.08);
+  border: 1px solid rgba(193,53,132,0.3);
+  color: #fff;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  text-align:center;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.horario:hover {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  transform: scale(1.03);
+}
+.horario.selecionado {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border: 2px solid #fff;
+  box-shadow: 0 0 20px rgba(193,53,132,0.5);
+}
+.horario.ocupado {
+  background: #222;
+  border-color: #333;
+  color: #666;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.botoes-acao {
+  text-align:center; margin-top: 30px;
+}
+.btn {
+  display:inline-flex; align-items:center; gap:10px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #fff; padding: 16px 30px; border-radius: 50px;
+  text-decoration: none; font-weight: 800; font-size: 15px;
+  transition: 0.3s; margin: 8px;
+  box-shadow: 0 10px 30px rgba(193,53,132,0.4);
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
+
+.btn-voltar {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(193,53,132,0.3);
+  box-shadow: none;
+}
+.btn-voltar:hover { background: var(--primary); border-color: var(--primary); }
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.obs { text-align:center; opacity:0.6; font-size:12px; margin-top:15px; }
+
+@media(max-width:900px){
+  .semana { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width:600px){
+  .semana { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="topo">
+    <!-- SUA FOTO -->
+    <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos" class="logo">
+    <h1>PRETA<span>NAILS</span></h1>
+    <div class="sub">ESCOLHA SEU HORÁRIO</div>
+  </div>
+
+  <div class="semana">
+    
+    <!-- TERÇA -->
+    <div class="dia">
+      <h3>Terça</h3>
+      <div class="horario" data-dia="Terça" data-hora="07:00 às 09:00">07:00 às 09:00</div>
+      <div class="horario" data-dia="Terça" data-hora="09:00 às 11:00">09:00 às 11:00</div>
+      <div class="horario" data-dia="Terça" data-hora="11:00 às 13:00">11:00 às 13:00</div>
+      <div class="horario" data-dia="Terça" data-hora="13:00 às 15:00">13:00 às 15:00</div>
+      <div class="horario" data-dia="Terça" data-hora="15:00 às 17:00">15:00 às 17:00</div>
+    </div>
+
+    <!-- QUARTA -->
+    <div class="dia">
+      <h3>Quarta</h3>
+      <div class="horario" data-dia="Quarta" data-hora="07:00 às 09:00">07:00 às 09:00</div>
+      <div class="horario" data-dia="Quarta" data-hora="09:00 às 11:00">09:00 às 11:00</div>
+      <div class="horario" data-dia="Quarta" data-hora="11:00 às 13:00">11:00 às 13:00</div>
+      <div class="horario" data-dia="Quarta" data-hora="13:00 às 15:00">13:00 às 15:00</div>
+      <div class="horario" data-dia="Quarta" data-hora="15:00 às 17:00">15:00 às 17:00</div>
+    </div>
+
+    <!-- QUINTA -->
+    <div class="dia">
+      <h3>Quinta</h3>
+      <div class="horario" data-dia="Quinta" data-hora="07:00 às 09:00">07:00 às 09:00</div>
+      <div class="horario" data-dia="Quinta" data-hora="09:00 às 11:00">09:00 às 11:00</div>
+      <div class="horario" data-dia="Quinta" data-hora="11:00 às 13:00">11:00 às 13:00</div>
+      <div class="horario" data-dia="Quinta" data-hora="13:00 às 15:00">13:00 às 15:00</div>
+      <div class="horario" data-dia="Quinta" data-hora="15:00 às 17:00">15:00 às 17:00</div>
+    </div>
+
+    <!-- SEXTA -->
+    <div class="dia">
+      <h3>Sexta</h3>
+      <div class="horario" data-dia="Sexta" data-hora="07:00 às 09:00">07:00 às 09:00</div>
+      <div class="horario" data-dia="Sexta" data-hora="09:00 às 11:00">09:00 às 11:00</div>
+      <div class="horario" data-dia="Sexta" data-hora="11:00 às 13:00">11:00 às 13:00</div>
+      <div class="horario" data-dia="Sexta" data-hora="13:00 às 15:00">13:00 às 15:00</div>
+      <div class="horario" data-dia="Sexta" data-hora="15:00 às 17:00">15:00 às 17:00</div>
+    </div>
+
+    <!-- SÁBADO -->
+    <div class="dia">
+      <h3>Sábado</h3>
+      <div class="horario" data-dia="Sábado" data-hora="07:00 às 09:00">07:00 às 09:00</div>
+      <div class="horario" data-dia="Sábado" data-hora="09:00 às 11:00">09:00 às 11:00</div>
+      <div class="horario" data-dia="Sábado" data-hora="11:00 às 13:00">11:00 às 13:00</div>
+      <div class="horario" data-dia="Sábado" data-hora="13:00 às 15:00">13:00 às 15:00</div>
+      <div class="horario ocupado">15:00 às 17:00</div>
+    </div>
+
+  </div>
+
+  <div class="botoes-acao">
+    <!-- BOTÃO PRA FICHA -->
+    <a id="btnFicha" href="fichadeassinatura.html" class="btn" style="display:none;">
+      <i class="fas fa-file-signature"></i> PREENCHER FICHA E CONFIRMAR
+    </a>
+    <br>
+    <a href="index.html" class="btn btn-voltar"><i class="fas fa-arrow-left"></i> Voltar</a>
+    <p class="obs">* Selecione um horário acima para liberar o botão de confirmação</p>
+  </div>
+
+</div>
+
+<script>
+let horarioSelecionado = null;
+
+document.querySelectorAll('.horario:not(.ocupado)').forEach(h => {
+  h.addEventListener('click', () => {
+    // Remove seleção antiga
+    document.querySelectorAll('.horario').forEach(x => x.classList.remove('selecionado'));
+    
+    // Marca o novo
+    h.classList.add('selecionado');
+    horarioSelecionado = h.dataset.dia + ' - ' + h.dataset.hora;
+    
+    // Mostra botão da ficha e passa o horário na URL
+    const btn = document.getElementById('btnFicha');
+    btn.style.display = 'inline-flex';
+    btn.href = `fichadeassinatura.html?dia=${encodeURIComponent(h.dataset.dia)}&hora=${encodeURIComponent(h.dataset.hora)}`;
+  });
+});
+</script>
+
+</body>
+</html>
