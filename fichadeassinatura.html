@@ -42,8 +42,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* NOVO: CAIXA DO HORÁRIO */
- .horario-selecionado {
+.horario-selecionado {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     padding: 18px;
     border-radius: 14px;
@@ -51,13 +50,13 @@
     margin-bottom: 25px;
     border: 2px solid rgba(255,255,255,0.2);
   }
- .horario-selecionado h3 {
+.horario-selecionado h3 {
     font-size: 12px;
     letter-spacing: 2px;
     opacity: 0.8;
     margin-bottom: 5px;
   }
- .horario-selecionado p {
+.horario-selecionado p {
     font-size: 18px;
     font-weight: 800;
     font-family: 'Playfair Display', serif;
@@ -71,10 +70,10 @@
   border-radius: 0 0 20px 20px;
   overflow: hidden;
 }
-   .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: 0.5; }
-   .header img { max-width: 200px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
-   .header h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; letter-spacing: 1px; }
-   .header p { margin-top: 8px; opacity: 0.85; font-size: 14px; font-weight: 600; letter-spacing: 1px; }.form-body { padding: 40px 35px; }
+  .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: 0.5; }
+  .header img { max-width: 200px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
+  .header h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; letter-spacing: 1px; }
+  .header p { margin-top: 8px; opacity: 0.85; font-size: 14px; font-weight: 600; letter-spacing: 1px; }.form-body { padding: 40px 35px; }
 .form-group { margin-bottom: 24px; }
 label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--primary); font-size: 14px; letter-spacing: 0.5px; }
 label.required::after { content: ' *'; color: #e74c3c; }
@@ -242,9 +241,9 @@ canvas {
   cursor: crosshair;
 }
 @media (max-width: 640px) {
- .form-body { padding: 30px 20px; }
- .header h1 { font-size: 28px; }
- .checkbox-group { grid-template-columns: 1fr; }
+.form-body { padding: 30px 20px; }
+.header h1 { font-size: 28px; }
+.checkbox-group { grid-template-columns: 1fr; }
 }
 </style></head>
 <body>
@@ -258,7 +257,6 @@ canvas {
   <div class="form-body">
     <form id="anamneseForm">
 
-      <!-- NOVO: MOSTRA O HORARIO ESCOLHIDO -->
       <div id="infoHorario" class="horario-selecionado hidden">
         <h3>SEU HORÁRIO ESCOLHIDO</h3>
         <p id="textoHorario">Carregando...</p>
@@ -277,22 +275,15 @@ canvas {
         <input type="tel" id="whatsapp" required placeholder="(99) 99999-9999" maxlength="15">
       </div>
 
-      <!-- NOVOS CAMPOS AQUI -->
+      <!-- ORDEM CORRIGIDA + BOTAO ANEMIA ADICIONADO -->
       <div class="form-group">
-        <label class="required">Possui Diabetes?</label>
-        <select id="diabetes" required>
-          <option value="">Selecione uma opção</option>
-          <option value="Não">Não</option>
-          <option value="Sim">Sim</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="required">Suas mãos suam muito?</label>
-        <select id="maosSuam" required>
-          <option value="">Selecione uma opção</option>
-          <option value="Não">Não</option>
-          <option value="Sim">Sim</option>
-        </select>
+        <label class="required">Informações de Saúde</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox" id="diabetesCheck" value="Diabetes"> Possui Diabetes?</label>
+          <label class="checkbox-item"><input type="checkbox" id="anemiaCheck" value="Anemia"> Possui Anemia?</label> <!-- NOVO -->
+          <label class="checkbox-item"><input type="checkbox" id="gravidaCheck" value="Gravida/Amamentando"> Está Grávida/Amamentando?</label>
+          <label class="checkbox-item"><input type="checkbox" id="maosSuamCheck" value="Mãos que suam"> Mãos suam muito?</label>
+        </div>
       </div>
 
       <div class="form-group">
@@ -301,8 +292,8 @@ canvas {
           <label class="checkbox-item"><input type="checkbox" value="Esmaltação Simples"> Esmaltação Simples</label>
           <label class="checkbox-item"><input type="checkbox" value="Esmaltação em Gel"> Esmaltação em Gel</label>
           <label class="checkbox-item"><input type="checkbox" value="Alongamento de Unhas"> Alongamento de Unhas</label>
-          <label class="checkbox-item"><input type="checkbox" value="Spa dos Pés"> Spa dos Pés</label>
           <label class="checkbox-item"><input type="checkbox" value="Manicure + Pedicure"> Manicure + Pedicure</label>
+          <label class="checkbox-item"><input type="checkbox" value="Spa dos Pés"> Spa dos Pés</label>
           <label class="checkbox-item"><input type="checkbox" value="Reparação de Unhas"> Reparação de Unhas</label>
           <label class="checkbox-item"><input type="checkbox" id="outroCheck" value="Outro"> Outro</label>
         </div>
@@ -326,16 +317,9 @@ canvas {
           <option value="">Selecione uma opção</option>
           <option value="Não">Não</option>
           <option value="Sim">Sim</option>
+        </option>
         </select>
         <textarea id="medicamentos_texto" placeholder="Quais medicamentos?" class="hidden" style="margin-top:12px;"></textarea>
-      </div>
-      <div class="form-group">
-        <label class="required">Está grávida ou amamentando?</label>
-        <select id="gravida" required>
-          <option value="">Selecione uma opção</option>
-          <option value="Não">Não</option>
-          <option value="Sim">Sim</option>
-        </select>
       </div>
       <div class="form-group">
         <label class="required">Já fez alongamento de unhas antes?</label>
@@ -397,7 +381,6 @@ let hasSignature = false;
 let diaSelecionado = '';
 let horaSelecionada = '';
 
-// 1. PEGAR DIA E HORA DA URL
 (function pegarHorarioURL(){
   const params = new URLSearchParams(window.location.search);
   diaSelecionado = params.get('dia');
@@ -488,7 +471,6 @@ function showErro(msg) {
   window.scrollTo({ top: container.offsetTop - 20, behavior: 'smooth' });
 }
 
-// MÁSCARA WHATSAPP
 document.getElementById('whatsapp').addEventListener('input', function(e) {
   let valor = e.target.value.replace(/\D/g, '');
   if (valor.length > 11) valor = valor.substring(0, 11);
@@ -501,7 +483,6 @@ document.getElementById('whatsapp').addEventListener('input', function(e) {
   }
 });
 
-// SUBMIT
 document.getElementById('anamneseForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   document.getElementById('erroContainer').classList.add('hidden');
@@ -517,6 +498,13 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
   });
   if (procs.length === 0) { showErro('Selecione pelo menos um procedimento desejado.'); return; }
 
+  // NOVO: PEGAR INFORMAÇÕES DE SAÚDE
+  let infosSaude = [];
+  if(document.getElementById('diabetesCheck').checked) infosSaude.push('Diabetes');
+  if(document.getElementById('anemiaCheck').checked) infosSaude.push('Anemia'); // NOVO
+  if(document.getElementById('gravidaCheck').checked) infosSaude.push('Gravida/Amamentando');
+  if(document.getElementById('maosSuamCheck').checked) infosSaude.push('Mãos que suam');
+
   const btn = document.getElementById('submitBtn');
   const btnText = document.getElementById('btnText');
   btn.disabled = true;
@@ -526,10 +514,9 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     nome: document.getElementById('nome').value.trim(),
     idade: document.getElementById('idade').value,
     whatsapp: document.getElementById('whatsapp').value.trim(),
-    dia: diaSelecionado, // NOVO
-    hora: horaSelecionada, // NOVO
-    diabetes: document.getElementById('diabetes').value, // NOVO
-    maosSuam: document.getElementById('maosSuam').value, // NOVO
+    dia: diaSelecionado,
+    hora: horaSelecionada,
+    infosSaude: infosSaude.join(", "), // NOVO
     procedimento: procs.join(", "),
     fotoReferencia: fotoBase64,
     assinatura: canvas.toDataURL('image/png'),
@@ -537,7 +524,6 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     alergias_texto: document.getElementById('alergias_texto').value,
     medicamentos: document.getElementById('medicamentos').value,
     medicamentos_texto: document.getElementById('medicamentos_texto').value,
-    gravida: document.getElementById('gravida').value,
     alongamento: document.getElementById('alongamento').value,
     alongamento_texto: document.getElementById('alongamento_texto').value,
     observacoes: document.getElementById('observacoes').value
@@ -549,7 +535,7 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
 
     if (data.status === 'ok') {
       document.getElementById('sucessoOverlay').classList.remove('hidden');
-      setTimeout(() => { window.location.href = 'index.html'; }, 3000); // Volta pro inicio depois de 3s
+      setTimeout(() => { window.location.href = 'index.html'; }, 3000);
     } else {
       throw new Error(data.msg || 'Erro desconhecido');
     }
