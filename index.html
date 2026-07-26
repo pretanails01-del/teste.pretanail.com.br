@@ -64,7 +64,7 @@
 
     .btn-duvidas-topo {
       position: fixed;
-      top: 25px; /* Desceu 5px */
+      top: 20px;
       right: 25px;
       z-index: 9998;
       background: rgba(255,255,255,0.06);
@@ -85,7 +85,7 @@
     .btn-duvidas-topo:hover { border-color: var(--primary); transform: translateY(-2px); }
     .btn-duvidas-topo:active { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-color: var(--primary); transform: scale(0.96); }
 
-    .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 20px 20px; /* padding-top 80px pra dar espaço da coroa */ position: relative; }
+    .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; position: relative; }
     .wrap { max-width: 600px; animation: fadeIn 1s ease; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .coroa { font-size: 40px; color: var(--primary); margin-bottom: 15px; filter: drop-shadow(0 0 20px rgba(193,53,132,0.5)); }
@@ -147,8 +147,8 @@
     .whatsapp-text { font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 20px; backdrop-filter: blur(10px); letter-spacing: 0.5px; text-align: center; }
 
     @media (max-width: 768px) {
-      .btn-duvidas-topo { top: 15px; right: 16px; padding: 8px 14px; font-size: 11px; } /* Menor pra não pegar a coroa */
-      .hero { min-height: 85vh; padding: 70px 16px 40px 16px; } /* Espaço pra coroa no mobile */
+      .btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; }
+      .hero { min-height: 85vh; padding: 20px 16px 40px 16px; }
       .wrap { max-width: 100%; }
       .slogan { letter-spacing: 2px; font-size: 11px; }
       .tag { font-size: 12px; padding: 10px 20px; }
@@ -179,7 +179,7 @@
 
   <section class="hero">
     <div class="wrap">
-      <div class="coroa">👑</div> <!-- COROA VOLTOU -->
+      <div class="coroa"></div>
       <h1>PRETA<span>NAILS</span></h1>
       <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
       <div class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS </div>
@@ -208,13 +208,63 @@
     <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>  
   </section>
 
-  <!-- O resto continua igual -->
-  <section class="galeria"> ... </section>
-  <footer class="footer"> ... </footer>
-  <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20tenho%20algumas%20d%C3%BAvidas.%20Poderia%20me%20ajudar%20%3F" target="_blank" class="whatsapp-float"> ... </a>
+  <section class="galeria">
+    <div class="titulo-galeria"><h2>Portfólio <span>Preta Nails</span></h2></div>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1" alt="Trabalho Preta Nails"></div></div>
+        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1" alt="Trabalho Preta Nails"></div></div>
+        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/yvh7487ntc4198bg86bcy/1784512440834_image_1784512439717.jpg?rlkey=eh9s591ggwcbieo9frwyfqhj6&dl=1" alt="Trabalho Preta Nails"></div></div>
+        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/ydggv1tyvubbtrcdpr9zi/1784512429984_image_1784512429123.jpg?rlkey=4knq0q5dbgex0codposfwciur&dl=1" alt="Trabalho Preta Nails"></div></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="desconto-wrap">
+      <div class="tag tag-vip"> VAGAS LIMITADAS</div>
+      <h3>Desconto Especial de Lançamento</h3>
+      <p>Estou montando minha carteira VIP. As 20 primeiras clientes ganham condição especial + prioridade no agendamento + brinde surpresa no primeiro atendimento.</p>
+      <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20quero%20garantir%20minha%20vaga%20no%20Desconto%20Especial%20de%20Lan%C3%A7amento%20%F0%9F%92%97" target="_blank" class="btn" style="font-size:17px; padding:20px 40px; margin-top:10px;">
+        QUERO GARANTIR MINHA VAGA AGORA <i class="fas fa-crown"></i>
+      </a>
+    </div>
+
+    <div class="foto-destaque-wrap">
+      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos - Preta Nails">
+      <h3>Sabrina Lemos</h3>
+      <p>Sou Sabrina Lemos, fundadora da PretaNails. Acredito que unhas bem cuidadas são muito mais do que um detalhe: elas refletem autoestima, confiança e elegância.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-selos">
+      <div class="selo"><i class="fas fa-shield-halved"></i> Dados Criptografados</div>
+      <div class="selo"><i class="fas fa-check-circle"></i> Verificado Google</div>
+      <div class="selo"><i class="fas fa-file-contract"></i> LGPD - Consentimento</div>
+      <div class="selo"><i class="fas fa-lock"></i> Site Seguro SSL</div>
+    </div>
+    <p>© 2026 Preta Nails. Todos os direitos reservados. | Seus dados estão seguros conosco.</p>
+  </footer>
+
+  <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20tenho%20algumas%20d%C3%BAvidas.%20Poderia%20me%20ajudar%20%3F" target="_blank" class="whatsapp-float">
+    <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
+    <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
+  </a>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script> const swiper = new Swiper('.swiper', { loop: true, slidesPerView: 1, spaceBetween: 30, centeredSlides: true, autoplay: { delay: 4000, disableOnInteraction: false }, navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }, pagination: { el: '.swiper-pagination', clickable: true } }); </script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: { delay: 4000, disableOnInteraction: false },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      pagination: { el: '.swiper-pagination', clickable: true }
+    });
+  </script>
 
 <script>
 let deferredPrompt;
