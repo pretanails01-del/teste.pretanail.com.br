@@ -225,7 +225,8 @@
         MELHOR<br><small>versão! ♡</small>
       </div>
       
-  <a href="fichadeassinatura.html" class="btn">
+  <!-- AQUI MUDOU APENAS O LINK -->
+  <a href="agendamento.html" class="btn">
     QUERO MINHAS UNHAS PERFEITAS 
     <i class="fas fa-arrow-right"></i>
   </a>
@@ -313,23 +314,18 @@
 (function() {
   "use strict";
 
-  // CONFIG: Sua senha pra liberar no PC
   const SENHA_ADMIN = "preta2026"; 
 
-  // 1. LIBERA PÁGINAS ESPECÍFICAS - NOVO
   const paginaAtual = window.location.pathname.toLowerCase();
   const paginasLiberadas = ['/duvidas.html', '/duvidas', '/faq.html', '/faq'];
   const isPaginaLiberada = paginasLiberadas.some(p => paginaAtual.includes(p));
 
-  // 2. Desativa no VS Code / localhost
   const isLocal = window.location.hostname === "localhost" || 
                   window.location.hostname === "127.0.0.1" ||
                   window.location.protocol === "file:";
 
-  // 3. Desativa em Celular/Tablet
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-  // 4. Libera se tiver ?admin=preta2026 na URL
   const urlParams = new URLSearchParams(window.location.search);
   const liberouPorLink = urlParams.get('admin') === SENHA_ADMIN;
 
@@ -337,7 +333,6 @@
     sessionStorage.setItem('adminLiberado', 'true');
   }
 
-  // 5. Se já liberou OU é página liberada, não bloqueia
   if (sessionStorage.getItem('adminLiberado') === 'true' || isPaginaLiberada) {
     console.log("%c👑 Modo Admin/Liberado ATIVO", "color: gold; font-size: 16px");
     return;
@@ -377,7 +372,6 @@
       </body>`;
   }
 
-  // FUNÇÃO SECRETA PRA VOCÊ LIBERAR
   window.liberar = function(senha) {
     if(senha === SENHA_ADMIN) {
       sessionStorage.setItem('adminLiberado', 'true');
@@ -388,10 +382,9 @@
     }
   }
 
-  // 1. BLOQUEIO DE TECLAS
   document.addEventListener('keydown', function(e) {
     const key = e.key.toUpperCase();
-    if (e.ctrlKey && key === 'C') return true; // LIBERA Ctrl+C
+    if (e.ctrlKey && key === 'C') return true; 
     
     if (key === 'F12' ||
         (e.ctrlKey && ['U','S','P','F','H','A','I','J'].includes(key)) ||
@@ -402,13 +395,11 @@
     }
   }, true);
 
-  // 2. BLOQUEIA BOTÃO DIREITO
   document.addEventListener('contextmenu', e => { 
     e.preventDefault(); 
     mostrarAlertaSeguranca(); 
   }, true);
 
-  // 3. DETECÇÃO DE DEVTOOLS
   setInterval(() => {
     if (!bloqueado && (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160)) {
       mostrarAlertaSeguranca();
