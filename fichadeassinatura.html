@@ -70,10 +70,10 @@
   border-radius: 0 0 20px 20px;
   overflow: hidden;
 }
-  .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: 0.5; }
-  .header img { max-width: 200px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
-  .header h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; letter-spacing: 1px; }
-  .header p { margin-top: 8px; opacity: 0.85; font-size: 14px; font-weight: 600; letter-spacing: 1px; }.form-body { padding: 40px 35px; }
+ .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: 0.5; }
+ .header img { max-width: 200px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
+ .header h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; letter-spacing: 1px; }
+ .header p { margin-top: 8px; opacity: 0.85; font-size: 14px; font-weight: 600; letter-spacing: 1px; }.form-body { padding: 40px 35px; }
 .form-group { margin-bottom: 24px; }
 label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--primary); font-size: 14px; letter-spacing: 0.5px; }
 label.required::after { content: ' *'; color: #e74c3c; }
@@ -275,17 +275,7 @@ canvas {
         <input type="tel" id="whatsapp" required placeholder="(99) 99999-9999" maxlength="15">
       </div>
 
-      <!-- ORDEM CORRIGIDA + BOTAO ANEMIA ADICIONADO -->
-      <div class="form-group">
-        <label class="required">Informações de Saúde</label>
-        <div class="checkbox-group">
-          <label class="checkbox-item"><input type="checkbox" id="diabetesCheck" value="Diabetes"> Possui Diabetes?</label>
-          <label class="checkbox-item"><input type="checkbox" id="anemiaCheck" value="Anemia"> Possui Anemia?</label> <!-- NOVO -->
-          <label class="checkbox-item"><input type="checkbox" id="gravidaCheck" value="Gravida/Amamentando"> Está Grávida/Amamentando?</label>
-          <label class="checkbox-item"><input type="checkbox" id="maosSuamCheck" value="Mãos que suam"> Mãos suam muito?</label>
-        </div>
-      </div>
-
+      <!-- ORDEM NOVA: PROCEDIMENTOS PRIMEIRO -->
       <div class="form-group">
         <label class="required">Procedimentos Desejados</label>
         <div class="checkbox-group" id="procedimentosGroup">
@@ -302,6 +292,40 @@ canvas {
         <label>Especifique o procedimento desejado</label>
         <input type="text" id="outroTexto" placeholder="Descreva aqui...">
       </div>
+
+      <!-- INFORMAÇÕES DE SAÚDE TUDO JUNTO AGORA -->
+      <div class="form-group">
+        <label class="required">Possui Diabetes?</label>
+        <select id="diabetes" required>
+          <option value="">Selecione uma opção</option>
+          <option value="Não">Não</option>
+          <option value="Sim">Sim</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="required">Possui Anemia?</label> <!-- NOVO -->
+        <select id="anemia" required>
+          <option value="">Selecione uma opção</option>
+          <option value="Não">Não</option>
+          <option value="Sim">Sim</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="required">Suas mãos suam muito?</label>
+        <select id="maosSuam" required>
+          <option value="">Selecione uma opção</option>
+          <option value="Não">Não</option>
+          <option value="Sim">Sim</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="required">Está grávida ou amamentando?</label>
+        <select id="gravida" required>
+          <option value="">Selecione uma opção</option>
+          <option value="Não">Não</option>
+          <option value="Sim">Sim</option>
+        </select>
+      </div>
       <div class="form-group">
         <label class="required">Possui alergias a esmaltes, gel ou produtos?</label>
         <select id="alergias" required onchange="toggleDetalhes(this, 'alergias_texto')">
@@ -317,7 +341,6 @@ canvas {
           <option value="">Selecione uma opção</option>
           <option value="Não">Não</option>
           <option value="Sim">Sim</option>
-        </option>
         </select>
         <textarea id="medicamentos_texto" placeholder="Quais medicamentos?" class="hidden" style="margin-top:12px;"></textarea>
       </div>
@@ -498,13 +521,6 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
   });
   if (procs.length === 0) { showErro('Selecione pelo menos um procedimento desejado.'); return; }
 
-  // NOVO: PEGAR INFORMAÇÕES DE SAÚDE
-  let infosSaude = [];
-  if(document.getElementById('diabetesCheck').checked) infosSaude.push('Diabetes');
-  if(document.getElementById('anemiaCheck').checked) infosSaude.push('Anemia'); // NOVO
-  if(document.getElementById('gravidaCheck').checked) infosSaude.push('Gravida/Amamentando');
-  if(document.getElementById('maosSuamCheck').checked) infosSaude.push('Mãos que suam');
-
   const btn = document.getElementById('submitBtn');
   const btnText = document.getElementById('btnText');
   btn.disabled = true;
@@ -516,7 +532,10 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     whatsapp: document.getElementById('whatsapp').value.trim(),
     dia: diaSelecionado,
     hora: horaSelecionada,
-    infosSaude: infosSaude.join(", "), // NOVO
+    diabetes: document.getElementById('diabetes').value, // NOVO
+    anemia: document.getElementById('anemia').value, // NOVO
+    maosSuam: document.getElementById('maosSuam').value,
+    gravida: document.getElementById('gravida').value,
     procedimento: procs.join(", "),
     fotoReferencia: fotoBase64,
     assinatura: canvas.toDataURL('image/png'),
