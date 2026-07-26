@@ -9,74 +9,84 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-  :root { 
-    --primary: #C13584; 
-    --primary-dark: #a02c6e; 
-    --success: #25D366; 
+  :root {
+    --primary: #C13584;
+    --primary-dark: #a02c6e;
+    --success: #25D366;
     --bg: #0a0a0a;
     --card: rgba(255,255,255,0.04);
-    --text: #ffffff; 
+    --text: #ffffff;
     --border: rgba(193,53,132,0.25);
   }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-  
-  body { 
-    font-family: 'Inter', sans-serif; 
-    background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); 
-    min-height: 100vh; 
-    padding: 12px; 
-    color: var(--text); 
-    -webkit-font-smoothing: antialiased; 
-  }  .container { 
-    max-width: 720px; 
-    margin: 16px auto; 
-    background: var(--card); 
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+    min-height: 100vh;
+    padding: 12px;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }.container {
+    max-width: 720px;
+    margin: 16px auto;
+    background: var(--card);
     border: 1px solid var(--border);
     backdrop-filter: blur(20px);
-    border-radius: 16px; 
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6); 
-    overflow: hidden; 
-    animation: slideUp 0.6s ease; 
-  }  /* NOVO: Ajuste específico pra mobile */
-  @media (max-width: 768px) {
-    body {
-      padding: 8px; 
-    }
-    .container {
-      margin: 8px auto; 
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      overflow: hidden; 
-    }.header {
-  border-radius: 0 0 12px 12px; 
-}}
-  }  @keyframes slideUp {
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    overflow: hidden;
+    animation: slideUp 0.6s ease;
+  } @keyframes slideUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
-  }.header {   background: linear-gradient(135deg, #000 0%, var(--primary) 100%); 
-  color: white; 
-  text-align: center; 
-  padding: 50px 20px 40px; 
-  position: relative; 
-  border-radius: 0 0 20px 20px; 
-  overflow: hidden; 
+  }
+
+  /* NOVO: CAIXA DO HORÁRIO */
+ .horario-selecionado {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 18px;
+    border-radius: 14px;
+    text-align: center;
+    margin-bottom: 25px;
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+ .horario-selecionado h3 {
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    margin-bottom: 5px;
+  }
+ .horario-selecionado p {
+    font-size: 18px;
+    font-weight: 800;
+    font-family: 'Playfair Display', serif;
+  }
+
+.header { background: linear-gradient(135deg, #000 0%, var(--primary) 100%);
+  color: white;
+  text-align: center;
+  padding: 50px 20px 40px;
+  position: relative;
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
 }
-    .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: 0.5; }
-    .header img { max-width: 200px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
-    .header h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; letter-spacing: 1px; }
-    .header p { margin-top: 8px; opacity: 0.85; font-size: 14px; font-weight: 600; letter-spacing: 1px; }.form-body { padding: 40px 35px; }
+   .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: 0.5; }
+   .header img { max-width: 200px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
+   .header h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; letter-spacing: 1px; }
+   .header p { margin-top: 8px; opacity: 0.85; font-size: 14px; font-weight: 600; letter-spacing: 1px; }.form-body { padding: 40px 35px; }
 .form-group { margin-bottom: 24px; }
 label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--primary); font-size: 14px; letter-spacing: 0.5px; }
 label.required::after { content: ' *'; color: #e74c3c; }
 
-input, textarea, select { 
-  width: 100%; 
-  padding: 14px 16px; 
-  border: 2px solid rgba(255,255,255,0.1); 
-  border-radius: 12px; 
-  font-size: 15px; 
-  font-family: 'Inter', sans-serif; 
-  transition: all 0.3s ease; 
+input, textarea, select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
   background: rgba(0,0,0,0.3);
   color: #fff;
 }
@@ -86,14 +96,14 @@ select { cursor: pointer; appearance: none; background-image: url("data:image/sv
 textarea { resize: vertical; min-height: 90px; }
 
 .checkbox-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
-.checkbox-item { 
-  display: flex; 
-  align-items: center; 
-  background: rgba(0,0,0,0.3); 
-  padding: 14px 16px; 
-  border-radius: 12px; 
-  border: 2px solid rgba(255,255,255,0.1); 
-  cursor: pointer; 
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  background: rgba(0,0,0,0.3);
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.1);
+  cursor: pointer;
   transition: all 0.3s ease;
   color: #fff;
   font-weight: 600;
@@ -101,56 +111,56 @@ textarea { resize: vertical; min-height: 90px; }
 .checkbox-item:hover { border-color: var(--primary); background: rgba(193,53,132,0.1); }
 .checkbox-item input { width: 18px; height: 18px; margin-right: 10px; cursor: pointer; accent-color: var(--primary); }
 
-.foto-box { 
-  border: 3px dashed var(--primary); 
-  border-radius: 16px; 
-  padding: 35px 20px; 
-  text-align: center; 
-  background: rgba(193,53,132,0.05); 
-  cursor: pointer; 
-  transition: all 0.3s ease; 
+.foto-box {
+  border: 3px dashed var(--primary);
+  border-radius: 16px;
+  padding: 35px 20px;
+  text-align: center;
+  background: rgba(193,53,132,0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 .foto-box:hover { background: rgba(193,53,132,0.1); border-color: var(--primary-dark); }
 .foto-box p { color: var(--primary); font-weight: 700; margin-top: 8px; }
 .foto-obs { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px; text-align: center; }
 #previewContainer img { max-width: 100%; max-height: 300px; border: 3px solid var(--primary); border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
 
-canvas { 
-  border: 2px solid var(--primary); 
-  border-radius: 12px; 
-  background: #000; 
-  width: 100%; 
-  touch-action: none; 
-  cursor: crosshair; 
+canvas {
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  background: #000;
+  width: 100%;
+  touch-action: none;
+  cursor: crosshair;
 }
 
-.btn { 
-  width: 100%; 
-  padding: 16px; 
-  border: none; 
-  border-radius: 12px; 
-  font-size: 16px; 
-  font-weight: 800; 
-  cursor: pointer; 
-  transition: all 0.3s ease; 
-  font-family: 'Inter', sans-serif; 
-  letter-spacing: 0.5px; 
+.btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
 }
-.btn-primary { 
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
-  color: white; 
-  margin-top: 30px; 
-  box-shadow: 0 10px 30px rgba(193,53,132,0.4); 
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  margin-top: 30px;
+  box-shadow: 0 10px 30px rgba(193,53,132,0.4);
 }
 .btn-primary:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
 .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-.btn-secondary { 
-  background: rgba(255,255,255,0.1); 
-  color: #fff; 
-  width: auto; 
-  padding: 10px 20px; 
-  font-size: 14px; 
-  margin-top: 10px; 
+.btn-secondary {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  width: auto;
+  padding: 10px 20px;
+  font-size: 14px;
+  margin-top: 10px;
   border: 1px solid rgba(255,255,255,0.2);
 }
 .btn-secondary:hover { background: rgba(255,255,255,0.2); }
@@ -158,79 +168,57 @@ canvas {
 .loader { display: inline-block; width: 16px; height: 16px; border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* OVERLAY COM FUNDO DE UNHAS 100% NÍTIDO */
-.sucesso-overlay {   position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+.sucesso-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background-image: url('https://dl.dropboxusercontent.com/scl/fi/jg66vk8ay5vzdb7da1ns4/1783904530793_image_1783904529995.jpg?rlkey=u1xdg3grc0dcf3bow3fuuga7p&raw=1');
-  background-size: contain; 
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #0a0a0a; 
-  display: flex; align-items: center; justify-content: center; 
-  z-index: 9999; animation: fadeIn 0.4s ease; 
+  background-color: #0a0a0a;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999; animation: fadeIn 0.4s ease;
   overflow: hidden;
-  touch-action: none; 
+  touch-action: none;
 }
 .sucesso-overlay::before {
   content: '';
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.2); 
+  background: rgba(0,0,0,0.2);
   z-index: -1;
 }
-.sucesso-overlay::after {
-  content: '';
-  position: absolute;
-  top: -50%; left: 0;
-  width: 100%; height: 200%;
-  background-image: 
-    radial-gradient(4px 4px at 10% 20%, rgba(193,53,132,1), transparent),
-    radial-gradient(3px 3px at 90% 30%, rgba(255,255,255,0.95), transparent),
-    radial-gradient(5px 5px at 30% 70%, rgba(193,53,132,0.9), transparent),
-    radial-gradient(3px 3px at 70% 80%, rgba(255,255,255,0.8), transparent);
-  background-size: 100% 100%;
-  animation: floatParticles 20s linear infinite;
-  z-index: 0;
-  pointer-events: none;
-}
-@keyframes floatParticles {
- 0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
-}
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }.sucesso-card { 
-  background: rgba(0,0,0,0.15); 
-  border: 1.5px solid rgba(193,53,132,0.5); 
-  padding: 60px 45px; 
-  border-radius: 28px; 
-  text-align: center; 
-  max-width: 440px; 
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }.sucesso-card {
+  background: rgba(0,0,0,0.15);
+  border: 1.5px solid rgba(193,53,132,0.5);
+  padding: 60px 45px;
+  border-radius: 28px;
+  text-align: center;
+  max-width: 440px;
   width: 90%;
-  animation: scaleUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); 
-  box-shadow: 0 0 0 1px rgba(193,53,132,0.3), 0 20px 60px rgba(193,53,132,0.25); 
+  animation: scaleUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 0 1px rgba(193,53,132,0.3), 0 20px 60px rgba(193,53,132,0.25);
   position: relative;
   z-index: 1;
   margin: 20px;
 }
-@keyframes scaleUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }.sucesso-icon { 
-  width: 100px; height: 100px; 
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
-  border-radius: 50%; 
-  display: flex; align-items: center; justify-content: center; 
-  margin: 0 auto 25px; animation: pulseGlow 1.8s ease infinite; 
+@keyframes scaleUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }.sucesso-icon {
+  width: 100px; height: 100px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 25px; animation: pulseGlow 1.8s ease infinite;
   box-shadow: 0 0 70px rgba(193,53,132,1);
 }
-@keyframes pulseGlow { 
- 0%, 100% { transform: scale(1); box-shadow: 0 0 70px rgba(193,53,132,1); } 
- 50% { transform: scale(1.15); box-shadow: 0 0 100px rgba(193,53,132,1); } 
+@keyframes pulseGlow {
+ 0%, 100% { transform: scale(1); box-shadow: 0 0 70px rgba(193,53,132,1); }
+ 50% { transform: scale(1.15); box-shadow: 0 0 100px rgba(193,53,132,1); }
 }
 .sucesso-icon i { color: white; font-size: 50px; }
-.sucesso-titulo { 
-  font-family: 'Playfair Display', serif; 
-  font-size: 34px; 
-  color: var(--primary); 
-  margin-bottom: 14px; 
+.sucesso-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  color: var(--primary);
+  margin-bottom: 14px;
   text-shadow: 0 0 40px rgba(193,53,132,1);
   letter-spacing: 1.5px;
 }
@@ -238,75 +226,28 @@ canvas {
 .erro-msg { background: rgba(244,67,54,0.1); border-left: 4px solid #F44336; color: #ff8a80; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 600; }
 .hidden { display: none!important; }
 
-/* AJUSTE EXTRA PRO CELULAR */
-@media (max-width: 480px) {
-  .sucesso-card {
-    padding: 45px 30px;
-    border-radius: 24px;
-  }
-  .sucesso-titulo {
-    font-size: 28px;
-  }
-  .sucesso-icon {
-    width: 85px;
-    height: 85px;
-  }
-  .sucesso-icon i {
-    font-size: 42px;
-  }
-}
-    }/* TELA DE BLOQUEIO */
-.bloqueio-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 20px; }
-.bloqueio-card { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); border: 2px solid var(--primary); border-radius: 24px; padding: 50px 40px; text-align: center; max-width: 500px; box-shadow: 0 30px 80px rgba(193, 53, 132, 0.5); }
-.bloqueio-icon { width: 90px; height: 90px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; }
-.bloqueio-icon i { color: white; font-size: 45px; }
-.bloqueio-titulo { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--primary); margin-bottom: 15px; font-weight: 700; }
-.bloqueio-texto { color: #ccc; font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
-.bloqueio-texto strong { color: var(--primary); }
-
-.btn-whatsapp { background: linear-gradient(135deg, #25D366, #1fa855); color: white; padding: 16px 35px; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
-.btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6); }
-.btn-whatsapp i { font-size: 22px; }
-
-/* CAIXA DE ASSINATURA ROSA CHOCK */.signature-wrapper {
-  background: #C13584; 
-  border: 2px solid #a02c6e; 
+.signature-wrapper {
+  background: #C13584;
+  border: 2px solid #a02c6e;
   border-radius: 16px;
   margin: 12px 0;
   overflow: hidden;
 }
 #signatureCanvas {
-  background: #C13584; 
+  background: #C13584;
   width: 100%;
   height: 160px;
   display: block;
   touch-action: none;
   cursor: crosshair;
-}@media (max-width: 640px) {
-  .form-body { padding: 30px 20px; }
-  .header h1 { font-size: 28px; }
-  .checkbox-group { grid-template-columns: 1fr; }
-  .sucesso-card { margin: 20px; padding: 40px 30px; }
-  .bloqueio-card { padding: 40px 25px; }
-  .bloqueio-titulo { font-size: 26px; }
-}  </style></head>
+}
+@media (max-width: 640px) {
+ .form-body { padding: 30px 20px; }
+ .header h1 { font-size: 28px; }
+ .checkbox-group { grid-template-columns: 1fr; }
+}
+</style></head>
 <body>
-<div id="bloqueioOverlay" class="bloqueio-overlay hidden">
-  <div class="bloqueio-card">
-    <div class="bloqueio-icon"> 
-      <i class="fas fa-lock"></i>
-    </div>
-    <h2 class="bloqueio-titulo" style="color: var(--primary);">🔒 Manutenção em Andamento</h2>
-    <p class="bloqueio-texto">
-      O site da proprietária está temporariamente indisponível.<br>
-      Estamos implementando manutenção para melhorar seu atendimento.<br><br>Voltamos em breve. Agradecemos sua compreensão!<br><br>
-      Para suporte técnico, entre em contato conosco:
-    </p>
-    <a href="https://wa.me/5511991233172?text=Vi%20que%20o%20meu%20site%20est%C3%A1%20em%20Manuten%C3%A7%C3%A3o%0AGostaria%20de%20solicitar%20o%20Desbloqueio%20dele" target="_blank" class="btn-whatsapp">
-      <i class="fab fa-whatsapp"></i> FALAR COM SUPORTE
-    </a>
-  </div>
-</div>
 
 <div class="container" id="mainContainer">
   <div class="header">
@@ -316,6 +257,13 @@ canvas {
   </div>
   <div class="form-body">
     <form id="anamneseForm">
+
+      <!-- NOVO: MOSTRA O HORARIO ESCOLHIDO -->
+      <div id="infoHorario" class="horario-selecionado hidden">
+        <h3>SEU HORÁRIO ESCOLHIDO</h3>
+        <p id="textoHorario">Carregando...</p>
+      </div>
+
       <div class="form-group">
         <label class="required">Nome Completo</label>
         <input type="text" id="nome" required placeholder="Digite seu nome completo">
@@ -328,6 +276,25 @@ canvas {
         <label class="required">WhatsApp</label>
         <input type="tel" id="whatsapp" required placeholder="(99) 99999-9999" maxlength="15">
       </div>
+
+      <!-- NOVOS CAMPOS AQUI -->
+      <div class="form-group">
+        <label class="required">Possui Diabetes?</label>
+        <select id="diabetes" required>
+          <option value="">Selecione uma opção</option>
+          <option value="Não">Não</option>
+          <option value="Sim">Sim</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="required">Suas mãos suam muito?</label>
+        <select id="maosSuam" required>
+          <option value="">Selecione uma opção</option>
+          <option value="Não">Não</option>
+          <option value="Sim">Sim</option>
+        </select>
+      </div>
+
       <div class="form-group">
         <label class="required">Procedimentos Desejados</label>
         <div class="checkbox-group" id="procedimentosGroup">
@@ -403,7 +370,7 @@ canvas {
         <button type="button" class="btn btn-secondary" onclick="clearSignature()">Limpar Assinatura</button>
       </div>
       <button type="submit" class="btn btn-primary" id="submitBtn">
-        <span id="btnText">VAMOS AGENDAR </span>
+        <span id="btnText">CONFIRMAR AGENDAMENTO</span>
       </button>
       <div id="erroContainer" class="hidden"></div>
     </form>
@@ -415,53 +382,31 @@ canvas {
     <div class="sucesso-icon">
       <i class="fas fa-check"></i>
     </div>
-    <h2 class="sucesso-titulo">Formulário Enviado!</h2>
-    <p class="sucesso-texto" id="sucessoTexto">Sua avaliação foi recebida com sucesso</p>
-    <div id="btnWhatsContainer"></div>
+    <h2 class="sucesso-titulo">Agendamento Confirmado!</h2>
+    <p class="sucesso-texto" id="sucessoTexto">Sua ficha foi recebida com sucesso</p>
   </div>
 </div>
 
 <script>
-const DURACAO_BLOQUEIO = "0"; 
-const WHATSAPP_BLOQUEIO = "5511991233172";
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwuuqYuvDyl5igfaY9LkC6dDus-KP8bQuWDMGLBXnY4bU41QAN3gNng5S5rj6D0vQs/exec";
-
-function converterParaMinutos(tempo) {
-  if (typeof tempo === 'number') return tempo;
-  const valor = parseFloat(tempo);
-  const unidade = tempo.toString().toLowerCase().replace(/[0-9.]/g, '');
-  if (isNaN(valor) || valor <= 0) return 0;
-  switch (unidade) {
-    case 's': return valor / 60;
-    case 'min': case 'm': return valor;
-    case 'h': return valor * 60;
-    case 'd': return valor * 60 * 24;
-    default: return valor;
-  }
-}
-
-(function verificarBloqueio() {
-  const duracaoMinutos = converterParaMinutos(DURACAO_BLOQUEIO);
-  if (duracaoMinutos <= 0) return;
-  const CHAVE_STORAGE = 'sistemaBloqueio_inicio';
-  let dataInicio = localStorage.getItem(CHAVE_STORAGE);
-  if (!dataInicio) {
-    dataInicio = new Date().toISOString();
-    localStorage.setItem(CHAVE_STORAGE, dataInicio);
-  }
-  const inicio = new Date(dataInicio).getTime();
-  const agora = new Date().getTime();
-  const minutosPassados = (agora - inicio) / 60000;
-  if (minutosPassados >= duracaoMinutos) {
-    document.getElementById('bloqueioOverlay').classList.remove('hidden');
-    document.getElementById('mainContainer').style.display = 'none';
-    document.body.style.overflow = 'hidden';
-  }
-})();
+// TROCA PELO SEU LINK DO APPS SCRIPT
+const WEB_APP_URL = "COLE_SEU_LINK_DO_APPS_SCRIPT_AQUI";
 
 let fotoBase64 = null;
 let isDrawing = false;
 let hasSignature = false;
+let diaSelecionado = '';
+let horaSelecionada = '';
+
+// 1. PEGAR DIA E HORA DA URL
+(function pegarHorarioURL(){
+  const params = new URLSearchParams(window.location.search);
+  diaSelecionado = params.get('dia');
+  horaSelecionada = params.get('hora');
+  if(diaSelecionado && horaSelecionada){
+    document.getElementById('infoHorario').classList.remove('hidden');
+    document.getElementById('textoHorario').innerText = `${diaSelecionado} - ${horaSelecionada}`;
+  }
+})();
 
 function previewFoto(input) {
   if (input.files && input.files[0]) {
@@ -496,7 +441,7 @@ document.getElementById('outroCheck').addEventListener('change', function() {
 
 const canvas = document.getElementById('signatureCanvas');
 const ctx = canvas.getContext('2d');
-ctx.strokeStyle = '#000000';
+ctx.strokeStyle = '#000';
 ctx.lineWidth = 3;
 ctx.lineCap = 'round';
 
@@ -547,7 +492,6 @@ function showErro(msg) {
 document.getElementById('whatsapp').addEventListener('input', function(e) {
   let valor = e.target.value.replace(/\D/g, '');
   if (valor.length > 11) valor = valor.substring(0, 11);
-
   if (valor.length <= 2) {
     e.target.value = valor;
   } else if (valor.length <= 7) {
@@ -562,7 +506,8 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
   e.preventDefault();
   document.getElementById('erroContainer').classList.add('hidden');
   if (!hasSignature) { showErro('A assinatura digital é obrigatória. Por favor, assine no campo acima.'); return; }
-  
+  if(!diaSelecionado ||!horaSelecionada){ showErro('Erro: Horário não selecionado. Volte e escolha um horário.'); return; }
+
   let procs = [];
   document.querySelectorAll('#procedimentosGroup input[type="checkbox"]:checked').forEach(c => {
     if (c.value === 'Outro') {
@@ -571,7 +516,7 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     } else { procs.push(c.value); }
   });
   if (procs.length === 0) { showErro('Selecione pelo menos um procedimento desejado.'); return; }
-  
+
   const btn = document.getElementById('submitBtn');
   const btnText = document.getElementById('btnText');
   btn.disabled = true;
@@ -581,8 +526,11 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     nome: document.getElementById('nome').value.trim(),
     idade: document.getElementById('idade').value,
     whatsapp: document.getElementById('whatsapp').value.trim(),
+    dia: diaSelecionado, // NOVO
+    hora: horaSelecionada, // NOVO
+    diabetes: document.getElementById('diabetes').value, // NOVO
+    maosSuam: document.getElementById('maosSuam').value, // NOVO
     procedimento: procs.join(", "),
-    outroTexto: document.getElementById('outroTexto').value,
     fotoReferencia: fotoBase64,
     assinatura: canvas.toDataURL('image/png'),
     alergias: document.getElementById('alergias').value,
@@ -595,164 +543,24 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     observacoes: document.getElementById('observacoes').value
   };
 
-  let numeroCliente = dados.whatsapp.replace(/\D/g, '');
-  if(numeroCliente.length !== 11){
-    showErro('WhatsApp inválido. Digite no formato (99) 99999-9999');
-    btn.disabled = false;
-    btnText.textContent = 'VAMOS AGENDAR ';
-    return;
-  }
-
   try {
     const response = await fetch(WEB_APP_URL, { method: "POST", mode: "cors", body: JSON.stringify(dados) });
     const data = await response.json();
-    
+
     if (data.status === 'ok') {
-      document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
-
-      const mensagem = `🔥 NOVO FORMULÁRIO - PRETA NAILS
-
-👤 Cliente: ${dados.nome}
-📱 WhatsApp: ${dados.whatsapp}
-💅 Procedimento: ${dados.procedimento}
-📋 OS: ${data.os}
-
-📄 PDF: ${data.pdf}`;
-
-      const linkWhats = `https://wa.me/5511982311608?text=${encodeURIComponent(mensagem)}`;
-      
-      document.getElementById('btnWhatsContainer').innerHTML = `<a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP</a>`;
       document.getElementById('sucessoOverlay').classList.remove('hidden');
-    } else { 
-      throw new Error(data.msg || 'Erro desconhecido'); 
+      setTimeout(() => { window.location.href = 'index.html'; }, 3000); // Volta pro inicio depois de 3s
+    } else {
+      throw new Error(data.msg || 'Erro desconhecido');
     }
   } catch (err) {
-    showErro('Erro ao enviar, comunicar a pretanails sobre o problema.');
+    showErro('Erro ao enviar. Tente novamente.');
     console.error(err);
   } finally {
     btn.disabled = false;
-    btnText.textContent = 'VAMOS AGENDAR ';
+    btnText.textContent = 'CONFIRMAR AGENDAMENTO';
   }
 });
-</script>
-
-<!-- ==================== BLOQUEIO INTELIGENTE V10 - LIBERA DÚVIDAS ==================== -->
-<script>
-(function() {
-  "use strict";
-
-  // CONFIG: Sua senha pra liberar no PC
-  const SENHA_ADMIN = "preta2026"; 
-
-  // 1. LIBERA PÁGINAS ESPECÍFICAS - NOVO
-  const paginaAtual = window.location.pathname.toLowerCase();
-  const paginasLiberadas = ['/duvidas.html', '/duvidas', '/faq.html', '/faq'];
-  const isPaginaLiberada = paginasLiberadas.some(p => paginaAtual.includes(p));
-
-  // 2. Desativa no VS Code / localhost
-  const isLocal = window.location.hostname === "localhost" || 
-                  window.location.hostname === "127.0.0.1" ||
-                  window.location.protocol === "file:";
-
-  // 3. Desativa em Celular/Tablet
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-  // 4. Libera se tiver ?admin=preta2026 na URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const liberouPorLink = urlParams.get('admin') === SENHA_ADMIN;
-
-  if(liberouPorLink) {
-    sessionStorage.setItem('adminLiberado', 'true');
-  }
-
-  // 5. Se já liberou OU é página liberada, não bloqueia
-  if (sessionStorage.getItem('adminLiberado') === 'true' || isPaginaLiberada) {
-    console.log("%c👑 Modo Admin/Liberado ATIVO", "color: gold; font-size: 16px");
-    return;
-  }
-
-  if (isLocal || isMobile) {
-    console.log("%c🔓 Bloqueio desativado: Localhost ou Mobile", "color: lime; font-size: 14px");
-    return; 
-  }
-
-  console.log("%c🔒 Proteção ATIVA", "color: #E91E63; font-size: 14px");
-
-  let bloqueado = false;
-
-  function mostrarAlertaSeguranca() {
-    if(bloqueado) return;
-    bloqueado = true;
-    document.documentElement.innerHTML = `
-      <body style="margin:0;padding:0;background:#F8F9FA;font-family:'Google Sans', Roboto, Arial, sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;">
-        <div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
-          <div style="display:flex;align-items:center;margin-bottom:25px;">
-            <div style="font-size:40px;margin-right:15px;">🛡️</div>
-            <div>
-              <h2 style="font-size:24px;margin:0;color:#E91E63;">Preta Nails - Navegação Segura</h2>
-              <p style="font-size:13px;margin:2px 0 0 0;color:#5F6368;">Sistema de Proteção da Loja</p>
-            </div>
-          </div>
-          <h3 style="font-size:18px;margin-bottom:12px;color:#202124;">Acesso ao código-fonte bloqueado</h3>
-          <p style="font-size:15px;line-height:1.6;color:#3C4043;margin-bottom:20px;">
-            Por motivos de segurança para proteger nossos produtos, preços e dados dos clientes da <strong>Preta Nails</strong>, 
-            o acesso avançado foi bloqueado neste dispositivo.
-          </p>
-          <button onclick="window.location.reload()" style="padding:12px 24px;font-size:14px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;font-weight:500;">
-            Entendi e Voltar para Loja
-          </button>
-        </div>
-      </body>`;
-  }
-
-  // FUNÇÃO SECRETA PRA VOCÊ LIBERAR
-  window.liberar = function(senha) {
-    if(senha === SENHA_ADMIN) {
-      sessionStorage.setItem('adminLiberado', 'true');
-      alert('✅ Modo Admin liberado! Recarregue a página.');
-      location.reload();
-    } else {
-      alert('❌ Senha incorreta');
-    }
-  }
-
-  // 1. BLOQUEIO DE TECLAS
-  document.addEventListener('keydown', function(e) {
-    const key = e.key.toUpperCase();
-    if (e.ctrlKey && key === 'C') return true; // LIBERA Ctrl+C
-    
-    if (key === 'F12' ||
-        (e.ctrlKey && ['U','S','P','F','H','A','I','J'].includes(key)) ||
-        (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','F'].includes(key))) {
-      e.preventDefault();
-      mostrarAlertaSeguranca();
-      return false;
-    }
-  }, true);
-
-  // 2. BLOQUEIA BOTÃO DIREITO
-  document.addEventListener('contextmenu', e => { 
-    e.preventDefault(); 
-    mostrarAlertaSeguranca(); 
-  }, true);
-
-  // 3. DETECÇÃO DE DEVTOOLS
-  setInterval(() => {
-    if (!bloqueado && (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160)) {
-      mostrarAlertaSeguranca();
-    }
-  }, 500);
-
-  setInterval(() => {
-    if(!bloqueado) {
-      const before = performance.now();
-      debugger;
-      const after = performance.now();
-      if (after - before > 100) mostrarAlertaSeguranca();
-    }
-  }, 1000);
-
-})();
 </script>
 </body>
 </html>
