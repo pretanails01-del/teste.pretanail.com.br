@@ -24,16 +24,39 @@ h1 span { color:#fff; }
 .horario:hover { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); transform: scale(1.03); }
 .horario.selecionado { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border: 2px solid #fff; box-shadow: 0 0 20px rgba(193,53,132,0.5); }
 .horario.ocupado { background: #222; border-color: #333; color: #666; cursor: not-allowed; text-decoration: line-through; opacity: 0.5; pointer-events: none; }
-.botoes-acao { text-align:center; margin-top: 30px; }
-.btn { display:inline-flex; align-items:center; gap:10px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 15px; transition: 0.3s; margin: 8px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); }
+
+/* CORREÇÃO MOBILE */
+.botoes-acao { text-align:center; margin-top: 30px; display:flex; flex-direction:column; align-items:center; gap:12px; }
+
+.btn { 
+  display:inline-flex; 
+  align-items:center; 
+  justify-content:center; /* centraliza texto */
+  gap:10px; 
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
+  color: #fff; 
+  padding: 16px 30px; 
+  border-radius: 50px; 
+  text-decoration: none; 
+  font-weight: 800; 
+  font-size: 15px; 
+  transition: 0.3s; 
+  box-shadow: 0 10px 30px rgba(193,53,132,0.4); 
+  width: fit-content; /* não estica no desktop */
+  max-width: 90%; /* não passa da tela no mobile */
+}
 .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
 .btn-voltar { background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.3); box-shadow: none; }
 .btn-voltar:hover { background: var(--primary); border-color: var(--primary); }
-.obs { text-align:center; opacity:0.6; font-size:12px; margin-top:15px; }
+.obs { text-align:center; opacity:0.6; font-size:12px; margin-top:5px; }
 .loading { text-align:center; padding:20px; color:var(--primary); font-weight:700; }
 .erro { text-align:center; padding:20px; color:#ff4d6d; font-weight:700; display:none; }
+
 @media(max-width:900px){.semana { grid-template-columns: repeat(2, 1fr); } }
-@media(max-width:600px){.semana { grid-template-columns: 1fr; } }
+@media(max-width:600px){
+  .semana { grid-template-columns: 1fr; } 
+  .btn { width: 100%; max-width: 400px; font-size:14px; padding:14px 20px; } /* fica bonito no mobile */
+}
 </style>
 </head>
 <body>
@@ -53,8 +76,7 @@ h1 span { color:#fff; }
     <div class="dia"><h3>Sábado</h3><div class="horario" data-dia="Sábado" data-hora="07:00 às 09:00">07:00 às 09:00</div><div class="horario" data-dia="Sábado" data-hora="09:00 às 11:00">09:00 às 11:00</div><div class="horario" data-dia="Sábado" data-hora="11:00 às 13:00">11:00 às 13:00</div><div class="horario" data-dia="Sábado" data-hora="13:00 às 15:00">13:00 às 15:00</div><div class="horario" data-dia="Sábado" data-hora="15:00 às 17:00">15:00 às 17:00</div></div>
   </div>
   <div class="botoes-acao">
-    <a id="btnFicha" href="fichadeassinatura.html" class="btn" style="display:none;"><i class="fas fa-file-signature"></i> PREENCHER FICHA E CONFIRMAR</a>
-    <br>
+    <a id="btnFicha" href="fichadeassinatura.html" class="btn" style="display:none;"><i class="fas fa-file-signature"></i> PREENCHER FORMULÁRIO E CONFIRMAR NO WHATSAPP</a>
     <a href="index.html" class="btn btn-voltar"><i class="fas fa-arrow-left"></i> Voltar</a>
     <p class="obs">* Selecione um horário acima para liberar o botão de confirmação</p>
   </div>
