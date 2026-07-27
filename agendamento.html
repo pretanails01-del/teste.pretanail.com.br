@@ -10,7 +10,35 @@
 :root { --primary: #C13584; --primary-dark: #a02c6e; --text: #ffffff; }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); color: var(--text); padding: 30px 20px; min-height:100vh; }
-.container { max-width: 1100px; margin: 0 auto; }
+
+/* BOTÃO ADM QUASE INVISIVEL NO TOPO */
+.btn-adm {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 18px;
+  color: rgba(193,53,132,0.25); /* quase invisivel mas da pra ver */
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(193,53,132,0.15);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 10;
+  text-decoration: none;
+}
+.btn-adm:hover {
+  color: var(--primary);
+  background: rgba(193,53,132,0.1);
+  border-color: var(--primary);
+  transform: rotate(90deg);
+}
+
+.container { max-width: 1100px; margin: 0 auto; position: relative; }
 .topo { text-align:center; margin-bottom:40px; }
 .logo { width:120px; height:120px; border-radius:50%; border:3px solid var(--primary); box-shadow:0 0 30px rgba(193,53,132,0.4); object-fit:cover; margin-bottom:15px; }
 h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 48px); color: var(--primary); }
@@ -31,7 +59,7 @@ h1 span { color:#fff; }
 .btn { 
   display:inline-flex; 
   align-items:center; 
-  justify-content:center; /* centraliza texto */
+  justify-content:center;
   gap:10px; 
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
   color: #fff; 
@@ -42,8 +70,8 @@ h1 span { color:#fff; }
   font-size: 15px; 
   transition: 0.3s; 
   box-shadow: 0 10px 30px rgba(193,53,132,0.4); 
-  width: fit-content; /* não estica no desktop */
-  max-width: 90%; /* não passa da tela no mobile */
+  width: fit-content;
+  max-width: 90%;
 }
 .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
 .btn-voltar { background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.3); box-shadow: none; }
@@ -55,11 +83,15 @@ h1 span { color:#fff; }
 @media(max-width:900px){.semana { grid-template-columns: repeat(2, 1fr); } }
 @media(max-width:600px){
   .semana { grid-template-columns: 1fr; } 
-  .btn { width: 100%; max-width: 400px; font-size:14px; padding:14px 20px; } /* fica bonito no mobile */
+  .btn { width: 100%; max-width: 400px; font-size:14px; padding:14px 20px; }
 }
 </style>
 </head>
 <body>
+
+<!-- BOTÃO ADM QUASE INVISIVEL -->
+<a href="controleagendamento.html" class="btn-adm" title="Área ADM"><i class="fas fa-cog"></i></a>
+
 <div class="container">
   <div class="topo">
     <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" alt="Sabrina Lemos" class="logo">
@@ -119,115 +151,6 @@ function ativarSelecao() {
   });
 }
 window.addEventListener('load', carregarOcupados);
-</script>
-
-<!-- ==================== BLOQUEIO INTELIGENTE V10 - LIBERA DÚVIDAS ==================== -->
-<script>
-(function() {
-  "use strict";
-
-  const SENHA_ADMIN = "preta2026"; 
-
-  const paginaAtual = window.location.pathname.toLowerCase();
-  const paginasLiberadas = ['/duvidas.html', '/duvidas', '/faq.html', '/faq'];
-  const isPaginaLiberada = paginasLiberadas.some(p => paginaAtual.includes(p));
-
-  const isLocal = window.location.hostname === "localhost" || 
-                  window.location.hostname === "127.0.0.1" ||
-                  window.location.protocol === "file:";
-
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-  const urlParams = new URLSearchParams(window.location.search);
-  const liberouPorLink = urlParams.get('admin') === SENHA_ADMIN;
-
-  if(liberouPorLink) {
-    sessionStorage.setItem('adminLiberado', 'true');
-  }
-
-  if (sessionStorage.getItem('adminLiberado') === 'true' || isPaginaLiberada) {
-    console.log("%c👑 Modo Admin/Liberado ATIVO", "color: gold; font-size: 16px");
-    return;
-  }
-
-  if (isLocal || isMobile) {
-    console.log("%c🔓 Bloqueio desativado: Localhost ou Mobile", "color: lime; font-size: 14px");
-    return; 
-  }
-
-  console.log("%c🔒 Proteção ATIVA", "color: #E91E63; font-size: 14px");
-
-  let bloqueado = false;
-
-  function mostrarAlertaSeguranca() {
-    if(bloqueado) return;
-    bloqueado = true;
-    document.documentElement.innerHTML = `
-      <body style="margin:0;padding:0;background:#F8F9FA;font-family:'Google Sans', Roboto, Arial, sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;">
-        <div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
-          <div style="display:flex;align-items:center;margin-bottom:25px;">
-            <div style="font-size:40px;margin-right:15px;">🛡️</div>
-            <div>
-              <h2 style="font-size:24px;margin:0;color:#E91E63;">Preta Nails - Navegação Segura</h2>
-              <p style="font-size:13px;margin:2px 0 0 0;color:#5F6368;">Sistema de Proteção da Loja</p>
-            </div>
-          </div>
-          <h3 style="font-size:18px;margin-bottom:12px;color:#202124;">Acesso ao código-fonte bloqueado</h3>
-          <p style="font-size:15px;line-height:1.6;color:#3C4043;margin-bottom:20px;">
-            Por motivos de segurança para proteger nossos produtos, preços e dados dos clientes da <strong>Preta Nails</strong>, 
-            o acesso avançado foi bloqueado neste dispositivo.
-          </p>
-          <button onclick="window.location.reload()" style="padding:12px 24px;font-size:14px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;font-weight:500;">
-            Entendi e Voltar para Loja
-          </button>
-        </div>
-      </body>`;
-  }
-
-  window.liberar = function(senha) {
-    if(senha === SENHA_ADMIN) {
-      sessionStorage.setItem('adminLiberado', 'true');
-      alert('✅ Modo Admin liberado! Recarregue a página.');
-      location.reload();
-    } else {
-      alert('❌ Senha incorreta');
-    }
-  }
-
-  document.addEventListener('keydown', function(e) {
-    const key = e.key.toUpperCase();
-    if (e.ctrlKey && key === 'C') return true; 
-    
-    if (key === 'F12' ||
-        (e.ctrlKey && ['U','S','P','F','H','A','I','J'].includes(key)) ||
-        (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','F'].includes(key))) {
-      e.preventDefault();
-      mostrarAlertaSeguranca();
-      return false;
-    }
-  }, true);
-
-  document.addEventListener('contextmenu', e => { 
-    e.preventDefault(); 
-    mostrarAlertaSeguranca(); 
-  }, true);
-
-  setInterval(() => {
-    if (!bloqueado && (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160)) {
-      mostrarAlertaSeguranca();
-    }
-  }, 500);
-
-  setInterval(() => {
-    if(!bloqueado) {
-      const before = performance.now();
-      debugger;
-      const after = performance.now();
-      if (after - before > 100) mostrarAlertaSeguranca();
-    }
-  }, 1000);
-
-})();
 </script>
 </body>
 </html>
