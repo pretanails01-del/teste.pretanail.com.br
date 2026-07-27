@@ -15,8 +15,27 @@ body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #0a
 h1 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--primary); }
 h1 span { color:#fff; }
 .sub { opacity:0.7; font-size:12px; letter-spacing:2px; }
-.btn-voltar { display:block; width:90%; max-width:800px; margin:20px auto; padding: 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.3); color:#fff; text-align:center; text-decoration:none; border-radius:10px; font-weight:700; }
-iframe { width:100%; height: calc(100vh - 250px); border:none; border-top: 1px solid rgba(193,53,132,0.25); }
+.btn-voltar { display:block; width:90%; max-width:800px; margin:20px auto; padding: 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.3); color:#fff; text-align:center; text-decoration:none; border-radius:10px; font-weight:700; transition: all 0.3s; }
+.btn-voltar:hover { background: rgba(193,53,132,0.2); }
+
+.btn-adm { 
+  display:block; 
+  width:90%; 
+  max-width:800px; 
+  margin:40px auto; 
+  padding: 18px; 
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
+  color:#fff; 
+  text-align:center; 
+  text-decoration:none; 
+  border-radius:12px; 
+  font-weight:800; 
+  font-size:16px;
+  box-shadow: 0 8px 25px rgba(193,53,132,0.4);
+  transition: all 0.3s;
+}
+.btn-adm:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(193,53,132,0.6); }
+.box-aviso { width:90%; max-width:800px; margin:20px auto; padding:15px; background: rgba(193,53,132,0.1); border-left:3px solid var(--primary); border-radius:8px; font-size:14px; text-align:center; }
 </style>
 </head>
 <body>
@@ -27,8 +46,16 @@ iframe { width:100%; height: calc(100vh - 250px); border:none; border-top: 1px s
     <div class="sub">CONTROLE DE AGENDAMENTOS</div>
   </div>
 
-  <!-- AQUI CARREGA O PAINEL REAL DO GOOGLE -->
-  <iframe src="https://script.google.com/macros/s/AKfycbyM29ZonKM8NlWgkx1eg_PQ6pCpnKNv33pe_OClzBnHNr4jljnnh-lwdC1-ls1vLw/exec"></iframe>
+  <div class="box-aviso">
+    <i class="fas fa-lock"></i> Clique abaixo para acessar o painel. Vai pedir a senha: <b>preta123</b>
+  </div>
+
+  <!-- BOTÃO QUE ABRE O PAINEL REAL DO GOOGLE EM ABA NOVA -->
+  <a href="https://script.google.com/macros/s/AKfycbyM29ZonKM8NlWgkx1eg_PQ6pCpnKNv33pe_OClzBnHNr4jljnnh-lwdC1-ls1vLw/exec?page=adm" 
+     target="_blank" 
+     class="btn-adm">
+    <i class="fas fa-cog"></i> ABRIR PAINEL ADM
+  </a>
 
   <a href="agendamento.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> VOLTAR PRO AGENDAMENTO</a>
 
