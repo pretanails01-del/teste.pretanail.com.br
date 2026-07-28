@@ -14,16 +14,13 @@ body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #0a
 .logo { width:80px; height:80px; border-radius:50%; border:3px solid var(--primary); margin-bottom:10px; }
 h1 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--primary); }
 h1 span { color:#fff; }
-.btn-adm { display:block; width:90%; max-width:1200px; margin:20px auto; padding: 18px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color:#fff; text-align:center; border-radius:12px; font-weight:800; border:none; cursor:pointer; }
+.btn-adm { display:block; width:90%; max-width:1200px; margin:20px auto; padding: 18px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color:#fff; text-align:center; border-radius:12px; font-weight:800; border:none; cursor:pointer; text-decoration:none; }
 .login-box { width:90%; max-width:400px; margin:40px auto; padding:30px; background: rgba(255,255,255,0.04); border: 1px solid rgba(193,53,132,0.3); border-radius:20px; }
-.login-box input { width:100%; padding:14px; margin:15px 0; background: rgba(0,0,0,0.3); border:1px solid rgba(193,53,132,0.4); border-radius:10px; color:#fff; }
+.login-box input { width:100%; padding:14px; margin:15px 0; background: rgba(0,0,0,0.3); border:1px solid rgba(193,53,132,0.4); border-radius:10px; color:#fff; font-size:16px; }
 .erro { color:#ff4d6d; display:none; text-align:center; margin:10px 0; }
 #tela-painel { display:none; }
-.tabela-wrap { width:95%; margin:20px auto; overflow-x:auto; }
-table { width:100%; border-collapse:collapse; font-size:12px; }
-th { background:rgba(193,53,132,0.3); padding:8px; text-align:left; position:sticky; top:0; }
-td { padding:8px; border-bottom:1px solid #333; }
-.loading { text-align:center; padding:20px; color:var(--primary); }
+.sheet-wrap { width:95%; height:80vh; margin:20px auto; border:2px solid var(--primary); border-radius:12px; overflow:hidden; }
+.sheet-wrap iframe { width:100%; height:100%; border:none; }
 </style>
 </head>
 <body>
@@ -43,54 +40,22 @@ td { padding:8px; border-bottom:1px solid #333; }
   </div>
 
   <div id="tela-painel">
-    <button onclick="carregarDados()" class="btn-adm"><i class="fa fa-rotate"></i> ATUALIZAR AGENDAMENTOS</button>
-    <div class="tabela-wrap" id="tabela"></div>
+    <h2 style="text-align:center; color:var(--primary); margin:20px 0;">📊 AGENDAMENTOS</h2>
+    <div class="sheet-wrap">
+      <iframe src="https://docs.google.com/spreadsheets/d/1QKKlPZCv90R5G7booDYEgE3kGbi8pN0db3wNLWGYnsA/pubhtml?gid=0&single=true&widget=true&headers=false"></iframe>
+    </div>
     <a href="agendamento.html" class="btn-adm" style="background:#333"><i class="fa fa-arrow-left"></i> VOLTAR</a>
   </div>
 
 <script>
 const SENHA_CORRETA = "preta123";
-// ATENÇÃO: Já está com?action=ler aqui. Não colocar de novo no fetch
-const URL = "https://script.google.com/macros/s/AKfycbyM29ZonKM8NlWgkx1eg_PQ6pCpnKNv33pe_OClzBnHNr4jljnnh-lwdC1-ls1vLw/exec?action=ler";
 
 function entrar(){
   if(document.getElementById('senha').value === SENHA_CORRETA){
     document.getElementById('tela-login').style.display = 'none';
     document.getElementById('tela-painel').style.display = 'block';
-    carregarDados();
   } else {
     document.getElementById('erro').style.display = 'block';
-  }
-}
-
-async function carregarDados(){
-  document.getElementById('tabela').innerHTML = '<div class="loading">Carregando agendamentos...</div>';
-  try {
-    const res = await fetch(URL); // <-- CORRIGIDO: tirei o + '?action=ler'
-    if(!res.ok) throw new Error("Erro ao conectar com o servidor");
-
-    const dados = await res.json();
-
-    if(dados.erro) throw new Error(dados.erro);
-    if(!dados || dados.length < 2) {
-      document.getElementById('tabela').innerHTML = '<div class="loading">Nenhum agendamento ainda</div>';
-      return;
-    }
-
-    let html = '<table><tr>';
-    dados[0].forEach(col => { html += `<th>${col}</th>`; }); // cabeçalho
-    html += '</tr>';
-    dados.slice(1).forEach(linha => { // linhas
-      html += '<tr>';
-      linha.forEach(cel => { html += `<td>${cel || '-'}</td>`; });
-      html += '</tr>';
-    });
-    html += '</table>';
-    document.getElementById('tabela').innerHTML = html;
-
-  } catch(erro) {
-    document.getElementById('tabela').innerHTML = `<div class="erro" style="display:block">ERRO: ${erro.message}<br><br>Tenta clicar em ATUALIZAR de novo</div>`;
-    console.error(erro);
   }
 }
 </script>
