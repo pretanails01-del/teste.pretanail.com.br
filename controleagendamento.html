@@ -33,9 +33,19 @@ h1 span { color:#fff; }
   font-size:16px;
   box-shadow: 0 8px 25px rgba(193,53,132,0.4);
   transition: all 0.3s;
+  border:none;
+  cursor:pointer;
 }
 .btn-adm:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(193,53,132,0.6); }
 .box-aviso { width:90%; max-width:800px; margin:20px auto; padding:15px; background: rgba(193,53,132,0.1); border-left:3px solid var(--primary); border-radius:8px; font-size:14px; text-align:center; }
+
+/* TELA DE LOGIN */
+#tela-login { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:70vh; }
+#tela-painel { display:none; }
+.login-box { width:90%; max-width:400px; padding:30px; background: rgba(255,255,255,0.04); border: 1px solid rgba(193,53,132,0.3); border-radius:20px; backdrop-filter: blur(20px); }
+.login-box input { width:100%; padding:14px; margin:15px 0; background: rgba(0,0,0,0.3); border:1px solid rgba(193,53,132,0.4); border-radius:10px; color:#fff; font-size:16px; }
+.login-box input:focus { outline:none; border-color: var(--primary); }
+.erro { color:#ff4d6d; font-size:13px; margin-top:5px; display:none; }
 </style>
 </head>
 <body>
@@ -46,18 +56,70 @@ h1 span { color:#fff; }
     <div class="sub">CONTROLE DE AGENDAMENTOS</div>
   </div>
 
-  <div class="box-aviso">
-    <i class="fas fa-lock"></i> Clique abaixo para acessar o painel. Vai pedir a senha: <b>preta123</b>
+  <!-- TELA 1: LOGIN -->
+  <div id="tela-login">
+    <div class="box-aviso">
+      <i class="fas fa-lock"></i> Acesso Restrito
+    </div>
+    <div class="login-box">
+      <h2 style="text-align:center; margin-bottom:10px;">🔒 Painel ADM</h2>
+      <input type="password" id="senha" placeholder="Digite a senha" onkeypress="if(event.key==='Enter') entrar()">
+      <div class="erro" id="erro">Senha incorreta!</div>
+      <button onclick="entrar()" class="btn-adm">
+        <i class="fas fa-sign-in-alt"></i> ENTRAR
+      </button>
+    </div>
   </div>
 
-  <!-- BOTÃO QUE ABRE O PAINEL REAL Doo GOOGLE EM ABA NOVA -->
-  <a href="https://docs.google.com/spreadsheets/d/1QKKlPZCv90R5G7booDYEgE3kGbi8pN0db3wNLWGYnsA/edit?usp=drivesdk" 
-     target="_blank" 
-     class="btn-adm">
-    <i class="fas fa-cog"></i> ABRIR PAINEL ADM
-  </a>
+  <!-- TELA 2: PAINEL REAL -->
+  <div id="tela-painel">
+    <div class="box-aviso">
+      <i class="fas fa-check-circle" style="color:#25D366"></i> Logado com sucesso
+    </div>
+    
+    <button onclick="carregarDados()" class="btn-adm">
+      <i class="fas fa-sync"></i> ATUALIZAR AGENDAMENTOS
+    </button>
 
-  <a href="agendamento.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> VOLTAR PRO AGENDAMENTO</a>
+    <div id="tabela" style="width:90%; max-width:800px; margin:20px auto; color:#ccc;">
+      Clique em "ATUALIZAR" para carregar os dados
+    </div>
+
+    <a href="agendamento.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> VOLTAR PRO AGENDAMENTO</a>
+  </div>
+
+<script>
+// CONFIGURAÇÕES
+const SENHA_CORRETA = "preta123";
+const URL = "URL_DA_PONTE_AQUI"; // COLE O LINK DO APPS SCRIPT AQUI
+
+function entrar(){
+  const senha = document.getElementById('senha').value;
+  if(senha === SENHA_CORRETA){
+    document.getElementById('tela-login').style.display = 'none';
+    document.getElementById('tela-painel').style.display = 'block';
+  } else {
+    document.getElementById('erro').style.display = 'block';
+  }
+}
+
+async function carregarDados(){
+  document.getElementById('tabela').innerHTML = 'Carregando...';
+  try {
+    const res = await fetch(URL + '?action=ler');
+    const dados = await res.json();
+    let html = '<table style="width:100%; border-collapse:collapse;">';
+    html += '<tr style="background:rgba(193,53,132,0.3)"><th style="padding:10px">Data</th><th>Nome</th><th>OS</th></tr>';
+    dados.forEach(linha => {
+      html += `<tr><td style="padding:8px; border-bottom:1px solid #333">${linha[0]}</td><td>${linha[2]}</td><td>${linha[1]}</td></tr>`;
+    });
+    html += '</table>';
+    document.getElementById('tabela').innerHTML = html;
+  } catch(e){
+    document.getElementById('tabela').innerHTML = 'Erro ao carregar. Verifique o link do AP Script.';
+  }
+}
+</script>
 
 </body>
 </html>
