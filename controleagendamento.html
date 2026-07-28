@@ -4,28 +4,191 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Painel ADM - Preta Nails</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-:root { --primary: #C13584; --primary-dark: #a02c6e; --bg: #0a0a0a; --card: rgba(255,255,255,0.04); }
+:root { 
+  --primary: #C13584; 
+  --primary-dark: #8a1f5d; 
+  --primary-light: #e05ba7;
+  --bg: #050505; 
+  --card: rgba(20,20,20,0.6); 
+  --glass: rgba(255,255,255,0.05);
+}
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); color: #fff; min-height:100vh; }
-.header { text-align:center; padding: 30px 20px 10px 20px; }
-.logo { width:80px; height:80px; border-radius:50%; border:3px solid var(--primary); margin-bottom:10px; object-fit:cover; }
-h1 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--primary); letter-spacing:1px; }
+body { 
+  font-family: 'Inter', sans-serif; 
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(193,53,132,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(193,53,132,0.1) 0%, transparent 50%),
+    linear-gradient(180deg, #050505 0%, #000 100%); 
+  color: #fff; 
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* EFEITO PARTÍCULAS FUNDO */
+body::before {
+  content:'';
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(193,53,132,0.3)"/></svg>');
+  opacity:0.3;
+  z-index:-1;
+}
+
+.header { 
+  text-align:center; 
+  padding: 50px 20px 30px 20px; 
+  animation: fadeDown 1s ease;
+}
+.logo { 
+  width:100px; 
+  height:100px; 
+  border-radius:50%; 
+  border:4px solid var(--primary); 
+  margin-bottom:15px; 
+  object-fit:cover;
+  box-shadow: 0 0 30px rgba(193,53,132,0.6);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+.logo:hover { transform: rotateY(360deg); }
+h1 { 
+  font-family: 'Playfair Display', serif; 
+  font-size: 38px; 
+  color: var(--primary); 
+  letter-spacing:2px;
+  text-shadow: 0 0 20px rgba(193,53,132,0.5);
+  animation: glow 2s ease-in-out infinite alternate;
+}
 h1 span { color:#fff; }
-h2 { text-align:center; color:var(--primary); margin:20px 0 10px 0; font-family: 'Playfair Display', serif; font-size:24px; }
-.btn-adm { display:flex; align-items:center; justify-content:center; gap:10px; width:90%; max-width:500px; margin:15px auto; padding: 16px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color:#fff; text-align:center; border-radius:14px; font-weight:800; border:none; cursor:pointer; text-decoration:none; font-size:15px; transition:0.3s; }
-.btn-adm:hover { transform: translateY(-2px); }
-.btn-secundario { background: #2a2a2a; }
-.login-box { width:90%; max-width:420px; margin:40px auto; padding:40px 30px; background: var(--card); border: 1px solid rgba(193,53,132,0.3); border-radius:20px; backdrop-filter: blur(10px); }
-.login-box p { text-align:center; color:#aaa; margin-bottom:20px; font-size:14px; }
-.login-box input { width:100%; padding:16px; margin:15px 0; background: rgba(0,0,0,0.4); border:1px solid rgba(193,53,132,0.4); border-radius:12px; color:#fff; font-size:16px; outline:none; }
-.erro { color:#ff4d6d; display:none; text-align:center; margin:10px 0; font-weight:600; }
-#tela-painel { display:none; max-width:1200px; margin:0 auto; padding:20px; }
-.sheet-wrap { width:100%; height:75vh; border:2px solid var(--primary); border-radius:16px; overflow:hidden; margin:20px 0; box-shadow: 0 10px 30px rgba(193,53,132,0.2); }
+h2 { 
+  text-align:center; 
+  color:var(--primary); 
+  margin:25px 0 15px 0; 
+  font-family: 'Playfair Display', serif; 
+  font-size:28px;
+  text-shadow: 0 0 15px rgba(193,53,132,0.4);
+}
+
+/* BOTÕES 3D */
+.btn-adm { 
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  gap:12px; 
+  width:90%; 
+  max-width:520px; 
+  margin:18px auto; 
+  padding: 20px; 
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
+  color:#fff; 
+  text-align:center; 
+  border-radius:16px; 
+  font-weight:900; 
+  border:none; 
+  cursor:pointer; 
+  text-decoration:none; 
+  font-size:17px; 
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+  box-shadow: 
+    0 10px 25px rgba(193,53,132,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+  transform: perspective(1000px) rotateX(5deg);
+  position:relative;
+  overflow:hidden;
+}
+.btn-adm::before {
+  content:'';
+  position:absolute;
+  top:0; left:-100%;
+  width:100%; height:100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+.btn-adm:hover::before { left:100%; }
+.btn-adm:hover { 
+  transform: perspective(1000px) rotateX(0deg) translateY(-4px); 
+  box-shadow: 0 15px 40px rgba(193,53,132,0.6); 
+}
+.btn-secundario { 
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4); 
+}
+.btn-secundario:hover { background: linear-gradient(135deg, #3a3a3a, #2a2a2a); }
+
+/* LOGIN BOX VIDRO 3D */
+.login-box { 
+  width:90%; 
+  max-width:450px; 
+  margin:50px auto; 
+  padding:45px 35px; 
+  background: var(--glass); 
+  border: 1px solid rgba(193,53,132,0.4); 
+  border-radius:24px; 
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  transform: perspective(1000px) rotateX(5deg);
+  animation: fadeUp 1s ease;
+}
+.login-box p { text-align:center; color:#bbb; margin-bottom:25px; font-size:15px; }
+.login-box input { 
+  width:100%; 
+  padding:18px; 
+  margin:18px 0; 
+  background: rgba(0,0,0,0.5); 
+  border:2px solid rgba(193,53,132,0.4); 
+  border-radius:14px; 
+  color:#fff; 
+  font-size:16px; 
+  outline:none;
+  transition:0.3s;
+}
+.login-box input:focus { 
+  border-color: var(--primary-light); 
+  box-shadow: 0 0 20px rgba(193,53,132,0.4);
+}
+.erro { 
+  color:#ff4d6d; 
+  display:none; 
+  text-align:center; 
+  margin:12px 0; 
+  font-weight:700;
+  animation: shake 0.5s;
+}
+
+/* PAINEL */
+#tela-painel { display:none; max-width:1300px; margin:0 auto; padding:25px; animation: fadeIn 0.8s ease; }
+
+/* IFRAME 3D */
+.sheet-wrap { 
+  width:100%; 
+  height:75vh; 
+  border:3px solid var(--primary); 
+  border-radius:20px; 
+  overflow:hidden; 
+  margin:25px 0; 
+  box-shadow: 
+    0 25px 60px rgba(193,53,132,0.3),
+    inset 0 0 0 1px rgba(255,255,255,0.1);
+  transform: perspective(1000px) rotateX(3deg);
+  transition:0.4s;
+}
+.sheet-wrap:hover { transform: perspective(1000px) rotateX(0deg); }
 .sheet-wrap iframe { width:100%; height:100%; border:none; }
-.info { text-align:center; color:#aaa; font-size:13px; margin-bottom:10px; }
+
+.info { text-align:center; color:#aaa; font-size:14px; margin-bottom:15px; font-weight:600; }
+
+/* ANIMAÇÕES */
+@keyframes fadeUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: translateY(0); } }
+@keyframes fadeDown { from { opacity:0; transform: translateY(-30px); } to { opacity:1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes glow { from { text-shadow: 0 0 10px rgba(193,53,132,0.5); } to { text-shadow: 0 0 25px rgba(193,53,132,0.8); } }
+@keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }
 </style>
 </head>
 <body>
@@ -38,16 +201,16 @@ h2 { text-align:center; color:var(--primary); margin:20px 0 10px 0; font-family:
   <div id="tela-login">
     <div class="login-box">
       <h2>🔒 Acesso Restrito</h2>
-      <p>Painel administrativo do sistema</p>
-      <input type="password" id="senha" placeholder="Digite a senha" onkeypress="if(event.key==='Enter')entrar()">
-      <div class="erro" id="erro">Senha incorreta! Tente novamente.</div>
-      <button onclick="entrar()" class="btn-adm"><i class="fa fa-lock-open"></i> ENTRAR NO PAINEL</button>
+      <p>Painel Administrativo Premium</p>
+      <input type="password" id="senha" placeholder="Digite a senha de acesso" onkeypress="if(event.key==='Enter')entrar()">
+      <div class="erro" id="erro">Senha incorreta! Acesso negado.</div>
+      <button onclick="entrar()" class="btn-adm"><i class="fa fa-fingerprint"></i> ENTRAR NO PAINEL</button>
     </div>
   </div>
 
   <div id="tela-painel">
     <h2>📊 Central de Agendamentos</h2>
-    <p class="info">Edite direto na planilha abaixo. As alterações salvam automático.</p>
+    <p class="info">Edite direto na planilha abaixo. Salva automático no Google.</p>
     
     <div class="sheet-wrap">
       <iframe src="https://docs.google.com/spreadsheets/d/1QKKlPZCv90R5G7booDYEgE3kGbi8pN0db3wNLWGYnsA/edit?gid=0&rm=embedded"></iframe>
@@ -58,7 +221,7 @@ h2 { text-align:center; color:var(--primary); margin:20px 0 10px 0; font-family:
   </div>
 
 <script>
-const SENHA_CORRETA = "preta123";
+const SENHA_CORRETA = "72591324Beh@";
 
 function entrar(){
   if(document.getElementById('senha').value === SENHA_CORRETA){
