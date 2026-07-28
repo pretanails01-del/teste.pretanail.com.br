@@ -46,6 +46,10 @@ h1 span { color:#fff; }
 .login-box input { width:100%; padding:14px; margin:15px 0; background: rgba(0,0,0,0.3); border:1px solid rgba(193,53,132,0.4); border-radius:10px; color:#fff; font-size:16px; }
 .login-box input:focus { outline:none; border-color: var(--primary); }
 .erro { color:#ff4d6d; font-size:13px; margin-top:5px; display:none; }
+.tabela-wrap { width:90%; max-width:800px; margin:20px auto; overflow-x:auto; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th { background:rgba(193,53,132,0.3); padding:10px; text-align:left; }
+td { padding:8px; border-bottom:1px solid #333; }
 </style>
 </head>
 <body>
@@ -63,7 +67,7 @@ h1 span { color:#fff; }
     </div>
     <div class="login-box">
       <h2 style="text-align:center; margin-bottom:10px;">🔒 Painel ADM</h2>
-      <input type="password" id="senha" placeholder="Digite a senha" onkeypress="if(event.key==='Enter') entrar()">
+      <input type="password" id="senha" placeholder="Digite a senha: preta123" onkeypress="if(event.key==='Enter') entrar()">
       <div class="erro" id="erro">Senha incorreta!</div>
       <button onclick="entrar()" class="btn-adm">
         <i class="fas fa-sign-in-alt"></i> ENTRAR
@@ -81,8 +85,8 @@ h1 span { color:#fff; }
       <i class="fas fa-sync"></i> ATUALIZAR AGENDAMENTOS
     </button>
 
-    <div id="tabela" style="width:90%; max-width:800px; margin:20px auto; color:#ccc;">
-      Clique em "ATUALIZAR" para carregar os dados
+    <div class="tabela-wrap" id="tabela">
+      Clique em "ATUALIZAR" para carregar os dados da planilha
     </div>
 
     <a href="agendamento.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> VOLTAR PRO AGENDAMENTO</a>
@@ -91,32 +95,46 @@ h1 span { color:#fff; }
 <script>
 // CONFIGURAÇÕES
 const SENHA_CORRETA = "preta123";
-const URL = "https://docs.google.com/spreadsheets/d/1QKKlPZCv90R5G7booDYEgE3kGbi8pN0db3wNLWGYnsA/edit?usp=drivesdk"; // COLE O LINK DO APPS SCRIPT AQUI
+const URL = "https://script.google.com/macros/s/AKfycbyM29ZonKM8NlWgkx1eg_PQ6pCpnKNv33pe_OClzBnHNr4jljnnh-lwdC1-ls1vLw/exec";
 
 function entrar(){
   const senha = document.getElementById('senha').value;
   if(senha === SENHA_CORRETA){
     document.getElementById('tela-login').style.display = 'none';
     document.getElementById('tela-painel').style.display = 'block';
+    carregarDados(); // já carrega ao entrar
   } else {
     document.getElementById('erro').style.display = 'block';
   }
 }
 
 async function carregarDados(){
-  document.getElementById('tabela').innerHTML = 'Carregando...';
+  document.getElementById('tabela').innerHTML = '<p style="text-align:center">Carregando...</p>';
   try {
     const res = await fetch(URL + '?action=ler');
     const dados = await res.json();
-    let html = '<table style="width:100%; border-collapse:collapse;">';
-    html += '<tr style="background:rgba(193,53,132,0.3)"><th style="padding:10px">Data</th><th>Nome</th><th>OS</th></tr>';
-    dados.forEach(linha => {
-      html += `<tr><td style="padding:8px; border-bottom:1px solid #333">${linha[0]}</td><td>${linha[2]}</td><td>${linha[1]}</td></tr>`;
+    
+    if(dados.length <= 1){
+      document.getElementById('tabela').innerHTML = '<p>Nenhum agendamento ainda.</p>';
+      return;
+    }
+
+    let html = '<table>';
+    html += '<tr><th>Data</th><th>Nome</th><th>WhatsApp</th><th>Serviço</th></tr>';
+    
+    dados.slice(1).forEach(linha => { // pula cabeçalho
+      html += `<tr>
+        <td>${linha[0] || '-'}</td>
+        <td>${linha[1] || '-'}</td>
+        <td>${linha[2] || '-'}</td>
+        <td>${linha[3] || '-'}</td>
+      </tr>`;
     });
     html += '</table>';
     document.getElementById('tabela').innerHTML = html;
   } catch(e){
-    document.getElementById('tabela').innerHTML = 'Erro ao carregar. Verifique o link do AP Script.';
+    document.getElementById('tabela').innerHTML = 'Erro ao carregar. Verifique se o AP Script está publicado como "Qualquer pessoa".';
+    console.log(e);
   }
 }
 </script>
