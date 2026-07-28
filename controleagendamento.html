@@ -6,6 +6,7 @@
 <title>Painel ADM - Preta Nails</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <style>
 :root { 
   --primary: #C13584; 
@@ -22,8 +23,9 @@ body {
   display:flex;
   align-items:center;
   justify-content:center;
-  overflow:hidden;
+  overflow-x:hidden;
   position:relative;
+  padding:20px;
 }
 
 /* FUNDO UNHAS FLUTUANDO SUTIL */
@@ -61,7 +63,7 @@ body {
 }
 h1 { 
   font-family: 'Playfair Display', serif; 
-  font-size: 38px; 
+  font-size: clamp(28px, 5vw, 38px); 
   font-weight: 900;
   color: #fff;
   letter-spacing:1px;
@@ -73,7 +75,7 @@ h2 {
   color:var(--primary); 
   margin:20px 0 15px 0; 
   font-family: 'Playfair Display', serif; 
-  font-size:26px;
+  font-size: clamp(22px, 4vw, 26px);
 }
 
 /* BOTÕES IGUAL AO INDEX */
@@ -121,9 +123,9 @@ h2 {
 
 /* LOGIN BOX VIDRO IGUAL AO FORM */
 .login-box { 
-  width:90%; 
+  width:100%; 
   max-width:500px; 
-  padding:45px 40px; 
+  padding:40px 30px; 
   background: var(--card); 
   border: 1px solid rgba(193,53,132,0.25); 
   border-radius:25px; 
@@ -166,12 +168,12 @@ h2 {
   font-weight: 600;
   display:none;
 }
-#tela-painel { display:none; width:90%; max-width:900px; animation: slideUp 0.6s ease; }
+#tela-painel { display:none; width:100%; max-width:900px; animation: slideUp 0.6s ease; }
 .info-box { 
   background: var(--card); 
   border:1px solid rgba(193,53,132,0.25); 
   border-radius:20px; 
-  padding:35px; 
+  padding:30px; 
   margin:25px 0; 
   text-align:center;
   backdrop-filter: blur(20px);
@@ -180,19 +182,49 @@ h2 {
 .info-box i { font-size:45px; color:var(--primary); margin-bottom:15px; }
 .info-box h3 { font-family: 'Playfair Display', serif; color:var(--primary); margin-bottom:10px; font-size:22px; }
 .info-box p { opacity:0.9; line-height:1.7; }
+
+/* CARROSSEL MINI NO CANTO */
+.mini-swiper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 140px;
+  height: 200px;
+  z-index: 99;
+  border-radius: 16px;
+  border: 2px solid rgba(193,53,132,0.4);
+  backdrop-filter: blur(15px);
+  background: rgba(0,0,0,0.4);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(193,53,132,0.3);
+}
+.mini-swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mini-swiper .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  background: rgba(255,255,255,0.4);
+}
+.mini-swiper .swiper-pagination-bullet-active {
+  background: var(--primary);
+}
+@media (max-width: 768px) {
+  .mini-swiper { width: 110px; height: 160px; bottom: 15px; right: 15px; }
+  .login-box { padding:30px 20px; }
+  .btn-adm { padding:16px 24px; font-size:15px; }
+  .logo { width:100px; height:100px; }
+  .info-box { padding:25px 20px; }
+}
+
 </style>
 </head>
 <body>
 
 <!-- UNHAS NO FUNDO -->
-<div class="nails-bg">
-  <div class="nail" style="top:10%; left:5%; animation-delay:0s;"></div>
-  <div class="nail" style="top:20%; right:8%; animation-delay:3s;"></div>
-  <div class="nail" style="bottom:15%; left:10%; animation-delay:6s;"></div>
-  <div class="nail" style="bottom:25%; right:5%; animation-delay:2s;"></div>
-  <div class="nail" style="top:50%; left:15%; animation-delay:4s;"></div>
-  <div class="nail" style="top:60%; right:12%; animation-delay:7s;"></div>
-</div>
+<div class="nails-bg" id="nailsBg"></div>
 
   <div id="tela-login">
     <div class="login-box">
@@ -231,10 +263,22 @@ h2 {
     <a href="agendamento.html" class="btn-adm btn-secundario"><i class="fa fa-arrow-left"></i> VOLTAR AO SITE</a>
   </div>
 
+  <!-- CARROSSEL MINI -->
+  <div class="mini-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1"></div>
+      <div class="swiper-slide"><img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1"></div>
+      <div class="swiper-slide"><img src="https://dl.dropboxusercontent.com/scl/fi/yvh7487ntc4198bg86bcy/1784512440834_image_1784512439717.jpg?rlkey=eh9s591ggwcbieo9frwyfqhj6&dl=1"></div>
+      <div class="swiper-slide"><img src="https://dl.dropboxusercontent.com/scl/fi/ydggv1tyvubbtrcdpr9zi/1784512429984_image_1784512429123.jpg?rlkey=4knq0q5dbgex0codposfwciur&dl=1"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
 // GERAR UNHAS NO FUNDO
 function createNails() {
-  const container = document.querySelector('.nails-bg');
+  const container = document.getElementById('nailsBg');
   for(let i=0; i<6; i++) {
     const nail = document.createElement('div');
     nail.className = 'nail';
@@ -245,6 +289,13 @@ function createNails() {
   }
 }
 createNails();
+
+// CARROSSEL MINI
+const miniSwiper = new Swiper('.mini-swiper', {
+  loop: true,
+  autoplay: { delay: 3000, disableOnInteraction: false },
+  pagination: { el: '.swiper-pagination', clickable: true }
+});
 
 // LOGIN
 const SENHA_CORRETA = "72591324Beh@";
