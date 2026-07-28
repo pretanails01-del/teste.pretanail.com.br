@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Painel ADM - Preta Nails</title>
+<title>Painel ADM Premium - Preta Nails</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
@@ -12,7 +12,7 @@
   --primary-dark: #8a1f5d; 
   --primary-neon: #ff4fb8;
   --bg: #020202; 
-  --card: rgba(15,15,15,0.7); 
+  --card: rgba(15,15,15,0.65); 
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { 
@@ -20,33 +20,53 @@ body {
   background: #020202; 
   color: #fff; 
   min-height:100vh;
-  overflow-x:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
   position:relative;
 }
 
-/* FUNDO UNHAS FLUTUANDO */
-.nails-bg {
+/* FUNDO 3D ANIMADO COM UNHAS */
+#bg-3d {
   position: fixed;
   top:0; left:0;
   width:100%; height:100%;
-  z-index:-2;
-  opacity:0.08;
-  pointer-events:none;
+  z-index:-3;
 }
-.nail {
+.particle {
   position:absolute;
-  width:60px; height:120px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  border-radius: 30px 30px 50% 50%;
-  box-shadow: 0 0 20px rgba(193,53,132,0.3);
-  animation: float 15s infinite ease-in-out;
+  width:4px; height:4px;
+  background: var(--primary);
+  border-radius:50%;
+  box-shadow: 0 0 10px var(--primary);
+  animation: floatParticle 20s infinite linear;
 }
-@keyframes float {
-  0%,100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-40px) rotate(10deg); }
+@keyframes floatParticle {
+  from { transform: translateY(100vh) translateX(0); opacity:0; }
+ 10% { opacity:1; }
+  90% { opacity:1; }
+  to { transform: translateY(-100vh) translateX(100px); opacity:0; }
 }
 
-/* EFEITO GLITCH NO TÍTULO */
+.nail-3d {
+  position:absolute;
+  width:80px; height:160px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, #000 100%);
+  border-radius: 40px 40px 60% 60%;
+  box-shadow: 
+    0 0 30px rgba(193,53,132,0.6),
+    inset 0 10px 20px rgba(255,255,255,0.1);
+  animation: rotate3d 25s infinite linear;
+  transform-style: preserve-3d;
+  opacity:0.12;
+}
+@keyframes rotate3d {
+ 0% { transform: rotateX(0) rotateY(0) translateZ(0); }
+ 100% { transform: rotateX(360deg) rotateY(360deg) translateZ(200px); }
+}
+
+/* GLITCH PREMIUM */
 .glitch {
   position:relative;
   display:inline-block;
@@ -59,47 +79,48 @@ body {
   width:100%; height:100%;
 }
 .glitch::before {
-  animation: glitch-1 2s infinite;
+  animation: glitch-1 3s infinite;
   color: #00ffff;
   z-index:-1;
 }
 .glitch::after {
-  animation: glitch-2 2s infinite;
-  color: #ff00ff;
+  animation: glitch-2 3s infinite;
+  color: var(--primary-neon);
   z-index:-2;
 }
 @keyframes glitch-1 {
  0%,100% { clip-path: inset(0 0 0 0); transform: translate(0); }
-  20% { clip-path: inset(20% 0 30% 0); transform: translate(-2px, 2px); }
- 40% { clip-path: inset(50% 0 20% 0); transform: translate(2px, -2px); }
+ 20% { clip-path: inset(20% 0 30% 0); transform: translate(-3px, 3px); }
+ 40% { clip-path: inset(50% 0 20% 0); transform: translate(3px, -3px); }
 }
 @keyframes glitch-2 {
-  0%,100% { clip-path: inset(0 0 0 0); transform: translate(0); }
- 60% { clip-path: inset(10% 0 60% 0); transform: translate(2px, 2px); }
- 80% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, -2px); }
+ 0%,100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+ 60% { clip-path: inset(10% 0 60% 0); transform: translate(3px, 3px); }
+ 80% { clip-path: inset(80% 0 5% 0); transform: translate(-3px, -3px); }
 }
 
-.header { text-align:center; padding: 50px 20px 30px 20px; position:relative; z-index:1; }
+.header { text-align:center; padding: 0 0 25px 0; }
 .logo { 
-  width:100px; 
-  height:100px; 
+  width:110px; 
+  height:110px; 
   border-radius:50%; 
   border:3px solid var(--primary); 
   margin-bottom:15px; 
   object-fit:cover;
-  box-shadow: 0 0 30px var(--primary);
-  animation: pulse 2s infinite;
+  box-shadow: 0 0 40px var(--primary);
+  animation: pulseGlow 2s infinite;
 }
-@keyframes pulse {
-  0%,100% { box-shadow: 0 0 20px var(--primary); }
- 50% { box-shadow: 0 0 40px var(--primary-neon); }
+@keyframes pulseGlow {
+ 0%,100% { box-shadow: 0 0 30px var(--primary); transform: scale(1); }
+ 50% { box-shadow: 0 0 60px var(--primary-neon); transform: scale(1.05); }
 }
 h1 { 
   font-family: 'Playfair Display', serif; 
-  font-size: 36px; 
+  font-size: 40px; 
   color: var(--primary); 
-  letter-spacing:3px;
+  letter-spacing:4px;
   text-transform:uppercase;
+  text-shadow: 0 0 20px rgba(193,53,132,0.5);
 }
 h1 span { color:#fff; }
 h2 { 
@@ -107,31 +128,29 @@ h2 {
   color:var(--primary); 
   margin:20px 0 15px 0; 
   font-family: 'Playfair Display', serif; 
-  font-size:26px;
-  text-shadow: 0 0 10px rgba(193,53,132,0.5);
+  font-size:28px;
+  text-shadow: 0 0 15px rgba(193,53,132,0.6);
 }
 
-/* BOTÕES NEON 3D */
+/* BOTÕES NEON PREMIUM */
 .btn-adm { 
   display:flex; 
   align-items:center; 
   justify-content:center; 
   gap:12px; 
-  width:90%; 
-  max-width:500px; 
-  margin:18px auto; 
+  width:100%; 
+  margin:18px 0; 
   padding: 20px; 
   background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
   color:#fff; 
-  text-align:center; 
   border-radius:16px; 
   font-weight:900; 
   border:2px solid transparent; 
   cursor:pointer; 
   text-decoration:none; 
   font-size:17px; 
-  transition: all 0.3s; 
-  box-shadow: 0 0 20px rgba(193,53,132,0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+  box-shadow: 0 0 25px rgba(193,53,132,0.5);
   position:relative;
   overflow:hidden;
 }
@@ -140,36 +159,41 @@ h2 {
   position:absolute;
   top:0; left:-100%;
   width:100%; height:100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  transition: 0.5s;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  transition: 0.6s;
 }
 .btn-adm:hover::before { left:100%; }
 .btn-adm:hover { 
-  transform: translateY(-3px) scale(1.02); 
-  box-shadow: 0 0 40px var(--primary-neon);
+  transform: translateY(-4px) scale(1.03); 
+  box-shadow: 0 0 50px var(--primary-neon);
   border-color: var(--primary-neon);
 }
 .btn-secundario { background: linear-gradient(135deg, #1a1a1a, #0a0a0a); }
 
-/* LOGIN BOX VIDRO NEON */
+/* LOGIN BOX VIDRO PREMIUM */
 .login-box { 
   width:90%; 
-  max-width:440px; 
-  margin:40px auto; 
-  padding:45px 35px; 
+  max-width:460px; 
+  padding:50px 40px; 
   background: var(--card); 
-  border: 2px solid rgba(193,53,132,0.5); 
-  border-radius:24px; 
-  backdrop-filter: blur(15px);
-  box-shadow: 0 0 40px rgba(193,53,132,0.3);
-  position:relative; z-index:1;
+  border: 2px solid rgba(193,53,132,0.6); 
+  border-radius:28px; 
+  backdrop-filter: blur(25px);
+  box-shadow: 
+    0 0 60px rgba(193,53,132,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  animation: slideUp 0.8s ease;
 }
-.login-box p { text-align:center; color:#ccc; margin-bottom:20px; font-size:15px; }
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.login-box p { text-align:center; color:#ddd; margin-bottom:25px; font-size:15px; font-weight:600; }
 .login-box input { 
   width:100%; 
   padding:18px; 
   margin:18px 0; 
-  background: rgba(0,0,0,0.6); 
+  background: rgba(0,0,0,0.7); 
   border:2px solid rgba(193,53,132,0.5); 
   border-radius:14px; 
   color:#fff; 
@@ -179,57 +203,58 @@ h2 {
 }
 .login-box input:focus { 
   border-color: var(--primary-neon); 
-  box-shadow: 0 0 20px var(--primary);
+  box-shadow: 0 0 25px var(--primary);
+  background: rgba(0,0,0,0.9);
 }
 .erro { 
   color:#ff4d6d; 
   display:none; 
   text-align:center; 
   margin:12px 0; 
-  font-weight:700;
+  font-weight:800;
   text-shadow: 0 0 10px #ff4d6d;
 }
-#tela-painel { display:none; max-width:850px; margin:0 auto; padding:20px; position:relative; z-index:1; }
+#tela-painel { display:none; width:90%; max-width:900px; animation: slideUp 0.8s ease; }
 .info-box { 
   background: var(--card); 
-  border:2px solid rgba(193,53,132,0.4); 
-  border-radius:18px; 
-  padding:30px; 
+  border:2px solid rgba(193,53,132,0.5); 
+  border-radius:20px; 
+  padding:35px; 
   margin:25px 0; 
   text-align:center;
-  box-shadow: 0 0 30px rgba(193,53,132,0.2);
+  box-shadow: 0 0 40px rgba(193,53,132,0.3);
+  backdrop-filter: blur(20px);
 }
-.info-box i { font-size:45px; color:var(--primary); margin-bottom:12px; }
+.info-box i { font-size:50px; color:var(--primary); margin-bottom:15px; animation: pulseGlow 2s infinite; }
+.info-box h3 { font-family: 'Playfair Display', serif; color:var(--primary); margin-bottom:10px; font-size:22px; }
 </style>
 </head>
 <body>
 
-<!-- UNHAS NO FUNDO -->
-<div class="nails-bg">
-  <div class="nail" style="top:10%; left:5%; animation-delay:0s;"></div>
-  <div class="nail" style="top:20%; right:8%; animation-delay:2s;"></div>
-  <div class="nail" style="bottom:15%; left:10%; animation-delay:4s;"></div>
-  <div class="nail" style="bottom:25%; right:5%; animation-delay:1s;"></div>
-  <div class="nail" style="top:50%; left:15%; animation-delay:3s;"></div>
-  <div class="nail" style="top:60%; right:12%; animation-delay:5s;"></div>
-</div>
-
-  <div class="header">
-    <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo" alt="Logo">
-    <h1><span class="glitch">PRETA<span>NAILS</span></span></h1>
-  </div>
+<!-- FUNDO 3D ANIMADO -->
+<canvas id="bg-3d"></canvas>
+<div id="particles"></div>
+<div id="nails3d"></div>
 
   <div id="tela-login">
     <div class="login-box">
+      <div class="header">
+        <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo" alt="Logo">
+        <h1><span class="glitch">PRETA<span>NAILS</span></span></h1>
+      </div>
       <h2>🔒 Acesso Restrito</h2>
       <p>Painel Administrativo Premium</p>
-      <input type="password" id="senha" placeholder="Digite a senha" onkeypress="if(event.key==='Enter')entrar()">
-      <div class="erro" id="erro">Senha incorreta! Tente novamente.</div>
+      <input type="password" id="senha" placeholder="Digite a senha de acesso" onkeypress="if(event.key==='Enter')entrar()">
+      <div class="erro" id="erro">Senha incorreta! Acesso negado.</div>
       <button onclick="entrar()" class="btn-adm"><i class="fa fa-fingerprint"></i> ENTRAR NO PAINEL</button>
     </div>
   </div>
 
   <div id="tela-painel">
+    <div class="header">
+      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo" alt="Logo">
+      <h1><span class="glitch">PRETA<span>NAILS</span></span></h1>
+    </div>
     <h2>📊 Central de Agendamentos</h2>
     
     <div class="info-box">
@@ -247,8 +272,36 @@ h2 {
   </div>
 
 <script>
-const SENHA_CORRETA = "72591324Beh@";
+// GERAR PARTÍCULAS E UNHAS 3D
+function createParticles() {
+  const container = document.getElementById('particles');
+  for(let i=0; i<30; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 20 + 's';
+    particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+    container.appendChild(particle);
+  }
+}
 
+function createNails() {
+  const container = document.getElementById('nails3d');
+  for(let i=0; i<8; i++) {
+    const nail = document.createElement('div');
+    nail.className = 'nail-3d';
+    nail.style.left = Math.random() * 100 + '%';
+    nail.style.top = Math.random() * 100 + '%';
+    nail.style.animationDelay = Math.random() * 25 + 's';
+    nail.style.animationDuration = (20 + Math.random() * 10) + 's';
+    container.appendChild(nail);
+  }
+}
+createParticles();
+createNails();
+
+// LOGIN
+const SENHA_CORRETA = "72591324Beh@";
 function entrar(){
   if(document.getElementById('senha').value === SENHA_CORRETA){
     document.getElementById('tela-login').style.display = 'none';
