@@ -4,49 +4,66 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Controle ADM - Preta Nails</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-:root { --primary: #C13584; }
-body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #fff; text-align:center; }
-.logo { width:100px; height:100px; border-radius:50%; border:3px solid var(--primary); margin:30px auto 10px; }
-h1 { font-size: 28px; color: var(--primary); }
+:root { --primary: #C13584; --primary-dark: #a02c6e; --text: #ffffff; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); color: var(--text); }
+.header { text-align:center; padding: 30px 20px 10px 20px; }
+.logo { width:80px; height:80px; border-radius:50%; border:3px solid var(--primary); margin-bottom:10px; }
+h1 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--primary); }
 h1 span { color:#fff; }
-.btn { display:block; width:90%; max-width:500px; margin:20px auto; padding: 18px; background: var(--primary); color:#fff; border-radius:12px; font-weight:800; border:none; font-size:16px; cursor:pointer; text-decoration:none; }
-.login-box { width:90%; max-width:400px; margin:40px auto; padding:30px; background: rgba(255,255,255,0.05); border: 1px solid var(--primary); border-radius:20px; }
-input { width:100%; padding:14px; margin:15px 0; background: #222; border:1px solid var(--primary); border-radius:10px; color:#fff; font-size:16px; }
-.erro { color:#ff4d6d; display:none; }
+h2 { text-align:center; color:var(--primary); margin:20px 0; font-family: 'Playfair Display', serif; }
+.btn-adm { display:block; width:90%; max-width:1200px; margin:20px auto; padding: 18px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color:#fff; text-align:center; border-radius:12px; font-weight:800; border:none; cursor:pointer; text-decoration:none; font-size:16px; }
+.login-box { width:90%; max-width:400px; margin:40px auto; padding:30px; background: rgba(255,255,255,0.04); border: 1px solid rgba(193,53,132,0.3); border-radius:20px; }
+.login-box input { width:100%; padding:14px; margin:15px 0; background: rgba(0,0,0,0.3); border:1px solid rgba(193,53,132,0.4); border-radius:10px; color:#fff; font-size:16px; }
+.erro { color:#ff4d6d; display:none; text-align:center; margin:10px 0; font-weight:600; }
 #tela-painel { display:none; }
-iframe { width:95%; height:70vh; border:2px solid var(--primary); border-radius:12px; margin:20px auto; }
+.sheet-wrap { width:95%; height:75vh; margin:20px auto; border:2px solid var(--primary); border-radius:12px; overflow:hidden; background:#fff; }
+.sheet-wrap iframe { width:100%; height:100%; border:none; }
 </style>
 </head>
 <body>
 
-  <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo">
-  <h1>PRETA<span>NAILS</span></h1>
+  <div class="header">
+    <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo">
+    <h1>PRETA<span>NAILS</span></h1>
+  </div>
 
   <div id="tela-login">
     <div class="login-box">
       <h2>🔒 Painel ADM</h2>
-      <input type="password" id="senha" placeholder="Senha: preta123">
+      <input type="password" id="senha" placeholder="Digite a senha" onkeypress="if(event.key==='Enter')entrar()">
       <div class="erro" id="erro">Senha incorreta!</div>
-      <button onclick="entrar()" class="btn">ENTRAR</button>
+      <button onclick="entrar()" class="btn-adm">ENTRAR</button>
     </div>
   </div>
 
   <div id="tela-painel">
-    <button onclick="location.reload()" class="btn">🔄 ATUALIZAR AGENDAMENTOS</button>
-    <iframe src="https://docs.google.com/spreadsheets/d/1QKKlPZCv90R5G7booDYEgE3kGbi8pN0db3wNLWGYnsA/pubhtml?gid=0&single=true&widget=true&headers=false"></iframe>
-    <a href="agendamento.html" class="btn" style="background:#333">← VOLTAR</a>
+    <h2>📊 AGENDAMENTOS - EDITÁVEL</h2>
+    <button onclick="location.reload()" class="btn-adm"><i class="fa fa-rotate"></i> ATUALIZAR</button>
+    
+    <div class="sheet-wrap">
+      <iframe src="https://docs.google.com/spreadsheets/d/1QKKlPZCv90R5G7booDYEgE3kGbi8pN0db3wNLWGYnsA/edit?gid=0&rm=minimal"></iframe>
+    </div>
+
+    <a href="agendamento.html" class="btn-adm" style="background:#333"><i class="fa fa-arrow-left"></i> VOLTAR</a>
   </div>
 
 <script>
+const SENHA_CORRETA = "preta123";
+
 function entrar(){
-  if(document.getElementById('senha').value === "preta123"){
+  if(document.getElementById('senha').value === SENHA_CORRETA){
     document.getElementById('tela-login').style.display = 'none';
     document.getElementById('tela-painel').style.display = 'block';
+    document.getElementById('erro').style.display = 'none';
   } else {
     document.getElementById('erro').style.display = 'block';
   }
 }
 </script>
+
 </body>
 </html>
