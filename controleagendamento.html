@@ -3,21 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Painel ADM Premium - Preta Nails</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<title>Painel ADM - Preta Nails</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 :root { 
   --primary: #C13584; 
-  --primary-dark: #8a1f5d; 
-  --primary-neon: #ff4fb8;
-  --bg: #020202; 
-  --card: rgba(15,15,15,0.65); 
+  --primary-dark: #a02c6e; 
+  --bg: #0a0a0a; 
+  --card: rgba(255,255,255,0.04); 
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { 
   font-family: 'Inter', sans-serif; 
-  background: #020202; 
+  background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
   color: #fff; 
   min-height:100vh;
   display:flex;
@@ -27,233 +26,194 @@ body {
   position:relative;
 }
 
-/* FUNDO 3D ANIMADO COM UNHAS */
-#bg-3d {
+/* FUNDO UNHAS FLUTUANDO SUTIL */
+.nails-bg {
   position: fixed;
   top:0; left:0;
   width:100%; height:100%;
-  z-index:-3;
-}
-.particle {
-  position:absolute;
-  width:4px; height:4px;
-  background: var(--primary);
-  border-radius:50%;
-  box-shadow: 0 0 10px var(--primary);
-  animation: floatParticle 20s infinite linear;
-}
-@keyframes floatParticle {
-  from { transform: translateY(100vh) translateX(0); opacity:0; }
- 10% { opacity:1; }
-  90% { opacity:1; }
-  to { transform: translateY(-100vh) translateX(100px); opacity:0; }
-}
-
-.nail-3d {
-  position:absolute;
-  width:80px; height:160px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, #000 100%);
-  border-radius: 40px 40px 60% 60%;
-  box-shadow: 
-    0 0 30px rgba(193,53,132,0.6),
-    inset 0 10px 20px rgba(255,255,255,0.1);
-  animation: rotate3d 25s infinite linear;
-  transform-style: preserve-3d;
-  opacity:0.12;
-}
-@keyframes rotate3d {
- 0% { transform: rotateX(0) rotateY(0) translateZ(0); }
- 100% { transform: rotateX(360deg) rotateY(360deg) translateZ(200px); }
-}
-
-/* GLITCH PREMIUM */
-.glitch {
-  position:relative;
-  display:inline-block;
-}
-.glitch::before,
-.glitch::after {
-  content: 'PRETANAILS';
-  position:absolute;
-  top:0; left:0;
-  width:100%; height:100%;
-}
-.glitch::before {
-  animation: glitch-1 3s infinite;
-  color: #00ffff;
   z-index:-1;
+  opacity:0.06;
+  pointer-events:none;
 }
-.glitch::after {
-  animation: glitch-2 3s infinite;
-  color: var(--primary-neon);
-  z-index:-2;
+.nail {
+  position:absolute;
+  width:70px; height:140px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: 35px 35px 50% 50%;
+  box-shadow: 0 0 30px rgba(193,53,132,0.2);
+  animation: float 20s infinite ease-in-out;
 }
-@keyframes glitch-1 {
- 0%,100% { clip-path: inset(0 0 0 0); transform: translate(0); }
- 20% { clip-path: inset(20% 0 30% 0); transform: translate(-3px, 3px); }
- 40% { clip-path: inset(50% 0 20% 0); transform: translate(3px, -3px); }
-}
-@keyframes glitch-2 {
- 0%,100% { clip-path: inset(0 0 0 0); transform: translate(0); }
- 60% { clip-path: inset(10% 0 60% 0); transform: translate(3px, 3px); }
- 80% { clip-path: inset(80% 0 5% 0); transform: translate(-3px, -3px); }
+@keyframes float {
+ 0%,100% { transform: translateY(0) rotate(0deg); }
+ 50% { transform: translateY(-50px) rotate(8deg); }
 }
 
+/* HEADER IGUAL AO INDEX */
 .header { text-align:center; padding: 0 0 25px 0; }
 .logo { 
-  width:110px; 
-  height:110px; 
+  width:120px; 
+  height:120px; 
   border-radius:50%; 
   border:3px solid var(--primary); 
-  margin-bottom:15px; 
+  margin-bottom:16px; 
   object-fit:cover;
-  box-shadow: 0 0 40px var(--primary);
-  animation: pulseGlow 2s infinite;
-}
-@keyframes pulseGlow {
- 0%,100% { box-shadow: 0 0 30px var(--primary); transform: scale(1); }
- 50% { box-shadow: 0 0 60px var(--primary-neon); transform: scale(1.05); }
+  box-shadow: 0 0 30px rgba(193,53,132,0.4);
 }
 h1 { 
   font-family: 'Playfair Display', serif; 
-  font-size: 40px; 
-  color: var(--primary); 
-  letter-spacing:4px;
-  text-transform:uppercase;
-  text-shadow: 0 0 20px rgba(193,53,132,0.5);
+  font-size: 38px; 
+  font-weight: 900;
+  color: #fff;
+  letter-spacing:1px;
 }
-h1 span { color:#fff; }
+h1 span { color:var(--primary); }
+.slogan { font-size: 12px; letter-spacing: 3px; opacity: 0.7; font-weight: 600; margin-top: 5px; }
 h2 { 
   text-align:center; 
   color:var(--primary); 
   margin:20px 0 15px 0; 
   font-family: 'Playfair Display', serif; 
-  font-size:28px;
-  text-shadow: 0 0 15px rgba(193,53,132,0.6);
+  font-size:26px;
 }
 
-/* BOTÕES NEON PREMIUM */
+/* BOTÕES IGUAL AO INDEX */
 .btn-adm { 
   display:flex; 
   align-items:center; 
   justify-content:center; 
   gap:12px; 
   width:100%; 
-  margin:18px 0; 
-  padding: 20px; 
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
+  margin:16px 0; 
+  padding: 18px 30px; 
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
   color:#fff; 
-  border-radius:16px; 
-  font-weight:900; 
-  border:2px solid transparent; 
+  border-radius:50px; 
+  font-weight:800; 
+  border: none; 
   cursor:pointer; 
   text-decoration:none; 
-  font-size:17px; 
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-  box-shadow: 0 0 25px rgba(193,53,132,0.5);
+  font-size:16px; 
+  transition: all 0.3s; 
+  box-shadow: 0 10px 30px rgba(193,53,132,0.4);
   position:relative;
   overflow:hidden;
 }
-.btn-adm::before {
-  content:'';
-  position:absolute;
-  top:0; left:-100%;
-  width:100%; height:100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-  transition: 0.6s;
+.btn-adm::after { 
+  content: ''; 
+  position: absolute; 
+  top: 0; 
+  left: -100%; 
+  width: 50%; 
+  height: 100%; 
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); 
+  animation: glitter 2.5s infinite; 
 }
-.btn-adm:hover::before { left:100%; }
+@keyframes glitter { 0% { left: -100%; } 100% { left: 200%; } }
 .btn-adm:hover { 
-  transform: translateY(-4px) scale(1.03); 
-  box-shadow: 0 0 50px var(--primary-neon);
-  border-color: var(--primary-neon);
+  transform: translateY(-3px); 
+  box-shadow: 0 15px 40px rgba(193,53,132,0.6);
 }
-.btn-secundario { background: linear-gradient(135deg, #1a1a1a, #0a0a0a); }
+.btn-secundario { 
+  background: rgba(255,255,255,0.06); 
+  border: 1px solid rgba(193,53,132,0.3);
+  backdrop-filter: blur(10px);
+}
 
-/* LOGIN BOX VIDRO PREMIUM */
+/* LOGIN BOX VIDRO IGUAL AO FORM */
 .login-box { 
   width:90%; 
-  max-width:460px; 
-  padding:50px 40px; 
+  max-width:500px; 
+  padding:45px 40px; 
   background: var(--card); 
-  border: 2px solid rgba(193,53,132,0.6); 
-  border-radius:28px; 
-  backdrop-filter: blur(25px);
-  box-shadow: 
-    0 0 60px rgba(193,53,132,0.4),
-    inset 0 1px 0 rgba(255,255,255,0.1);
-  animation: slideUp 0.8s ease;
+  border: 1px solid rgba(193,53,132,0.25); 
+  border-radius:25px; 
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  animation: slideUp 0.6s ease;
 }
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px) scale(0.95); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.login-box p { text-align:center; color:#ddd; margin-bottom:25px; font-size:15px; font-weight:600; }
+.login-box p { text-align:center; color:#ccc; margin-bottom:25px; font-size:14px; font-weight:600; letter-spacing:0.5px; }
 .login-box input { 
   width:100%; 
-  padding:18px; 
+  padding:14px 16px; 
   margin:18px 0; 
-  background: rgba(0,0,0,0.7); 
-  border:2px solid rgba(193,53,132,0.5); 
-  border-radius:14px; 
+  background: rgba(0,0,0,0.3); 
+  border:2px solid rgba(255,255,255,0.1); 
+  border-radius:12px; 
   color:#fff; 
-  font-size:16px; 
+  font-size:15px; 
+  font-family: 'Inter', sans-serif;
   outline:none;
   transition:0.3s;
 }
+.login-box input::placeholder { color: rgba(255,255,255,0.4); }
 .login-box input:focus { 
-  border-color: var(--primary-neon); 
-  box-shadow: 0 0 25px var(--primary);
-  background: rgba(0,0,0,0.9);
+  border-color: var(--primary); 
+  box-shadow: 0 0 0 4px rgba(193, 53, 132, 0.15); 
+  background: rgba(0,0,0,0.5); 
 }
 .erro { 
-  color:#ff4d6d; 
-  display:none; 
-  text-align:center; 
-  margin:12px 0; 
-  font-weight:800;
-  text-shadow: 0 0 10px #ff4d6d;
+  background: rgba(244,67,54,0.1); 
+  border-left: 4px solid #F44336; 
+  color: #ff8a80; 
+  padding: 15px; 
+  border-radius: 8px; 
+  margin:15px 0; 
+  font-size: 14px; 
+  font-weight: 600;
+  display:none;
 }
-#tela-painel { display:none; width:90%; max-width:900px; animation: slideUp 0.8s ease; }
+#tela-painel { display:none; width:90%; max-width:900px; animation: slideUp 0.6s ease; }
 .info-box { 
   background: var(--card); 
-  border:2px solid rgba(193,53,132,0.5); 
+  border:1px solid rgba(193,53,132,0.25); 
   border-radius:20px; 
   padding:35px; 
   margin:25px 0; 
   text-align:center;
-  box-shadow: 0 0 40px rgba(193,53,132,0.3);
   backdrop-filter: blur(20px);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.6);
 }
-.info-box i { font-size:50px; color:var(--primary); margin-bottom:15px; animation: pulseGlow 2s infinite; }
+.info-box i { font-size:45px; color:var(--primary); margin-bottom:15px; }
 .info-box h3 { font-family: 'Playfair Display', serif; color:var(--primary); margin-bottom:10px; font-size:22px; }
+.info-box p { opacity:0.9; line-height:1.7; }
 </style>
 </head>
 <body>
 
-<!-- FUNDO 3D ANIMADO -->
-<canvas id="bg-3d"></canvas>
-<div id="particles"></div>
-<div id="nails3d"></div>
+<!-- UNHAS NO FUNDO -->
+<div class="nails-bg">
+  <div class="nail" style="top:10%; left:5%; animation-delay:0s;"></div>
+  <div class="nail" style="top:20%; right:8%; animation-delay:3s;"></div>
+  <div class="nail" style="bottom:15%; left:10%; animation-delay:6s;"></div>
+  <div class="nail" style="bottom:25%; right:5%; animation-delay:2s;"></div>
+  <div class="nail" style="top:50%; left:15%; animation-delay:4s;"></div>
+  <div class="nail" style="top:60%; right:12%; animation-delay:7s;"></div>
+</div>
 
   <div id="tela-login">
     <div class="login-box">
       <div class="header">
-        <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo" alt="Logo">
-        <h1><span class="glitch">PRETA<span>NAILS</span></span></h1>
+        <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo" alt="Preta Nails">
+        <h1>PRETA<span>NAILS</span></h1>
+        <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
       </div>
       <h2>🔒 Acesso Restrito</h2>
       <p>Painel Administrativo Premium</p>
       <input type="password" id="senha" placeholder="Digite a senha de acesso" onkeypress="if(event.key==='Enter')entrar()">
-      <div class="erro" id="erro">Senha incorreta! Acesso negado.</div>
+      <div class="erro" id="erro">Senha incorreta! Tente novamente.</div>
       <button onclick="entrar()" class="btn-adm"><i class="fa fa-fingerprint"></i> ENTRAR NO PAINEL</button>
     </div>
   </div>
 
   <div id="tela-painel">
     <div class="header">
-      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo" alt="Logo">
-      <h1><span class="glitch">PRETA<span>NAILS</span></span></h1>
+      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo" alt="Preta Nails">
+      <h1>PRETA<span>NAILS</span></h1>
+      <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
     </div>
     <h2>📊 Central de Agendamentos</h2>
     
@@ -272,32 +232,18 @@ h2 {
   </div>
 
 <script>
-// GERAR PARTÍCULAS E UNHAS 3D
-function createParticles() {
-  const container = document.getElementById('particles');
-  for(let i=0; i<30; i++) {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    particle.style.left = Math.random() * 100 + '%';
-    particle.style.animationDelay = Math.random() * 20 + 's';
-    particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-    container.appendChild(particle);
-  }
-}
-
+// GERAR UNHAS NO FUNDO
 function createNails() {
-  const container = document.getElementById('nails3d');
-  for(let i=0; i<8; i++) {
+  const container = document.querySelector('.nails-bg');
+  for(let i=0; i<6; i++) {
     const nail = document.createElement('div');
-    nail.className = 'nail-3d';
+    nail.className = 'nail';
     nail.style.left = Math.random() * 100 + '%';
     nail.style.top = Math.random() * 100 + '%';
-    nail.style.animationDelay = Math.random() * 25 + 's';
-    nail.style.animationDuration = (20 + Math.random() * 10) + 's';
+    nail.style.animationDelay = Math.random() * 10 + 's';
     container.appendChild(nail);
   }
 }
-createParticles();
 createNails();
 
 // LOGIN
