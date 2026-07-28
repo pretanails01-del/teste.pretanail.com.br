@@ -3,52 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Controle ADM - Preta Nails</title>
+<title>Painel ADM - Preta Nails</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-:root { --primary: #C13584; --primary-dark: #a02c6e; --text: #ffffff; }
+:root { --primary: #C13584; --primary-dark: #a02c6e; --bg: #0a0a0a; --card: rgba(255,255,255,0.04); }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); color: var(--text); }
-.header { text-align:center; padding: 30px 20px 10px 20px; }
-.logo { width:80px; height:80px; border-radius:50%; border:3px solid var(--primary); margin-bottom:10px; }
-h1 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--primary); }
+body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); color: #fff; min-height:100vh; }
+.header { text-align:center; padding: 40px 20px 20px 20px; }
+.logo { width:90px; height:90px; border-radius:50%; border:3px solid var(--primary); margin-bottom:12px; object-fit:cover; }
+h1 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--primary); letter-spacing:1px; }
 h1 span { color:#fff; }
-h2 { text-align:center; color:var(--primary); margin:20px 0; font-family: 'Playfair Display', serif; }
-.btn-adm { display:block; width:90%; max-width:1200px; margin:20px auto; padding: 18px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color:#fff; text-align:center; border-radius:12px; font-weight:800; border:none; cursor:pointer; text-decoration:none; font-size:16px; }
-.login-box { width:90%; max-width:400px; margin:40px auto; padding:30px; background: rgba(255,255,255,0.04); border: 1px solid rgba(193,53,132,0.3); border-radius:20px; }
-.login-box input { width:100%; padding:14px; margin:15px 0; background: rgba(0,0,0,0.3); border:1px solid rgba(193,53,132,0.4); border-radius:10px; color:#fff; font-size:16px; }
+h2 { text-align:center; color:var(--primary); margin:20px 0 10px 0; font-family: 'Playfair Display', serif; font-size:24px; }
+.btn-adm { display:flex; align-items:center; justify-content:center; gap:10px; width:90%; max-width:500px; margin:15px auto; padding: 18px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color:#fff; text-align:center; border-radius:14px; font-weight:800; border:none; cursor:pointer; text-decoration:none; font-size:16px; transition:0.3s; box-shadow: 0 8px 20px rgba(193,53,132,0.3); }
+.btn-adm:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(193,53,132,0.5); }
+.btn-secundario { background: #2a2a2a; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+.btn-secundario:hover { background: #3a3a3a; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
+.login-box { width:90%; max-width:420px; margin:40px auto; padding:40px 30px; background: var(--card); border: 1px solid rgba(193,53,132,0.3); border-radius:20px; backdrop-filter: blur(10px); }
+.login-box p { text-align:center; color:#aaa; margin-bottom:20px; font-size:14px; }
+.login-box input { width:100%; padding:16px; margin:15px 0; background: rgba(0,0,0,0.4); border:1px solid rgba(193,53,132,0.4); border-radius:12px; color:#fff; font-size:16px; outline:none; }
+.login-box input:focus { border-color: var(--primary); }
 .erro { color:#ff4d6d; display:none; text-align:center; margin:10px 0; font-weight:600; }
-#tela-painel { display:none; }
-.sheet-wrap { width:95%; height:75vh; margin:20px auto; border:2px solid var(--primary); border-radius:12px; overflow:hidden; background:#fff; }
-.sheet-wrap iframe { width:100%; height:100%; border:none; }
+#tela-painel { display:none; max-width:800px; margin:0 auto; padding:20px; }
+.info-box { background: var(--card); border:1px solid rgba(193,53,132,0.2); border-radius:16px; padding:25px; margin:20px 0; text-align:center; }
+.info-box i { font-size:40px; color:var(--primary); margin-bottom:10px; }
 </style>
 </head>
 <body>
 
   <div class="header">
-    <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo">
+    <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo" alt="Logo">
     <h1>PRETA<span>NAILS</span></h1>
   </div>
 
   <div id="tela-login">
     <div class="login-box">
-      <h2>🔒 Painel ADM</h2>
+      <h2>🔒 Acesso Restrito</h2>
+      <p>Painel administrativo do sistema</p>
       <input type="password" id="senha" placeholder="Digite a senha" onkeypress="if(event.key==='Enter')entrar()">
-      <div class="erro" id="erro">Senha incorreta!</div>
-      <button onclick="entrar()" class="btn-adm">ENTRAR</button>
+      <div class="erro" id="erro">Senha incorreta! Tente novamente.</div>
+      <button onclick="entrar()" class="btn-adm"><i class="fa fa-lock-open"></i> ENTRAR NO PAINEL</button>
     </div>
   </div>
 
   <div id="tela-painel">
-    <h2>📊 AGENDAMENTOS - EDITÁVEL</h2>
-    <button onclick="location.reload()" class="btn-adm"><i class="fa fa-rotate"></i> ATUALIZAR</button>
+    <h2>📊 Central de Agendamentos</h2>
     
-    <div class="sheet-wrap">
-      <iframe src="https://docs.google.com/spreadsheets/d/1QKKlPZCv90R5G7booDYEgE3kGbi8pN0db3wNLWGYnsA/edit?usp=drivesdk"></iframe>
+    <div class="info-box">
+      <i class="fa fa-file-excel"></i>
+      <h3>Planilha Oficial</h3>
+      <p>Todos os agendamentos ficam salvos aqui. Edite, adicione e exclua direto na planilha do Google.</p>
     </div>
 
-    <a href="agendamento.html" class="btn-adm" style="background:#333"><i class="fa fa-arrow-left"></i> VOLTAR</a>
+    <a href="https://docs.google.com/spreadsheets/d/1QKKlPZCv90R5G7booDYEgE3kGbi8pN0db3wNLWGYnsA/edit#gid=0" target="_blank" class="btn-adm">
+      <i class="fa fa-table"></i> ABRIR PLANILHA PARA EDITAR
+    </a>
+
+    <button onclick="location.reload()" class="btn-adm btn-secundario"><i class="fa fa-rotate"></i> SAIR DO PAINEL</button>
+    <a href="agendamento.html" class="btn-adm btn-secundario"><i class="fa fa-arrow-left"></i> VOLTAR AO SITE</a>
   </div>
 
 <script>
