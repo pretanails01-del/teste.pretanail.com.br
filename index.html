@@ -4,19 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- OTIMIZADO: Title com palavra chave -->
+  <!-- SEO OCULTO - Cliente não vê -->
   <title>Preta Nails | Alongamento de Unhas em Gel e Fibra - Sabrina Lemos</title>
-  
-  <!-- OTIMIZADO: Meta Description - Não aparece no site -->
   <meta name="description" content="Preta Nails por Sabrina Lemos: especialista em alongamento de unhas em gel, fibra e nail art. Agende suas unhas perfeitas. Desconto VIP para as 20 primeiras clientes.">
-  
-  <!-- OTIMIZADO: Palavras Chave para SEO - Invisível pro usuário -->
   <meta name="keywords" content="alongamento de unhas, unhas em gel, unhas de fibra, nail designer, Preta Nails, Sabrina Lemos, manicure profissional, nail art, unhas decoradas, agendamento de unhas">
   
   <meta name="theme-color" content="#C13584">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Preta Nails">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="https://dl.dropboxusercontent.com/scl/fi/grygd421tzbmd6aleokdv/1785098095389_image_1785098094355.jpg?rlkey=u0ob4w0t92pw1vi3xub42xg9i&dl=1">
   
@@ -32,7 +25,6 @@
       --primary-dark: #a02c6e;
       --bg: #0a0a0a;
       --text: #ffffff;
-      --whatsapp: #25D366;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
@@ -57,32 +49,14 @@
       transition: all 0.3s;
       backdrop-filter: blur(10px);
     }
-    #btn-instalar-app:hover { 
-      background: rgba(193,53,132,0.1);
-      border-color: var(--primary);
-      color: #fff;
-      transform: translateY(-2px); 
-    }
+    #btn-instalar-app:hover { background: rgba(193,53,132,0.1); border-color: var(--primary); color: #fff; transform: translateY(-2px); }
 
     .btn-duvidas-topo {
-      position: fixed;
-      top: 20px;
-      right: 25px;
-      z-index: 9998;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(193,53,132,0.4);
-      backdrop-filter: blur(10px);
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 13px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s;
-      white-space: nowrap;
+      position: fixed; top: 20px; right: 25px; z-index: 9998;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.4);
+      backdrop-filter: blur(10px); color: #fff; padding: 10px 18px; border-radius: 50px;
+      text-decoration: none; font-weight: 700; font-size: 13px; display: inline-flex;
+      align-items: center; gap: 8px; transition: all 0.2s; white-space: nowrap;
     }
     .btn-duvidas-topo:hover { border-color: var(--primary); transform: translateY(-2px); }
 
@@ -97,13 +71,7 @@
     .destaque { font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 80px); font-weight: 900; color: var(--primary); line-height: 0.9; }
     .destaque small { font-size: 32px; font-style: italic; color: #fff; display: block; line-height: 1.2; font-weight: 400; }
 
-    .botoes-centro {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      margin-top: 30px;
-    }
+    .botoes-centro { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 30px; }
 
     .btn { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 18px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-flex; align-items: center; gap: 12px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); transition: all 0.3s; border: none; cursor: pointer; }
     .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
@@ -139,7 +107,8 @@
     .desconto-wrap p { font-size: 15.5px; opacity: 0.95; line-height: 1.7; margin-bottom: 28px; }
 
     .foto-destaque-wrap { max-width: 400px; margin: 0 auto 100px; padding: 30px 25px; text-align: center; background: linear-gradient(135deg, rgba(193,53,132,0.15) 0%, rgba(160,44,110,0.1) 100%); border: 1px solid rgba(193,53,132,0.3); border-radius: 25px; backdrop-filter: blur(20px); box-shadow: 0 15px 50px rgba(193,53,132,0.2); }
-    .foto-destaque-wrap img { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--primary); box-shadow: 0 0 40px rgba(193,53,132,0.5); object-fit: cover; margin-bottom: 20px; }
+    .foto-sabrina { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--primary); box-shadow: 0 0 40px rgba(193,53,132,0.5); object-fit: cover; margin-bottom: 20px; cursor: pointer; transition: 0.3s; } /* CLICÁVEL */
+    .foto-sabrina:active { transform: scale(0.95); }
     .foto-destaque-wrap h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--primary); margin-bottom: 12px; }
     .foto-destaque-wrap p { margin-top: 0; font-size: 14px; opacity: 0.9; line-height: 1.7; }
 
@@ -158,25 +127,9 @@
     @media (max-width: 768px) {
       .btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; }
       .hero { min-height: 85vh; padding: 20px 16px 40px 16px; }
-      .wrap { max-width: 100%; }
-      .slogan { letter-spacing: 2px; font-size: 11px; }
-      .tag { font-size: 12px; padding: 10px 20px; }
-      .coroa { font-size: 32px; margin-bottom: 10px; }
-      h1 { font-size: clamp(36px, 10vw, 48px); }
-      .destaque { font-size: clamp(40px, 12vw, 56px); }
-      .destaque small { font-size: 24px; }
       .btn, #btn-instalar-app { width: 100%; justify-content: center; padding: 16px 24px; font-size: 15px; }
       .social-btns { flex-direction: column; }
       .btn-social { width: 100%; justify-content: center; }
-      .scroll-down { bottom: 15px; font-size: 20px; }
-      .galeria { padding: 30px 16px 80px 16px; }
-      .card-glass img { max-height: 500px; }
-      .swiper-button-next, .swiper-button-prev { width: 35px; height: 35px; }
-      .swiper-button-next:after, .swiper-button-prev:after { font-size: 14px !important; }
-      .whatsapp-float { bottom: 70px; right: 20px; }
-      .whatsapp-btn { width: 55px; height: 55px; font-size: 28px; }
-      .foto-destaque-wrap { margin: 0 16px 80px; padding: 25px 20px; }
-      .desconto-wrap { margin: 0 16px 80px; padding: 30px 20px; }
     }
   </style>
 </head>
@@ -192,28 +145,16 @@
       <h1>PRETA<span>NAILS</span></h1>
       <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
       <div class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS </div>
-      <div class="destaque">
-        MELHOR<br><small>versão! ♡</small>
-      </div>
+      <div class="destaque">MELHOR<br><small>versão! ♡</small></div>
       
       <div class="botoes-centro">
-        <a href="agendamento.html" class="btn">
-          QUERO MINHAS UNHAS PERFEITAS 
-          <i class="fas fa-arrow-right"></i>
-        </a>
-
-        <button id="btn-instalar-app">
-          <i class="fas fa-download"></i> BAIXAR APLICATIVO
-        </button>
+        <a href="agendamento.html" class="btn">QUERO MINHAS UNHAS PERFEITAS <i class="fas fa-arrow-right"></i></a>
+        <button id="btn-instalar-app"><i class="fas fa-download"></i> BAIXAR APLICATIVO</button>
       </div>
 
       <div class="social-btns">
-        <a href="https://www.youtube.com/@PretaNails01" target="_blank" class="btn-social">
-          <i class="fab fa-youtube"></i> YouTube
-        </a>
-        <a href="https://www.instagram.com/pretanails001?utm_source=qr&igsh=Y3JkN2F2Y3BqbTRu" target="_blank" class="btn-social">
-          <i class="fab fa-instagram"></i> Instagram
-        </a>
+        <a href="https://www.youtube.com/@PretaNails01" target="_blank" class="btn-social"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="https://www.instagram.com/pretanails001" target="_blank" class="btn-social"><i class="fab fa-instagram"></i> Instagram</a>
       </div>
     </div>
     <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>  
@@ -223,30 +164,27 @@
     <div class="titulo-galeria"><h2>Portfólio <span>Preta Nails</span></h2></div>
     <div class="swiper">
       <div class="swiper-wrapper">
-        <!-- OTIMIZADO: Alt com palavra chave - invisível pro usuário -->
+        <!-- ALT OTIMIZADO - INVISÍVEL -->
         <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1" alt="Alongamento de unhas em gel Preta Nails"></div></div>
         <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1" alt="Unhas de fibra decoradas Preta Nails"></div></div>
         <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/yvh7487ntc4198bg86bcy/1784512440834_image_1784512439717.jpg?rlkey=eh9s591ggwcbieo9frwyfqhj6&dl=1" alt="Nail art personalizada Preta Nails"></div></div>
         <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/ydggv1tyvubbtrcdpr9zi/1784512429984_image_1784512429123.jpg?rlkey=4knq0q5dbgex0codposfwciur&dl=1" alt="Manutenção de alongamento de unhas Preta Nails"></div></div>
       </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div><div class="swiper-button-next"></div><div class="swiper-pagination"></div>
     </div>
 
     <div class="desconto-wrap">
-      <div class="tag tag-vip"> VAGAS LIMITADAS</div>
+      <div class="tag tag-vip">VAGAS LIMITADAS</div>
       <h3>Desconto Especial de Lançamento</h3>
-      <p>Estou montando minha carteira VIP. As 20 primeiras clientes ganham condição especial + prioridade no agendamento + brinde surpresa no primeiro atendimento.</p>
-      <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20quero%20garantir%20minha%20vaga%20no%20Desconto%20Especial%20de%20Lan%C3%A7amento%20%F0%9F%92%97" target="_blank" class="btn" style="font-size:17px; padding:20px 40px; margin-top:10px;">
-        QUERO GARANTIR MINHA VAGA AGORA <i class="fas fa-crown"></i>
-      </a>
+      <p>Estou montando minha carteira VIP. As 20 primeiras clientes ganham condição especial + prioridade no agendamento + brinde surpresa.</p>
+      <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20quero%20garantir%20minha%20vaga" target="_blank" class="btn" style="font-size:17px; padding:20px 40px; margin-top:10px;">QUERO GARANTIR MINHA VAGA AGORA <i class="fas fa-crown"></i></a>
     </div>
 
     <div class="foto-destaque-wrap">
-      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos Nail Designer Preta Nails">
+      <!-- ADM SECRETO: 3 TOQUES AQUI -->
+      <img id="fotoSabrina" class="foto-sabrina" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos Nail Designer Preta Nails">
       <h3>Sabrina Lemos</h3>
-      <p>Sou Sabrina Lemos, fundadora da PretaNails. Acredito que unhas bem cuidadas são muito mais do que um detalhe: elas refletem autoestima, confiança e elegância.</p>
+      <p>Sou Sabrina Lemos, fundadora da PretaNails. Acredito que unhas bem cuidadas refletem autoestima, confiança e elegância.</p>
     </div>
   </section>
 
@@ -254,89 +192,65 @@
     <div class="footer-selos">
       <div class="selo"><i class="fas fa-shield-halved"></i> Dados Criptografados</div>
       <div class="selo"><i class="fas fa-check-circle"></i> Verificado Google</div>
-      <div class="selo"><i class="fas fa-file-contract"></i> LGPD - Consentimento</div>
+      <div class="selo"><i class="fas fa-file-contract"></i> LGPD</div>
       <div class="selo"><i class="fas fa-lock"></i> Site Seguro SSL</div>
     </div>
-    <p>© 2026 Preta Nails. Todos os direitos reservados. | Seus dados estão seguros conosco.</p>
+    <p>© 2026 Preta Nails. Todos os direitos reservados.</p>
   </footer>
 
-  <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20tenho%20algumas%20d%C3%BAvidas.%20Poderia%20me%20ajudar%20%3F" target="_blank" class="whatsapp-float">
+  <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails" target="_blank" class="whatsapp-float">
     <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
     <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
   </a>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    const swiper = new Swiper('.swiper', {
-      loop: true,
-      slidesPerView: 1,
-      spaceBetween: 30,
-      centeredSlides: true,
-      autoplay: { delay: 4000, disableOnInteraction: false },
-      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-      pagination: { el: '.swiper-pagination', clickable: true }
-    });
+    const swiper = new Swiper('.swiper', { loop: true, slidesPerView: 1, spaceBetween: 30, centeredSlides: true, autoplay: { delay: 4000 }, navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }, pagination: { el: '.swiper-pagination', clickable: true } });
   </script>
 
+<!-- SCRIPT ADM SECRETO: 3 TOQUES NA FOTO -->
 <script>
-// SCRIPT NOVO - FUNCIONA NO PC E CELULAR
+let toquesSabrina = 0;
+document.getElementById('fotoSabrina').addEventListener('click', () => {
+  toquesSabrina++;
+  if(toquesSabrina === 3){
+    window.location.href = "controleagendamento.html"; // SEU PAINEL
+  }
+  setTimeout(()=> toquesSabrina = 0, 1000); // reseta em 1 segundo
+});
+</script>
+
+<!-- SCRIPT INSTALAR APP -->
+<script>
 const btnInstalar = document.getElementById('btn-instalar-app');
 btnInstalar.style.display = 'inline-flex';
-
 let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-});
-
+window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; });
 btnInstalar.addEventListener('click', async () => {
   if (deferredPrompt) {
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === 'accepted') { 
-      btnInstalar.innerHTML = '<i class="fas fa-check"></i> INSTALADO!';
-      setTimeout(() => btnInstalar.style.display = 'none', 2000); 
-    }
+    if (outcome === 'accepted') { btnInstalar.innerHTML = '<i class="fas fa-check"></i> INSTALADO!'; setTimeout(() => btnInstalar.style.display = 'none', 2000); }
     deferredPrompt = null;
-  } else {
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    const isDesktop = !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    if(isDesktop){
-      alert('PARA INSTALAR NO COMPUTADOR 💻\n\n1. Clique nos 3 pontinhos do Chrome > "Instalar Preta Nails"\n2. Ou no ícone "Instalar" na barra de endereço')
-    } else if(isIOS){
-      alert('PARA INSTALAR NO IPHONE 📱\n\n1. Toque em Compartilhar ⬆️\n2. Toque em "Adicionar à Tela Inicial"')
-    } else {
-      alert('Toque nos 3 pontinhos do Chrome > "Instalar aplicativo"')
-    }
   }
-});
-window.addEventListener('appinstalled', () => { 
-  btnInstalar.innerHTML = '<i class="fas fa-check"></i> INSTALADO!';
-  btnInstalar.style.display = 'none'; 
 });
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js'); }
 </script>
 
+<!-- SCRIPT BLOQUEIO -->
 <script>
 (function() {
   "use strict";
   const SENHA_ADMIN = "preta2026"; 
   const paginaAtual = window.location.pathname.toLowerCase();
-  const paginasLiberadas = ['/duvidas.html', '/duvidas', '/faq.html', '/faq'];
+  const paginasLiberadas = ['/duvidas.html', '/duvidas', '/faq.html', '/faq', '/controleagendamento.html'];
   const isPaginaLiberada = paginasLiberadas.some(p => paginaAtual.includes(p));
-  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  const urlParams = new URLSearchParams(window.location.search);
-  const liberouPorLink = urlParams.get('admin') === SENHA_ADMIN;
-  if(liberouPorLink) { sessionStorage.setItem('adminLiberado', 'true'); }
-  if (sessionStorage.getItem('adminLiberado') === 'true' || isPaginaLiberada) { return; }
-  if (isLocal || isMobile) { return; }
+  if (isPaginaLiberada) { return; }
   let bloqueado = false;
   function mostrarAlertaSeguranca() {
     if(bloqueado) return; bloqueado = true;
-    document.documentElement.innerHTML = `<body style="margin:0;padding:0;background:#F8F9FA;font-family:'Google Sans', Roboto, Arial, sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;"><div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.12);"><h2 style="color:#E91E63;">Preta Nails - Navegação Segura</h2><p>Acesso ao código-fonte bloqueado</p><button onclick="window.location.reload()" style="padding:12px 24px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;">Entendi</button></div></body>`;
+    document.documentElement.innerHTML = `<body style="margin:0;padding:0;background:#F8F9FA;font-family:Arial;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;"><div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;"><h2 style="color:#E91E63;">Acesso Restrito</h2><p>Área protegida</p></div></body>`;
   }
-  document.addEventListener('keydown', function(e) { if (e.key === 'F12') { e.preventDefault(); mostrarAlertaSeguranca(); } }, true);
   document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
 })();
 </script>
