@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- SEO -->
-  <title>Preta NailS | Alongamento de Unhas em Gel e Fibra - Sabrina Lemos</title>
-  <meta name="description" content="Preta Nails por Sabrina Lemos: especialista em alongamento de unhas em gel e fibra em São Paulo. Unhas perfeitas com segurança e biossegurança. Agende seu horário.">
-  <meta name="keywords" content="alongamento de unhas, unhas em gel, unhas de fibra, nail designer, Preta Nails, Sabrina Lemos, manicure profissional, nail art, unhas decoradas, biossegurança, agendamento de unhas, são paulo, manutenção de unhas, unhas luxo">
+  <title>Preta NailS | Alongamento de Unhas em Gel e Fibra em São Paulo - Sabrina Lemos</title>
+  <meta name="description" content="Preta Nails por Sabrina Lemos: nail designer especialista em alongamento de unhas em gel e fibra, manicure profissional, nail art e biossegurança em São Paulo. Agende seu horário.">
+  <meta name="keywords" content="alongamento de unhas, unhas em gel, unhas de fibra, nail designer, Preta Nails, Sabrina Lemos, manicure profissional, nail art, unhas decoradas, biossegurança, agendamento de unhas, são paulo, manutenção de unhas">
   
   <meta name="theme-color" content="#C13584">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -28,6 +28,7 @@
       --primary-dark: #a02c6e;
       --bg: #0a0a0a;
       --text: #ffffff;
+      --whatsapp: #25D366;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
@@ -55,7 +56,7 @@
     }
     .btn-duvidas-topo:hover { border-color: var(--primary); transform: translateY(-2px); }
 
-    .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 80px 20px; position: relative; } /* AUMENTEI PADDING BOTTOM */
+    .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 80px 20px; position: relative; }
     .wrap { max-width: 600px; animation: fadeIn 1s ease; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .coroa { font-size: 40px; color: var(--primary); margin-bottom: 15px; filter: drop-shadow(0 0 20px rgba(193,53,132,0.5)); }
@@ -63,18 +64,18 @@
     h1 span { color: var(--primary); }
     .slogan { font-size: 13px; letter-spacing: 4px; margin: 12px 0 30px; opacity: 0.7; font-weight: 600; }
     .tag { border: 1px solid var(--primary); border-radius: 50px; padding: 12px 24px; display: inline-block; font-weight: 700; font-size: 14px; margin-bottom: 20px; background: rgba(193,53,132,0.1); }
-    h2.tag { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; }
+    h2.tag { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; } /* AGORA É H2 PRA SEO */
     .destaque { font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 80px); font-weight: 900; color: var(--primary); line-height: 0.9; }
     .destaque small { font-size: 32px; font-style: italic; color: #fff; display: block; line-height: 1.2; font-weight: 400; }
 
     .btn { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 18px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); transition: all 0.3s; border: none; cursor: pointer; }
     .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
 
-    .social-btns { display: flex; gap: 12px; justify-content: center; margin-top: 20px; margin-bottom: 30px; } /* ESPAÇO EXTRA */
+    .social-btns { display: flex; gap: 12px; justify-content: center; margin-top: 20px; margin-bottom: 30px; }
     .btn-social { background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.3); color: #fff; padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s; backdrop-filter: blur(10px); }
     .btn-social:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-2px); }
 
-    .scroll-down { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); color: var(--primary); font-size: 24px; animation: bounce 2s infinite; opacity: 0.8; } /* ABAIXEI A SETINHA */
+    .scroll-down { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); color: var(--primary); font-size: 24px; animation: bounce 2s infinite; opacity: 0.8; }
     @keyframes bounce { 0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
 
     .galeria { padding: 40px 20px 100px 20px; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); }
@@ -93,7 +94,6 @@
     .desconto-wrap .tag-vip { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border: none; color: #fff; font-size: 13px; letter-spacing: 3px; padding: 8px 20px; border-radius: 50px; }
     .desconto-wrap h3 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 36px); color: var(--primary); margin: 20px 0 15px; line-height: 1.1; }
 
-    /* CARD DA SABRINA MELHORADO */
     .foto-destaque-wrap { max-width: 500px; margin: 0 auto 100px; padding: 40px 30px; text-align: center; background: linear-gradient(135deg, rgba(193,53,132,0.15) 0%, rgba(160,44,110,0.1) 100%); border: 1px solid rgba(193,53,132,0.3); border-radius: 25px; backdrop-filter: blur(20px); box-shadow: 0 15px 50px rgba(193,53,132,0.2); }
     .foto-destaque-wrap img { width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--primary); box-shadow: 0 0 40px rgba(193,53,132,0.5); object-fit: cover; margin-bottom: 25px; cursor: pointer; transition: 0.3s; }
     .foto-destaque-wrap img:active { transform: scale(0.95); }
@@ -113,7 +113,7 @@
 
     @media (max-width: 768px) {
       .btn-duvidas-topo { top: 15px; right: 16px; }
-      .hero { min-height: 85vh; padding: 70px 16px 90px 16px; } /* MAIS ESPAÇO */
+      .hero { min-height: 85vh; padding: 70px 16px 90px 16px; }
       .scroll-down { bottom: 25px; font-size: 20px; }
       .social-btns { flex-direction: column; margin-bottom: 40px; }
       .foto-destaque-wrap { margin: 0 16px 80px; padding: 30px 20px; max-width: 100%; }
@@ -132,7 +132,7 @@
       <div class="coroa">👑</div>
       <h1>PRETA<span>NAILS</span></h1>
       <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
-      <h2 class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS EM GEL E FIBRA</h2>
+      <h2 class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS EM GEL E FIBRA</h2> <!-- AGORA É H2 -->
       <div class="destaque">
         MELHOR<br><small>versão! ♡</small>
       </div>
@@ -162,9 +162,10 @@
     <div class="titulo-galeria"><h2>Portfólio <span>Preta Nails</span></h2></div>
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1" alt="Alongamento de unhas em gel Preta Nails"></div></div>
-        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1" alt="Unhas de fibra decoradas Preta Nails"></div></div>
-        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/yvh7487ntc4198bg86bcy/1784512440834_image_1784512439717.jpg?rlkey=eh9s591ggwcbieo9frwyfqhj6&dl=1" alt="Nail art personalizada Preta Nails"></div></div>
+        <!-- ALTS COM PALAVRAS CHAVE -->
+        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1" alt="Alongamento de unhas em gel Preta Nails São Paulo"></div></div>
+        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1" alt="Unhas de fibra decoradas nail art Preta Nails"></div></div>
+        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/yvh7487ntc4198bg86bcy/1784512440834_image_1784512439717.jpg?rlkey=eh9s591ggwcbieo9frwyfqhj6&dl=1" alt="Nail art personalizada manicure profissional Preta Nails"></div></div>
         <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/ydggv1tyvubbtrcdpr9zi/1784512429984_image_1784512429123.jpg?rlkey=4knq0q5dbgex0codposfwciur&dl=1" alt="Manutenção de alongamento de unhas Preta Nails"></div></div>
       </div>
       <div class="swiper-button-prev"></div>
@@ -181,17 +182,17 @@
       </a>
     </div>
 
-    <!-- CARD DA SABRINA ATUALIZADO COM SEO -->
+    <!-- APRESENTAÇÃO DA SABRINA COM PALAVRAS CHAVE -->
     <div class="foto-destaque-wrap">
-      <img id="fotoSabrina" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos Nail Designer Preta Nails São Paulo">
+      <img id="fotoSabrina" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos Nail Designer Preta Nails São Paulo Biossegurança">
       <h3>Sabrina Lemos</h3>
       <p>
         Sou <strong>Sabrina Lemos</strong>, <strong>nail designer</strong> especialista em 
-        <strong>alongamento de unhas em gel</strong> e <strong>unhas de fibra</strong>. 
+        <strong>alongamento de unhas em gel</strong> e <strong>unhas de fibra</strong> em São Paulo. 
         Na <strong>Preta Nails</strong> você encontra <strong>manicure profissional</strong> com 
         <strong>biossegurança</strong>, <strong>nail art</strong>, <strong>unhas decoradas</strong> e 
-        <strong>manutenção de unhas</strong> com acabamento de <strong>unhas luxo</strong>. 
-        Trabalho com técnicas modernas e materiais premium pra você ter unhas fortes, bonitas e duradouras.
+        <strong>manutenção de unhas</strong>. Trabalho com técnicas modernas para unhas fortes e duradouras. 
+        Acredito que unhas bem cuidadas refletem autoestima, confiança e elegância.
       </p>
     </div>
   </section>
