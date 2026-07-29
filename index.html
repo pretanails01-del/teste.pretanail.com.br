@@ -4,11 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- SEO OCULTO -->
-  <title>Preta Nails | Alongamento de Unhas em Gel e Fibra - Sabrina Lemos</title>
-  <meta name="description" content="Preta Nails por Sabrina Lemos: especialista em alongamento de unhas em gel, fibra e nail art. Agende suas unhas perfeitas. Desconto VIP 25% OFF.">
-  <meta name="keywords" content="alongamento de unhas, unhas em gel, unhas de fibra, nail designer, Preta Nails, Sabrina Lemos, manicure profissional, nail art, unhas decoradas">
+  <!-- SEO OCULTO - PALAVRAS CHAVE -->
+  <title>Preta NailS | Alongamento de Unhas em Gel e Fibra - Sabrina Lemos</title>
+  <meta name="description" content="Preta Nails por Sabrina Lemos: especialista em alongamento de unhas em gel e fibra. Unhas perfeitas com segurança e biossegurança. Agende seu horário.">
+  <meta name="keywords" content="alongamento de unhas, unhas em gel, unhas de fibra, nail designer, Preta Nails, Sabrina Lemos, manicure profissional, nail art, unhas decoradas, biossegurança, agendamento de unhas">
   
+  <meta name="theme-color" content="#C13584">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Preta Nails">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="https://dl.dropboxusercontent.com/scl/fi/grygd421tzbmd6aleokdv/1785098095389_image_1785098094355.jpg?rlkey=u0ob4w0t92pw1vi3xub42xg9i&dl=1">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -19,147 +28,305 @@
       --primary-dark: #a02c6e;
       --bg: #0a0a0a;
       --text: #ffffff;
+      --whatsapp: #25D366;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-    /* HERO MELHORADO COM BRILHO */
-    .hero { min-height: 100vh; background: radial-gradient(circle at 50% 20%, rgba(193,53,132,0.15) 0%, #0a0a0a 60%), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; }
-    .wrap { max-width: 600px; animation: fadeIn 1.2s ease; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    
-    .coroa { font-size: 45px; color: var(--primary); margin-bottom: 15px; filter: drop-shadow(0 0 25px rgba(193,53,132,0.8)); animation: glow 2s ease-in-out infinite; }
-    @keyframes glow { 0%,100% { filter: drop-shadow(0 0 25px rgba(193,53,132,0.8)); } 50% { filter: drop-shadow(0 0 40px rgba(193,53,132,1)); } }
-    
-    h1 { font-family: 'Playfair Display', serif; font-size: clamp(52px, 9vw, 76px); font-weight: 900; }
-    h1 span { color: var(--primary); text-shadow: 0 0 20px rgba(193,53,132,0.5); }
-    .slogan { font-size: 12px; letter-spacing: 5px; margin: 15px 0 25px; opacity: 0.8; font-weight: 700; }
-    .tag { border: 1.5px solid var(--primary); border-radius: 50px; padding: 10px 22px; display: inline-block; font-weight: 800; font-size: 13px; margin-bottom: 25px; background: rgba(193,53,132,0.15); backdrop-filter: blur(10px); }
-    .destaque { font-family: 'Playfair Display', serif; font-size: clamp(60px, 11vw, 84px); font-weight: 900; color: var(--primary); }
-    .destaque small { font-size: 34px; color: #fff; display: block; font-weight: 400; }
+    #btn-instalar-app {
+      display: none;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      padding: 18px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      margin-top: 15px;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 30px rgba(193,53,132,0.4);
+      transition: all 0.3s;
+    }
+    #btn-instalar-app:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
+    #btn-instalar-app::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      animation: glitter 2.5s infinite;
+    }
 
-    /* BOTÃO PRINCIPAL COM EFEITO */
-    .btn { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 20px 35px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 17px; display: inline-flex; align-items: center; gap: 12px; box-shadow: 0 0 40px rgba(193,53,132,0.5); transition: all 0.3s; border: none; cursor: pointer; width: 100%; justify-content: center; margin-top: 25px; }
-    .btn:hover { transform: translateY(-4px); box-shadow: 0 0 60px rgba(193,53,132,0.8); }
-    .btn::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent); animation: shine 2s infinite; }
-    @keyframes shine { 0% { left: -100%; } 100% { left: 100%; } }
+    .btn-duvidas-topo {
+      position: fixed;
+      top: 25px;
+      right: 25px;
+      z-index: 9998;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(193,53,132,0.4);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-duvidas-topo:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .btn-duvidas-topo:active { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-color: var(--primary); transform: scale(0.96); }
 
-    .btn-secundario { background: transparent; border: 1.5px solid var(--primary); color: var(--primary); margin-top: 12px; box-shadow: none; }
-    .btn-secundario:hover { background: rgba(193,53,132,0.1); }
+    .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 20px 20px; position: relative; }
+    .wrap { max-width: 600px; animation: fadeIn 1s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .coroa { font-size: 40px; color: var(--primary); margin-bottom: 15px; filter: drop-shadow(0 0 20px rgba(193,53,132,0.5)); }
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(48px, 8vw, 72px); font-weight: 900; line-height: 1; margin: 0; }
+    h1 span { color: var(--primary); }
+    .slogan { font-size: 13px; letter-spacing: 4px; margin: 12px 0 30px; opacity: 0.7; font-weight: 600; }
+    .tag { border: 1px solid var(--primary); border-radius: 50px; padding: 12px 24px; display: inline-block; font-weight: 700; font-size: 14px; margin-bottom: 20px; background: rgba(193,53,132,0.1); }
+    .destaque { font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 80px); font-weight: 900; color: var(--primary); line-height: 0.9; }
+    .destaque small { font-size: 32px; font-style: italic; color: #fff; display: block; line-height: 1.2; font-weight: 400; }
 
-    .social-btns { display: flex; gap: 15px; justify-content: center; margin-top: 25px; }
-    .btn-social { width: 50px; height: 50px; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(193,53,132,0.4); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; transition: 0.3s; }
-    .btn-social:hover { background: var(--primary); transform: scale(1.1); }
+    .btn { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 18px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); transition: all 0.3s; border: none; cursor: pointer; }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
+    .btn::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); animation: glitter 2.5s infinite; }
+    @keyframes glitter { 0% { left: -100%; } 100% { left: 200%; } }
 
-    /* CARROSSEL AUTOMÁTICO */
-    .galeria { padding: 60px 20px 100px 20px; }
-    .titulo-galeria { text-align: center; margin-bottom: 40px; }
-    .titulo-galeria h2 { font-family: 'Playfair Display', serif; font-size: 38px; }
+    .social-btns { display: flex; gap: 12px; justify-content: center; margin-top: 20px; }
+    .btn-social { background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.3); color: #fff; padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s; backdrop-filter: blur(10px); }
+    .btn-social:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-2px); }
+
+    .scroll-down { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: var(--primary); font-size: 24px; animation: bounce 2s infinite; opacity: 0.8; }
+    @keyframes bounce { 0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
+
+    .galeria { padding: 40px 20px 100px 20px; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); }
+    .titulo-galeria { text-align: center; margin-bottom: 60px; }
+    .titulo-galeria h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 48px); }
     .titulo-galeria h2 span { color: var(--primary); }
-    
-    .swiper { max-width: 900px; margin: auto; }
-    .card-glass { background: rgba(255,255,255,0.04); border: 1.5px solid rgba(193,53,132,0.3); border-radius: 20px; backdrop-filter: blur(20px); padding: 15px; transition: 0.4s; }
-    .card-glass:hover { border-color: var(--primary); transform: translateY(-8px); }
-    .card-glass img { width: 100%; border-radius: 15px; display: block; }
-    
-    .swiper-pagination-bullet { background: rgba(255,255,255,0.3) !important; }
+
+    .swiper { max-width: 900px; margin: auto; padding: 20px 0 70px 0; }
+    .card-glass { background: rgba(255,255,255,0.04); border: 1px solid rgba(193,53,132,0.25); border-radius: 25px; backdrop-filter: blur(20px); padding: 20px; transition: all 0.4s; box-shadow: 0 15px 50px rgba(0,0,0,0.6); }
+    .card-glass:hover { border-color: var(--primary); transform: translateY(-10px); }
+    .card-glass img { width: 100%; height: auto; max-height: 650px; object-fit: contain; border-radius: 18px; display: block; background: #000; }
+
+    .swiper-button-next, .swiper-button-prev { color: var(--primary) !important; background: rgba(0,0,0,0.6); width: 55px; height: 55px; border-radius: 50%; border: 1.5px solid var(--primary); backdrop-filter: blur(10px); transition: 0.3s; }
+    .swiper-button-next:hover, .swiper-button-prev:hover { background: var(--primary); color: #fff !important; }
+    .swiper-button-next:after, .swiper-button-prev:after { font-size: 20px !important; font-weight: 900; }
+    .swiper-pagination-bullet { background: rgba(255,255,255,0.3) !important; width: 12px; height: 12px; }
     .swiper-pagination-bullet-active { background: var(--primary) !important; }
 
-    /* BOX DESCONTO */
-    .desconto-wrap { max-width: 600px; margin: 60px auto; padding: 35px 25px; text-align: center; background: linear-gradient(135deg, rgba(193,53,132,0.25) 0%, rgba(160,44,110,0.15) 100%); border: 2px solid var(--primary); border-radius: 25px; box-shadow: 0 0 50px rgba(193,53,132,0.3); }
-    .tag-vip { background: var(--primary); color: #fff; font-size: 12px; letter-spacing: 2px; padding: 8px 18px; border-radius: 50px; font-weight: 800; }
-    .desconto-wrap h3 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--primary); margin: 20px 0; }
+    .desconto-wrap { max-width: 600px; margin: 0 auto 80px; padding: 40px 30px; text-align: center; background: linear-gradient(135deg, rgba(193,53,132,0.22) 0%, rgba(160,44,110,0.15) 100%); border: 2px solid var(--primary); border-radius: 25px; backdrop-filter: blur(20px); box-shadow: 0 15px 50px rgba(193,53,132,0.3); }
+    .desconto-wrap .tag-vip { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border: none; color: #fff; font-size: 13px; letter-spacing: 3px; padding: 8px 20px; border-radius: 50px; }
+    .desconto-wrap h3 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 36px); color: var(--primary); margin: 20px 0 15px; line-height: 1.1; }
+    .desconto-wrap p { font-size: 15.5px; opacity: 0.95; line-height: 1.7; margin-bottom: 28px; }
 
-    /* FOTO SABRINA COM ADM */
-    .foto-destaque-wrap { max-width: 500px; margin: 0 auto 80px; padding: 30px; text-align: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(193,53,132,0.3); border-radius: 25px; }
-    .foto-sabrina { width: 170px; height: 170px; border-radius: 50%; border: 4px solid var(--primary); box-shadow: 0 0 50px rgba(193,53,132,0.6); object-fit: cover; margin-bottom: 20px; cursor: pointer; transition: 0.3s; }
-    .foto-sabrina:active { transform: scale(0.93); }
+    .foto-destaque-wrap { max-width: 400px; margin: 0 auto 100px; padding: 30px 25px; text-align: center; background: linear-gradient(135deg, rgba(193,53,132,0.15) 0%, rgba(160,44,110,0.1) 100%); border: 1px solid rgba(193,53,132,0.3); border-radius: 25px; backdrop-filter: blur(20px); box-shadow: 0 15px 50px rgba(193,53,132,0.2); }
+    .foto-destaque-wrap img { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--primary); box-shadow: 0 0 40px rgba(193,53,132,0.5); object-fit: cover; margin-bottom: 20px; cursor: pointer; transition: 0.3s; } /* CLICÁVEL */
+    .foto-destaque-wrap img:active { transform: scale(0.95); }
+    .foto-destaque-wrap h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--primary); margin-bottom: 12px; }
+    .foto-destaque-wrap p { margin-top: 0; font-size: 14px; opacity: 0.9; line-height: 1.7; }
 
-    /* WHATSAPP */
-    .whatsapp-float { position: fixed; bottom: 25px; right: 25px; z-index: 9999; }
-    .whatsapp-btn { width: 65px; height: 65px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 35px; box-shadow: 0 8px 30px rgba(37,211,102,0.5); animation: pulse 2s infinite; }
-    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); } 70% { box-shadow: 0 0 0 20px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+    .footer { background: #050505; border-top: 1px solid rgba(193,53,132,0.2); padding: 50px 20px 30px; text-align: center; }
+    .footer-selos { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
+    .selo { background: rgba(193,53,132,0.08); border: 1px solid rgba(193,53,132,0.3); border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; }
+    .selo i { color: var(--primary); font-size: 18px; }
+    .footer p { font-size: 12px; opacity: 0.5; margin-top: 15px; }
+
+    .whatsapp-float { position: fixed; bottom: 80px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
+    .whatsapp-btn { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 32px; box-shadow: 0 8px 25px rgba(193,53,132,0.5); transition: all 0.3s; animation: pulse 2s infinite; }
+    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(193,53,132,0.7); }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(193,53,132,0.6); } 70% { box-shadow: 0 0 0 15px rgba(193,53,132,0); } 100% { box-shadow: 0 0 0 0 rgba(193,53,132,0); } }
+    .whatsapp-text { font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 20px; backdrop-filter: blur(10px); letter-spacing: 0.5px; text-align: center; }
+
+    @media (max-width: 768px) {
+      .btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; }
+      .hero { min-height: 85vh; padding: 70px 16px 40px 16px; }
+      .wrap { max-width: 100%; }
+      .slogan { letter-spacing: 2px; font-size: 11px; }
+      .tag { font-size: 12px; padding: 10px 20px; }
+      .coroa { font-size: 32px; margin-bottom: 10px; }
+      h1 { font-size: clamp(36px, 10vw, 48px); }
+      .destaque { font-size: clamp(40px, 12vw, 56px); }
+      .destaque small { font-size: 24px; }
+      .btn, #btn-instalar-app { width: 100%; justify-content: center; margin-top: 20px; padding: 16px 24px; font-size: 15px; }
+      .social-btns { flex-direction: column; }
+      .btn-social { width: 100%; justify-content: center; }
+      .scroll-down { bottom: 15px; font-size: 20px; }
+      .galeria { padding: 30px 16px 80px 16px; }
+      .card-glass img { max-height: 500px; }
+      .swiper-button-next, .swiper-button-prev { width: 35px; height: 35px; }
+      .swiper-button-next:after, .swiper-button-prev:after { font-size: 14px !important; }
+      .whatsapp-float { bottom: 70px; right: 20px; }
+      .whatsapp-btn { width: 55px; height: 55px; font-size: 28px; }
+      .foto-destaque-wrap { margin: 0 16px 80px; padding: 25px 20px; }
+      .desconto-wrap { margin: 0 16px 80px; padding: 30px 20px; }
+    }
   </style>
 </head>
 <body>
+
+  <a href="duvidas.html" class="btn-duvidas-topo" onclick="event.stopPropagation()">
+    <i class="fas fa-circle-question"></i> Dúvidas Frequentes
+  </a>
 
   <section class="hero">
     <div class="wrap">
       <div class="coroa">👑</div>
       <h1>PRETA<span>NAILS</span></h1>
       <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
-      <div class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS</div>
-      <div class="destaque">MELHOR<br><small>versão! ♡</small></div>
+      <div class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS </div>
+      <div class="destaque">
+        MELHOR<br><small>versão! ♡</small>
+      </div>
       
-      <a href="agendamento.html" class="btn">QUERO MINHAS UNHAS PERFEITAS <i class="fas fa-arrow-right"></i></a>
-      <button id="btn-instalar-app" class="btn btn-secundario"><i class="fas fa-download"></i> BAIXAR APLICATIVO</button>
+      <a href="agendamento.html" class="btn">
+        QUERO MINHAS UNHAS PERFEITAS 
+        <i class="fas fa-arrow-right"></i>
+      </a>
+
+      <button id="btn-instalar-app">
+        <i class="fas fa-download"></i> BAIXAR APLICATIVO
+      </button>
 
       <div class="social-btns">
-        <a href="https://www.youtube.com/@PretaNails01" target="_blank" class="btn-social"><i class="fab fa-youtube"></i></a>
-        <a href="https://www.instagram.com/pretanails001" target="_blank" class="btn-social"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@PretaNails01" target="_blank" class="btn-social">
+          <i class="fab fa-youtube"></i> YouTube
+        </a>
+        <a href="https://www.instagram.com/pretanails001?utm_source=qr&igsh=Y3JkN2F2Y3BqbTRu" target="_blank" class="btn-social">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
       </div>
     </div>
+    <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>  
   </section>
 
   <section class="galeria">
     <div class="titulo-galeria"><h2>Portfólio <span>Preta Nails</span></h2></div>
-    
-    <!-- CARROSSEL PASSANDO AUTOMÁTICO -->
     <div class="swiper">
       <div class="swiper-wrapper">
+        <!-- ALTS OTIMIZADOS -->
         <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1" alt="Alongamento de unhas em gel Preta Nails"></div></div>
         <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1" alt="Unhas de fibra decoradas Preta Nails"></div></div>
         <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/yvh7487ntc4198bg86bcy/1784512440834_image_1784512439717.jpg?rlkey=eh9s591ggwcbieo9frwyfqhj6&dl=1" alt="Nail art personalizada Preta Nails"></div></div>
         <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/ydggv1tyvubbtrcdpr9zi/1784512429984_image_1784512429123.jpg?rlkey=4knq0q5dbgex0codposfwciur&dl=1" alt="Manutenção de alongamento de unhas Preta Nails"></div></div>
-        <!-- DUPLIQUEI PRA FICAR INFINITO -->
-        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1" alt="Alongamento de unhas em gel Preta Nails"></div></div>
       </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
       <div class="swiper-pagination"></div>
     </div>
 
     <div class="desconto-wrap">
-      <div class="tag-vip">VAGAS LIMITADAS</div>
+      <div class="tag tag-vip"> VAGAS LIMITADAS</div>
       <h3>Desconto Especial de Lançamento</h3>
-      <p>Garante 25% OFF nas primeiras 20 clientes • Cupom: PRETA25</p>
-      <a href="https://wa.me/+5511982311608?text=Quero%20garantir%20minha%20vaga" target="_blank" class="btn">QUERO GARANTIR MINHA VAGA <i class="fas fa-crown"></i></a>
+      <p>Estou montando minha carteira VIP. As 20 primeiras clientes ganham condição especial + prioridade no agendamento + brinde surpresa no primeiro atendimento.</p>
+      <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20quero%20garantir%20minha%20vaga%20no%20Desconto%20Especial%20de%20Lan%C3%A7amento%20%F0%9F%92%97" target="_blank" class="btn" style="font-size:17px; padding:20px 40px; margin-top:10px;">
+        QUERO GARANTIR MINHA VAGA AGORA <i class="fas fa-crown"></i>
+      </a>
     </div>
 
     <div class="foto-destaque-wrap">
-      <!-- 3 TOQUES AQUI = ADM -->
-      <img id="fotoSabrina" class="foto-sabrina" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos Nail Designer Preta Nails">
-      <h3 style="font-family:Playfair Display; font-size:26px; color:var(--primary);">Sabrina Lemos</h3>
-      <p>Founder & Nail Artist</p>
+      <!-- FOTO COM ID PARA ADM SECRETO -->
+      <img id="fotoSabrina" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos Nail Designer Preta Nails Biossegurança">
+      <h3>Sabrina Lemos</h3>
+      <p>Sou Sabrina Lemos, fundadora da PretaNails e estudante de Biossegurança. Acredito que unhas bem cuidadas são muito mais do que um detalhe: elas refletem autoestima, confiança e elegância.</p>
     </div>
   </section>
 
-  <a href="https://wa.me/+5511982311608" target="_blank" class="whatsapp-float">
+  <footer class="footer">
+    <div class="footer-selos">
+      <div class="selo"><i class="fas fa-shield-halved"></i> Dados Criptografados</div>
+      <div class="selo"><i class="fas fa-check-circle"></i> Verificado Google</div>
+      <div class="selo"><i class="fas fa-file-contract"></i> LGPD - Consentimento</div>
+      <div class="selo"><i class="fas fa-lock"></i> Site Seguro SSL</div>
+    </div>
+    <p>© 2026 Preta Nails. Todos os direitos reservados. | Seus dados estão seguros conosco.</p>
+  </footer>
+
+  <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20tenho%20algumas%20d%C3%BAvidas.%20Poderia%20me%20ajudar%20%3F" target="_blank" class="whatsapp-float">
     <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
+    <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
   </a>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    // CARROSSEL AUTOMÁTICO
     const swiper = new Swiper('.swiper', {
       loop: true,
-      slidesPerView: 1.2,
-      spaceBetween: 15,
+      slidesPerView: 1,
+      spaceBetween: 30,
       centeredSlides: true,
-      autoplay: { delay: 2500, disableOnInteraction: false }, // PASSA SOZINHO A CADA 2.5s
+      autoplay: { delay: 4000, disableOnInteraction: false },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
       pagination: { el: '.swiper-pagination', clickable: true }
     });
   </script>
 
-  <!-- ADM SECRETO: 3 TOQUES NA FOTO -->
-  <script>
-  let toquesSabrina = 0;
-  document.getElementById('fotoSabrina').addEventListener('click', () => {
-    toquesSabrina++;
-    if(toquesSabrina === 3){
-      window.location.href = "controleagendamento.html";
-    }
-    setTimeout(()=> toquesSabrina = 0, 1200);
-  });
-  </script>
+<script>
+let deferredPrompt;
+const btnInstalar = document.getElementById('btn-instalar-app');
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  btnInstalar.style.display = 'inline-flex';
+});
+btnInstalar.addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') { btnInstalar.style.display = 'none'; }
+    deferredPrompt = null;
+  }
+});
+window.addEventListener('appinstalled', () => { btnInstalar.style.display = 'none'; deferredPrompt = null; });
+if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
+</script>
 
+<!-- SCRIPT ADM SECRETO: 3 TOQUES NA FOTO DA SABRINA -->
+<script>
+let toquesSabrina = 0;
+document.getElementById('fotoSabrina').addEventListener('click', () => {
+  toquesSabrina++;
+  if(toquesSabrina === 3){
+    window.location.href = "controleagendamento.html";
+  }
+  setTimeout(()=> toquesSabrina = 0, 1200); // reseta em 1.2 segundos
+});
+</script>
+
+<script>
+(function() {
+  "use strict";
+  const SENHA_ADMIN = "preta2026"; 
+  const paginaAtual = window.location.pathname.toLowerCase();
+  const paginasLiberadas = ['/duvidas.html', '/duvidas', '/faq.html', '/faq', '/controleagendamento.html'];
+  const isPaginaLiberada = paginasLiberadas.some(p => paginaAtual.includes(p));
+  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const urlParams = new URLSearchParams(window.location.search);
+  const liberouPorLink = urlParams.get('admin') === SENHA_ADMIN;
+  if(liberouPorLink) { sessionStorage.setItem('adminLiberado', 'true'); }
+  if (sessionStorage.getItem('adminLiberado') === 'true' || isPaginaLiberada) { return; }
+  if (isLocal || isMobile) { return; }
+  let bloqueado = false;
+  function mostrarAlertaSeguranca() {
+    if(bloqueado) return; bloqueado = true;
+    document.documentElement.innerHTML = `<body style="margin:0;padding:0;background:#F8F9FA;font-family:'Google Sans', Roboto, Arial, sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;"><div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.12);"><h2 style="color:#E91E63;">Preta Nails - Navegação Segura</h2><p>Acesso ao código-fonte bloqueado</p><button onclick="window.location.reload()" style="padding:12px 24px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;">Entendi</button></div></body>`;
+  }
+  document.addEventListener('keydown', function(e) { if (e.key === 'F12') { e.preventDefault(); mostrarAlertaSeguranca(); } }, true);
+  document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
+})();
+</script>
 </body>
 </html>
