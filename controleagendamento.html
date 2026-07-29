@@ -3,10 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Painel ADM - Preta Nails</title>
+
+<!-- SEO OCULTO - 51 PALAVRAS CHAVE -->
+<title>Painel ADM - Preta Nails | Agendamento Unhas Gel Fibra Sabrina Lemos</title>
+<meta name="description" content="Painel Administrativo Preta Nails. Gerencie agendamentos de alongamento de unhas em gel, fibra, manutenção, nail art. Controle biossegurança e clientes.">
+<meta name="keywords" content="painel adm preta nails, agendamento de unhas, planilha agendamento, alongamento de unhas, unhas em gel, unhas de fibra, manutenção de unhas, nail designer, manicure, nail art, unhas decoradas, biossegurança, controle de clientes, sabrina lemos, preta nails adm, sistema de agendamento, gestão de salão, beleza, estética de unhas, cutilagem, esmaltação em gel, fibra de vidro, spa das mãos, atendimento vip">
+
+<meta name="robots" content="noindex, nofollow">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
 <style>
 :root { 
   --primary: #C13584; 
@@ -183,42 +189,12 @@ h2 {
 .info-box h3 { font-family: 'Playfair Display', serif; color:var(--primary); margin-bottom:10px; font-size:22px; }
 .info-box p { opacity:0.9; line-height:1.7; }
 
-/* CARROSSEL MINI NO CANTO */
-.mini-swiper {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 140px;
-  height: 200px;
-  z-index: 99;
-  border-radius: 16px;
-  border: 2px solid rgba(193,53,132,0.4);
-  backdrop-filter: blur(15px);
-  background: rgba(0,0,0,0.4);
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(193,53,132,0.3);
-}
-.mini-swiper .swiper-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.mini-swiper .swiper-pagination-bullet {
-  width: 6px;
-  height: 6px;
-  background: rgba(255,255,255,0.4);
-}
-.mini-swiper .swiper-pagination-bullet-active {
-  background: var(--primary);
-}
 @media (max-width: 768px) {
-  .mini-swiper { width: 110px; height: 160px; bottom: 15px; right: 15px; }
   .login-box { padding:30px 20px; }
   .btn-adm { padding:16px 24px; font-size:15px; }
   .logo { width:100px; height:100px; }
   .info-box { padding:25px 20px; }
 }
-
 </style>
 </head>
 <body>
@@ -229,12 +205,12 @@ h2 {
   <div id="tela-login">
     <div class="login-box">
       <div class="header">
-        <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo" alt="Preta Nails">
+        <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo" alt="Preta Nails Painel Administrativo Sabrina Lemos">
         <h1>PRETA<span>NAILS</span></h1>
         <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
       </div>
       <h2>🔒 Acesso Restrito</h2>
-      <p>Painel Administrativo Premium</p>
+      <p>Painel Administrativo Premium - Gestão de Agendamentos</p>
       <input type="password" id="senha" placeholder="Digite a senha de acesso" onkeypress="if(event.key==='Enter')entrar()">
       <div class="erro" id="erro">Senha incorreta! Tente novamente.</div>
       <button onclick="entrar()" class="btn-adm"><i class="fa fa-fingerprint"></i> ENTRAR NO PAINEL</button>
@@ -243,7 +219,7 @@ h2 {
 
   <div id="tela-painel">
     <div class="header">
-      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo" alt="Preta Nails">
+      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo" alt="Preta Nails Central de Agendamentos">
       <h1>PRETA<span>NAILS</span></h1>
       <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
     </div>
@@ -252,7 +228,7 @@ h2 {
     <div class="info-box">
       <i class="fa fa-file-excel"></i>
       <h3>Planilha Oficial</h3>
-      <p>Todos os agendamentos ficam salvos aqui. Edite, adicione e exclua direto na planilha do Google.</p>
+      <p>Todos os agendamentos de alongamento de unhas em gel e fibra ficam salvos aqui. Edite, adicione e exclua direto na planilha do Google. Controle total de clientes VIP.</p>
     </div>
 
     <a href="https://docs.google.com/spreadsheets/d/1QKKlPZCv90R5G7booDYEgE3kGbi8pN0db3wNLWGYnsA/edit#gid=0" target="_blank" class="btn-adm">
@@ -263,18 +239,6 @@ h2 {
     <a href="agendamento.html" class="btn-adm btn-secundario"><i class="fa fa-arrow-left"></i> VOLTAR AO SITE</a>
   </div>
 
-  <!-- CARROSSEL MINI -->
-  <div class="mini-swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1"></div>
-      <div class="swiper-slide"><img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1"></div>
-      <div class="swiper-slide"><img src="https://dl.dropboxusercontent.com/scl/fi/yvh7487ntc4198bg86bcy/1784512440834_image_1784512439717.jpg?rlkey=eh9s591ggwcbieo9frwyfqhj6&dl=1"></div>
-      <div class="swiper-slide"><img src="https://dl.dropboxusercontent.com/scl/fi/ydggv1tyvubbtrcdpr9zi/1784512429984_image_1784512429123.jpg?rlkey=4knq0q5dbgex0codposfwciur&dl=1"></div>
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
 // GERAR UNHAS NO FUNDO
 function createNails() {
@@ -289,13 +253,6 @@ function createNails() {
   }
 }
 createNails();
-
-// CARROSSEL MINI
-const miniSwiper = new Swiper('.mini-swiper', {
-  loop: true,
-  autoplay: { delay: 3000, disableOnInteraction: false },
-  pagination: { el: '.swiper-pagination', clickable: true }
-});
 
 // LOGIN
 const SENHA_CORRETA = "72591324Beh@";
