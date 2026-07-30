@@ -65,7 +65,7 @@
     h1 span { color: var(--primary); }
     .slogan { font-size: 13px; letter-spacing: 4px; margin: 12px 0 30px; opacity: 0.7; font-weight: 600; }
     .tag { border: 1px solid var(--primary); border-radius: 50px; padding: 12px 24px; display: inline-block; font-weight: 700; font-size: 14px; margin-bottom: 20px; background: rgba(193,53,132,0.1); }
-    h2.tag { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; } /* MUDEI PRA H2 */
+    h2.tag { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; }
     .destaque { font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 80px); font-weight: 900; color: var(--primary); line-height: 0.9; }
     .destaque small { font-size: 32px; font-style: italic; color: #fff; display: block; line-height: 1.2; font-weight: 400; }
 
@@ -96,6 +96,9 @@
     .desconto-wrap .tag-vip { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border: none; color: #fff; font-size: 13px; letter-spacing: 3px; padding: 8px 20px; border-radius: 50px; }
     .desconto-wrap h3 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 36px); color: var(--primary); margin: 20px 0 15px; line-height: 1.1; }
     .desconto-wrap p { font-size: 15.5px; opacity: 0.95; line-height: 1.7; margin-bottom: 28px; }
+    
+    /* BOTÃO DO DESCONTO */
+    .btn-desconto { font-size:17px; padding:20px 40px; margin-top:10px; }
 
     .foto-destaque-wrap { max-width: 400px; margin: 0 auto 100px; padding: 30px 25px; text-align: center; background: linear-gradient(135deg, rgba(193,53,132,0.15) 0%, rgba(160,44,110,0.1) 100%); border: 1px solid rgba(193,53,132,0.3); border-radius: 25px; backdrop-filter: blur(20px); box-shadow: 0 15px 50px rgba(193,53,132,0.2); }
     .foto-destaque-wrap img { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--primary); box-shadow: 0 0 40px rgba(193,53,132,0.5); object-fit: cover; margin-bottom: 20px; cursor: pointer; transition: 0.3s; }
@@ -126,6 +129,8 @@
       .destaque { font-size: clamp(40px, 12vw, 56px); }
       .destaque small { font-size: 24px; }
       .btn, #btn-instalar-app { width: 100%; justify-content: center; margin-top: 20px; padding: 16px 24px; font-size: 15px; }
+      /* CORREÇÃO BOTÃO DESCONTO MOBILE */
+      .btn-desconto { width: 100%; padding: 16px 24px; font-size: 14px; }
       .social-btns { flex-direction: column; }
       .btn-social { width: 100%; justify-content: center; }
       .scroll-down { bottom: 15px; font-size: 20px; }
@@ -150,7 +155,7 @@
       <div class="coroa">👑</div>
       <h1>PRETA<span>NAILS</span></h1>
       <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
-      <h2 class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS EM GEL E FIBRA</h2> <!-- 1. AGORA É H2 + PALAVRAS CHAVE -->
+      <h2 class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS EM GEL E FIBRA</h2>
       <div class="destaque">
         MELHOR<br><small>versão! ♡</small>
       </div>
@@ -180,7 +185,6 @@
     <div class="titulo-galeria"><h2>Portfólio <span>Preta Nails</span></h2></div>
     <div class="swiper">
       <div class="swiper-wrapper">
-        <!-- 2. ALTS OTIMIZADOS COM PALAVRAS CHAVE -->
         <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1" alt="Alongamento de unhas em gel Preta Nails São Paulo"></div></div>
         <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1" alt="Unhas de fibra decoradas nail art Preta Nails"></div></div>
         <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/yvh7487ntc4198bg86bcy/1784512440834_image_1784512439717.jpg?rlkey=eh9s591ggwcbieo9frwyfqhj6&dl=1" alt="Nail art personalizada manicure profissional Preta Nails"></div></div>
@@ -195,16 +199,22 @@
       <div class="tag tag-vip"> VAGAS LIMITADAS</div>
       <h3>Desconto Especial de Lançamento</h3>
       <p>Estou montando minha carteira VIP. As 20 primeiras clientes ganham condição especial + prioridade no agendamento + brinde surpresa no primeiro atendimento.</p>
-      <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20quero%20garantir%20minha%20vaga%20no%20Desconto%20Especial%20de%20Lan%C3%A7amento%20%F0%9F%92%97" target="_blank" class="btn" style="font-size:17px; padding:20px 40px; margin-top:10px;">
+      <!-- LINK MUDADO PARA AGENDAMENTO.HTML -->
+      <a href="agendamento.html" class="btn btn-desconto">
         QUERO GARANTIR MINHA VAGA AGORA <i class="fas fa-crown"></i>
       </a>
     </div>
 
     <div class="foto-destaque-wrap">
-      <!-- 3. TEXTO DA SABRINA COM PALAVRAS CHAVE -->
       <img id="fotoSabrina" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos Nail Designer Preta Nails São Paulo Biossegurança">
       <h3>Sabrina Lemos</h3>
-      <p>Sou <strong>Sabrina Lemos</strong>, <strong>nail designer</strong> especialista em <strong>alongamento de unhas em gel</strong> e <strong>unhas de fibra</strong>. Fundadora da PretaNails e estudante de <strong>biossegurança</strong>. Ofereço <strong>manicure profissional</strong>, <strong>nail art</strong> e <strong>unhas decoradas</strong> com segurança e elegância. Acredito que unhas bem cuidadas refletem autoestima e confiança.</p>
+      <!-- TEXTO NOVO HUMANO + PSICOLOGIA + CACHOEIRINHA -->
+      <p>Oi, eu sou a <strong>Sabrina Lemos</strong> 💕<br>
+      Fundadora da <strong>Preta Nails</strong>, um espaço fixo aqui na <strong>região do Cachoeirinha - São Paulo</strong> e proximidades, criado com muito carinho pra cuidar de você.
+      <br><br>
+      Sou especialista em <strong>alongamento de unhas em gel</strong> e <strong>fibra de vidro</strong>. Mais do que unhas bonitas, meu propósito é elevar sua autoestima. Cada atendimento é único, seguro e feito com biossegurança de verdade, porque você merece se sentir confiante e poderosa.
+      <br><br>
+      Aqui você não é só mais uma cliente. Você é prioridade. Vamos juntas construir sua <strong>melhor versão</strong>?</p>
     </div>
   </section>
 
