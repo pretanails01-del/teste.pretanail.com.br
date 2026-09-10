@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO -->
-  <title>Preta NailS | Alongamento de Unhas em Gel e Fibra em São Paulo - Sabrina Lemos</title>
-  <meta name="description" content="Preta Nails por Sabrina Lemos: nail designer especialista em alongamento de unhas em gel e fibra, manicure profissional e biossegurança em São Paulo. Agende seu horário.">
-  <meta name="keywords" content="alongamento de unhas, unhas em gel, unhas de fibra, nail designer, Preta Nails, Sabrina Lemos, manicure profissional, nail art, unhas decoradas, biossegurança, agendamento de unhas, são paulo">
-  
   <meta name="theme-color" content="#C13584">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Preta Nails">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="https://dl.dropboxusercontent.com/scl/fi/grygd421tzbmd6aleokdv/1785098095389_image_1785098094355.jpg?rlkey=u0ob4w0t92pw1vi3xub42xg9i&dl=1">
+  
+  <!-- PALAVRAS-CHAVE SEO -->
+  <title>Preta Nails | Alongamento de Unhas em São Paulo | Nail Designer</title>
+  <meta name="description" content="Preta Nails especialista em alongamento de unhas, fibra de vidro, gel e banho de gel em São Paulo. Agende seu horário e tenha unhas perfeitas com Sabrina Lemos.">
+  <meta name="keywords" content="alongamento de unhas, unhas de fibra, unhas de gel, nail designer, preta nails, manicure são paulo, unhas perfeitas, sabrina lemos, banho de gel, alongamento fibra de vidro, nail art, studio de unhas, biossegurança">
+  <meta name="author" content="Sabrina Lemos - Preta Nails">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pretanail.com.br/">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -33,11 +35,43 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-    #btn-instalar-app { display: none; }
+    /* BOTÃO BAIXAR APP - ROSA DEGRADE */
+    #btn-instalar-app {
+      display: none;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      padding: 18px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      margin-top: 15px;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 30px rgba(193,53,132,0.4);
+      transition: all 0.3s;
+    }
+    #btn-instalar-app:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
+    #btn-instalar-app::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      animation: glitter 2.5s infinite;
+    }
 
     .btn-duvidas-topo {
       position: fixed;
-      top: 25px;
+      top: 25px; /* AFASTADO 5px */
       right: 25px;
       z-index: 9998;
       background: rgba(255,255,255,0.06);
@@ -56,8 +90,9 @@
       white-space: nowrap;
     }
     .btn-duvidas-topo:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .btn-duvidas-topo:active { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-color: var(--primary); transform: scale(0.96); }
 
-    .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 20px 20px; position: relative; }
+    .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 20px 20px; /* ESPAÇO PRA COROA */ position: relative; }
     .wrap { max-width: 600px; animation: fadeIn 1s ease; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .coroa { font-size: 40px; color: var(--primary); margin-bottom: 15px; filter: drop-shadow(0 0 20px rgba(193,53,132,0.5)); }
@@ -65,12 +100,13 @@
     h1 span { color: var(--primary); }
     .slogan { font-size: 13px; letter-spacing: 4px; margin: 12px 0 30px; opacity: 0.7; font-weight: 600; }
     .tag { border: 1px solid var(--primary); border-radius: 50px; padding: 12px 24px; display: inline-block; font-weight: 700; font-size: 14px; margin-bottom: 20px; background: rgba(193,53,132,0.1); }
-    h2.tag { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; }
     .destaque { font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 80px); font-weight: 900; color: var(--primary); line-height: 0.9; }
     .destaque small { font-size: 32px; font-style: italic; color: #fff; display: block; line-height: 1.2; font-weight: 400; }
 
     .btn { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 18px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); transition: all 0.3s; border: none; cursor: pointer; }
     .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
+    .btn::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); animation: glitter 2.5s infinite; }
+    @keyframes glitter { 0% { left: -100%; } 100% { left: 200%; } }
 
     .social-btns { display: flex; gap: 12px; justify-content: center; margin-top: 20px; }
     .btn-social { background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.3); color: #fff; padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s; backdrop-filter: blur(10px); }
@@ -91,18 +127,17 @@
 
     .swiper-button-next, .swiper-button-prev { color: var(--primary) !important; background: rgba(0,0,0,0.6); width: 55px; height: 55px; border-radius: 50%; border: 1.5px solid var(--primary); backdrop-filter: blur(10px); transition: 0.3s; }
     .swiper-button-next:hover, .swiper-button-prev:hover { background: var(--primary); color: #fff !important; }
+    .swiper-button-next:after, .swiper-button-prev:after { font-size: 20px !important; font-weight: 900; }
+    .swiper-pagination-bullet { background: rgba(255,255,255,0.3) !important; width: 12px; height: 12px; }
+    .swiper-pagination-bullet-active { background: var(--primary) !important; }
 
     .desconto-wrap { max-width: 600px; margin: 0 auto 80px; padding: 40px 30px; text-align: center; background: linear-gradient(135deg, rgba(193,53,132,0.22) 0%, rgba(160,44,110,0.15) 100%); border: 2px solid var(--primary); border-radius: 25px; backdrop-filter: blur(20px); box-shadow: 0 15px 50px rgba(193,53,132,0.3); }
     .desconto-wrap .tag-vip { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border: none; color: #fff; font-size: 13px; letter-spacing: 3px; padding: 8px 20px; border-radius: 50px; }
     .desconto-wrap h3 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 36px); color: var(--primary); margin: 20px 0 15px; line-height: 1.1; }
     .desconto-wrap p { font-size: 15.5px; opacity: 0.95; line-height: 1.7; margin-bottom: 28px; }
-    
-    /* BOTÃO DO DESCONTO */
-    .btn-desconto { font-size:17px; padding:20px 40px; margin-top:10px; }
 
     .foto-destaque-wrap { max-width: 400px; margin: 0 auto 100px; padding: 30px 25px; text-align: center; background: linear-gradient(135deg, rgba(193,53,132,0.15) 0%, rgba(160,44,110,0.1) 100%); border: 1px solid rgba(193,53,132,0.3); border-radius: 25px; backdrop-filter: blur(20px); box-shadow: 0 15px 50px rgba(193,53,132,0.2); }
-    .foto-destaque-wrap img { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--primary); box-shadow: 0 0 40px rgba(193,53,132,0.5); object-fit: cover; margin-bottom: 20px; cursor: pointer; transition: 0.3s; }
-    .foto-destaque-wrap img:active { transform: scale(0.95); }
+    .foto-destaque-wrap img { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--primary); box-shadow: 0 0 40px rgba(193,53,132,0.5); object-fit: cover; margin-bottom: 20px; cursor: pointer; } /* ADICIONADO CURSOR */
     .foto-destaque-wrap h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--primary); margin-bottom: 12px; }
     .foto-destaque-wrap p { margin-top: 0; font-size: 14px; opacity: 0.9; line-height: 1.7; }
 
@@ -120,7 +155,7 @@
 
     @media (max-width: 768px) {
       .btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; }
-      .hero { min-height: 85vh; padding: 70px 16px 40px 16px; }
+      .hero { min-height: 85vh; padding: 70px 16px 40px 16px; } /* ESPAÇO PRA COROA NO MOBILE */
       .wrap { max-width: 100%; }
       .slogan { letter-spacing: 2px; font-size: 11px; }
       .tag { font-size: 12px; padding: 10px 20px; }
@@ -129,14 +164,13 @@
       .destaque { font-size: clamp(40px, 12vw, 56px); }
       .destaque small { font-size: 24px; }
       .btn, #btn-instalar-app { width: 100%; justify-content: center; margin-top: 20px; padding: 16px 24px; font-size: 15px; }
-      /* CORREÇÃO BOTÃO DESCONTO MOBILE */
-      .btn-desconto { width: 100%; padding: 16px 24px; font-size: 14px; }
       .social-btns { flex-direction: column; }
       .btn-social { width: 100%; justify-content: center; }
       .scroll-down { bottom: 15px; font-size: 20px; }
       .galeria { padding: 30px 16px 80px 16px; }
       .card-glass img { max-height: 500px; }
       .swiper-button-next, .swiper-button-prev { width: 35px; height: 35px; }
+      .swiper-button-next:after, .swiper-button-prev:after { font-size: 14px !important; }
       .whatsapp-float { bottom: 70px; right: 20px; }
       .whatsapp-btn { width: 55px; height: 55px; font-size: 28px; }
       .foto-destaque-wrap { margin: 0 16px 80px; padding: 25px 20px; }
@@ -152,10 +186,10 @@
 
   <section class="hero">
     <div class="wrap">
-      <div class="coroa">👑</div>
+      <div class="coroa">👑</div> <!-- COROA COLOCADA -->
       <h1>PRETA<span>NAILS</span></h1>
       <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
-      <h2 class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS EM GEL E FIBRA</h2>
+      <div class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS EM SÃO PAULO</div> <!-- PALAVRA-CHAVE VISIVEL -->
       <div class="destaque">
         MELHOR<br><small>versão! ♡</small>
       </div>
@@ -185,10 +219,10 @@
     <div class="titulo-galeria"><h2>Portfólio <span>Preta Nails</span></h2></div>
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1" alt="Alongamento de unhas em gel Preta Nails São Paulo"></div></div>
-        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1" alt="Unhas de fibra decoradas nail art Preta Nails"></div></div>
-        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/yvh7487ntc4198bg86bcy/1784512440834_image_1784512439717.jpg?rlkey=eh9s591ggwcbieo9frwyfqhj6&dl=1" alt="Nail art personalizada manicure profissional Preta Nails"></div></div>
-        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/ydggv1tyvubbtrcdpr9zi/1784512429984_image_1784512429123.jpg?rlkey=4knq0q5dbgex0codposfwciur&dl=1" alt="Manutenção de alongamento de unhas Preta Nails"></div></div>
+        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1" alt="Alongamento de Unhas de Fibra Preta Nails"></div></div>
+        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1" alt="Unhas de Gel Decoradas Preta Nails"></div></div>
+        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/yvh7487ntc4198bg86bcy/1784512440834_image_1784512439717.jpg?rlkey=eh9s591ggwcbieo9frwyfqhj6&dl=1" alt="Banho de Gel Preta Nails Nail Designer"></div></div>
+        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/ydggv1tyvubbtrcdpr9zi/1784512429984_image_1784512429123.jpg?rlkey=4knq0q5dbgex0codposfwciur&dl=1" alt="Manicure Profissional Preta Nails"></div></div>
       </div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
@@ -199,23 +233,30 @@
       <div class="tag tag-vip"> VAGAS LIMITADAS</div>
       <h3>Desconto Especial de Lançamento</h3>
       <p>Estou montando minha carteira VIP. As 20 primeiras clientes ganham condição especial + prioridade no agendamento + brinde surpresa no primeiro atendimento.</p>
-      <!-- LINK MUDADO PARA AGENDAMENTO.HTML -->
-      <a href="agendamento.html" class="btn btn-desconto">
+      <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20quero%20garantir%20minha%20vaga%20no%20Desconto%20Especial%20de%20Lan%C3%A7amento%20%F0%9F%92%97" target="_blank" class="btn" style="font-size:17px; padding:20px 40px; margin-top:10px;">
         QUERO GARANTIR MINHA VAGA AGORA <i class="fas fa-crown"></i>
       </a>
     </div>
 
     <div class="foto-destaque-wrap">
-      <img id="fotoSabrina" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos Nail Designer Preta Nails São Paulo Biossegurança">
+      <img id="foto-sabrina" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos Nail Designer Preta Nails">
       <h3>Sabrina Lemos</h3>
-      <!-- TEXTO NOVO HUMANO + PSICOLOGIA + CACHOEIRINHA -->
-      <p>Oi, eu sou a <strong>Sabrina Lemos</strong> 💕<br>
-      Fundadora da <strong>Preta Nails</strong>, um espaço fixo aqui na <strong>região do Cachoeirinha - São Paulo</strong> e proximidades, criado com muito carinho pra cuidar de você.
-      <br><br>
-      Sou especialista em <strong>alongamento de unhas em gel</strong> e <strong>fibra de vidro</strong>. Mais do que unhas bonitas, meu propósito é elevar sua autoestima. Cada atendimento é único, seguro e feito com biossegurança de verdade, porque você merece se sentir confiante e poderosa.
-      <br><br>
-      Aqui você não é só mais uma cliente. Você é prioridade. Vamos juntas construir sua <strong>melhor versão</strong>?</p>
+      <p>Eu sou a Sabrina Lemos, fundadora da PretaNails. Mais do que cuidar de unhas, eu cuido de você. Sou estudante de Biossegurança e levo isso a sério em cada atendimento, porque sua saúde e autoestima vêm primeiro. Tenho meu ponto fixo no Cachoeirinha e atendo com muito carinho clientes de toda a Zona Norte e regiões próximas. Acredito que unhas bem feitas refletem confiança, poder e a sua melhor versão. ♡</p>
     </div>
+
+    <!-- ENDEREÇO ADICIONADO - MESMO ESTILO -->
+    <div class="foto-destaque-wrap" style="margin-top: -60px;">
+      <h3><i class="fas fa-location-dot" style="color:var(--primary)"></i> Nosso <span style="color:var(--primary)">Endereço</span></h3>
+      <p style="margin-bottom:18px;">
+        <strong>Rua Hortência, 200 - Jardim Peri</strong><br>
+        São Paulo - SP - CEP: 02632-090<br>
+        Ponto fixo Cachoeirinha - Zona Norte
+      </p>
+      <a href="https://maps.app.goo.gl/7h4k5f6NcCSdBo2YA" target="_blank" class="btn" style="margin-top:0; font-size:14px; padding:14px 22px;">
+        <i class="fas fa-map-location-dot"></i> VER NO GOOGLE MAPS
+      </a>
+    </div>
+
   </section>
 
   <footer class="footer">
@@ -225,6 +266,7 @@
       <div class="selo"><i class="fas fa-file-contract"></i> LGPD - Consentimento</div>
       <div class="selo"><i class="fas fa-lock"></i> Site Seguro SSL</div>
     </div>
+    <p style="opacity:0.8; font-size:13px; margin-bottom:8px;"><i class="fas fa-location-dot" style="color:var(--primary)"></i> Rua Hortência, 200 - Jardim Peri - 02632-090 - <a href="https://maps.app.goo.gl/7h4k5f6NcCSdBo2YA" target="_blank" style="color:var(--primary); text-decoration:none; font-weight:700;">Ver no Maps</a></p>
     <p>© 2026 Preta Nails. Todos os direitos reservados. | Seus dados estão seguros conosco.</p>
   </footer>
 
@@ -266,18 +308,39 @@ window.addEventListener('appinstalled', () => { btnInstalar.style.display = 'non
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
 </script>
 
-<!-- SCRIPT ADM SECRETO: 3 TOQUES NA FOTO DA SABRINA -->
 <script>
-let toquesSabrina = 0;
-document.getElementById('fotoSabrina').addEventListener('click', () => {
-  toquesSabrina++;
-  if(toquesSabrina === 3){
-    window.location.href = "controleagendamento.html";
+// CLIQUE OCULTO NA FOTO DA SABRINA - 5 CLIQUES
+let clickCount = 0;
+document.getElementById('foto-sabrina').addEventListener('click', function() {
+  clickCount++;
+  if(clickCount >= 5) {
+    window.location.href = 'controleagendamento.html';
   }
-  setTimeout(()=> toquesSabrina = 0, 1200);
 });
+
+(function() {
+  "use strict";
+  const SENHA_ADMIN = "preta2026"; 
+  const paginaAtual = window.location.pathname.toLowerCase();
+  const paginasLiberadas = ['/duvidas.html', '/duvidas', '/faq.html', '/faq'];
+  const isPaginaLiberada = paginasLiberadas.some(p => paginaAtual.includes(p));
+  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const urlParams = new URLSearchParams(window.location.search);
+  const liberouPorLink = urlParams.get('admin') === SENHA_ADMIN;
+  if(liberouPorLink) { sessionStorage.setItem('adminLiberado', 'true'); }
+  if (sessionStorage.getItem('adminLiberado') === 'true' || isPaginaLiberada) { return; }
+  if (isLocal || isMobile) { return; }
+  let bloqueado = false;
+  function mostrarAlertaSeguranca() {
+    if(bloqueado) return; bloqueado = true;
+    document.documentElement.innerHTML = `<body style="margin:0;padding:0;background:#F8F9FA;font-family:'Google Sans', Roboto, Arial, sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;"><div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.12);"><h2 style="color:#E91E63;">Preta Nails - Navegação Segura</h2><p>Acesso ao código-fonte bloqueado</p><button onclick="window.location.reload()" style="padding:12px 24px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;">Entendi</button></div></body>`;
+  }
+  document.addEventListener('keydown', function(e) { if (e.key === 'F12') { e.preventDefault(); mostrarAlertaSeguranca(); } }, true);
+  document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
+})();
 </script>
-<!-- ==================== BLOQUEIO INTELIGENTE V12 - SÓ ATIVA NO COMANDO ==================== -->
+  <!-- ==================== BLOQUEIO INTELIGENTE V12 - SÓ ATIVA NO COMANDO ==================== -->
 <script>
 (function() {
   "use strict";
