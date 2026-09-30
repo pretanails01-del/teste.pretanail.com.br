@@ -10,40 +10,38 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 :root { 
-  --primary: #FF2D92; /* Rosa mais vibrante */
+  --primary: #FF2D92;
   --primary-dark: #D6006E; 
-  --text: #FFFFFF; /* Branco puro pra legibilidade */
-  --text-muted: #E0E0E0; /* Cinza claro */
-  --bg: #080808; /* Preto mais puro */
-  --card: #121212; /* Card cinza bem escuro */
-  --border: rgba(255,45,146,0.3); /* Borda rosa visível */
+  --text: #FFFFFF;
+  --text-muted: #E0E0E0;
+  --bg: #080808;
+  --card: #121212;
+  --border: rgba(255,45,146,0.3);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { 
   font-family: 'Inter', sans-serif; 
-  background: var(--bg); /* Fundo liso, sem gradiente que apaga */
+  background: var(--bg);
   color: var(--text); 
   padding: 60px 20px 0 20px; 
   min-height:100vh; 
   -webkit-font-smoothing: antialiased;
 }
-
 .container { max-width: 1200px; margin: 0 auto; }
-
 .topo { text-align:center; margin-bottom:70px; }
 .logo { 
   width:140px; height:140px; border-radius:50%; 
-  border:3px solid var(--primary); /* Borda mais grossa */
-  box-shadow:0 0 40px rgba(255,45,146,0.5); /* Glow rosa */
+  border:3px solid var(--primary);
+  box-shadow:0 0 40px rgba(255,45,146,0.5);
   object-fit:cover; margin-bottom:25px; 
 }
 h1 { 
   font-family: 'Playfair Display', serif; 
   font-size: clamp(38px, 6vw, 58px); 
-  color: var(--primary); /* Título rosa vibrante */
+  color: var(--primary);
   font-weight: 900;
   letter-spacing: -0.5px;
-  text-shadow: 0 0 20px rgba(255,45,146,0.3); /* Brilho sutil */
+  text-shadow: 0 0 20px rgba(255,45,146,0.3);
 }
 h1 span { color:var(--text); font-weight: 400; }
 .sub { 
@@ -54,10 +52,9 @@ h1 span { color:var(--text); font-weight: 400; }
   font-weight: 600; 
   text-transform: uppercase;
 }
-
 .semana { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 50px; }
 .dia { 
-  background: var(--card); /* Card sólido, não transparente */
+  background: var(--card);
   border: 1px solid var(--border); 
   border-radius: 20px; 
   padding: 25px 18px; 
@@ -72,37 +69,36 @@ h1 span { color:var(--text); font-weight: 400; }
 .dia h3 { 
   font-family: 'Playfair Display', serif; 
   text-align:center; 
-  color: var(--primary); /* Dia em rosa */
+  color: var(--primary);
   font-size: 20px; 
   margin-bottom: 20px; 
   border-bottom: 2px solid var(--border); 
   padding-bottom: 12px; 
   font-weight: 800;
 }
-
 .horario { 
-  background: #1A1A1A; /* Fundo do horário mais claro que o card */
+  background: #1A1A1A;
   border: 1px solid #2A2A2A; 
-  color: var(--text); /* Texto branco puro */
+  color: var(--text);
   padding: 14px; 
   margin-bottom: 12px; 
   border-radius: 12px; 
   text-align:center; 
-  font-weight: 700; /* Mais grosso */
-  font-size: 14px; /* 1px maior */
+  font-weight: 700;
+  font-size: 14px;
   cursor: pointer; 
   transition: 0.2s; 
 }
 .horario:hover { 
   background: var(--primary); 
-  color: #000; /* Texto preto no hover pra contrastar */
+  color: #000;
   border-color: var(--primary);
   transform: scale(1.03); 
   font-weight: 800;
 }
 .horario.selecionado { 
   background: var(--primary); 
-  color: #000; /* Preto no selecionado fica chique */
+  color: #000;
   border: 2px solid #fff; 
   box-shadow: 0 0 25px rgba(255,45,146,0.7); 
   font-weight: 800;
@@ -110,17 +106,16 @@ h1 span { color:var(--text); font-weight: 400; }
 .horario.ocupado { 
   background: #0A0A0A; 
   border-color: #1A1A1A; 
-  color: #555; /* Mais escuro pra diferenciar */
+  color: #555;
   cursor: not-allowed; 
   text-decoration: line-through; 
   opacity: 0.4; 
 }
-
 .botoes-acao { text-align:center; margin-top: 50px; display:flex; flex-direction:column; align-items:center; gap:15px; }
 .btn { 
   display:inline-flex; align-items:center; justify-content:center; gap:12px; 
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
-  color: #000; /* Texto preto no botão rosa */
+  color: #000;
   padding: 20px 50px; 
   border-radius: 60px; 
   text-decoration: none; 
@@ -152,11 +147,10 @@ h1 span { color:var(--text); font-weight: 400; }
 .obs { 
   color: var(--text-muted); 
   text-align:center; 
-  opacity:0.8; /* Mais visível */
+  opacity:0.8;
   font-size:12px; 
   margin-top:8px; 
 }
-
 .loading { 
   text-align:center; 
   padding:40px; 
@@ -165,8 +159,6 @@ h1 span { color:var(--text); font-weight: 400; }
   font-size: 15px;
   letter-spacing: 2px;
 }
-
-/* BLOCO SEO */
 .sobre-studio {
   margin-top: 80px;
   padding: 60px 20px;
@@ -184,11 +176,10 @@ h1 span { color:var(--text); font-weight: 400; }
   max-width: 800px;
   margin: 0 auto 15px auto;
   line-height: 1.9;
-  color: var(--text-muted); /* Cinza claro legível */
+  color: var(--text-muted);
   font-size: 15px;
 }
 .sobre-studio strong { color: var(--primary); font-weight: 700; }
-
 @media(max-width:900px){.semana { grid-template-columns: repeat(2, 1fr); } }
 @media(max-width:600px){
   body { padding: 40px 16px 0 16px; }
@@ -264,34 +255,26 @@ function ativarSelecao() {
 }
 window.addEventListener('load', carregarOcupados);
 </script>
-<!-- ==================== BLOQUEIO INTELIGENTE V12 - SÓ ATIVA NO COMANDO ==================== -->
+<!-- ==================== BLOQUEIO INTELIGENTE V12.1 - LIBERA GOOGLEBOT ==================== -->
 <script>
 (function() {
   "use strict";
-
   const SENHA_ADMIN = "preta2026"; 
-
-  // 1. Libera Localhost e Celular pra você mexer
+  const isGoogleBot = /googlebot|google-inspection|adsbot-google|mediapartners-google|apis-google|chrome-lighthouse|gtmetrix|lighthouse|bingbot|yandex|duckduckbot/i.test(navigator.userAgent);
   const isLocal = window.location.hostname === "localhost" || 
                   window.location.hostname === "127.0.0.1" ||
                   window.location.protocol === "file:";
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-  // 2. Libera se tiver ?admin=preta2026 na URL
   const urlParams = new URLSearchParams(window.location.search);
   const liberouPorLink = urlParams.get('admin') === SENHA_ADMIN;
   if(liberouPorLink) sessionStorage.setItem('adminLiberado', 'true');
-
-  // 3. Se já liberou, local ou mobile não bloqueia
-  if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile) {
-    console.log("%c👑 Modo Livre ATIVO", "color: gold; font-size: 16px");
+  if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile || isGoogleBot) {
+    if(isGoogleBot) console.log("%c🤖 Googlebot detectado - Proteção DESATIVADA para indexação", "color: #34A853; font-size: 14px");
+    else console.log("%c👑 Modo Livre ATIVO", "color: gold; font-size: 16px");
     return;
   }
-
   console.log("%c🔒 Proteção ATIVA. Só bloqueia se usar F12, Ctrl+U, Botão Direito", "color: #E91E63; font-size: 14px");
-
   let bloqueado = false;
-
   function mostrarAlertaSeguranca() {
     if(bloqueado) return;
     bloqueado = true;
@@ -305,7 +288,6 @@ window.addEventListener('load', carregarOcupados);
               <p style="font-size:13px;margin:2px 0 0 0;color:#5F6368;">Sistema de Proteção da Loja</p>
             </div>
           </div>
-          
           <h3 style="font-size:18px;margin-bottom:12px;color:#202124;">Acesso avançado detectado</h3>
           <p style="font-size:15px;line-height:1.6;color:#3C4043;margin-bottom:20px;">
             Por segurança, detectamos uma tentativa de acesso ao código-fonte da <strong>Preta Nails</strong>. 
@@ -316,15 +298,12 @@ window.addEventListener('load', carregarOcupados);
             - Navegando e comprando normalmente pelo <strong>celular</strong> 💅<br>
             - Usando <strong>Ctrl+C</strong> para copiar PIX e informações
           </p>
-
           <button onclick="window.location.reload()" style="padding:12px 24px;font-size:14px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;font-weight:500;">
             Entendi e Voltar para Loja
           </button>
         </div>
       </body>`;
   }
-
-  // FUNÇÃO SECRETA PRA VOCÊ LIBERAR
   window.liberar = function(senha) {
     if(senha === SENHA_ADMIN) {
       sessionStorage.setItem('adminLiberado', 'true');
@@ -334,15 +313,9 @@ window.addEventListener('load', carregarOcupados);
       alert('❌ Senha incorreta');
     }
   }
-
-  // 1. BLOQUEIO DE TECLAS - SÓ ATIVA AQUI
   document.addEventListener('keydown', function(e) {
     const key = e.key.toUpperCase();
-    
-    // LIBERA: Ctrl+C sempre
     if (e.ctrlKey && key === 'C') return true; 
-
-    // BLOQUEIA SÓ SE USAR ESSES COMANDOS
     if (key === 'F12' ||
         (e.ctrlKey && ['U','S','P','F','H','A','I','J'].includes(key)) ||
         (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','F'].includes(key))) {
@@ -351,13 +324,10 @@ window.addEventListener('load', carregarOcupados);
       return false;
     }
   }, true);
-
-  // 2. BLOQUEIA BOTÃO DIREITO - SÓ ATIVA AQUI
   document.addEventListener('contextmenu', e => { 
     e.preventDefault(); 
     mostrarAlertaSeguranca(); 
   }, true);
-
 })();
 </script>
 </body>
