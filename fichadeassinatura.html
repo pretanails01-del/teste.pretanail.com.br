@@ -42,7 +42,6 @@
 .foto-box p { color: var(--primary); font-weight: 700; margin-top: 8px; }
 .foto-obs { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px; text-align: center; }
   #previewContainer img { max-width: 100%; max-height: 300px; border: 3px solid var(--primary); border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
-  canvas { border: 2px solid var(--primary); border-radius: 12px; background: #000; width: 100%; touch-action: none; cursor: crosshair; }
 .btn { width: 100%; padding: 16px; border: none; border-radius: 12px; font-size: 16px; font-weight: 800; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif; letter-spacing: 0.5px; }
 .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; margin-top: 30px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); }
 .btn-primary:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
@@ -63,10 +62,11 @@
 .sucesso-icon i { color: white; font-size: 50px; }
 .sucesso-titulo { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--primary); margin-bottom: 14px; text-shadow: 0 0 40px rgba(193,53,132,1); letter-spacing: 1.5px; }
 .sucesso-texto { color: rgba(255,255,255,0.98); font-size: 16px; margin-bottom: 25px; font-weight: 600; }
-.erro-msg { background: rgba(244,67,54,0.1); border-left: 4px solid #F44336; color: #ff8a80; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 600; }
+.erro-msg { background: rgba(244,67,54,0.15); border-left: 4px solid #F44336; color: #ff8a80; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 600; }
 .hidden { display: none!important; }
-.signature-wrapper { background: #C13584; border: 2px solid #a02c6e; border-radius: 16px; margin: 12px 0; overflow: hidden; }
-  #signatureCanvas { background: #C13584; width: 100%; height: 160px; display: block; touch-action: none; cursor: crosshair; }
+/* ASSINATURA ROSA POR DENTRO / RISCO PRETO */
+.signature-wrapper { background: #C13584; border: 2px solid #000; border-radius: 16px; margin: 12px 0; overflow: hidden; }
+#signatureCanvas { background: #C13584; width: 100%; height: 160px; display: block; touch-action: none; cursor: crosshair; }
   @media (max-width: 640px) {.form-body { padding: 30px 20px; }.header h1 { font-size: 28px; }.checkbox-group { grid-template-columns: 1fr; }.btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; } }
 </style></head>
 <body>
@@ -96,22 +96,26 @@
         </div>
       </div>
       <div id="outroContainer" class="form-group hidden"><label>Especifique o procedimento desejado</label><input type="text" id="outroTexto" placeholder="Descreva aqui..."></div>
-      <div class="form-group"><label class="required">Possui Diabetes?</label><select id="diabetes" required><option value="">Selecione uma opção</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
-      <div class="form-group"><label class="required">Possui Anemia?</label><select id="anemia" required><option value="">Selecione uma opção</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
-      <div class="form-group"><label class="required">Suas mãos suam muito?</label><select id="maosSuam" required><option value="">Selecione uma opção</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
-      <div class="form-group"><label class="required">Está grávida ou amamentando?</label><select id="gravida" required><option value="">Selecione uma opção</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
-      <div class="form-group"><label class="required">Possui alergias a esmaltes, gel ou produtos?</label><select id="alergias" required onchange="toggleDetalhes(this, 'alergias_texto')"><option value="">Selecione uma opção</option><option value="Não">Não</option><option value="Sim">Sim</option></select><textarea id="alergias_texto" placeholder="Qual tipo de alergia?" class="hidden" style="margin-top:12px;"></textarea></div>
-      <div class="form-group"><label class="required">Faz uso de medicamentos contínuos?</label><select id="medicamentos" required onchange="toggleDetalhes(this, 'medicamentos_texto')"><option value="">Selecione uma opção</option><option value="Não">Não</option><option value="Sim">Sim</option></select><textarea id="medicamentos_texto" placeholder="Quais medicamentos?" class="hidden" style="margin-top:12px;"></textarea></div>
-      <div class="form-group"><label class="required">Já fez alongamento de unhas antes?</label><select id="alongamento" required onchange="toggleDetalhes(this, 'alongamento_texto')"><option value="">Selecione uma opção</option><option value="Não">Não</option><option value="Sim">Sim</option></select><textarea id="alongamento_texto" placeholder="Quando foi o último? Teve reação?" class="hidden" style="margin-top:12px;"></textarea></div>
-      <div class="form-group"><label>Observações adicionais</label><textarea id="observacoes" rows="3" placeholder="Algo que devemos saber antes do procedimento..."></textarea></div>
+      <div class="form-group"><label class="required">Possui Diabetes?</label><select id="diabetes" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
+      <div class="form-group"><label class="required">Possui Anemia?</label><select id="anemia" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
+      <div class="form-group"><label class="required">Suas mãos suam muito?</label><select id="maosSuam" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
+      <div class="form-group"><label class="required">Está grávida ou amamentando?</label><select id="gravida" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
+      <div class="form-group"><label class="required">Possui alergias?</label><select id="alergias" required onchange="toggleDetalhes(this, 'alergias_texto')"><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select><textarea id="alergias_texto" placeholder="Qual alergia?" class="hidden" style="margin-top:12px;"></textarea></div>
+      <div class="form-group"><label class="required">Medicamentos contínuos?</label><select id="medicamentos" required onchange="toggleDetalhes(this, 'medicamentos_texto')"><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select><textarea id="medicamentos_texto" placeholder="Quais?" class="hidden" style="margin-top:12px;"></textarea></div>
+      <div class="form-group"><label class="required">Já fez alongamento antes?</label><select id="alongamento" required onchange="toggleDetalhes(this, 'alongamento_texto')"><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select><textarea id="alongamento_texto" placeholder="Quando? Reação?" class="hidden" style="margin-top:12px;"></textarea></div>
+      <div class="form-group"><label>Observações</label><textarea id="observacoes" rows="3" placeholder="Algo importante..."></textarea></div>
       <div class="form-group">
-        <label> Foto do Procedimento / Referência que Deseja</label>
+        <label>Foto do Procedimento / Referência</label>
         <div class="foto-box" onclick="document.getElementById('foto').click()"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C13584" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><p>Clique para enviar a foto</p></div>
-        <p class="foto-obs">Envio opcional - será comprimida automaticamente</p>
+        <p class="foto-obs">Será comprimida automaticamente</p>
         <input type="file" id="foto" accept="image/*" class="hidden" onchange="previewFoto(this)">
         <div id="previewContainer" class="hidden" style="text-align:center; margin-top:15px;"><img id="previewImg"><br><br><button type="button" class="btn btn-secondary" onclick="removerFoto()">Remover Foto</button></div>
       </div>
-      <div class="form-group"><label class="required"> Assinatura Digital da Cliente</label><canvas id="signatureCanvas" width="700" height="200"></canvas><button type="button" class="btn btn-secondary" onclick="clearSignature()">Limpar Assinatura</button></div>
+      <div class="form-group">
+        <label class="required">Assinatura Digital da Cliente (fundo rosa / tinta preta)</label>
+        <div class="signature-wrapper"><canvas id="signatureCanvas" width="700" height="200"></canvas></div>
+        <button type="button" class="btn btn-secondary" onclick="clearSignature()">Limpar Assinatura</button>
+      </div>
       <button type="submit" class="btn btn-primary" id="submitBtn"><span id="btnText">CONFIRMAR AGENDAMENTO</span></button>
       <div id="erroContainer" class="hidden"></div>
     </form>
@@ -122,7 +126,7 @@
     <div class="sucesso-icon"><i class="fas fa-check"></i></div>
     <h2 class="sucesso-titulo">Agendamento Confirmado!</h2>
     <p class="sucesso-texto" id="sucessoTexto">Sua ficha foi recebida com sucesso</p>
-    <a id="btnWhatsappSucesso" href="#" target="_blank" class="btn-whatsapp-sucesso"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP</a>
+    <a id="btnWhatsappSucesso" href="#" target="_blank" class="btn-whatsapp-sucesso"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP COM LINK DO DRIVE</a>
   </div>
 </div>
 
@@ -160,7 +164,6 @@ function comprimirImagem(base64) {
     img.src = base64;
   });
 }
-
 async function previewFoto(input) {
   if (input.files && input.files[0]) {
     const reader = new FileReader();
@@ -184,11 +187,17 @@ document.getElementById('outroCheck').addEventListener('change', function() {
   if (this.checked) { container.classList.remove('hidden'); campo.required = true; }
   else { container.classList.add('hidden'); campo.required = false; campo.value = ''; }
 });
+
+// ASSINATURA ROSA POR DENTRO / RISCO PRETO
 const canvas = document.getElementById('signatureCanvas');
 const ctx = canvas.getContext('2d');
-ctx.strokeStyle = '#fff';
-ctx.lineWidth = 3;
+ctx.fillStyle = '#C13584';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.strokeStyle = '#000000';
+ctx.lineWidth = 3.5;
 ctx.lineCap = 'round';
+ctx.lineJoin = 'round';
+
 function getPos(e) {
   const rect = canvas.getBoundingClientRect();
   const scaleX = canvas.width / rect.width;
@@ -206,7 +215,11 @@ canvas.addEventListener('mouseleave', endDraw);
 canvas.addEventListener('touchstart', startDraw, {passive:false});
 canvas.addEventListener('touchmove', draw, {passive:false});
 canvas.addEventListener('touchend', endDraw);
-function clearSignature() { ctx.clearRect(0, 0, canvas.width, canvas.height); hasSignature = false; }
+function clearSignature() {
+  ctx.fillStyle = '#C13584';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  hasSignature = false;
+}
 function toggleDetalhes(select, textareaId) {
   const textarea = document.getElementById(textareaId);
   if (select.value === 'Sim') { textarea.classList.remove('hidden'); textarea.required = true; }
@@ -225,10 +238,12 @@ document.getElementById('whatsapp').addEventListener('input', function(e) {
   else if (valor.length <= 7) { e.target.value = `(${valor.substring(0,2)}) ${valor.substring(2)}`; }
   else { e.target.value = `(${valor.substring(0,2)}) ${valor.substring(2,7)}-${valor.substring(7)}`; }
 });
+
+// SUBMIT - SÓ FINALIZA SE GMAIL FOR
 document.getElementById('anamneseForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   document.getElementById('erroContainer').classList.add('hidden');
-  if (!hasSignature) { showErro('A assinatura digital é obrigatória. Por favor, assine no campo acima.'); return; }
+  if (!hasSignature) { showErro('A assinatura digital é obrigatória. Assine no campo rosa acima (tinta preta).'); return; }
   if(!diaSelecionado ||!horaSelecionada){ showErro('Erro: Horário não selecionado. Volte e escolha um horário.'); return; }
   let procs = [];
   document.querySelectorAll('#procedimentosGroup input[type="checkbox"]:checked').forEach(c => {
@@ -237,11 +252,12 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
       if (outro) procs.push(`Outro: ${outro}`);
     } else { procs.push(c.value); }
   });
-  if (procs.length === 0) { showErro('Selecione pelo menos um procedimento desejado.'); return; }
+  if (procs.length === 0) { showErro('Selecione pelo menos um procedimento.'); return; }
   const btn = document.getElementById('submitBtn');
   const btnText = document.getElementById('btnText');
   btn.disabled = true;
-  btnText.innerHTML = '<span class="loader"></span>Enviando...';
+  btnText.innerHTML = '<span class="loader"></span> Travando horário e enviando Gmail...';
+
   const dados = {
     nome: document.getElementById('nome').value.trim().toUpperCase(),
     idade: document.getElementById('idade').value,
@@ -250,27 +266,35 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     hora: horaSelecionada,
     procedimento: procs.join(", "),
     fotoMao: fotoBase64 || "",
-    assinatura: canvas.toDataURL('image/jpeg', 0.5),
+    assinatura: canvas.toDataURL('image/jpeg', 0.7),
     observacoes: `Diabetes:${document.getElementById('diabetes').value} | Anemia:${document.getElementById('anemia').value} | Suor:${document.getElementById('maosSuam').value} | Gravida:${document.getElementById('gravida').value} | Alergia:${document.getElementById('alergias').value}-${document.getElementById('alergias_texto').value} | Med:${document.getElementById('medicamentos').value}-${document.getElementById('medicamentos_texto').value} | Along:${document.getElementById('alongamento').value}-${document.getElementById('alongamento_texto').value} | Obs:${document.getElementById('observacoes').value}`,
   };
-  try {
-    // CORREÇÃO FINAL - SEM HEADERS, SEM JSON, SEM FAILED TO FETCH
-    await fetch(WEB_APP_URL, {
-      method: "POST",
-      body: JSON.stringify(dados)
-    });
 
-    document.getElementById('sucessoTexto').innerHTML = `Agendamento <strong>${dados.dia} - ${dados.hora}</strong> confirmado!`;
-    const mensagem = `💅 NOVO AGENDAMENTO - PRETA NAILS\n\n👤 Cliente: ${dados.nome}\n📱 WhatsApp: ${dados.whatsapp}\n💅 Procedimento: ${dados.procedimento}\n📅 Data: ${dados.dia} - ${dados.hora}\n\n✅ Ficha completa com foto e assinatura enviada por email!`;
+  try {
+    const res = await fetch(WEB_APP_URL, { method: "POST", body: JSON.stringify(dados) });
+    const result = await res.json();
+
+    if(result.result === "error" && result.type === "HORARIO_OCUPADO"){
+      showErro('❌ Esse horário acabou de ser travado por outra cliente! Volte e escolha outro horário.');
+      btn.disabled = false; btnText.textContent = 'CONFIRMAR AGENDAMENTO';
+      return;
+    }
+
+    if(result.result!== "success" ||!result.gmail){
+      showErro(`❌ Não foi possível enviar o Gmail. Motivo: ${result.message || 'erro desconhecido'}. O horário NÃO foi travado. Tente novamente.`);
+      btn.disabled = false; btnText.textContent = 'CONFIRMAR AGENDAMENTO';
+      return;
+    }
+
+    // SUCESSO - GMAIL FOI E HORÁRIO TRAVADO
+    document.getElementById('sucessoTexto').innerHTML = `Horário <strong>${dados.dia} - ${dados.hora}</strong> travado!<br>Gmail enviado!<br><small><a href="${result.pdf}" target="_blank" style="color:#C13584">📄 Ver ficha no Drive</a></small>`;
+    const mensagem = `💅 NOVO AGENDAMENTO - PRETA NAILS\n\n👤 ${dados.nome}\n📱 ${dados.whatsapp}\n📅 ${dados.dia} - ${dados.hora}\n💅 ${dados.procedimento}\n📄 Ficha: ${result.pdf}\n\n✅ Gmail confirmado!`;
     const numeroStudio = "5511982311608";
     document.getElementById('btnWhatsappSucesso').href = `https://wa.me/${numeroStudio}?text=${encodeURIComponent(mensagem)}`;
     document.getElementById('sucessoOverlay').classList.remove('hidden');
 
   } catch (err) {
-    // Mesmo se der erro de CORS, já salvou na planilha
-    document.getElementById('sucessoTexto').innerHTML = `Agendamento <strong>${dados.dia} - ${dados.hora}</strong> confirmado!`;
-    document.getElementById('sucessoOverlay').classList.remove('hidden');
-  } finally {
+    showErro('❌ Erro de conexão. O Gmail não foi confirmado. O horário NÃO foi travado. Verifique sua internet e tente novamente.');
     btn.disabled = false;
     btnText.textContent = 'CONFIRMAR AGENDAMENTO';
   }
