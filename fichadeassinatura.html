@@ -19,7 +19,6 @@
     --border: rgba(193,53,132,0.25);
   }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
@@ -41,8 +40,6 @@
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
-  /* BOTÃO DÚVIDAS FREQUENTES TOPO DIREITO */
 .btn-duvidas-topo {
     position: fixed;
     top: 20px;
@@ -67,7 +64,6 @@
     border-color: var(--primary);
     transform: translateY(-2px);
   }
-
 .horario-selecionado {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     padding: 18px;
@@ -87,7 +83,6 @@
     font-weight: 800;
     font-family: 'Playfair Display', serif;
   }
-
 .header { background: linear-gradient(135deg, #000 0%, var(--primary) 100%);
   color: white;
   text-align: center;
@@ -103,7 +98,6 @@
 .form-group { margin-bottom: 24px; }
 label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--primary); font-size: 14px; letter-spacing: 0.5px; }
 label.required::after { content: ' *'; color: #e74c3c; }
-
 input, textarea, select {
   width: 100%;
   padding: 14px 16px;
@@ -119,7 +113,6 @@ input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.4); }
 input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(193, 53, 132, 0.15); background: rgba(0,0,0,0.5); }
 select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C13584' d='M6 9L1 4h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
 textarea { resize: vertical; min-height: 90px; }
-
 .checkbox-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
 .checkbox-item {
   display: flex;
@@ -135,7 +128,6 @@ textarea { resize: vertical; min-height: 90px; }
 }
 .checkbox-item:hover { border-color: var(--primary); background: rgba(193,53,132,0.1); }
 .checkbox-item input { width: 18px; height: 18px; margin-right: 10px; cursor: pointer; accent-color: var(--primary); }
-
 .foto-box {
   border: 3px dashed var(--primary);
   border-radius: 16px;
@@ -149,7 +141,6 @@ textarea { resize: vertical; min-height: 90px; }
 .foto-box p { color: var(--primary); font-weight: 700; margin-top: 8px; }
 .foto-obs { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px; text-align: center; }
 #previewContainer img { max-width: 100%; max-height: 300px; border: 3px solid var(--primary); border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
-
 canvas {
   border: 2px solid var(--primary);
   border-radius: 12px;
@@ -158,7 +149,6 @@ canvas {
   touch-action: none;
   cursor: crosshair;
 }
-
 .btn {
   width: 100%;
   padding: 16px;
@@ -189,7 +179,6 @@ canvas {
   border: 1px solid rgba(255,255,255,0.2);
 }
 .btn-secondary:hover { background: rgba(255,255,255,0.2); }
-
 .btn-whatsapp-sucesso {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: #fff;
@@ -208,10 +197,8 @@ canvas {
   margin-top: 15px;
 }
 .btn-whatsapp-sucesso:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
-
 .loader { display: inline-block; width: 16px; height: 16px; border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
 @keyframes spin { to { transform: rotate(360deg); } }
-
 .sucesso-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background-image: url('https://dl.dropboxusercontent.com/scl/fi/jg66vk8ay5vzdb7da1ns4/1783904530793_image_1783904529995.jpg?rlkey=u1xdg3grc0dcf3bow3fuuga7p&raw=1');
   background-size: contain;
@@ -269,7 +256,6 @@ canvas {
 .sucesso-texto { color: rgba(255,255,255,0.98); font-size: 16px; margin-bottom: 25px; font-weight: 600; }
 .erro-msg { background: rgba(244,67,54,0.1); border-left: 4px solid #F44336; color: #ff8a80; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 600; }
 .hidden { display: none!important; }
-
 .signature-wrapper {
   background: #C13584;
   border: 2px solid #a02c6e;
@@ -293,12 +279,9 @@ canvas {
 }
 </style></head>
 <body>
-
-<!-- BOTÃO DÚVIDAS FREQUENTES TOPO DIREITO -->
 <a href="duvidas.html" class="btn-duvidas-topo">
   <i class="fas fa-circle-question"></i> Dúvidas Frequentes
 </a>
-
 <div class="container" id="mainContainer">
   <div class="header">
     <img src="https://dl.dropboxusercontent.com/scl/fi/r0nz5dgz3ijxtvoc0ozpw/1781981208006_image_1781981207662.jpg?rlkey=ozppeww4pwyc1b0x4ma8gakm7&dl=1" alt="Preta NailS">
@@ -307,12 +290,10 @@ canvas {
   </div>
   <div class="form-body">
     <form id="anamneseForm">
-
       <div id="infoHorario" class="horario-selecionado hidden">
         <h3>SEU HORÁRIO ESCOLHIDO</h3>
         <p id="textoHorario">Carregando...</p>
       </div>
-
       <div class="form-group">
         <label class="required">Nome Completo</label>
         <input type="text" id="nome" required placeholder="Digite seu nome completo">
@@ -325,7 +306,6 @@ canvas {
         <label class="required">WhatsApp</label>
         <input type="tel" id="whatsapp" required placeholder="(99) 99999-9999" maxlength="15">
       </div>
-
       <div class="form-group">
         <label class="required">Procedimentos Desejados</label>
         <div class="checkbox-group" id="procedimentosGroup">
@@ -342,7 +322,6 @@ canvas {
         <label>Especifique o procedimento desejado</label>
         <input type="text" id="outroTexto" placeholder="Descreva aqui...">
       </div>
-
       <div class="form-group">
         <label class="required">Possui Diabetes?</label>
         <select id="diabetes" required>
@@ -432,7 +411,6 @@ canvas {
     </form>
   </div>
 </div>
-
 <div id="sucessoOverlay" class="sucesso-overlay hidden">
   <div class="sucesso-card">
     <div class="sucesso-icon">
@@ -440,16 +418,14 @@ canvas {
     </div>
     <h2 class="sucesso-titulo">Agendamento Confirmado!</h2>
     <p class="sucesso-texto" id="sucessoTexto">Sua ficha foi recebida com sucesso</p>
-    <!-- BOTÃO WHATSAPP NA TELA DE SUCESSO -->
     <a id="btnWhatsappSucesso" href="#" target="_blank" class="btn-whatsapp-sucesso">
       <i class="fab fa-whatsapp"></i> ABRIR WHATSAPP
     </a>
   </div>
 </div>
-
 <script>
-// TROCA PELO SEU LINK DO APPS SCRIPT
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycby8-3_ueKJx-z3YsV4FdtLjovceLWvYbSP562gl9aSxJOmMcOELitTwmoapoNXfJA/exec";
+// LINK ATUALIZADO - V2 OFICIAL
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxfq9mJSTRXSH36HYYlyG2dXf0iUQ3Iyq3hdKbRsp1G5ImcMBV7bAVXu1zQ0nP5yVX74w/exec";
 
 let fotoBase64 = null;
 let isDrawing = false;
@@ -478,13 +454,11 @@ function previewFoto(input) {
     reader.readAsDataURL(input.files[0]);
   }
 }
-
 function removerFoto() {
   document.getElementById('previewContainer').classList.add('hidden');
   document.getElementById('foto').value = '';
   fotoBase64 = null;
 }
-
 document.getElementById('outroCheck').addEventListener('change', function() {
   const container = document.getElementById('outroContainer');
   const campo = document.getElementById('outroTexto');
@@ -497,13 +471,11 @@ document.getElementById('outroCheck').addEventListener('change', function() {
     campo.value = '';
   }
 });
-
 const canvas = document.getElementById('signatureCanvas');
 const ctx = canvas.getContext('2d');
 ctx.strokeStyle = '#000';
 ctx.lineWidth = 3;
 ctx.lineCap = 'round';
-
 function getPos(e) {
   const rect = canvas.getBoundingClientRect();
   const scaleX = canvas.width / rect.width;
@@ -513,11 +485,9 @@ function getPos(e) {
   }
   return { x: (e.clientX - rect.left) * scaleX, y: (e.clientY - rect.top) * scaleY };
 }
-
 function startDraw(e) { isDrawing = true; hasSignature = true; const pos = getPos(e); ctx.beginPath(); ctx.moveTo(pos.x, pos.y); e.preventDefault(); }
 function draw(e) { if (!isDrawing) return; const pos = getPos(e); ctx.lineTo(pos.x, pos.y); ctx.stroke(); e.preventDefault(); }
 function endDraw() { isDrawing = false; }
-
 canvas.addEventListener('mousedown', startDraw);
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', endDraw);
@@ -525,9 +495,7 @@ canvas.addEventListener('mouseleave', endDraw);
 canvas.addEventListener('touchstart', startDraw);
 canvas.addEventListener('touchmove', draw);
 canvas.addEventListener('touchend', endDraw);
-
 function clearSignature() { ctx.clearRect(0, 0, canvas.width, canvas.height); hasSignature = false; }
-
 function toggleDetalhes(select, textareaId) {
   const textarea = document.getElementById(textareaId);
   if (select.value === 'Sim') {
@@ -539,14 +507,12 @@ function toggleDetalhes(select, textareaId) {
     textarea.value = '';
   }
 }
-
 function showErro(msg) {
   const container = document.getElementById('erroContainer');
   container.innerHTML = `<div class="erro-msg"><i class="fas fa-exclamation-triangle"></i> ${msg}</div>`;
   container.classList.remove('hidden');
   window.scrollTo({ top: container.offsetTop - 20, behavior: 'smooth' });
 }
-
 document.getElementById('whatsapp').addEventListener('input', function(e) {
   let valor = e.target.value.replace(/\D/g, '');
   if (valor.length > 11) valor = valor.substring(0, 11);
@@ -558,13 +524,11 @@ document.getElementById('whatsapp').addEventListener('input', function(e) {
     e.target.value = `(${valor.substring(0,2)}) ${valor.substring(2,7)}-${valor.substring(7)}`;
   }
 });
-
 document.getElementById('anamneseForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   document.getElementById('erroContainer').classList.add('hidden');
   if (!hasSignature) { showErro('A assinatura digital é obrigatória. Por favor, assine no campo acima.'); return; }
   if(!diaSelecionado ||!horaSelecionada){ showErro('Erro: Horário não selecionado. Volte e escolha um horário.'); return; }
-
   let procs = [];
   document.querySelectorAll('#procedimentosGroup input[type="checkbox"]:checked').forEach(c => {
     if (c.value === 'Outro') {
@@ -573,12 +537,10 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     } else { procs.push(c.value); }
   });
   if (procs.length === 0) { showErro('Selecione pelo menos um procedimento desejado.'); return; }
-
   const btn = document.getElementById('submitBtn');
   const btnText = document.getElementById('btnText');
   btn.disabled = true;
   btnText.innerHTML = '<span class="loader"></span>Enviando...';
-
   const dados = {
     nome: document.getElementById('nome').value.trim(),
     idade: document.getElementById('idade').value,
@@ -598,29 +560,22 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     medicamentos_texto: document.getElementById('medicamentos_texto').value,
     alongamento: document.getElementById('alongamento').value,
     alongamento_texto: document.getElementById('alongamento_texto').value,
-    observacoes: document.getElementById('observacoes').value
+    observacoes: document.getElementById('observacoes').value,
+    protocolo: new Date().getTime().toString()
   };
-
   try {
-    const response = await fetch(WEB_APP_URL, { method: "POST", mode: "cors", body: JSON.stringify(dados) });
+    const response = await fetch(WEB_APP_URL, { method: "POST", body: JSON.stringify(dados) });
     const data = await response.json();
-
-    if (data.status === 'ok') {
-      document.getElementById('sucessoTexto').innerHTML = `Formulário <strong>${data.os}</strong> enviado com sucesso!`;
-
-      // MENSAGEM EXATA PRA WHATSAPP
-      const mensagem = `🔥 NOVO FORMULÁRIO - PRETA NAILS
+    if (data.result === 'success') {
+      document.getElementById('sucessoTexto').innerHTML = `Agendamento <strong>${dados.dia} - ${dados.hora}</strong> confirmado!`;
+      const mensagem = `🔥 NOVO AGENDAMENTO - PRETA NAIL
 
 👤 Cliente: ${dados.nome}
 📱 WhatsApp: ${dados.whatsapp}
 💅 Procedimento: ${dados.procedimento}
-📋 OS: ${data.os}
-
-📄 PDF: ${data.pdf}`;
-
+📅 Data: ${dados.dia} - ${dados.hora}`;
       const numeroStudio = "5511982311608";
       document.getElementById('btnWhatsappSucesso').href = `https://wa.me/${numeroStudio}?text=${encodeURIComponent(mensagem)}`;
-
       document.getElementById('sucessoOverlay').classList.remove('hidden');
     } else {
       throw new Error(data.msg || 'Erro desconhecido');
@@ -633,102 +588,6 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     btnText.textContent = 'CONFIRMAR AGENDAMENTO';
   }
 });
-</script>
-  <!-- ==================== BLOQUEIO INTELIGENTE V12 - SÓ ATIVA NO COMANDO ==================== -->
-<script>
-(function() {
-  "use strict";
-
-  const SENHA_ADMIN = "preta2026"; 
-
-  // 1. Libera Localhost e Celular pra você mexer
-  const isLocal = window.location.hostname === "localhost" || 
-                  window.location.hostname === "127.0.0.1" ||
-                  window.location.protocol === "file:";
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-  // 2. Libera se tiver ?admin=preta2026 na URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const liberouPorLink = urlParams.get('admin') === SENHA_ADMIN;
-  if(liberouPorLink) sessionStorage.setItem('adminLiberado', 'true');
-
-  // 3. Se já liberou, local ou mobile não bloqueia
-  if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile) {
-    console.log("%c👑 Modo Livre ATIVO", "color: gold; font-size: 16px");
-    return;
-  }
-
-  console.log("%c🔒 Proteção ATIVA. Só bloqueia se usar F12, Ctrl+U, Botão Direito", "color: #E91E63; font-size: 14px");
-
-  let bloqueado = false;
-
-  function mostrarAlertaSeguranca() {
-    if(bloqueado) return;
-    bloqueado = true;
-    document.documentElement.innerHTML = `
-      <body style="margin:0;padding:0;background:#F8F9FA;font-family:'Google Sans', Roboto, Arial, sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;">
-        <div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
-          <div style="display:flex;align-items:center;margin-bottom:25px;">
-            <div style="font-size:40px;margin-right:15px;">🛡️</div>
-            <div>
-              <h2 style="font-size:24px;margin:0;color:#E91E63;">Preta Nails - Navegação Segura</h2>
-              <p style="font-size:13px;margin:2px 0 0 0;color:#5F6368;">Sistema de Proteção da Loja</p>
-            </div>
-          </div>
-          
-          <h3 style="font-size:18px;margin-bottom:12px;color:#202124;">Acesso avançado detectado</h3>
-          <p style="font-size:15px;line-height:1.6;color:#3C4043;margin-bottom:20px;">
-            Por segurança, detectamos uma tentativa de acesso ao código-fonte da <strong>Preta Nails</strong>. 
-            Para proteger nossos produtos e dados, o acesso foi bloqueado.
-          </p>
-          <p style="font-size:14px;line-height:1.6;color:#5F6368;margin-bottom:25px;">
-            <strong>Você pode continuar:</strong><br>
-            - Navegando e comprando normalmente pelo <strong>celular</strong> 💅<br>
-            - Usando <strong>Ctrl+C</strong> para copiar PIX e informações
-          </p>
-
-          <button onclick="window.location.reload()" style="padding:12px 24px;font-size:14px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;font-weight:500;">
-            Entendi e Voltar para Loja
-          </button>
-        </div>
-      </body>`;
-  }
-
-  // FUNÇÃO SECRETA PRA VOCÊ LIBERAR
-  window.liberar = function(senha) {
-    if(senha === SENHA_ADMIN) {
-      sessionStorage.setItem('adminLiberado', 'true');
-      alert('✅ Modo Admin liberado! Recarregue a página.');
-      location.reload();
-    } else {
-      alert('❌ Senha incorreta');
-    }
-  }
-
-  // 1. BLOQUEIO DE TECLAS - SÓ ATIVA AQUI
-  document.addEventListener('keydown', function(e) {
-    const key = e.key.toUpperCase();
-    
-    // LIBERA: Ctrl+C sempre
-    if (e.ctrlKey && key === 'C') return true; 
-
-    // BLOQUEIA SÓ SE USAR ESSES COMANDOS
-    if (key === 'F12' ||
-        (e.ctrlKey && ['U','S','P','F','H','A','I','J'].includes(key)) ||
-        (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','F'].includes(key))) {
-      e.preventDefault();
-      mostrarAlertaSeguranca();
-      return false;
-    }
-  }, true);
-
-  // 2. BLOQUEIA BOTÃO DIREITO - SÓ ATIVA AQUI
-  document.addEventListener('contextmenu', e => { 
-    e.preventDefault(); 
-    mostrarAlertaSeguranca(); 
-  }, true);
-
-})();
 </script>
 </body>
 </html>
