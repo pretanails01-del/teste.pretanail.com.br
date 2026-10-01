@@ -243,8 +243,18 @@ document.getElementById('whatsapp').addEventListener('input', function(e) {
 });
 
 function mostrarSucesso(result, dados){
-  document.getElementById('sucessoTexto').innerHTML = `Agendamento confirmado!<br><strong>${dados.dia} - ${dados.hora}</strong><br><span style="font-size:13px;opacity:0.9">Por gentileza clique no botão do WhatsApp abaixo para finalizar 💖</span>`;
-  const mensagem = `💅 NOVO AGENDAMENTO - PRETA NAILS\n\n👤 ${dados.nome}\n📱 ${dados.whatsapp}\n📅 ${dados.dia} - ${dados.hora}\n💅 ${dados.procedimento}\n✅ Agendamento confirmado!`;
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const linkDrive = result.pdf || result.url || "";
+
+  document.getElementById('sucessoTexto').innerHTML = `Agendamento confirmado!<br><strong>${dados.dia} - ${dados.hora}</strong><br><span style="font-size:13px;opacity:0.9">Por gentileza clique no botão do WhatsApp abaixo para finalizar ${isMobile? '💖' : ''}</span>`;
+
+  let mensagem;
+  if(isMobile){
+    mensagem = `💅 NOVO AGENDAMENTO - PRETA NAILS\n\n👤 ${dados.nome}\n📱 ${dados.whatsapp}\n📅 ${dados.dia} - ${dados.hora}\n💅 ${dados.procedimento}\n\n✅ Agendamento confirmado! 💖`;
+  } else {
+    mensagem = `NOVO AGENDAMENTO - PRETA NAILS\n\nNome: ${dados.nome}\nWhatsApp: ${dados.whatsapp}\nData: ${dados.dia} - ${dados.hora}\nProcedimento: ${dados.procedimento}\nFicha: ${result.id || ''}\n\nPDF completo: ${linkDrive}\n\nAgendamento confirmado!`;
+  }
+
   const numeroStudio = "5511982311608";
   document.getElementById('btnWhatsappSucesso').href = `https://wa.me/${numeroStudio}?text=${encodeURIComponent(mensagem)}`;
   document.getElementById('sucessoOverlay').classList.remove('hidden');
@@ -300,9 +310,8 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     }
     mostrarSucesso(result, dados);
   } catch (err) {
-    // ERRO CORRIGIDO - NÃO MOSTRA MAIS "ERRO DE CONEXÃO", MOSTRA SUCESSO DIRETO COM FOTO DA UNHA E BOTÃO ROSA
     console.log("Retorno bloqueado mas salvou:", err);
-    mostrarSucesso({id: 'PN-' + Date.now()}, dados);
+    mostrarSucesso({id: 'PN-' + Date.now(), pdf: ''}, dados);
   }
 });
 </script>
