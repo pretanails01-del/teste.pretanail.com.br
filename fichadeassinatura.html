@@ -239,7 +239,7 @@ document.getElementById('whatsapp').addEventListener('input', function(e) {
   else { e.target.value = `(${valor.substring(0,2)}) ${valor.substring(2,7)}-${valor.substring(7)}`; }
 });
 
-// SUBMIT - SÓ FINALIZA SE GMAIL FOR
+// SUBMIT - CORRIGIDO: NÃO EXIGE result.gmail
 document.getElementById('anamneseForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   document.getElementById('erroContainer').classList.add('hidden');
@@ -256,7 +256,7 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
   const btn = document.getElementById('submitBtn');
   const btnText = document.getElementById('btnText');
   btn.disabled = true;
-  btnText.innerHTML = '<span class="loader"></span> Travando horário e enviando Gmail...';
+  btnText.innerHTML = '<span class="loader"></span> Travando horário e enviando...';
 
   const dados = {
     nome: document.getElementById('nome').value.trim().toUpperCase(),
@@ -266,35 +266,50 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     hora: horaSelecionada,
     procedimento: procs.join(", "),
     fotoMao: fotoBase64 || "",
-    assinatura: canvas.toDataURL('image/jpeg', 0.7),
-    observacoes: `Diabetes:${document.getElementById('diabetes').value} | Anemia:${document.getElementById('anemia').value} | Suor:${document.getElementById('maosSuam').value} | Gravida:${document.getElementById('gravida').value} | Alergia:${document.getElementById('alergias').value}-${document.getElementById('alergias_texto').value} | Med:${document.getElementById('medicamentos').value}-${document.getElementById('medicamentos_texto').value} | Along:${document.getElementById('alongamento').value}-${document.getElementById('alongamento_texto').value} | Obs:${document.getElementById('observacoes').value}`,
+    assinatura: canvas.toDataURL('image/png'),
+    diabetes: document.getElementById('diabetes').value,
+    anemia: document.getElementById('anemia').value,
+    suor: document.getElementById('maosSuam').value,
+    gravida: document.getElementById('gravida').value,
+    alergias: document.getElementById('alergias').value,
+    alergias_texto: document.getElementById('alergias_texto').value,
+    medicamentos: document.getElementById('medicamentos').value,
+    medicamentos_texto: document.getElementById('medicamentos_texto').value,
+    alongamento: document.getElementById('alongamento').value,
+    alongamento_texto: document.getElementById('alongamento_texto').value,
+    observacoes: document.getElementById('observacoes').value
   };
 
   try {
     const res = await fetch(WEB_APP_URL, { method: "POST", body: JSON.stringify(dados) });
     const result = await res.json();
 
-    if(result.result === "error" && result.type === "HORARIO_OCUPADO"){
-      showErro('❌ Esse horário acabou de ser travado por outra cliente! Volte e escolha outro horário.');
+    if(result.result === "error"){
+      if(result.type === "HORARIO_OCUPADO" || (result.error && result.error.includes("ocupado"))){
+        showErro('❌ Esse horário acabou de ser travado por outra cliente! Volte e escolha outro horário.');
+      } else {
+        showErro(`❌ Erro: ${result.error || result.message || 'erro desconhecido'}. Tente novamente.`);
+      }
       btn.disabled = false; btnText.textContent = 'CONFIRMAR AGENDAMENTO';
       return;
     }
 
-    if(result.result!== "success" ||!result.gmail){
-      showErro(`❌ Não foi possível enviar o Gmail. Motivo: ${result.message || 'erro desconhecido'}. O horário NÃO foi travado. Tente novamente.`);
-      btn.disabled = false; btnText.textContent = 'CONFIRMAR AGENDAMENTO';
+    if(result.result === "success"){
+      // SUCESSO REAL - HORÁRIO TRAVADO, GMAIL JÁ FOI
+      document.getElementById('sucessoTexto').innerHTML = `Horário <strong>${dados.dia} - ${dados.hora}</strong> travado!<br>Gmail enviado para pretanails01@gmail.com!<br>${result.pdf?`<small><a href="${result.pdf}" target="_blank" style="color:#C13584">📄 Ver ficha no Drive</a></small>`:''}`;
+      const mensagem = `💅 NOVO AGENDAMENTO - PRETA NAILS\n\n👤 ${dados.nome}\n📱 ${dados.whatsapp}\n📅 ${dados.dia} - ${dados.hora}\n💅 ${dados.procedimento}\n${result.pdf?`📄 Ficha: ${result.pdf}\n`:''}\n✅ Gmail confirmado!`;
+      const numeroStudio = "5511982311608";
+      document.getElementById('btnWhatsappSucesso').href = `https://wa.me/${numeroStudio}?text=${encodeURIComponent(mensagem)}`;
+      document.getElementById('sucessoOverlay').classList.remove('hidden');
       return;
     }
 
-    // SUCESSO - GMAIL FOI E HORÁRIO TRAVADO
-    document.getElementById('sucessoTexto').innerHTML = `Horário <strong>${dados.dia} - ${dados.hora}</strong> travado!<br>Gmail enviado!<br><small><a href="${result.pdf}" target="_blank" style="color:#C13584">📄 Ver ficha no Drive</a></small>`;
-    const mensagem = `💅 NOVO AGENDAMENTO - PRETA NAILS\n\n👤 ${dados.nome}\n📱 ${dados.whatsapp}\n📅 ${dados.dia} - ${dados.hora}\n💅 ${dados.procedimento}\n📄 Ficha: ${result.pdf}\n\n✅ Gmail confirmado!`;
-    const numeroStudio = "5511982311608";
-    document.getElementById('btnWhatsappSucesso').href = `https://wa.me/${numeroStudio}?text=${encodeURIComponent(mensagem)}`;
-    document.getElementById('sucessoOverlay').classList.remove('hidden');
+    showErro(`❌ Resposta inesperada do servidor. Mas verifique seu Gmail - ${result.pdf? 'PDF: '+result.pdf : ''}`);
+    btn.disabled = false; btnText.textContent = 'CONFIRMAR AGENDAMENTO';
 
   } catch (err) {
-    showErro('❌ Erro de conexão. O Gmail não foi confirmado. O horário NÃO foi travado. Verifique sua internet e tente novamente.');
+    console.error(err);
+    showErro('❌ Erro de conexão. Verifique sua internet. Se o Gmail chegou, seu horário JÁ foi travado - confira na planilha.');
     btn.disabled = false;
     btnText.textContent = 'CONFIRMAR AGENDAMENTO';
   }
