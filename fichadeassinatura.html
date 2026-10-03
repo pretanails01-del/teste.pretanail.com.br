@@ -317,25 +317,18 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
 });
 
 </script>
-  <!-- ==================== BLOQUEIO INTELIGENTE V12.2 - ANTI F7/F12 TURBO ==================== -->
+  <!-- ==================== BLOQUEIO V12.3 - MODO CLIENTE INVISÍVEL ==================== -->
 <script>
 (function() {
   "use strict";
   const SENHA_ADMIN = "preta2026"; 
   const isGoogleBot = /googlebot|google-inspection|adsbot-google|mediapartners-google|apis-google|chrome-lighthouse|gtmetrix|lighthouse|bingbot|yandex|duckduckbot/i.test(navigator.userAgent);
-  const isLocal = window.location.hostname === "localhost" || 
-                  window.location.hostname === "127.0.0.1" ||
-                  window.location.protocol === "file:";
+  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const urlParams = new URLSearchParams(window.location.search);
-  const liberouPorLink = urlParams.get('admin') === SENHA_ADMIN;
-  if(liberouPorLink) sessionStorage.setItem('adminLiberado', 'true');
-  if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile || isGoogleBot) {
-    if(isGoogleBot) console.log("%c🤖 Googlebot detectado - Proteção DESATIVADA para indexação", "color: #34A853; font-size: 14px");
-    else console.log("%c👑 Modo Livre ATIVO", "color: gold; font-size: 16px");
-    return;
-  }
-  console.log("%c🔒 Proteção ATIVA V12.2", "color: #E91E63; font-size: 14px");
+  if(urlParams.get('admin') === SENHA_ADMIN) sessionStorage.setItem('adminLiberado', 'true');
+  if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile || isGoogleBot) return;
+
   let bloqueado = false;
   function mostrarAlertaSeguranca() {
     if(bloqueado) return;
@@ -366,46 +359,39 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
         </div>
       </body>`;
   }
+
   window.liberar = function(senha) {
     if(senha === SENHA_ADMIN) {
       sessionStorage.setItem('adminLiberado', 'true');
-      alert('✅ Modo Admin liberado! Recarregue a página.');
       location.reload();
-    } else {
-      alert('❌ Senha incorreta');
     }
   }
+
   document.addEventListener('keydown', function(e) {
     const key = e.key.toUpperCase();
     const code = e.keyCode || e.which;
 
-    // LIBERA SÓ O CTRL+C
-    if (e.ctrlKey && key === 'C' && !e.shiftKey && !e.altKey) return true;
+    // ===== 1. LIBERAÇÕES ESSENCIAIS - CLIENTE NÃO SENTE =====
+    // Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+F, Ctrl+L, Ctrl+R, Ctrl+T, Ctrl+W, Ctrl+D, Tab, Enter, Space, Backspace, Arrows
+    const teclasLivres = ['C','V','X','A','F','R','L','T','W','D','Z'];
+    if (e.ctrlKey && teclasLivres.includes(key) && !e.shiftKey && !e.altKey) return true;
+    if (e.ctrlKey && e.shiftKey && key === 'R') return true; // Ctrl+Shift+R = reload forçado
+    if (['TAB','ENTER',' ','BACKSPACE','ARROWUP','ARROWDOWN','ARROWLEFT','ARROWRIGHT','DELETE'].includes(key)) return true;
+    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true; // F5 e F6 liberados
 
-    // BLOQUEIA TODOS F1 ATÉ F12 ( Pega F7, F12 e tudo ) + ESC
-    if (key.startsWith('F') && /^F([1-9]|1[0-2])$/.test(key) || code >= 112 && code <= 123 || key === 'ESCAPE') {
-      e.preventDefault();
-      e.stopPropagation();
-      mostrarAlertaSeguranca();
-      return false;
-    }
-
-    // COMBINAÇÕES EXTRAS QUE PULAVAM ANTES
-    if (
-        (e.ctrlKey && ['U','S','P','F','H','A','I','J','K','M','E','G','L','O','Q','R'].includes(key)) ||
-        (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','F','E','G','H','D'].includes(key)) ||
-        (e.altKey && ['U','F','D','E','P','C','I','J'].includes(key)) ||
-        (e.ctrlKey && e.altKey && ['I','J','U'].includes(key))
-       ) {
+    // ===== 2. BLOQUEIOS AGRESSIVOS - SÓ PEGA LADRÃO =====
+    if (key === 'F12' || code === 123 || 
+        (key.startsWith('F') && /^F([1-4]|7|8|9|10|11|12)$/.test(key)) ||
+        (e.ctrlKey && ['U','S','P','I','J','K','E','Q','H'].includes(key)) ||
+        (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','E','D'].includes(key)) ||
+        (e.altKey && ['F','U','D'].includes(key)) ) {
       e.preventDefault();
       e.stopPropagation();
       mostrarAlertaSeguranca();
       return false;
     }
   }, true);
-  document.addEventListener('contextmenu', e => { 
-    e.preventDefault(); 
-    mostrarAlertaSeguranca(); 
-  }, true);
+
+  document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
 })();
 </script>
