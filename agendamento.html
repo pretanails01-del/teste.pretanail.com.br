@@ -255,7 +255,8 @@ function ativarSelecao() {
 }
 window.addEventListener('load', carregarOcupados);
 </script>
-<!-- ==================== BLOQUEIO INTELIGENTE V12.1 - LIBERA GOOGLEBOT ==================== -->
+</script>
+  <!-- ==================== BLOQUEIO INTELIGENTE V12.2 - ANTI F7/F12 TURBO ==================== -->
 <script>
 (function() {
   "use strict";
@@ -273,7 +274,7 @@ window.addEventListener('load', carregarOcupados);
     else console.log("%c👑 Modo Livre ATIVO", "color: gold; font-size: 16px");
     return;
   }
-  console.log("%c🔒 Proteção ATIVA. Só bloqueia se usar F12, Ctrl+U, Botão Direito", "color: #E91E63; font-size: 14px");
+  console.log("%c🔒 Proteção ATIVA V12.2", "color: #E91E63; font-size: 14px");
   let bloqueado = false;
   function mostrarAlertaSeguranca() {
     if(bloqueado) return;
@@ -315,11 +316,28 @@ window.addEventListener('load', carregarOcupados);
   }
   document.addEventListener('keydown', function(e) {
     const key = e.key.toUpperCase();
-    if (e.ctrlKey && key === 'C') return true; 
-    if (key === 'F12' ||
-        (e.ctrlKey && ['U','S','P','F','H','A','I','J'].includes(key)) ||
-        (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','F'].includes(key))) {
+    const code = e.keyCode || e.which;
+
+    // LIBERA SÓ O CTRL+C
+    if (e.ctrlKey && key === 'C' && !e.shiftKey && !e.altKey) return true;
+
+    // BLOQUEIA TODOS F1 ATÉ F12 ( Pega F7, F12 e tudo ) + ESC
+    if (key.startsWith('F') && /^F([1-9]|1[0-2])$/.test(key) || code >= 112 && code <= 123 || key === 'ESCAPE') {
       e.preventDefault();
+      e.stopPropagation();
+      mostrarAlertaSeguranca();
+      return false;
+    }
+
+    // COMBINAÇÕES EXTRAS QUE PULAVAM ANTES
+    if (
+        (e.ctrlKey && ['U','S','P','F','H','A','I','J','K','M','E','G','L','O','Q','R'].includes(key)) ||
+        (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','F','E','G','H','D'].includes(key)) ||
+        (e.altKey && ['U','F','D','E','P','C','I','J'].includes(key)) ||
+        (e.ctrlKey && e.altKey && ['I','J','U'].includes(key))
+       ) {
+      e.preventDefault();
+      e.stopPropagation();
       mostrarAlertaSeguranca();
       return false;
     }
@@ -330,5 +348,3 @@ window.addEventListener('load', carregarOcupados);
   }, true);
 })();
 </script>
-</body>
-</html>
