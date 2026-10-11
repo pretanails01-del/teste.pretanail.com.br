@@ -18,8 +18,6 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://pretanail.com.br/">
 
-
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -73,7 +71,7 @@
 
     .btn-duvidas-topo {
       position: fixed;
-      top: 25px; /* AFASTADO 5px */
+      top: 25px;
       right: 25px;
       z-index: 9998;
       background: rgba(255,255,255,0.06);
@@ -94,7 +92,7 @@
     .btn-duvidas-topo:hover { border-color: var(--primary); transform: translateY(-2px); }
     .btn-duvidas-topo:active { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-color: var(--primary); transform: scale(0.96); }
 
-    .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 20px 20px; /* ESPAÇO PRA COROA */ position: relative; }
+    .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 20px 20px; position: relative; }
     .wrap { max-width: 600px; animation: fadeIn 1s ease; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .coroa { font-size: 40px; color: var(--primary); margin-bottom: 15px; filter: drop-shadow(0 0 20px rgba(193,53,132,0.5)); }
@@ -116,6 +114,41 @@
 
     .scroll-down { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: var(--primary); font-size: 24px; animation: bounce 2s infinite; opacity: 0.8; }
     @keyframes bounce { 0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
+
+    /* ===== ABAS ADICIONADAS - NÃO ALTERA NADA DO ORIGINAL ===== */
+    .menu-abas {
+      position: sticky;
+      top: 0;
+      z-index: 9990;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(193,53,132,0.2);
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 16px;
+    }
+    .aba-link {
+      flex: 1;
+      max-width: 220px;
+      text-align: center;
+      padding: 12px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      color: #fff;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(193,53,132,0.3);
+      transition: all 0.3s;
+    }
+    .aba-link:hover, .aba-link.ativa {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(193,53,132,0.4);
+    }
 
     .galeria { padding: 40px 20px 100px 20px; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); }
     .titulo-galeria { text-align: center; margin-bottom: 60px; }
@@ -139,7 +172,7 @@
     .desconto-wrap p { font-size: 15.5px; opacity: 0.95; line-height: 1.7; margin-bottom: 28px; }
 
     .foto-destaque-wrap { max-width: 400px; margin: 0 auto 100px; padding: 30px 25px; text-align: center; background: linear-gradient(135deg, rgba(193,53,132,0.15) 0%, rgba(160,44,110,0.1) 100%); border: 1px solid rgba(193,53,132,0.3); border-radius: 25px; backdrop-filter: blur(20px); box-shadow: 0 15px 50px rgba(193,53,132,0.2); }
-    .foto-destaque-wrap img { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--primary); box-shadow: 0 0 40px rgba(193,53,132,0.5); object-fit: cover; margin-bottom: 20px; cursor: pointer; } /* ADICIONADO CURSOR */
+    .foto-destaque-wrap img { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--primary); box-shadow: 0 0 40px rgba(193,53,132,0.5); object-fit: cover; margin-bottom: 20px; cursor: pointer; }
     .foto-destaque-wrap h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--primary); margin-bottom: 12px; }
     .foto-destaque-wrap p { margin-top: 0; font-size: 14px; opacity: 0.9; line-height: 1.7; }
 
@@ -157,7 +190,7 @@
 
     @media (max-width: 768px) {
       .btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; }
-      .hero { min-height: 85vh; padding: 70px 16px 40px 16px; } /* ESPAÇO PRA COROA NO MOBILE */
+      .hero { min-height: 85vh; padding: 70px 16px 40px 16px; }
       .wrap { max-width: 100%; }
       .slogan { letter-spacing: 2px; font-size: 11px; }
       .tag { font-size: 12px; padding: 10px 20px; }
@@ -177,6 +210,8 @@
       .whatsapp-btn { width: 55px; height: 55px; font-size: 28px; }
       .foto-destaque-wrap { margin: 0 16px 80px; padding: 25px 20px; }
       .desconto-wrap { margin: 0 16px 80px; padding: 30px 20px; }
+      .menu-abas { gap: 6px; padding: 10px 10px; }
+      .aba-link { font-size: 11px; padding: 10px 10px; }
     }
   </style>
 </head>
@@ -188,10 +223,10 @@
 
   <section class="hero">
     <div class="wrap">
-      <div class="coroa">👑</div> <!-- COROA COLOCADA -->
+      <div class="coroa">👑</div>
       <h1>PRETA<span>NAILS</span></h1>
       <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
-      <div class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS EM SÃO PAULO</div> <!-- PALAVRA-CHAVE VISIVEL -->
+      <div class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS EM SÃO PAULO</div>
       <div class="destaque">
         MELHOR<br><small>versão! ♡</small>
       </div>
@@ -217,27 +252,53 @@
     <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>  
   </section>
 
+  <!-- ===== 3 ABAS LINKADAS ===== -->
+  <nav class="menu-abas">
+    <a href="#primeiro-atendimento" class="aba-link ativa"><i class="fas fa-star"></i> Primeiro Atendimento</a>
+    <a href="#modelos" class="aba-link"><i class="fas fa-images"></i> Modelos</a>
+    <a href="#manutencao" class="aba-link"><i class="fas fa-screwdriver-wrench"></i> Manutenção</a>
+  </nav>
+
   <section class="galeria">
-    <div class="titulo-galeria"><h2>Portfólio <span>Preta Nails</span></h2></div>
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1" alt="Alongamento de Unhas de Fibra Preta Nails"></div></div>
-        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1" alt="Unhas de Gel Decoradas Preta Nails"></div></div>
-        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/yvh7487ntc4198bg86bcy/1784512440834_image_1784512439717.jpg?rlkey=eh9s591ggwcbieo9frwyfqhj6&dl=1" alt="Banho de Gel Preta Nails Nail Designer"></div></div>
-        <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/ydggv1tyvubbtrcdpr9zi/1784512429984_image_1784512429123.jpg?rlkey=4knq0q5dbgex0codposfwciur&dl=1" alt="Manicure Profissional Preta Nails"></div></div>
+
+    <!-- ABA 1: PRIMEIRO ATENDIMENTO -->
+    <div id="primeiro-atendimento" style="scroll-margin-top: 80px;">
+      <div class="desconto-wrap">
+        <div class="tag tag-vip"> VAGAS LIMITADAS</div>
+        <h3>Desconto Especial de Lançamento</h3>
+        <p>Estou montando minha carteira VIP. As 20 primeiras clientes ganham condição especial + prioridade no agendamento + brinde surpresa no primeiro atendimento.</p>
+        <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20quero%20garantir%20minha%20vaga%20no%20Desconto%20Especial%20de%20Lan%C3%A7amento%20%F0%9F%92%97" target="_blank" class="btn" style="font-size:17px; padding:20px 40px; margin-top:10px;">
+          QUERO GARANTIR MINHA VAGA AGORA <i class="fas fa-crown"></i>
+        </a>
       </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-pagination"></div>
     </div>
 
-    <div class="desconto-wrap">
-      <div class="tag tag-vip"> VAGAS LIMITADAS</div>
-      <h3>Desconto Especial de Lançamento</h3>
-      <p>Estou montando minha carteira VIP. As 20 primeiras clientes ganham condição especial + prioridade no agendamento + brinde surpresa no primeiro atendimento.</p>
-      <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20quero%20garantir%20minha%20vaga%20no%20Desconto%20Especial%20de%20Lan%C3%A7amento%20%F0%9F%92%97" target="_blank" class="btn" style="font-size:17px; padding:20px 40px; margin-top:10px;">
-        QUERO GARANTIR MINHA VAGA AGORA <i class="fas fa-crown"></i>
-      </a>
+    <!-- ABA 2: MODELOS -->
+    <div id="modelos" style="scroll-margin-top: 80px;">
+      <div class="titulo-galeria"><h2>Portfólio <span>Preta Nails</span></h2></div>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1" alt="Alongamento de Unhas de Fibra Preta Nails"></div></div>
+          <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1" alt="Unhas de Gel Decoradas Preta Nails"></div></div>
+          <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/yvh7487ntc4198bg86bcy/1784512440834_image_1784512439717.jpg?rlkey=eh9s591ggwcbieo9frwyfqhj6&dl=1" alt="Banho de Gel Preta Nails Nail Designer"></div></div>
+          <div class="swiper-slide"><div class="card-glass"><img src="https://dl.dropboxusercontent.com/scl/fi/ydggv1tyvubbtrcdpr9zi/1784512429984_image_1784512429123.jpg?rlkey=4knq0q5dbgex0codposfwciur&dl=1" alt="Manicure Profissional Preta Nails"></div></div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- ABA 3: MANUTENÇÃO -->
+    <div id="manutencao" style="scroll-margin-top: 80px;">
+      <div class="desconto-wrap" style="border-style: dashed;">
+        <div class="tag tag-vip"><i class="fas fa-screwdriver-wrench"></i> MANUTENÇÃO</div>
+        <h3>Manutenção Perfeita</h3>
+        <p>Mantenha seu alongamento sempre impecável. Recomendado a cada 20 a 25 dias para manter a beleza, resistência e saúde das suas unhas. Agende sua manutenção e garanta unhas sempre poderosas.</p>
+        <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20quero%20agendar%20minha%20manuten%C3%A7%C3%A3o%20%F0%9F%92%85" target="_blank" class="btn" style="font-size:16px; padding:18px 36px; margin-top:10px;">
+          AGENDAR MANUTENÇÃO AGORA <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
     </div>
 
     <div class="foto-destaque-wrap">
@@ -254,7 +315,6 @@
       <div class="selo"><i class="fas fa-file-contract"></i> LGPD - Consentimento</div>
       <div class="selo"><i class="fas fa-lock"></i> Site Seguro SSL</div>
     </div>
-
 <p>© 2026 Preta Nails. Todos os direitos reservados. | Seus dados estão seguros conosco.</p>
   </footer>
   
@@ -273,6 +333,17 @@
       autoplay: { delay: 4000, disableOnInteraction: false },
       navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
       pagination: { el: '.swiper-pagination', clickable: true }
+    });
+
+    // SCROLL SUAVE DAS ABAS E ATIVAÇÃO
+    document.querySelectorAll('.aba-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelectorAll('.aba-link').forEach(l => l.classList.remove('ativa'));
+        this.classList.add('ativa');
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) target.scrollIntoView({ behavior: 'smooth' });
+      });
     });
   </script>
 
@@ -383,12 +454,11 @@ document.getElementById('foto-sabrina').addEventListener('click', function() {
     const code = e.keyCode || e.which;
 
     // ===== 1. LIBERAÇÕES ESSENCIAIS - CLIENTE NÃO SENTE =====
-    // Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+F, Ctrl+L, Ctrl+R, Ctrl+T, Ctrl+W, Ctrl+D, Tab, Enter, Space, Backspace, Arrows
     const teclasLivres = ['C','V','X','A','F','R','L','T','W','D','Z'];
     if (e.ctrlKey && teclasLivres.includes(key) && !e.shiftKey && !e.altKey) return true;
-    if (e.ctrlKey && e.shiftKey && key === 'R') return true; // Ctrl+Shift+R = reload forçado
+    if (e.ctrlKey && e.shiftKey && key === 'R') return true;
     if (['TAB','ENTER',' ','BACKSPACE','ARROWUP','ARROWDOWN','ARROWLEFT','ARROWRIGHT','DELETE'].includes(key)) return true;
-    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true; // F5 e F6 liberados
+    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true;
 
     // ===== 2. BLOQUEIOS AGRESSIVOS - SÓ PEGA LADRÃO =====
     if (key === 'F12' || code === 123 || 
@@ -406,3 +476,5 @@ document.getElementById('foto-sabrina').addEventListener('click', function() {
   document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
 })();
 </script>
+</body>
+</html>
