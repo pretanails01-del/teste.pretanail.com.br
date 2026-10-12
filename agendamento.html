@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a0a" id="meta-theme-color">
+<script>!function(){var t=localStorage.getItem('preta-theme')||'dark';if(t==='light')document.documentElement.setAttribute('data-theme','light');}();</script>
+<link rel="stylesheet" href="theme.css">
 <title>Agendamento Online | Preta Nails - Alongamento de Unhas em Gel e Fibra em São Paulo - Sabrina Lemos</title>
 <meta name="description" content="Agende seu horário online com Sabrina Lemos na Preta Nails. Especialista em Alongamento de Unhas em Gel, Fibra de Vidro, Manutenção e Banho de Gel em São Paulo. Nail Designer Profissional.">
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
@@ -17,6 +19,15 @@
   --bg: #080808;
   --card: #121212;
   --border: rgba(255,45,146,0.3);
+}
+[data-theme="light"]{
+  --primary:#C13584;
+  --primary-dark:#a02c6e;
+  --text:#1D1D1F;
+  --text-muted:rgba(29,29,31,.65);
+  --bg:#FFFAFC;
+  --card:#FFFFFF;
+  --border:rgba(193,53,132,.16);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { 
@@ -89,6 +100,7 @@ h1 span { color:var(--text); font-weight: 400; }
   cursor: pointer; 
   transition: 0.2s; 
 }
+[data-theme="light"] .horario{background:#fff;border-color:var(--border)}
 .horario:hover { 
   background: var(--primary); 
   color: #000;
@@ -96,6 +108,7 @@ h1 span { color:var(--text); font-weight: 400; }
   transform: scale(1.03); 
   font-weight: 800;
 }
+[data-theme="light"] .horario:hover{color:#fff}
 .horario.selecionado { 
   background: var(--primary); 
   color: #000;
@@ -103,6 +116,7 @@ h1 span { color:var(--text); font-weight: 400; }
   box-shadow: 0 0 25px rgba(255,45,146,0.7); 
   font-weight: 800;
 }
+[data-theme="light"] .horario.selecionado{color:#fff;border-color:var(--primary)}
 .horario.ocupado { 
   background: #0A0A0A; 
   border-color: #1A1A1A; 
@@ -126,6 +140,7 @@ h1 span { color:var(--text); font-weight: 400; }
   text-transform: uppercase; 
   letter-spacing: 1.5px;
 }
+[data-theme="light"] .btn{color:#fff}
 .btn:hover { 
   transform: translateY(-3px); 
   box-shadow: 0 15px 50px rgba(255,45,146,0.8); 
@@ -139,11 +154,13 @@ h1 span { color:var(--text); font-weight: 400; }
   text-transform: none;
   letter-spacing: 0;
 }
+[data-theme="light"] .btn-voltar{background:#fff;color:var(--text)}
 .btn-voltar:hover { 
   background: var(--primary); 
   color: #000;
   border-color: var(--primary); 
 }
+[data-theme="light"] .btn-voltar:hover{color:#fff}
 .obs { 
   color: var(--text-muted); 
   text-align:center; 
@@ -166,6 +183,7 @@ h1 span { color:var(--text); font-weight: 400; }
   text-align: center;
   background: #0A0A0A;
 }
+[data-theme="light"] .sobre-studio{background:#fff}
 .sobre-studio h2 {
   font-family: 'Playfair Display', serif;
   font-size: 30px;
@@ -189,14 +207,13 @@ h1 span { color:var(--text); font-weight: 400; }
 </style>
 </head>
 <body>
-
+<button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
 <div class="container">
   <div class="topo">
     <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" alt="Sabrina Lemos Nail Designer Preta Nails Sao Paulo" class="logo">
     <h1>PRETA<span>NAILS</span></h1>
     <div class="sub">Agende Seu Momento</div>
   </div>
-
   <div id="loading" class="loading">CARREGANDO DISPONIBILIDADE</div>
   <div class="semana" id="semanaContainer" style="display:none;">
     <div class="dia"><h3>Terça</h3><div class="horario" data-dia="Terça" data-hora="07:00 às 09:00">07:00 às 09:00</div><div class="horario" data-dia="Terça" data-hora="09:00 às 11:00">09:00 às 11:00</div><div class="horario" data-dia="Terça" data-hora="11:00 às 13:00">11:00 às 13:00</div><div class="horario" data-dia="Terça" data-hora="13:00 às 15:00">13:00 às 15:00</div><div class="horario" data-dia="Terça" data-hora="15:00 às 17:00">15:00 às 17:00</div></div>
@@ -205,14 +222,12 @@ h1 span { color:var(--text); font-weight: 400; }
     <div class="dia"><h3>Sexta</h3><div class="horario" data-dia="Sexta" data-hora="07:00 às 09:00">07:00 às 09:00</div><div class="horario" data-dia="Sexta" data-hora="09:00 às 11:00">09:00 às 11:00</div><div class="horario" data-dia="Sexta" data-hora="11:00 às 13:00">11:00 às 13:00</div><div class="horario" data-dia="Sexta" data-hora="13:00 às 15:00">13:00 às 15:00</div><div class="horario" data-dia="Sexta" data-hora="15:00 às 17:00">15:00 às 17:00</div></div>
     <div class="dia"><h3>Sábado</h3><div class="horario" data-dia="Sábado" data-hora="07:00 às 09:00">07:00 às 09:00</div><div class="horario" data-dia="Sábado" data-hora="09:00 às 11:00">09:00 às 11:00</div><div class="horario" data-dia="Sábado" data-hora="11:00 às 13:00">11:00 às 13:00</div><div class="horario" data-dia="Sábado" data-hora="13:00 às 15:00">13:00 às 15:00</div><div class="horario" data-dia="Sábado" data-hora="15:00 às 17:00">15:00 às 17:00</div></div>
   </div>
-
   <div class="botoes-acao">
     <a id="btnFicha" href="fichadeassinatura.html" class="btn" style="display:none;"><i class="fas fa-file-signature"></i> Confirmar Agendamento</a>
     <a href="index.html" class="btn btn-voltar"><i class="fas fa-arrow-left"></i> Voltar</a>
     <p class="obs">* Selecione um horário para continuar</p>
   </div>
 </div>
-
 <div class="sobre-studio">
   <h2>Preta Nails - Nail Designer em São Paulo</h2>
   <p>
@@ -221,10 +236,8 @@ h1 span { color:var(--text); font-weight: 400; }
     Atendimento premium com foco em unhas elegantes e duradouras.
   </p>
 </div>
-
 <script>
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbx7HHxLWed7STrR90uct44kdaTO9MVuJDQss4lfJ3-COwuL0ewD2ZJhCDjortsHA-g/exec";
-
 async function carregarOcupados() {
   try {
     const res = await fetch(WEB_APP_URL + '?action=getHorarios', { method: 'GET', mode: 'cors' });
@@ -240,7 +253,6 @@ async function carregarOcupados() {
     document.getElementById('loading').innerText = 'Erro ao carregar. Recarregue a página.';
   }
 }
-
 function ativarSelecao() {
   document.querySelectorAll('.horario').forEach(h => {
     h.addEventListener('click', () => {
@@ -256,6 +268,7 @@ function ativarSelecao() {
 window.addEventListener('load', carregarOcupados);
 </script>
 </script>
+<script src="theme.js"></script>
   <!-- ==================== BLOQUEIO V12.3 - MODO CLIENTE INVISÍVEL ==================== -->
 <script>
 (function() {
@@ -267,7 +280,6 @@ window.addEventListener('load', carregarOcupados);
   const urlParams = new URLSearchParams(window.location.search);
   if(urlParams.get('admin') === SENHA_ADMIN) sessionStorage.setItem('adminLiberado', 'true');
   if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile || isGoogleBot) return;
-
   let bloqueado = false;
   function mostrarAlertaSeguranca() {
     if(bloqueado) return;
@@ -298,27 +310,20 @@ window.addEventListener('load', carregarOcupados);
         </div>
       </body>`;
   }
-
   window.liberar = function(senha) {
     if(senha === SENHA_ADMIN) {
       sessionStorage.setItem('adminLiberado', 'true');
       location.reload();
     }
   }
-
   document.addEventListener('keydown', function(e) {
     const key = e.key.toUpperCase();
     const code = e.keyCode || e.which;
-
-    // ===== 1. LIBERAÇÕES ESSENCIAIS - CLIENTE NÃO SENTE =====
-    // Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+F, Ctrl+L, Ctrl+R, Ctrl+T, Ctrl+W, Ctrl+D, Tab, Enter, Space, Backspace, Arrows
     const teclasLivres = ['C','V','X','A','F','R','L','T','W','D','Z'];
     if (e.ctrlKey && teclasLivres.includes(key) && !e.shiftKey && !e.altKey) return true;
-    if (e.ctrlKey && e.shiftKey && key === 'R') return true; // Ctrl+Shift+R = reload forçado
+    if (e.ctrlKey && e.shiftKey && key === 'R') return true;
     if (['TAB','ENTER',' ','BACKSPACE','ARROWUP','ARROWDOWN','ARROWLEFT','ARROWRIGHT','DELETE'].includes(key)) return true;
-    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true; // F5 e F6 liberados
-
-    // ===== 2. BLOQUEIOS AGRESSIVOS - SÓ PEGA LADRÃO =====
+    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true;
     if (key === 'F12' || code === 123 || 
         (key.startsWith('F') && /^F([1-4]|7|8|9|10|11|12)$/.test(key)) ||
         (e.ctrlKey && ['U','S','P','I','J','K','E','Q','H'].includes(key)) ||
@@ -330,7 +335,8 @@ window.addEventListener('load', carregarOcupados);
       return false;
     }
   }, true);
-
   document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
 })();
 </script>
+</body>
+</html>
