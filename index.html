@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#C13584">
+  <meta name="theme-color" content="#C13584" id="meta-theme-color">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Preta Nails">
@@ -21,72 +21,87 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <style>
-    :root { --primary: #C13584; --primary-dark: #a02c6e; --bg: #0a0a0a; --text: #ffffff; --whatsapp: #25D366; }
+    :root { --primary: #C13584; --primary-dark: #a02c6e; --bg: #0a0a0a; --bg2:#050505; --text: #ffffff; --muted: rgba(255,255,255,0.7); --card: rgba(255,255,255,0.04); --border: rgba(193,53,132,0.25); }
+    [data-theme="light"] { --bg: #FFFAFC; --bg2: #FFFFFF; --text: #1D1D1F; --muted: rgba(29,29,31,0.65); --card: #FFFFFF; --border: rgba(193,53,132,0.16); }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
-    /* BOTAO BAIXAR APP AGORA TRANSPARENTE IGUAL YOUTUBE/INSTA */
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; transition: background .35s, color .35s; }
+    
+    /* BOTAO TEMA */
+    .theme-btn{position:fixed;top:25px;left:25px;z-index:10000;background:var(--card);border:1px solid var(--border);backdrop-filter:blur(12px);color:var(--text);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.3s;box-shadow:0 6px 20px rgba(0,0,0,.12)}
+    .theme-btn:hover{transform:translateY(-2px);border-color:var(--primary);color:var(--primary)}
+    .theme-btn:active{transform:scale(.92)}
+
     #btn-instalar-app { display: none; background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.3); color: #fff; padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 14px; cursor: pointer; margin-top: 15px; width: 100%; justify-content: center; align-items: center; gap: 8px; backdrop-filter: blur(10px); transition: all 0.3s; }
-    #btn-instalar-app:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-2px); }
-    #btn-instalar-app:active { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-color: var(--primary); transform: scale(0.96); }
+    [data-theme="light"] #btn-instalar-app{background:#fff;color:var(--text);border-color:var(--border)}
+    #btn-instalar-app:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-2px); color:#fff }
     .btn-duvidas-topo { position: fixed; top: 25px; right: 25px; z-index: 9998; background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.4); backdrop-filter: blur(10px); color: #fff; padding: 10px 18px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; white-space: nowrap; }
+    [data-theme="light"] .btn-duvidas-topo{background:#fff;color:var(--text);border-color:var(--border);box-shadow:0 4px 15px rgba(0,0,0,.06)}
     .btn-duvidas-topo:hover { border-color: var(--primary); transform: translateY(-2px); }
-    .btn-duvidas-topo:active { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-color: var(--primary); transform: scale(0.96); }
     .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 20px 20px; position: relative; }
+    [data-theme="light"] .hero{background: linear-gradient(rgba(255,250,252,0.55), rgba(255,250,252,0.95)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat;}
     .wrap { max-width: 600px; animation: fadeIn 1s ease; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .coroa { font-size: 40px; color: var(--primary); margin-bottom: 15px; filter: drop-shadow(0 0 20px rgba(193,53,132,0.5)); }
     h1 { font-family: 'Playfair Display', serif; font-size: clamp(48px, 8vw, 72px); font-weight: 900; line-height: 1; margin: 0; }
     h1 span { color: var(--primary); }
-    .slogan { font-size: 13px; letter-spacing: 4px; margin: 12px 0 30px; opacity: 0.7; font-weight: 600; }
+    .slogan { font-size: 13px; letter-spacing: 4px; margin: 12px 0 30px; opacity: 0.7; font-weight: 600; color:var(--muted) }
     .tag { border: 1px solid var(--primary); border-radius: 50px; padding: 12px 24px; display: inline-block; font-weight: 700; font-size: 14px; margin-bottom: 20px; background: rgba(193,53,132,0.1); }
+    [data-theme="light"] .tag{background:#fff;box-shadow:0 2px 10px rgba(193,53,132,.08)}
     .destaque { font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 80px); font-weight: 900; color: var(--primary); line-height: 0.9; }
-    .destaque small { font-size: 32px; font-style: italic; color: #fff; display: block; line-height: 1.2; font-weight: 400; }
+    .destaque small { font-size: 32px; font-style: italic; color: var(--text); display: block; line-height: 1.2; font-weight: 400; }
     .btn { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 18px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); transition: all 0.3s; border: none; cursor: pointer; }
     .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
     .btn::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); animation: glitter 2.5s infinite; }
     @keyframes glitter { 0% { left: -100%; } 100% { left: 200%; } }
     .social-btns { display: flex; gap: 12px; justify-content: center; margin-top: 20px; }
     .btn-social { background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.3); color: #fff; padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s; backdrop-filter: blur(10px); }
-    .btn-social:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-2px); }
-    .btn-social:active { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-color: var(--primary); transform: scale(0.96); }
+    [data-theme="light"] .btn-social{background:#fff;color:var(--text);border-color:var(--border);box-shadow:0 4px 15px rgba(0,0,0,.05)}
+    .btn-social:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-2px); color:#fff }
     .scroll-down { position: relative; display: flex; justify-content: center; margin: 18px auto 0 auto; color: var(--primary); font-size: 22px; animation: bounce 2s infinite; opacity: 0.9; }
     @keyframes bounce { 0%,20%,50%,80%,100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
-    .galeria { padding: 40px 20px 100px 20px; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); }
+    .galeria { padding: 40px 20px 100px 20px; background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%); }
     .titulo-galeria { text-align: center; margin-bottom: 20px; }
     .titulo-galeria h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 48px); }
     .titulo-galeria h2 span { color: var(--primary); }
-    /* 3 SELOS NO MEIO */
     .selos-meio { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 0 auto 35px; max-width: 700px; }
-    .selos-meio span { background: rgba(255,255,255,0.04); border: 1px solid rgba(193,53,132,0.25); border-radius: 50px; padding: 9px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 7px; backdrop-filter: blur(10px); }
+    .selos-meio span { background: var(--card); border: 1px solid var(--border); border-radius: 50px; padding: 9px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 7px; backdrop-filter: blur(10px); box-shadow:0 4px 15px rgba(0,0,0,.04); }
     .selos-meio span i { color: var(--primary); font-size: 13px; }
     .swiper { max-width: 900px; margin: auto; padding: 20px 0 70px 0; }
-    .card-glass { background: rgba(255,255,255,0.04); border: 1px solid rgba(193,53,132,0.25); border-radius: 25px; backdrop-filter: blur(20px); padding: 20px; transition: all 0.4s; box-shadow: 0 15px 50px rgba(0,0,0,0.6); }
+    .card-glass { background: var(--card); border: 1px solid var(--border); border-radius: 25px; backdrop-filter: blur(20px); padding: 20px; transition: all 0.4s; box-shadow: 0 15px 50px rgba(0,0,0,0.12); }
     .card-glass:hover { border-color: var(--primary); transform: translateY(-10px); }
     .card-glass img { width: 100%; height: auto; max-height: 650px; object-fit: contain; border-radius: 18px; display: block; background: #000; }
+    [data-theme="light"] .card-glass img{background:#fff}
     .swiper-button-next, .swiper-button-prev { color: var(--primary) !important; background: rgba(0,0,0,0.6); width: 55px; height: 55px; border-radius: 50%; border: 1.5px solid var(--primary); backdrop-filter: blur(10px); transition: 0.3s; }
+    [data-theme="light"] .swiper-button-next,[data-theme="light"] .swiper-button-prev{background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.08)}
     .swiper-button-next:hover, .swiper-button-prev:hover { background: var(--primary); color: #fff !important; }
     .swiper-button-next:after, .swiper-button-prev:after { font-size: 20px !important; font-weight: 900; }
     .swiper-pagination-bullet { background: rgba(255,255,255,0.3) !important; width: 12px; height: 12px; }
     .swiper-pagination-bullet-active { background: var(--primary) !important; }
     .desconto-wrap { max-width: 600px; margin: 0 auto 80px; padding: 40px 30px; text-align: center; background: linear-gradient(135deg, rgba(193,53,132,0.22) 0%, rgba(160,44,110,0.15) 100%); border: 2px solid var(--primary); border-radius: 25px; backdrop-filter: blur(20px); box-shadow: 0 15px 50px rgba(193,53,132,0.3); }
+    [data-theme="light"] .desconto-wrap{background:linear-gradient(135deg,#fff 0%,#FFF0F6 100%);box-shadow:0 15px 50px rgba(193,53,132,.12)}
     .desconto-wrap .tag-vip { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border: none; color: #fff; font-size: 13px; letter-spacing: 3px; padding: 8px 20px; border-radius: 50px; }
     .desconto-wrap h3 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 36px); color: var(--primary); margin: 20px 0 15px; line-height: 1.1; }
-    .desconto-wrap p { font-size: 15.5px; opacity: 0.95; line-height: 1.7; margin-bottom: 12px; }
-    .foto-destaque-wrap { max-width: 400px; margin: 0 auto 100px; padding: 30px 25px; text-align: center; background: linear-gradient(135deg, rgba(193,53,132,0.15) 0%, rgba(160,44,110,0.1) 100%); border: 1px solid rgba(193,53,132,0.3); border-radius: 25px; backdrop-filter: blur(20px); box-shadow: 0 15px 50px rgba(193,53,132,0.2); }
+    .desconto-wrap p { font-size: 15.5px; opacity: 0.95; line-height: 1.7; margin-bottom: 12px; color:var(--muted) }
+    [data-theme="dark"] .desconto-wrap p{color:rgba(255,255,255,.95)}
+    .foto-destaque-wrap { max-width: 400px; margin: 0 auto 100px; padding: 30px 25px; text-align: center; background: linear-gradient(135deg, rgba(193,53,132,0.15) 0%, rgba(160,44,110,0.1) 100%); border: 1px solid var(--border); border-radius: 25px; backdrop-filter: blur(20px); box-shadow: 0 15px 50px rgba(193,53,132,0.2); }
+    [data-theme="light"] .foto-destaque-wrap{background:#fff;box-shadow:0 15px 50px rgba(193,53,132,.08)}
     .foto-destaque-wrap img { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--primary); box-shadow: 0 0 40px rgba(193,53,132,0.5); object-fit: cover; margin-bottom: 20px; cursor: pointer; }
     .foto-destaque-wrap h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--primary); margin-bottom: 12px; }
-    .foto-destaque-wrap p { margin-top: 0; font-size: 14px; opacity: 0.9; line-height: 1.7; }
-    .footer { background: #050505; border-top: 1px solid rgba(193,53,132,0.2); padding: 50px 20px 30px; text-align: center; }
+    .foto-destaque-wrap p { margin-top: 0; font-size: 14px; opacity: 0.9; line-height: 1.7; color:var(--muted) }
+    [data-theme="dark"] .foto-destaque-wrap p{color:rgba(255,255,255,.9)}
+    .footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 50px 20px 30px; text-align: center; }
     .footer-selos { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
-    .selo { background: rgba(193,53,132,0.08); border: 1px solid rgba(193,53,132,0.3); border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; }
+    .selo { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; }
     .selo i { color: var(--primary); font-size: 18px; }
-    .footer p { font-size: 12px; opacity: 0.5; margin-top: 15px; }
+    .footer p { font-size: 12px; opacity: 0.5; margin-top: 15px; color:var(--muted) }
     .whatsapp-float { position: fixed; bottom: 80px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
     .whatsapp-btn { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 32px; box-shadow: 0 8px 25px rgba(193,53,132,0.5); transition: all 0.3s; animation: pulse 2s infinite; }
     .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(193,53,132,0.7); }
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(193,53,132,0.6); } 70% { box-shadow: 0 0 0 15px rgba(193,53,132,0); } 100% { box-shadow: 0 0 0 0 rgba(193,53,132,0); } }
     .whatsapp-text { font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 20px; backdrop-filter: blur(10px); letter-spacing: 0.5px; text-align: center; }
+    [data-theme="light"] .whatsapp-text{background:var(--text);color:#fff}
     @media (max-width: 768px) {
+      .theme-btn{top:15px;left:16px;width:40px;height:40px}
       .btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; }
       .hero { min-height: 85vh; padding: 70px 16px 40px 16px; }
       .wrap { max-width: 100%; }
@@ -112,12 +127,14 @@
   <style>
     .menu-abas-3{position:static;background:transparent;backdrop-filter:none;border-bottom:none;display:flex;justify-content:center;gap:6px;padding:16px 0 0 0;margin-top:4px}
     .menu-abas-3 a{flex:1;max-width:200px;text-align:center;padding:10px 8px;border-radius:50px;text-decoration:none;font-weight:800;font-size:10.5px;color:#fff;background:rgba(255,255,255,0.06);border:1px solid rgba(193,53,132,0.35);transition:.3s;display:inline-flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap}
-    .menu-abas-3 a:hover{background:linear-gradient(135deg,#C13584 0%,#a02c6e 100%);border-color:#C13584;transform:translateY(-2px);box-shadow:0 8px 20px rgba(193,53,132,.4)}
+    [data-theme="light"] .menu-abas-3 a{background:#fff;color:var(--text);border-color:var(--border);box-shadow:0 2px 10px rgba(0,0,0,.05)}
+    .menu-abas-3 a:hover{background:linear-gradient(135deg,#C13584 0%,#a02c6e 100%);border-color:#C13584;transform:translateY(-2px);box-shadow:0 8px 20px rgba(193,53,132,.4);color:#fff}
     @media(max-width:768px){.menu-abas-3{gap:5px;padding:14px 0 0 0}.menu-abas-3 a{font-size:9.5px;padding:9px 6px;letter-spacing:-0.2px}}
   </style>
 </head>
 <body>
-  <a href="duvidas.html" class="btn-duvidas-topo" onclick="event.stopPropagation()">
+  <button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
+  <a href="duvidas.html" class="btn-duvidas-topo">
     <i class="fas fa-circle-question"></i> Dúvidas Frequentes
   </a>
   <section class="hero">
@@ -143,7 +160,6 @@
   </section>
   <section class="galeria">
     <div class="titulo-galeria"><h2>Portfólio <span>Preta Nails</span></h2></div>
-    <!-- 3 SELOS NO MEIO - ADICIONADO AGORA -->
     <div class="selos-meio">
       <span><i class="fas fa-shield-halved"></i> Biossegurança Real</span>
       <span><i class="fas fa-crown"></i> 1 Cliente por Vez</span>
@@ -164,8 +180,7 @@
       <div class="tag tag-vip"> VAGAS LIMITADAS</div>
       <h3>Desconto Especial de Lançamento</h3>
       <p>Estou montando minha carteira VIP. As 20 primeiras clientes ganham condição especial + prioridade no agendamento + brinde surpresa no primeiro atendimento.</p>
-      <!-- CTA POUCAS VAGAS ESSA SEMANA SEM QUANTIDADE -->
-      <div style="margin: 15px 0 5px; background: rgba(0,0,0,0.3); border: 1px dashed rgba(193,53,132,0.5); border-radius: 50px; padding: 8px 18px; display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: 1px; color: #ff7abf;">
+      <div id="badgeVagas" style="margin: 15px 0 5px; background: rgba(0,0,0,0.3); border: 1px dashed rgba(193,53,132,0.5); border-radius: 50px; padding: 8px 18px; display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: 1px; color: #ff7abf;">
         <i class="fas fa-fire"></i> POUCAS VAGAS ESSA SEMANA
       </div>
       <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20quero%20garantir%20minha%20vaga%20no%20Desconto%20Especial%20de%20Lan%C3%A7amento%20%F0%9F%92%97" target="_blank" class="btn" style="font-size:17px; padding:20px 40px; margin-top:18px;">QUERO GARANTIR MINHA VAGA AGORA <i class="fas fa-crown"></i></a>
@@ -221,6 +236,37 @@ window.addEventListener('appinstalled', () => { btnInstalar.style.display = 'non
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
 </script>
 <script>
+// TEMA - SEM BLOQUEIO
+(function(){
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const icon = document.getElementById('themeIcon');
+  const meta = document.getElementById('meta-theme-color');
+  const badge = document.getElementById('badgeVagas');
+  const saved = localStorage.getItem('preta-theme') || 'dark';
+  function apply(t){
+    html.setAttribute('data-theme', t);
+    localStorage.setItem('preta-theme', t);
+    if(t==='light'){
+      icon.className='fas fa-moon';
+      meta.content='#FFFAFC';
+      if(badge){ badge.style.background='rgba(193,53,132,0.08)'; badge.style.color='#C13584'; }
+    }else{
+      icon.className='fas fa-sun';
+      meta.content='#0a0a0a';
+      if(badge){ badge.style.background='rgba(0,0,0,0.3)'; badge.style.color='#ff7abf'; }
+    }
+  }
+  apply(saved);
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    const cur = html.getAttribute('data-theme');
+    apply(cur==='dark'?'light':'dark');
+  });
+})();
+</script>
+<script>
+// 5 CLIQUES NA FOTO VAI PRO PAINEL - MANTIDO
 let clickCount = 0;
 document.getElementById('foto-sabrina').addEventListener('click', function() {
   clickCount++;
@@ -228,99 +274,9 @@ document.getElementById('foto-sabrina').addEventListener('click', function() {
     window.location.href = 'controleagendamento.html';
   }
 });
-(function() {
-  "use strict";
-  const SENHA_ADMIN = "preta2026"; 
-  const paginaAtual = window.location.pathname.toLowerCase();
-  const paginasLiberadas = ['/duvidas.html', '/duvidas', '/faq.html', '/faq'];
-  const isPaginaLiberada = paginasLiberadas.some(p => paginaAtual.includes(p));
-  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  const urlParams = new URLSearchParams(window.location.search);
-  const liberouPorLink = urlParams.get('admin') === SENHA_ADMIN;
-  if(liberouPorLink) { sessionStorage.setItem('adminLiberado', 'true'); }
-  if (sessionStorage.getItem('adminLiberado') === 'true' || isPaginaLiberada) { return; }
-  if (isLocal || isMobile) { return; }
-  let bloqueado = false;
-  function mostrarAlertaSeguranca() {
-    if(bloqueado) return; bloqueado = true;
-    document.documentElement.innerHTML = `<body style="margin:0;padding:0;background:#F8F9FA;font-family:'Google Sans', Roboto, Arial, sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;"><div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.12);"><h2 style="color:#E91E63;">Preta Nails - Navegação Segura</h2><p>Acesso ao código-fonte bloqueado</p><button onclick="window.location.reload()" style="padding:12px 24px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;">Entendi</button></div></body>`;
-  }
-  document.addEventListener('keydown', function(e) { if (e.key === 'F12') { e.preventDefault(); mostrarAlertaSeguranca(); } }, true);
-  document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
-})();
 </script>
 <script>
-(function() {
-  "use strict";
-  const SENHA_ADMIN = "preta2026"; 
-  const isGoogleBot = /googlebot|google-inspection|adsbot-google|mediapartners-google|apis-google|chrome-lighthouse|gtmetrix|lighthouse|bingbot|yandex|duckduckbot/i.test(navigator.userAgent);
-  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  const urlParams = new URLSearchParams(window.location.search);
-  if(urlParams.get('admin') === SENHA_ADMIN) sessionStorage.setItem('adminLiberado', 'true');
-  if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile || isGoogleBot) return;
-  let bloqueado = false;
-  function mostrarAlertaSeguranca() {
-    if(bloqueado) return;
-    bloqueado = true;
-    document.documentElement.innerHTML = `
-      <body style="margin:0;padding:0;background:#F8F9FA;font-family:'Google Sans', Roboto, Arial, sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;">
-        <div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
-          <div style="display:flex;align-items:center;margin-bottom:25px;">
-            <div style="font-size:40px;margin-right:15px;">🛡️</div>
-            <div>
-              <h2 style="font-size:24px;margin:0;color:#E91E63;">Preta Nails - Navegação Segura</h2>
-              <p style="font-size:13px;margin:2px 0 0 0;color:#5F6368;">Sistema de Proteção da Loja</p>
-            </div>
-          </div>
-          <h3 style="font-size:18px;margin-bottom:12px;color:#202124;">Acesso avançado detectado</h3>
-          <p style="font-size:15px;line-height:1.6;color:#3C4043;margin-bottom:20px;">
-            Por segurança, detectamos uma tentativa de acesso ao código-fonte da <strong>Preta Nails</strong>. 
-            Para proteger nossos produtos e dados, o acesso foi bloqueado.
-          </p>
-          <p style="font-size:14px;line-height:1.6;color:#5F6368;margin-bottom:25px;">
-            <strong>Você pode continuar:</strong><br>
-            - Navegando e comprando normalmente pelo <strong>celular</strong> 💅<br>
-            - Usando <strong>Ctrl+C</strong> para copiar PIX e informações
-          </p>
-          <button onclick="window.location.reload()" style="padding:12px 24px;font-size:14px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;font-weight:500;">
-            Entendi e Voltar para Loja
-          </button>
-        </div>
-      </body>`;
-  }
-  window.liberar = function(senha) {
-    if(senha === SENHA_ADMIN) {
-      sessionStorage.setItem('adminLiberado', 'true');
-      location.reload();
-    }
-  }
-  document.addEventListener('keydown', function(e) {
-    const key = e.key.toUpperCase();
-    const code = e.keyCode || e.which;
-    const teclasLivres = ['C','V','X','A','F','R','L','T','W','D','Z'];
-    if (e.ctrlKey && teclasLivres.includes(key) && !e.shiftKey && !e.altKey) return true;
-    if (e.ctrlKey && e.shiftKey && key === 'R') return true;
-    if (['TAB','ENTER',' ','BACKSPACE','ARROWUP','ARROWDOWN','ARROWLEFT','ARROWRIGHT','DELETE'].includes(key)) return true;
-    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true;
-    if (key === 'F12' || code === 123 || 
-        (key.startsWith('F') && /^F([1-4]|7|8|9|10|11|12)$/.test(key)) ||
-        (e.ctrlKey && ['U','S','P','I','J','K','E','Q','H'].includes(key)) ||
-        (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','E','D'].includes(key)) ||
-        (e.altKey && ['F','U','D'].includes(key)) ) {
-      e.preventDefault();
-      e.stopPropagation();
-      mostrarAlertaSeguranca();
-      return false;
-    }
-  }, true);
-  document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
-})();
-</script>
-
-<!-- MOVIMENTO LEVE MAS PERCEPTIVEL - 3X POR SESSAO - ADICIONADO AGORA -->
-<script>
+// EFEITO SCROLL SUAVE
 (function(){
   let contador = 0;
   let maxVezes = 3;
@@ -338,6 +294,5 @@ document.getElementById('foto-sabrina').addEventListener('click', function() {
   intervalo.forEach(t=>{ setTimeout(fazerHint, t); });
 })();
 </script>
-
 </body>
 </html>
