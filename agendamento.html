@@ -280,6 +280,7 @@ window.addEventListener('load', carregarOcupados);
   const urlParams = new URLSearchParams(window.location.search);
   if(urlParams.get('admin') === SENHA_ADMIN) sessionStorage.setItem('adminLiberado', 'true');
   if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile || isGoogleBot) return;
+
   let bloqueado = false;
   function mostrarAlertaSeguranca() {
     if(bloqueado) return;
@@ -310,20 +311,27 @@ window.addEventListener('load', carregarOcupados);
         </div>
       </body>`;
   }
+
   window.liberar = function(senha) {
     if(senha === SENHA_ADMIN) {
       sessionStorage.setItem('adminLiberado', 'true');
       location.reload();
     }
   }
+
   document.addEventListener('keydown', function(e) {
     const key = e.key.toUpperCase();
     const code = e.keyCode || e.which;
+
+    // ===== 1. LIBERAÇÕES ESSENCIAIS - CLIENTE NÃO SENTE =====
+    // Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+F, Ctrl+L, Ctrl+R, Ctrl+T, Ctrl+W, Ctrl+D, Tab, Enter, Space, Backspace, Arrows
     const teclasLivres = ['C','V','X','A','F','R','L','T','W','D','Z'];
     if (e.ctrlKey && teclasLivres.includes(key) && !e.shiftKey && !e.altKey) return true;
-    if (e.ctrlKey && e.shiftKey && key === 'R') return true;
+    if (e.ctrlKey && e.shiftKey && key === 'R') return true; // Ctrl+Shift+R = reload forçado
     if (['TAB','ENTER',' ','BACKSPACE','ARROWUP','ARROWDOWN','ARROWLEFT','ARROWRIGHT','DELETE'].includes(key)) return true;
-    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true;
+    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true; // F5 e F6 liberados
+
+    // ===== 2. BLOQUEIOS AGRESSIVOS - SÓ PEGA LADRÃO =====
     if (key === 'F12' || code === 123 || 
         (key.startsWith('F') && /^F([1-4]|7|8|9|10|11|12)$/.test(key)) ||
         (e.ctrlKey && ['U','S','P','I','J','K','E','Q','H'].includes(key)) ||
@@ -335,8 +343,7 @@ window.addEventListener('load', carregarOcupados);
       return false;
     }
   }, true);
+
   document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
 })();
 </script>
-</body>
-</html>
