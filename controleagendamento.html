@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="theme-color" content="#0a0a0a" id="meta-theme-color">
+<script>!function(){var t=localStorage.getItem('preta-theme')||'dark';if(t==='light')document.documentElement.setAttribute('data-theme','light');}();</script>
+<link rel="stylesheet" href="theme.css">
 <!-- SEO OCULTO - 51 PALAVRAS CHAVE -->
 <title>Painel ADM - Preta Nails | Agendamento Unhas Gel Fibra Sabrina Lemos</title>
 <meta name="description" content="Painel Administrativo Preta Nails. Gerencie agendamentos de alongamento de unhas em gel, fibra, manutenção, nail art. Controle biossegurança e clientes.">
 <meta name="keywords" content="painel adm preta nails, agendamento de unhas, planilha agendamento, alongamento de unhas, unhas em gel, unhas de fibra, manutenção de unhas, nail designer, manicure, nail art, unhas decoradas, biossegurança, controle de clientes, sabrina lemos, preta nails adm, sistema de agendamento, gestão de salão, beleza, estética de unhas, cutilagem, esmaltação em gel, fibra de vidro, spa das mãos, atendimento vip">
-
 <meta name="robots" content="noindex, nofollow">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 <style>
 :root { 
   --primary: #C13584; 
@@ -21,6 +20,7 @@
   --bg: #0a0a0a; 
   --card: rgba(255,255,255,0.04); 
 }
+[data-theme="light"]{--bg:#FFFAFC;--card:#fff}
 * { margin:0; padding:0; box-sizing:border-box; }
 body { 
   font-family: 'Inter', sans-serif; 
@@ -34,8 +34,7 @@ body {
   position:relative;
   padding:20px;
 }
-
-/* FUNDO UNHAS FLUTUANDO SUTIL */
+[data-theme="light"] body{background:linear-gradient(180deg,#FFFAFC 0%,#fff 100%);color:#1D1D1F}
 .nails-bg {
   position: fixed;
   top:0; left:0;
@@ -56,8 +55,6 @@ body {
  0%,100% { transform: translateY(0) rotate(0deg); }
  50% { transform: translateY(-50px) rotate(8deg); }
 }
-
-/* HEADER IGUAL AO INDEX */
 .header { text-align:center; padding: 0 0 25px 0; }
 .logo { 
   width:120px; 
@@ -75,6 +72,7 @@ h1 {
   color: #fff;
   letter-spacing:1px;
 }
+[data-theme="light"] h1{color:#1D1D1F}
 h1 span { color:var(--primary); }
 .slogan { font-size: 12px; letter-spacing: 3px; opacity: 0.7; font-weight: 600; margin-top: 5px; }
 h2 { 
@@ -84,8 +82,6 @@ h2 {
   font-family: 'Playfair Display', serif; 
   font-size: clamp(22px, 4vw, 26px);
 }
-
-/* BOTÕES IGUAL AO INDEX */
 .btn-adm { 
   display:flex; 
   align-items:center; 
@@ -127,8 +123,7 @@ h2 {
   border: 1px solid rgba(193,53,132,0.3);
   backdrop-filter: blur(10px);
 }
-
-/* LOGIN BOX VIDRO IGUAL AO FORM */
+[data-theme="light"] .btn-secundario{background:#fff;border-color:rgba(193,53,132,.16);color:#1D1D1F}
 .login-box { 
   width:100%; 
   max-width:500px; 
@@ -145,6 +140,7 @@ h2 {
   to { opacity: 1; transform: translateY(0); }
 }
 .login-box p { text-align:center; color:#ccc; margin-bottom:25px; font-size:14px; font-weight:600; letter-spacing:0.5px; }
+[data-theme="light"] .login-box p{color:rgba(29,29,31,.65)}
 .login-box input { 
   width:100%; 
   padding:14px 16px; 
@@ -158,6 +154,7 @@ h2 {
   outline:none;
   transition:0.3s;
 }
+[data-theme="light"] .login-box input{background:#fff;border-color:rgba(193,53,132,.16);color:#1D1D1F}
 .login-box input::placeholder { color: rgba(255,255,255,0.4); }
 .login-box input:focus { 
   border-color: var(--primary); 
@@ -189,7 +186,6 @@ h2 {
 .info-box i { font-size:45px; color:var(--primary); margin-bottom:15px; }
 .info-box h3 { font-family: 'Playfair Display', serif; color:var(--primary); margin-bottom:10px; font-size:22px; }
 .info-box p { opacity:0.9; line-height:1.7; }
-
 @media (max-width: 768px) {
   .login-box { padding:30px 20px; }
   .btn-adm { padding:16px 24px; font-size:15px; }
@@ -199,10 +195,8 @@ h2 {
 </style>
 </head>
 <body>
-
-<!-- UNHAS NO FUNDO -->
+<button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
 <div class="nails-bg" id="nailsBg"></div>
-
   <div id="tela-login">
     <div class="login-box">
       <div class="header">
@@ -217,7 +211,6 @@ h2 {
       <button onclick="entrar()" class="btn-adm"><i class="fa fa-fingerprint"></i> ENTRAR NO PAINEL</button>
     </div>
   </div>
-
   <div id="tela-painel">
     <div class="header">
       <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo" alt="Preta Nails Central de Agendamentos">
@@ -225,23 +218,18 @@ h2 {
       <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
     </div>
     <h2>📊 Central de Agendamentos</h2>
-    
     <div class="info-box">
       <i class="fa fa-file-excel"></i>
       <h3>Planilha Oficial</h3>
       <p>Todos os agendamentos de alongamento de unhas em gel e fibra ficam salvos aqui. Edite, adicione e exclua direto na planilha do Google. Controle total de clientes VIP.</p>
     </div>
-
     <a href="https://docs.google.com/spreadsheets/d/16eYPJ4z-MR-iAiVmxCXWPsYQamuSbMeN5Jv3A2MUzAA/edit?usp=drivesdk" target="_blank" class="btn-adm">
       <i class="fa fa-table"></i> ABRIR PLANILHA PARA EDITAR
     </a>
-
     <button onclick="location.reload()" class="btn-adm btn-secundario"><i class="fa fa-rotate"></i> SAIR DO PAINEL</button>
     <a href="agendamento.html" class="btn-adm btn-secundario"><i class="fa fa-arrow-left"></i> VOLTAR AO SITE</a>
   </div>
-
 <script>
-// GERAR UNHAS NO FUNDO
 function createNails() {
   const container = document.getElementById('nailsBg');
   for(let i=0; i<6; i++) {
@@ -254,8 +242,6 @@ function createNails() {
   }
 }
 createNails();
-
-// LOGIN
 const SENHA_CORRETA = "72591324Beh@";
 function entrar(){
   if(document.getElementById('senha').value === SENHA_CORRETA){
@@ -268,6 +254,7 @@ function entrar(){
 }
 </script>
   </script>
+<script src="theme.js"></script>
   <!-- ==================== BLOQUEIO V12.3 - MODO CLIENTE INVISÍVEL ==================== -->
 <script>
 (function() {
@@ -279,7 +266,6 @@ function entrar(){
   const urlParams = new URLSearchParams(window.location.search);
   if(urlParams.get('admin') === SENHA_ADMIN) sessionStorage.setItem('adminLiberado', 'true');
   if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile || isGoogleBot) return;
-
   let bloqueado = false;
   function mostrarAlertaSeguranca() {
     if(bloqueado) return;
@@ -310,27 +296,20 @@ function entrar(){
         </div>
       </body>`;
   }
-
   window.liberar = function(senha) {
     if(senha === SENHA_ADMIN) {
       sessionStorage.setItem('adminLiberado', 'true');
       location.reload();
     }
   }
-
   document.addEventListener('keydown', function(e) {
     const key = e.key.toUpperCase();
     const code = e.keyCode || e.which;
-
-    // ===== 1. LIBERAÇÕES ESSENCIAIS - CLIENTE NÃO SENTE =====
-    // Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+F, Ctrl+L, Ctrl+R, Ctrl+T, Ctrl+W, Ctrl+D, Tab, Enter, Space, Backspace, Arrows
     const teclasLivres = ['C','V','X','A','F','R','L','T','W','D','Z'];
     if (e.ctrlKey && teclasLivres.includes(key) && !e.shiftKey && !e.altKey) return true;
-    if (e.ctrlKey && e.shiftKey && key === 'R') return true; // Ctrl+Shift+R = reload forçado
+    if (e.ctrlKey && e.shiftKey && key === 'R') return true;
     if (['TAB','ENTER',' ','BACKSPACE','ARROWUP','ARROWDOWN','ARROWLEFT','ARROWRIGHT','DELETE'].includes(key)) return true;
-    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true; // F5 e F6 liberados
-
-    // ===== 2. BLOQUEIOS AGRESSIVOS - SÓ PEGA LADRÃO =====
+    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true;
     if (key === 'F12' || code === 123 || 
         (key.startsWith('F') && /^F([1-4]|7|8|9|10|11|12)$/.test(key)) ||
         (e.ctrlKey && ['U','S','P','I','J','K','E','Q','H'].includes(key)) ||
@@ -342,7 +321,8 @@ function entrar(){
       return false;
     }
   }, true);
-
   document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
 })();
 </script>
+</body>
+</html>
