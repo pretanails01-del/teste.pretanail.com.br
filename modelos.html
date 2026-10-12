@@ -1,14 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#C13584">
-  <title>Modelos Exclusivos | Preta Nails - Alongamento em São Paulo</title>
-  <meta name="description" content="Veja os modelos exclusivos de alongamento de unhas da Preta Nails. Fibra de vidro, gel, banho de gel e nail art feitas por Sabrina Lemos.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Modelos Exclusivos | Preta Nails</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
@@ -16,52 +12,40 @@
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
     .top-bar{position:sticky;top:0;z-index:9991;background:rgba(10,10,10,0.96);backdrop-filter:blur(15px);border-bottom:1px solid rgba(193,53,132,0.2);display:flex;justify-content:space-between;align-items:center;padding:12px 20px}
-    .top-bar a.logo{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:#fff;text-decoration:none}
-    .top-bar a.logo span{color:var(--primary)}
+    .logo{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:#fff;text-decoration:none}
+    .logo span{color:var(--primary)}
     .menu-abas-3{display:flex;gap:8px}
     .menu-abas-3 a{padding:10px 16px;border-radius:50px;text-decoration:none;font-weight:800;font-size:12px;color:#fff;background:rgba(255,255,255,0.06);border:1px solid rgba(193,53,132,0.35);transition:.3s}
-    .menu-abas-3 a.ativa,.menu-abas-3 a:hover{background:linear-gradient(135deg,#C13584 0%,#a02c6e 100%);border-color:#C13584}
-    
-    .hero-modelos{padding:90px 20px 40px;text-align:center;background:linear-gradient(180deg,rgba(193,53,132,0.15) 0%, #0a0a0a 100%)}
-    .hero-modelos h1{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,54px);line-height:1}
+    .menu-abas-3 a.ativa,.menu-abas-3 a:hover{background:linear-gradient(135deg,#C13584 0%,#a02c6e 100%)}
+
+    .hero-modelos{padding:50px 20px 30px;text-align:center}
+    .hero-modelos .foto-topo{width:90px;height:90px;border-radius:50%;border:2px solid var(--primary);box-shadow:0 0 30px rgba(193,53,132,.5);object-fit:cover;margin:0 auto 16px;display:block}
+    .hero-modelos h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,42px);line-height:1.1}
     .hero-modelos h1 span{color:var(--primary)}
-    .hero-modelos p{max-width:600px;margin:18px auto 0;opacity:.8;line-height:1.7;font-size:15px}
+    .hero-modelos p{opacity:.7;margin-top:10px;font-size:14px}
 
-    .apresentacao-sabrina{max-width:900px;margin:0 auto 60px;padding:0 20px;display:grid;grid-template-columns:180px 1fr;gap:30px;align-items:center;background:linear-gradient(135deg,rgba(193,53,132,0.15) 0%,rgba(160,44,110,0.08) 100%);border:1px solid rgba(193,53,132,0.25);border-radius:28px;backdrop-filter:blur(20px);padding:30px}
-    .apresentacao-sabrina img{width:160px;height:160px;border-radius:50%;border:3px solid var(--primary);box-shadow:0 0 40px rgba(193,53,132,.5);object-fit:cover}
-    .apresentacao-sabrina h3{font-family:'Playfair Display',serif;color:var(--primary);font-size:26px;margin-bottom:8px}
-    .apresentacao-sabrina p{font-size:14px;line-height:1.8;opacity:.9}
-    .selo-bio{display:inline-flex;align-items:center;gap:6px;background:rgba(193,53,132,0.15);border:1px solid rgba(193,53,132,0.3);padding:6px 14px;border-radius:50px;font-size:11px;font-weight:700;margin-top:12px;letter-spacing:1px}
+    .galeria-modelos{max-width:1100px;margin:0 auto;padding:20px 16px 100px}
+    .grid-modelos{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .card-modelo{background:rgba(255,255,255,0.04);border:1px solid rgba(193,53,132,0.18);border-radius:18px;overflow:hidden;backdrop-filter:blur(15px);transition:.3s;cursor:pointer}
+    .card-modelo:hover{transform:translateY(-5px);border-color:var(--primary);box-shadow:0 12px 30px rgba(193,53,132,0.25)}
+    .card-modelo .img-wrap{aspect-ratio:1/1;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .card-modelo .img-wrap img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;transition:.3s}
+    .card-modelo:hover .img-wrap img{transform:scale(1.05)}
+    .card-modelo .info{padding:12px 12px 14px;text-align:center}
+    .card-modelo .info h4{font-size:13px;font-weight:800;letter-spacing:.3px}
+    .card-modelo .info span{font-size:10px;opacity:.5;text-transform:uppercase;letter-spacing:1px;margin-top:3px;display:block}
 
-    .galeria-modelos{max-width:1100px;margin:0 auto;padding:20px 20px 80px}
-    .grid-modelos{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px}
-    .card-modelo{position:relative;background:rgba(255,255,255,0.04);border:1px solid rgba(193,53,132,0.25);border-radius:24px;overflow:hidden;backdrop-filter:blur(20px);transition:.4s}
-    .card-modelo:hover{transform:translateY(-8px);border-color:var(--primary);box-shadow:0 20px 50px rgba(193,53,132,0.25)}
-    .card-modelo img{width:100%;height:420px;object-fit:cover;display:block}
-    .card-modelo .info{padding:18px 20px}
-    .card-modelo .info h4{font-size:16px;font-weight:800;margin-bottom:4px}
-    .card-modelo .info span{font-size:12px;opacity:.6;letter-spacing:1px;text-transform:uppercase}
-    .tag-modelo{position:absolute;top:14px;left:14px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));padding:6px 14px;border-radius:50px;font-size:11px;font-weight:800;letter-spacing:1px}
+    /* LIGHTBOX */
+    #lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.92);display:none;align-items:center;justify-content:center;z-index:10000;padding:20px}
+    #lightbox.ativo{display:flex}
+    #lightbox img{max-width:90vw;max-height:85vh;border-radius:16px;border:2px solid rgba(193,53,132,0.4)}
+    #lightbox .fechar{position:absolute;top:20px;right:20px;background:var(--primary);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;cursor:pointer}
 
-    .cta-modelos{max-width:600px;margin:40px auto 100px;text-align:center;background:linear-gradient(135deg,rgba(193,53,132,0.22) 0%,rgba(160,44,110,0.15) 100%);border:2px solid var(--primary);border-radius:25px;padding:40px 30px}
-    .cta-modelos h3{font-family:'Playfair Display',serif;font-size:32px;color:var(--primary);margin-bottom:12px}
-    .cta-modelos p{opacity:.9;line-height:1.7;margin-bottom:22px}
-    .btn{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:18px 34px;border-radius:50px;text-decoration:none;font-weight:800;font-size:16px;display:inline-flex;align-items:center;gap:12px;box-shadow:0 10px 30px rgba(193,53,132,0.4);transition:.3s}
-    .btn:hover{transform:translateY(-3px)}
-
-    .whatsapp-float{position:fixed;bottom:80px;right:25px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
-    .whatsapp-btn{width:60px;height:60px;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px;box-shadow:0 8px 25px rgba(193,53,132,0.5);animation:pulse 2s infinite}
-    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(193,53,132,0.6)}70%{box-shadow:0 0 0 15px rgba(193,53,132,0)}100%{box-shadow:0 0 0 0 rgba(193,53,132,0)}}
-    .whatsapp-text{font-size:10px;font-weight:700;color:#fff;background:rgba(0,0,0,0.7);padding:5px 10px;border-radius:20px}
-
-    @media(max-width:768px){
-      .apresentacao-sabrina{grid-template-columns:1fr;text-align:center;padding:24px 20px}
-      .apresentacao-sabrina img{margin:0 auto}
-      .grid-modelos{grid-template-columns:1fr 1fr;gap:12px}
-      .card-modelo img{height:300px}
-      .top-bar{flex-direction:column;gap:10px}
-      .menu-abas-3 a{font-size:11px;padding:9px 10px}
-    }
+    .cta{max-width:600px;margin:30px auto 0;text-align:center;background:linear-gradient(135deg,rgba(193,53,132,0.18),rgba(160,44,110,0.1));border:1px solid rgba(193,53,132,0.3);border-radius:20px;padding:26px}
+    .btn{background:linear-gradient(135deg,#C13584 0%,#a02c6e 100%);color:#fff;padding:16px 28px;border-radius:50px;text-decoration:none;font-weight:800;display:inline-flex;align-items:center;gap:10px;margin-top:14px}
+    
+    @media(max-width:900px){.grid-modelos{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:600px){.grid-modelos{grid-template-columns:repeat(2,1fr);gap:10px}.top-bar{flex-direction:column;gap:10px}.menu-abas-3 a{font-size:11px;padding:9px 10px}}
   </style>
 </head>
 <body>
@@ -69,90 +53,57 @@
   <div class="top-bar">
     <a href="index.html" class="logo">PRETA<span>NAILS</span></a>
     <nav class="menu-abas-3">
-      <a href="primeiro-atendimento.html"><i class="fas fa-star"></i> Primeiro</a>
-      <a href="modelos.html" class="ativa"><i class="fas fa-images"></i> Modelos</a>
-      <a href="manutencao.html"><i class="fas fa-screwdriver-wrench"></i> Manutenção</a>
+      <a href="primeiro-atendimento.html">Primeiro Atendimento</a>
+      <a href="modelos.html" class="ativa">Modelos</a>
+      <a href="manutencao.html">Manutenção</a>
     </nav>
   </div>
 
   <section class="hero-modelos">
-    <h1>Modelos que realçam sua <span>melhor versão</span></h1>
-    <p>Cada alongamento é feito com biossegurança, acabamento impecável e design exclusivo. Aqui você não escolhe só unhas, você escolhe poder, confiança e autoestima.</p>
+    <img class="foto-topo" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina">
+    <h1>Portfólio <span>Preta Nails</span></h1>
+    <p>Toque na foto para ampliar • Modelos reais de clientes</p>
   </section>
-
-  <div class="apresentacao-sabrina">
-    <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos Preta Nails">
-    <div>
-      <h3>Sabrina Lemos</h3>
-      <p>Sou a criadora da Preta Nails. Mais do que unhas, eu entrego cuidado. Sou estudante de Biossegurança e cada atendimento é feito com amor, higiene e técnica. Meu objetivo é que você se olhe no espelho e se sinta poderosa. Suas unhas falam por você. 💅🏾✨</p>
-      <div class="selo-bio"><i class="fas fa-shield-halved"></i> Biossegurança • Esterilização • Atendimento Humanizado</div>
-    </div>
-  </div>
 
   <section class="galeria-modelos">
     <div class="grid-modelos">
-      <!-- FOTO 1 -->
-      <div class="card-modelo">
-        <span class="tag-modelo">FIBRA DE VIDRO</span>
-        <img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1" alt="Modelo Fibra Preta Nails">
-        <div class="info"><h4>Almond Clássica Nude</h4><span>Mais pedido • Natural e elegante</span></div>
-      </div>
-      <!-- FOTO 2 -->
-      <div class="card-modelo">
-        <span class="tag-modelo">GEL PREMIUM</span>
-        <img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1" alt="Unhas Gel Preta Nails">
-        <div class="info"><h4>Baby Boomer Luxo</h4><span>Efeito degradê sofisticado</span></div>
-      </div>
-      <!-- FOTO 3 -->
-      <div class="card-modelo">
-        <span class="tag-modelo">BANHO DE GEL</span>
-        <img src="https://dl.dropboxusercontent.com/scl/fi/yvh7487ntc4198bg86bcy/1784512440834_image_1784512439717.jpg?rlkey=eh9s591ggwcbieo9frwyfqhj6&dl=1" alt="Banho Gel Preta Nails">
-        <div class="info"><h4>Natural Fortalecida</h4><span>Para quem ama unhas curtas fortes</span></div>
-      </div>
-      <!-- FOTO 4 -->
-      <div class="card-modelo">
-        <span class="tag-modelo">NAIL ART</span>
-        <img src="https://dl.dropboxusercontent.com/scl/fi/ydggv1tyvubbtrcdpr9zi/1784512429984_image_1784512429123.jpg?rlkey=4knq0q5dbgex0codposfwciur&dl=1" alt="Manicure Preta Nails">
-        <div class="info"><h4>Stiletto Power</h4><span>Para mulheres de atitude</span></div>
-      </div>
-      <!-- REAPROVEITANDO AS MESMAS COM VARIAÇÕES PARA PARECER PORTFÓLIO CHEIO -->
-      <div class="card-modelo">
-        <span class="tag-modelo">MAIS PEDIDO</span>
-        <img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1" alt="Alongamento Preta Nails">
-        <div class="info"><h4>Francesa Moderna</h4><span>Delicada e atemporal</span></div>
-      </div>
-      <div class="card-modelo">
-        <span class="tag-modelo">EXCLUSIVO</span>
-        <img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1" alt="Unhas Decoradas">
-        <div class="info"><h4>Encapsulada Glitter</h4><span>Brilho sem exagero</span></div>
-      </div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1"></div><div class="info"><h4>Fibra Almond Nude</h4><span>Clássica</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1"></div><div class="info"><h4>Gel Baby Boomer</h4><span>Luxo</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/yvh7487ntc4198bg86bcy/1784512440834_image_1784512439717.jpg?rlkey=eh9s591ggwcbieo9frwyfqhj6&dl=1"></div><div class="info"><h4>Banho de Gel</h4><span>Natural</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/ydggv1tyvubbtrcdpr9zi/1784512429984_image_1784512429123.jpg?rlkey=4knq0q5dbgex0codposfwciur&dl=1"></div><div class="info"><h4>Stiletto Power</h4><span>Atitude</span></div></div>
+      
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/gvnurc7i3lo72khjqaz9x/1784509844565_image_1784509843860.jpg?rlkey=y5ctbt30r6znp258a3wlsqk4y&dl=1"></div><div class="info"><h4>Francesa Moderna</h4><span>Delicada</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/9kqf5b1le58o1oxrewdhu/1784512419618_image_1784512418997.jpg?rlkey=c432n31qpezbtyzb9xuh2roes&dl=1"></div><div class="info"><h4>Encapsulada</h4><span>Brilho</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/yvh7487ntc4198bg86bcy/1784512440834_image_1784512439717.jpg?rlkey=eh9s591ggwcbieo9frwyfqhj6&dl=1"></div><div class="info"><h4>Curta Fortalecida</h4><span>Prática</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/ydggv1tyvubbtrcdpr9zi/1784512429984_image_1784512429123.jpg?rlkey=4knq0q5dbgex0codposfwciur&dl=1"></div><div class="info"><h4>Nail Art Premium</h4><span>Exclusiva</span></div></div>
     </div>
 
-    <div class="cta-modelos">
-      <h3>Gostou de algum modelo?</h3>
-      <p>Me manda no WhatsApp a foto que você amou e eu te digo qual técnica fica perfeita pra sua mão e rotina. Atendimento 100% humanizado, sem robô.</p>
-      <a href="https://wa.me/+5511982311608?text=Oi%20Preta%20Nails%20%F0%9F%92%97%20Vi%20os%20modelos%20no%20site%20e%20amei%20esse%20aqui%3A%20" target="_blank" class="btn">QUERO ESSE MODELO AGORA <i class="fab fa-whatsapp"></i></a>
-      <p style="font-size:12px;opacity:.5;margin-top:14px">Vagas limitadas • Cachoeirinha - Zona Norte SP</p>
+    <div class="cta">
+      <h3 style="font-family:'Playfair Display',serif;color:var(--primary)">Gostou de um modelo?</h3>
+      <p style="font-size:14px;opacity:.8;margin-top:6px">Clique no WhatsApp e me mande o print do modelo que você quer.</p>
+      <a href="https://wa.me/+5511982311608?text=Oi%20Preta%2C%20vi%20os%20modelos%20e%20quero%20esse%3A%20" target="_blank" class="btn">QUERO ESSE MODELO <i class="fab fa-whatsapp"></i></a>
     </div>
   </section>
 
-  <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20pelos%20modelos%20do%20site" target="_blank" class="whatsapp-float">
-    <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
-    <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
-  </a>
+  <div id="lightbox"><div class="fechar" onclick="fechar()"><i class="fas fa-times"></i></div><img id="light-img" src=""></div>
 
-<!-- SEUS BLOQUEIOS 100% INTACTOS -->
 <script>
-// CLIQUE OCULTO NA FOTO DA SABRINA - 5 CLIQUES
-let clickCount = 0;
-document.addEventListener('DOMContentLoaded', function(){
-  const foto = document.querySelector('.apresentacao-sabrina img');
-  if(foto){
-    foto.addEventListener('click', function() {
-      clickCount++;
-      if(clickCount >= 5) { window.location.href = 'controleagendamento.html'; }
+  const cards = document.querySelectorAll('.card-modelo img');
+  const lightbox = document.getElementById('lightbox');
+  const lightImg = document.getElementById('light-img');
+  cards.forEach(img=>{
+    img.parentElement.parentElement.addEventListener('click', ()=>{
+      lightImg.src = img.src;
+      lightbox.classList.add('ativo');
     });
-  }
+  });
+  function fechar(){lightbox.classList.remove('ativo')}
+  lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) fechar() });
+
+let clickCount = 0;
+document.querySelector('.foto-topo').addEventListener('click', function() {
+  clickCount++;
+  if(clickCount >= 5) { window.location.href = 'controleagendamento.html'; }
 });
 (function() {
   "use strict";
@@ -188,8 +139,7 @@ document.addEventListener('DOMContentLoaded', function(){
   if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile || isGoogleBot) return;
   let bloqueado = false;
   function mostrarAlertaSeguranca() {
-    if(bloqueado) return;
-    bloqueado = true;
+    if(bloqueado) return; bloqueado = true;
     document.documentElement.innerHTML = `
       <body style="margin:0;padding:0;background:#F8F9FA;font-family:'Google Sans', Roboto, Arial, sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;">
         <div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
