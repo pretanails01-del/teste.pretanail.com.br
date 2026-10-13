@@ -21,14 +21,15 @@
     .btn:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(193,53,132,0.6)}
     .btn::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);animation:glitter 2.5s infinite}
     @keyframes glitter{0%{left:-100%}100%{left:200%}}
-    .top-bar{position:sticky;top:0;z-index:9990;background:rgba(10,10,10,0.96);backdrop-filter:blur(15px);border-bottom:1px solid rgba(193,53,132,0.2);padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+    .top-bar{position:sticky;top:0;z-index:9990;background:rgba(10,10,10,0.96);backdrop-filter:blur(15px);border-bottom:1px solid rgba(193,53,132,0.2);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
     [data-theme="light"] .top-bar{background:rgba(255,255,255,.92);border-bottom-color:var(--border)}
     .logo{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:#fff;text-decoration:none}.logo span{color:var(--primary)}
     [data-theme="light"] .logo{color:#1D1D1F}
     .btn-voltar{background:rgba(255,255,255,0.06);border:1px solid rgba(193,53,132,0.35);color:#fff;padding:9px 18px;border-radius:50px;text-decoration:none;font-weight:700;font-size:12px;display:inline-flex;align-items:center;gap:6px}
     [data-theme="light"] .btn-voltar{background:#fff;color:#1D1D1F;border-color:var(--border)}
-    .hero{padding:90px 20px 60px;text-align:center;background:radial-gradient(ellipse at top,rgba(193,53,132,0.30) 0%,transparent 62%),linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.95)),url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=1887&auto=format&fit=crop') center/cover}
-    [data-theme="light"] .hero{background:radial-gradient(ellipse at top,rgba(193,53,132,0.15) 0%,transparent 62%),linear-gradient(rgba(255,255,255,0.7),rgba(255,250,252,0.92)),url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=1887&auto=format&fit=crop') center/cover}
+    .theme-btn{position:static !important;margin-left:auto;transform:none !important}
+    .hero{padding:90px 20px 60px;text-align:center;background:radial-gradient(ellipse at top,rgba(193,53,132,0.30) 0%,transparent 62%),linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.95)),url('https://dl.dropboxusercontent.com/scl/fi/w0e1iizfc9ba7cxmq2lgp/1791879636982_image_1791879636050.jpg?rlkey=zi9l2qs6dnb4y6sn4yqz6bmgn&dl=1') center/cover}
+    [data-theme="light"] .hero{background:radial-gradient(ellipse at top,rgba(193,53,132,0.15) 0%,transparent 62%),linear-gradient(rgba(255,255,255,0.7),rgba(255,250,252,0.92)),url('https://dl.dropboxusercontent.com/scl/fi/w0e1iizfc9ba7cxmq2lgp/1791879636982_image_1791879636050.jpg?rlkey=zi9l2qs6dnb4y6sn4yqz6bmgn&dl=1') center/cover}
     .badge{border:1px solid var(--primary);background:rgba(193,53,132,0.14);padding:8px 18px;border-radius:50px;font-size:11px;font-weight:800;letter-spacing:2px;display:inline-flex;gap:8px;margin-bottom:18px}
     .hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,8vw,60px);line-height:.95}.hero h1 span{color:var(--primary)}
     .hero p{max-width:660px;margin:18px auto 0;opacity:.85;line-height:1.7;font-size:15px}
@@ -72,9 +73,9 @@
   </style>
 </head>
 <body>
-  <button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
   <div class="top-bar">
     <a href="index.html" class="logo">PRETA<span>NAILS</span></a>
+    <button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
     <a href="index.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Início</a>
   </div>
   <section class="hero">
@@ -117,7 +118,7 @@
       </div>
     </div>
     <div class="foto-destaque-wrap">
-      <img src="https://dl.dropboxusercontent.com/scl/fi/w0e1iizfc9ba7cxmq2lgp/1791879636982_image_1791879636050.jpg?rlkey=zi9l2qs6dnb4y6sn4yqz6bmgn&dl=0" alt="Sabrina Lemos Nail Designer Preta Nails">
+      <img src="https://dl.dropboxusercontent.com/scl/fi/w0e1iizfc9ba7cxmq2lgp/1791879636982_image_1791879636050.jpg?rlkey=zi9l2qs6dnb4y6sn4yqz6bmgn&dl=1" alt="Sabrina Lemos Nail Designer Preta Nails">
       <h3>Sabrina Lemos</h3>
       <p>Eu sou a Sabrina Lemos, fundadora da PretaNails. Mais do que cuidar de unhas, eu cuido de você. Sou estudante de Biossegurança e levo isso a sério em cada atendimento, porque sua saúde e autoestima vêm primeiro. Tenho meu ponto fixo no Cachoeirinha e atendo com muito carinho clientes de toda a Zona Norte e regiões próximas. Acredito que unhas bem feitas refletem confiança, poder e a sua melhor versão. ♡</p>
     </div>
