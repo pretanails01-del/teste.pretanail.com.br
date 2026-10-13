@@ -1,26 +1,34 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a" id="meta-theme-color">
+  <script>!function(){var t=localStorage.getItem('preta-theme')||'dark';if(t==='light')document.documentElement.setAttribute('data-theme','light');}();</script>
+  <link rel="stylesheet" href="theme.css">
   <meta name="theme-color" content="#C13584">
   <title>Primeiro Atendimento | Preta Nails - O que esperar</title>
   <meta name="description" content="Seu primeiro alongamento com a Preta Nails. Veja como funciona, quanto tempo dura, cuidados e o que levar. Atendimento humanizado com Sabrina Lemos no Cachoeirinha.">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    :root{--primary:#C13584;--primary-dark:#a02c6e;--bg:#0a0a0a;--text:#fff}
+    :root{--primary:#C13584;--primary-dark:#a02c6e;--bg:#0a0a0a;--text:#fff;--card:rgba(255,255,255,0.04);--border:rgba(193,53,132,0.22)}
+    [data-theme="light"]{--bg:#FFFAFC;--text:#1D1D1F;--card:#FFFFFF;--border:rgba(193,53,132,.16)}
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+    [data-theme="light"] body{background:#FFFAFC;color:#1D1D1F}
     .btn{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:18px 34px;border-radius:50px;text-decoration:none;font-weight:800;font-size:15px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(193,53,132,0.4);transition:.3s;border:none;cursor:pointer}
     .btn:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(193,53,132,0.6)}
     .btn::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);animation:glitter 2.5s infinite}
     @keyframes glitter{0%{left:-100%}100%{left:200%}}
     .top-bar{position:sticky;top:0;z-index:9990;background:rgba(10,10,10,0.96);backdrop-filter:blur(15px);border-bottom:1px solid rgba(193,53,132,0.2);padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+    [data-theme="light"] .top-bar{background:rgba(255,255,255,.92);border-bottom-color:var(--border)}
     .logo{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:#fff;text-decoration:none}.logo span{color:var(--primary)}
+    [data-theme="light"] .logo{color:#1D1D1F}
     .btn-voltar{background:rgba(255,255,255,0.06);border:1px solid rgba(193,53,132,0.35);color:#fff;padding:9px 18px;border-radius:50px;text-decoration:none;font-weight:700;font-size:12px;display:inline-flex;align-items:center;gap:6px}
+    [data-theme="light"] .btn-voltar{background:#fff;color:#1D1D1F;border-color:var(--border)}
     .hero{padding:90px 20px 60px;text-align:center;background:radial-gradient(ellipse at top,rgba(193,53,132,0.30) 0%,transparent 62%),linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.95)),url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=1887&auto=format&fit=crop') center/cover}
+    [data-theme="light"] .hero{background:radial-gradient(ellipse at top,rgba(193,53,132,0.15) 0%,transparent 62%),linear-gradient(rgba(255,255,255,0.7),rgba(255,250,252,0.92)),url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=1887&auto=format&fit=crop') center/cover}
     .badge{border:1px solid var(--primary);background:rgba(193,53,132,0.14);padding:8px 18px;border-radius:50px;font-size:11px;font-weight:800;letter-spacing:2px;display:inline-flex;gap:8px;margin-bottom:18px}
     .hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,8vw,60px);line-height:.95}.hero h1 span{color:var(--primary)}
     .hero p{max-width:660px;margin:18px auto 0;opacity:.85;line-height:1.7;font-size:15px}
@@ -28,56 +36,61 @@
     .titulo-sec{text-align:center;margin-bottom:42px}.titulo-sec h2{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,42px)}.titulo-sec h2 span{color:var(--primary)}.titulo-sec p{opacity:.7;font-size:14px;margin-top:10px}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
     .card{position:relative;background:linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));border:1px solid rgba(193,53,132,0.22);border-radius:22px;padding:26px 22px;backdrop-filter:blur(20px);box-shadow:0 15px 40px rgba(0,0,0,0.5);transition:.4s}
+    [data-theme="light"] .card{background:#fff;border-color:var(--border);box-shadow:0 10px 30px rgba(0,0,0,.06)}
     .card:hover{transform:translateY(-8px) scale(1.02);border-color:var(--primary);box-shadow:0 22px 60px rgba(193,53,132,0.28)}
     .card .icone{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;box-shadow:0 8px 20px rgba(193,53,132,0.4)}
     .card h3{font-size:17px;font-weight:800;margin-bottom:8px}.card p{font-size:13.5px;opacity:.8;line-height:1.65}.card ul{margin-top:10px;padding-left:4px}.card ul li{list-style:none;font-size:13px;opacity:.85;line-height:1.6;margin-bottom:8px;display:flex;gap:8px}.card ul li i{color:var(--primary);margin-top:3px}
     .passo-a-passo{position:relative;max-width:760px;margin:20px auto 60px}
     .passo{display:flex;gap:18px;margin-bottom:28px;background:rgba(255,255,255,0.03);border:1px solid rgba(193,53,132,0.15);border-radius:20px;padding:20px}
+    [data-theme="light"] .passo{background:#fff;border-color:var(--border)}
     .passo .numero{min-width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dark));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;box-shadow:0 6px 18px rgba(193,53,132,0.4)}
     .passo h4{font-size:15px;margin-bottom:4px}.passo p{font-size:13px;opacity:.8;line-height:1.6}
     .passo small{color:var(--primary);font-weight:700;font-size:11px;letter-spacing:1px}
     .destaque-box{margin:50px auto;max-width:900px;background:linear-gradient(135deg,rgba(193,53,132,0.18),rgba(160,44,110,0.12));border:1.5px solid var(--primary);border-radius:22px;padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    [data-theme="light"] .destaque-box{background:linear-gradient(135deg,rgba(193,53,132,0.08),rgba(160,44,110,0.06))}
     @media(max-width:800px){.destaque-box{grid-template-columns:1fr}}
     .destaque-box h4{font-size:14px;margin-bottom:12px;display:flex;gap:8px;align-items:center;color:#ff7abf}
+    [data-theme="light"] .destaque-box h4{color:var(--primary)}
     .destaque-box li{list-style:none;font-size:13px;opacity:.85;margin-bottom:8px;display:flex;gap:8px;line-height:1.6}
     .foto-destaque-wrap{max-width:400px;margin:0 auto 80px;padding:30px 25px;text-align:center;background:linear-gradient(135deg,rgba(193,53,132,0.15) 0%,rgba(160,44,110,0.1) 100%);border:1px solid rgba(193,53,132,0.3);border-radius:25px;backdrop-filter:blur(20px);box-shadow:0 15px 50px rgba(193,53,132,0.2)}
+    [data-theme="light"] .foto-destaque-wrap{background:#fff;border-color:var(--border)}
     .foto-destaque-wrap img{width:160px;height:160px;border-radius:50%;border:3px solid var(--primary);box-shadow:0 0 40px rgba(193,53,132,0.5);object-fit:cover;margin-bottom:20px}
     .foto-destaque-wrap h3{font-family:'Playfair Display',serif;font-size:24px;color:var(--primary);margin-bottom:12px}
     .foto-destaque-wrap p{margin-top:0;font-size:14px;opacity:.9;line-height:1.7}
     .cta{margin:70px auto;background:linear-gradient(135deg,rgba(193,53,132,0.22) 0%,rgba(160,44,110,0.15) 100%);border:2px solid var(--primary);border-radius:26px;padding:44px 28px;text-align:center;box-shadow:0 20px 60px rgba(193,53,132,0.3)}
+    [data-theme="light"] .cta{background:linear-gradient(135deg,rgba(193,53,132,0.1) 0%,rgba(160,44,110,0.08) 100%)}
     .cta h3{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,38px);color:var(--primary)}
     .cta p{max-width:620px;margin:14px auto 24px;opacity:.9;line-height:1.7;font-size:14.5px}
     .selos{margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;font-size:11px;opacity:.6}
     .selos span{border:1px solid rgba(255,255,255,0.12);padding:6px 12px;border-radius:50px;display:inline-flex;gap:6px;align-items:center}
+    [data-theme="light"] .selos span{border-color:var(--border)}
     .footer{background:#050505;border-top:1px solid rgba(193,53,132,0.2);padding:40px 20px;text-align:center;font-size:11px;opacity:.5}
+    [data-theme="light"] .footer{background:#fff}
     .whatsapp-float{position:fixed;bottom:80px;right:22px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
     .whatsapp-btn{width:58px;height:58px;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;box-shadow:0 8px 25px rgba(193,53,132,0.5)}
     .whatsapp-text{font-size:9px;font-weight:700;color:#fff;background:rgba(0,0,0,0.7);padding:5px 10px;border-radius:20px;text-align:center}
   </style>
 </head>
 <body>
+  <button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
   <div class="top-bar">
     <a href="index.html" class="logo">PRETA<span>NAILS</span></a>
     <a href="index.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Início</a>
   </div>
-
   <section class="hero">
     <div class="badge"><i class="fas fa-star"></i> PRIMEIRA VEZ? FICA TRANQUILA</div>
     <h1>Sua primeira vez<br><span>vai ser inesquecível</span></h1>
     <p>Se você nunca fez alongamento, respira. Aqui você é acolhida, explico tudo, sem dor, sem pressa e com biossegurança de verdade. Mais de 2h de cuidado só pra você.</p>
     <div style="margin-top:26px"><a href="agendamento.html" class="btn">QUERO MEU PRIMEIRO HORÁRIO <i class="fas fa-sparkles"></i></a></div>
   </section>
-
   <section class="sec">
     <div class="titulo-sec"><h2>Como funciona o <span>primeiro atendimento?</span></h2><p>Transparência total do começo ao fim - 2h a 2h30 de duração</p></div>
-
     <div class="passo-a-passo">
       <div class="passo"><div class="numero">1</div><div><small>10 MIN • ACOLHIMENTO</small><h4>Conversa + Análise da sua unha</h4><p>Entendo seu formato, rotina, se rói unha, trabalha com água, qual seu gosto. Te mostro modelos e escolhemos juntas tamanho, formato e cor.</p></div></div>
       <div class="passo"><div class="numero">2</div><div><small>30 MIN • PREPARAÇÃO PREMIUM</small><h4>Higienização + Preparação sem agressão</h4><p>Cutícula hidratada, lixamento técnico sem machucar a lâmina. Tudo esterilizado, descartável e com biossegurança que aprendi no curso.</p></div></div>
       <div class="passo"><div class="numero">3</div><div><small>70 MIN • CONSTRUÇÃO</small><h4>Alongamento + Estrutura 3D</h4><p>Fibra de vidro ou gel, curvatura C, ponto de tensão, lixamento perfeito. Você vê o antes e depois na hora, unha fina e natural.</p></div></div>
       <div class="passo"><div class="numero">4</div><div><small>20 MIN • FINALIZAÇÃO</small><h4>Esmaltação + Foto + Cuidados</h4><p>Esmalte, top coat espelhado, hidratação, fotos pro portfólio e te ensino todos os cuidados pra durar até 21 dias linda.</p></div></div>
     </div>
-
     <div class="titulo-sec"><h2>Tudo que você <span>precisa saber</span></h2></div>
     <div class="grid">
       <div class="card"><div class="icone"><i class="fas fa-clock"></i></div><h3>Quanto tempo dura?</h3><p>Primeiro alongamento: 2h a 2h30. Manutenções depois: 60 min. Sem correria, atendo uma cliente por vez.</p></div>
@@ -87,7 +100,6 @@
       <div class="card"><div class="icone"><i class="fas fa-money-bill-wave"></i></div><h3>Quanto custa a primeira vez?</h3><p>Valor especial de lançamento para primeiras clientes VIP. Inclui alongamento + esmaltação + kit cutícula. Manutenção com valor menor depois.</p><ul><li><i class="fas fa-crown"></i> Condição VIP só para 20 primeiras</li><li><i class="fas fa-gift"></i> Brinde surpresa no primeiro dia</li></ul></div>
       <div class="card"><div class="icone"><i class="fas fa-heart"></i></div><h3>Você vai amar porque...</h3><ul><li><i class="fas fa-check"></i> Unha fina, natural, sem aspecto de postiço</li><li><i class="fas fa-check"></i> Cor impecável que não descasca</li><li><i class="fas fa-check"></i> Atendimento humanizado, sem julgamento</li><li><i class="fas fa-check"></i> Ponto fixo no Cachoeirinha - Zona Norte</li></ul></div>
     </div>
-
     <div class="destaque-box">
       <div>
         <h4><i class="fas fa-circle-exclamation"></i> Importante - Leia antes de agendar</h4>
@@ -104,13 +116,11 @@
         <li><i class="fas fa-check"></i> Estacionamento fácil na rua</li>
       </div>
     </div>
-
     <div class="foto-destaque-wrap">
-      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos Nail Designer Preta Nails">
+      <img src="https://dl.dropboxusercontent.com/scl/fi/w0e1iizfc9ba7cxmq2lgp/1791879636982_image_1791879636050.jpg?rlkey=zi9l2qs6dnb4y6sn4yqz6bmgn&dl=0" alt="Sabrina Lemos Nail Designer Preta Nails">
       <h3>Sabrina Lemos</h3>
       <p>Eu sou a Sabrina Lemos, fundadora da PretaNails. Mais do que cuidar de unhas, eu cuido de você. Sou estudante de Biossegurança e levo isso a sério em cada atendimento, porque sua saúde e autoestima vêm primeiro. Tenho meu ponto fixo no Cachoeirinha e atendo com muito carinho clientes de toda a Zona Norte e regiões próximas. Acredito que unhas bem feitas refletem confiança, poder e a sua melhor versão. ♡</p>
     </div>
-
     <div class="cta">
       <h3>Pronta pra sua melhor versão?</h3>
       <p>Você merece se olhar no espelho e se sentir poderosa. Seu primeiro alongamento com a Preta Nails é o começo de uma nova fase. Me deixa cuidar de você.</p>
@@ -124,13 +134,12 @@
       </div>
     </div>
   </section>
-
   <footer class="footer">© 2026 Preta Nails • Sabrina Lemos - Nail Designer • Cachoeirinha SP • Site Seguro</footer>
-
   <a href="https://wa.me/5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20primeiro%20atendimento" target="_blank" class="whatsapp-float">
     <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
     <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
   </a>
+<script src="theme.js"></script>
     <!-- ==================== BLOQUEIO V12.3 - MODO CLIENTE INVISÍVEL ==================== -->
 <script>
 (function() {
@@ -142,7 +151,6 @@
   const urlParams = new URLSearchParams(window.location.search);
   if(urlParams.get('admin') === SENHA_ADMIN) sessionStorage.setItem('adminLiberado', 'true');
   if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile || isGoogleBot) return;
-
   let bloqueado = false;
   function mostrarAlertaSeguranca() {
     if(bloqueado) return;
@@ -173,27 +181,20 @@
         </div>
       </body>`;
   }
-
   window.liberar = function(senha) {
     if(senha === SENHA_ADMIN) {
       sessionStorage.setItem('adminLiberado', 'true');
       location.reload();
     }
   }
-
   document.addEventListener('keydown', function(e) {
     const key = e.key.toUpperCase();
     const code = e.keyCode || e.which;
-
-    // ===== 1. LIBERAÇÕES ESSENCIAIS - CLIENTE NÃO SENTE =====
-    // Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+F, Ctrl+L, Ctrl+R, Ctrl+T, Ctrl+W, Ctrl+D, Tab, Enter, Space, Backspace, Arrows
     const teclasLivres = ['C','V','X','A','F','R','L','T','W','D','Z'];
     if (e.ctrlKey && teclasLivres.includes(key) && !e.shiftKey && !e.altKey) return true;
-    if (e.ctrlKey && e.shiftKey && key === 'R') return true; // Ctrl+Shift+R = reload forçado
+    if (e.ctrlKey && e.shiftKey && key === 'R') return true;
     if (['TAB','ENTER',' ','BACKSPACE','ARROWUP','ARROWDOWN','ARROWLEFT','ARROWRIGHT','DELETE'].includes(key)) return true;
-    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true; // F5 e F6 liberados
-
-    // ===== 2. BLOQUEIOS AGRESSIVOS - SÓ PEGA LADRÃO =====
+    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true;
     if (key === 'F12' || code === 123 || 
         (key.startsWith('F') && /^F([1-4]|7|8|9|10|11|12)$/.test(key)) ||
         (e.ctrlKey && ['U','S','P','I','J','K','E','Q','H'].includes(key)) ||
@@ -205,7 +206,6 @@
       return false;
     }
   }, true);
-
   document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
 })();
 </script>
