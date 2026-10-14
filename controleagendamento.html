@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0a0a0a" id="meta-theme-color">
-<script>!function(){var t=localStorage.getItem('preta-theme')||'dark';if(t==='light')document.documentElement.setAttribute('data-theme','light');}();</script>
+<script>!function(){try{var t=localStorage.getItem('preta-theme');if(!t){localStorage.setItem('preta-theme','dark');t='dark'}if(t==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.getElementById('meta-theme-color');if(m)m.setAttribute('content','#FFFAFC')}else{document.documentElement.setAttribute('data-theme','dark');document.documentElement.removeAttribute('data-theme');var m2=document.getElementById('meta-theme-color');if(m2)m2.setAttribute('content','#0a0a0a')}}catch(e){}}();</script>
 <link rel="stylesheet" href="theme.css">
 <!-- SEO OCULTO - 51 PALAVRAS CHAVE -->
 <title>Painel ADM - Preta Nails | Agendamento Unhas Gel Fibra Sabrina Lemos</title>
@@ -204,6 +204,11 @@ h2 {
   .btn-adm { padding:16px 24px; font-size:15px; }
   .logo { width:100px; height:100px; }
   .info-box { padding:25px 20px; }
+}
+/* TRAVA ANTI-BRANCO AUTOMÁTICO - GARANTE DARK COMO PADRÃO */
+html:not([data-theme="light"]) body {
+  background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%) !important;
+  color: #fff !important;
 }
 </style>
 </head>
