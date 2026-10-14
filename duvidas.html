@@ -30,7 +30,6 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); transition: background .3s, color .3s; }
     [data-theme="light"] body{color:#1D1D1F}
-    /* BOTAO TEMA - CORRIGIDO */
     .theme-btn{position:fixed;top:18px;right:18px;z-index:10001;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,45,146,.3);background:rgba(255,255,255,.06);color:var(--rosa-brilhante);cursor:pointer;backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;}
     [data-theme="light"] .theme-btn{background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.08)}
     #full-faq-screen {
@@ -119,11 +118,20 @@
       70% { box-shadow: 0 0 0 15px rgba(255,45,146,0); }
       100% { box-shadow: 0 0 0 0 rgba(255,45,146,0); }
     }
+    /* BOTAO ROSA WHATS FLUTUANTE - ADICIONADO */
+    .whatsapp-float { position: fixed; bottom: 80px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
+    .whatsapp-btn { width: 60px; height: 60px; background: linear-gradient(135deg, #ff2d92 0%, #C13584 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 32px; box-shadow: 0 8px 25px rgba(255,45,146,0.5); transition: all 0.3s; animation: pulse 2s infinite; }
+    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(255,45,146,0.7); }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,45,146,0.6); } 70% { box-shadow: 0 0 0 15px rgba(255,45,146,0); } 100% { box-shadow: 0 0 0 0 rgba(255,45,146,0); } }
+    .whatsapp-text { font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 20px; backdrop-filter: blur(10px); letter-spacing: 0.5px; text-align: center; }
+    [data-theme="light"] .whatsapp-text{background:#1D1D1F;color:#fff}
     @media (max-width: 768px) {
       .full-faq-content { margin: 0; padding: 20px 15px; border-radius: 0; min-height: 100vh; border-left: none; border-right: none; }
       .full-faq-title { font-size: 27px; }
       #back-to-list { font-size: 14px; padding: 9px 14px; }
       .theme-btn{top:12px;right:12px;}
+      .whatsapp-float { bottom: 70px; right: 20px; }
+      .whatsapp-btn { width: 55px; height: 55px; font-size: 28px; }
     }
   </style>
 </head>
@@ -138,6 +146,13 @@
       <div id="full-content"></div>
     </div>
   </div>
+
+  <!-- BOTAO ROSA WHATS FLUTUANTE - ADICIONADO -->
+  <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20tenho%20algumas%20d%C3%BAvidas.%20Poderia%20me%20ajudar%20%3F" target="_blank" class="whatsapp-float">
+    <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
+    <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
+  </a>
+
   <script>
     const fullTitle = document.getElementById('full-title');
     const fullContent = document.getElementById('full-content');
