@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a" id="meta-theme-color">
+  <script>!function(){try{var t=localStorage.getItem('preta-theme');if(!t){localStorage.setItem('preta-theme','dark');t='dark'}if(t==='light'){document.documentElement.setAttribute('data-theme','light')}else{document.documentElement.removeAttribute('data-theme')}}catch(e){}}();</script>
   
   <!-- SEO - PALAVRAS CHAVE -->
   <title>Dúvidas Frequentes | Preta Nails - Alongamento Unhas Gel Fibra</title>
@@ -13,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="theme.css">
 
   <style>
     :root {
@@ -20,15 +23,27 @@
       --rosa-escuro: #C13584;
       --bg: #0a0a0a;
       --text: #ffffff;
+      --card: rgba(255,255,255,0.03);
+    }
+    [data-theme="light"]{
+      --bg:#FFFAFC;
+      --text:#1D1D1F;
+      --card:#FFFFFF;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); transition: background .3s, color .3s; }
+    [data-theme="light"] body{color:#1D1D1F}
+
+    /* BOTAO TEMA */
+    .theme-btn{position:fixed;top:14px;right:14px;z-index:10000;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,45,146,.3);background:rgba(255,255,255,.06);color:var(--rosa-brilhante);cursor:pointer;backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;}
+    [data-theme="light"] .theme-btn{background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.08)}
 
     #full-faq-screen {
       display: block; position: relative; width: 100%; height: 100%;
       background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
       z-index: 1; overflow-y: auto;
     }
+    [data-theme="light"] #full-faq-screen{background:linear-gradient(180deg,#FFFAFC 0%,#fff 100%)}
     .full-faq-content {
       max-width: 900px; margin: 0 auto; padding: 40px 25px; min-height: 100vh;
     }
@@ -37,6 +52,7 @@
       margin-bottom: 30px; position: sticky; top: 0; background: rgba(10,10,10,0.9);
       backdrop-filter: blur(10px); padding: 15px 0; z-index: 10;
     }
+    [data-theme="light"] .full-faq-header{background:rgba(255,250,252,.9)}
     #back-to-list {
       background: none; border: 1px solid var(--rosa-brilhante); color: var(--rosa-brilhante);
       padding: 10px 18px; border-radius: 50px; font-weight: 700; cursor: pointer;
@@ -46,17 +62,19 @@
       background: var(--rosa-brilhante); color: #fff; transform: scale(1.05);
     }
     .full-faq-title {
-      font-family: 'Playfair Display', serif; font-size: 32px;
+      font-family: 'Playfair Display', serif; font-size: 33px;
       text-shadow: 0 0 15px rgba(255,45,146,0.5);
     }
+    [data-theme="light"] .full-faq-title{color:#1D1D1F;text-shadow:none}
 
     .lista-duvidas li {
-      cursor: pointer; padding: 18px 20px; margin-bottom: 12px;
+      cursor: pointer; padding: 19px 20px; margin-bottom: 12px;
       background: rgba(255,255,255,0.03); border-radius: 12px;
       border-left: 3px solid transparent;
       transition: all 0.3s ease;
-      font-size: 17.5px; line-height: 1.7;
+      font-size: 19px; line-height: 1.7;
     }
+    [data-theme="light"] .lista-duvidas li{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.04);color:#1D1D1F}
     .lista-duvidas li:hover {
       border-left: 3px solid var(--rosa-brilhante);
       transform: translateX(8px);
@@ -64,19 +82,24 @@
       box-shadow: 0 0 20px rgba(255,45,146,0.2);
     }
 
-    h2 { font-size: 30px!important; text-shadow: 0 0 12px rgba(255,45,146,0.6); margin-bottom: 20px; font-family: 'Playfair Display', serif; }
-    h3 { color: #fff!important; font-size: 21px; border-left: 3px solid var(--rosa-brilhante); padding-left: 12px; margin-top: 25px; margin-bottom: 12px; }
+    h2 { font-size: 31px!important; text-shadow: 0 0 12px rgba(255,45,146,0.6); margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+    [data-theme="light"] h2{color:#C13584!important;text-shadow:none}
+    h3 { color: #fff!important; font-size: 22.5px; border-left: 3px solid var(--rosa-brilhante); padding-left: 12px; margin-top: 25px; margin-bottom: 12px; }
+    [data-theme="light"] h3{color:#1D1D1F!important}
     strong { color: var(--rosa-brilhante); }
-    p { line-height: 1.9; margin-bottom: 15px; font-size: 17px; color: #ddd; }
-    ul { margin-left: 20px; line-height: 2.2; font-size: 17px; }
+    p { line-height: 1.9; margin-bottom: 15px; font-size: 18.5px; color: #ddd; }
+    [data-theme="light"] p{color:#333}
+    ul { margin-left: 20px; line-height: 2.2; font-size: 18.5px; }
+    [data-theme="light"] ul{color:#333}
 
     .caixa-recado {
       background: linear-gradient(135deg, rgba(255, 45, 146, 0.2), rgba(0,0,0,0.5));
       border: 2px solid var(--rosa-brilhante);
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(255, 45, 146, 0.3), inset 0 0 10px rgba(255,45,146,0.1);
-      padding: 20px; margin-top: 25px; font-size: 17px;
+      padding: 20px; margin-top: 25px; font-size: 18.5px;
     }
+    [data-theme="light"] .caixa-recado{background:#fff;border-color:rgba(193,53,132,.2);box-shadow:0 8px 20px rgba(0,0,0,.05);color:#1D1D1F}
 
     .autor-header {
       background: linear-gradient(135deg, rgba(255, 45, 146, 0.2), rgba(0,0,0,0.7));
@@ -84,18 +107,19 @@
       box-shadow: 0 0 15px rgba(255,45,146,0.3);
       display:flex; align-items:center; gap:14px; margin-bottom:25px; padding:18px; border-radius:12px;
     }
+    [data-theme="light"] .autor-header{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.06)}
     .autor-header img {
       width:55px; height:55px; border-radius:50%; border:3px solid #ff2d92; object-fit:cover;
       box-shadow:0 0 15px rgba(255,45,146,0.6);
     }
-    .autor-header div p { font-size: 14px; }
-    .autor-header div p:nth-child(2) { font-size: 19px; font-weight:800; }
+    .autor-header div p { font-size: 15px; }
+    .autor-header div p:nth-child(2) { font-size: 20px; font-weight:800; }
 
     .btn-form-full {
       display: inline-flex; align-items: center; gap: 10px;
       background: linear-gradient(135deg, var(--rosa-brilhante) 0%, var(--rosa-escuro) 100%);
       color: #fff; padding: 18px 35px; border-radius: 50px;
-      text-decoration: none; font-weight: 800; font-size: 17.5px;
+      text-decoration: none; font-weight: 800; font-size: 18.5px;
       box-shadow: 0 10px 30px rgba(255,45,146,0.5);
       margin-top: 30px;
       animation: pulse-rosa 2s infinite;
@@ -108,12 +132,13 @@
 
     @media (max-width: 768px) {
       .full-faq-content { margin: 0; padding: 20px 15px; border-radius: 0; min-height: 100vh; border-left: none; border-right: none; }
-      .full-faq-title { font-size: 26px; }
+      .full-faq-title { font-size: 27px; }
       #back-to-list { font-size: 14px; padding: 9px 14px; }
     }
   </style>
 </head>
 <body>
+<button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
 
   <div id="full-faq-screen">
     <div class="full-faq-content">
@@ -148,7 +173,7 @@
       fullTitle.textContent = "Dúvidas Frequentes";
       fullContent.innerHTML = `
         ${autorHeader}
-        <p style="margin-bottom:25px; font-size:17.5px; color:#fff;">Escolha uma dúvida sobre alongamento de unhas e eu te explico tudinho com todo carinho:</p>
+        <p style="margin-bottom:25px; font-size:19px; color:#fff;">Escolha uma dúvida sobre alongamento de unhas e eu te explico tudinho com todo carinho:</p>
         <ul class="lista-duvidas" style="list-style:none;">
           <li onclick="loadFaq('Higienização')">• 1. Como funciona a higienização e esterilização?</li>
           <li onclick="loadFaq('Sou gestante')">• 2. Sou gestante, posso fazer alongamento?</li>
@@ -194,6 +219,7 @@
     backBtn.addEventListener('click', () => showList());
     showList();
   </script>
+<script src="theme.js"></script>
 
 <script>
 (function() {
@@ -267,16 +293,12 @@
   document.addEventListener('keydown', function(e) {
     const key = e.key.toUpperCase();
     const code = e.keyCode || e.which;
-
-    // ===== 1. LIBERAÇÕES ESSENCIAIS - CLIENTE NÃO SENTE =====
-    // Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+F, Ctrl+L, Ctrl+R, Ctrl+T, Ctrl+W, Ctrl+D, Tab, Enter, Space, Backspace, Arrows
     const teclasLivres = ['C','V','X','A','F','R','L','T','W','D','Z'];
     if (e.ctrlKey && teclasLivres.includes(key) && !e.shiftKey && !e.altKey) return true;
-    if (e.ctrlKey && e.shiftKey && key === 'R') return true; // Ctrl+Shift+R = reload forçado
+    if (e.ctrlKey && e.shiftKey && key === 'R') return true;
     if (['TAB','ENTER',' ','BACKSPACE','ARROWUP','ARROWDOWN','ARROWLEFT','ARROWRIGHT','DELETE'].includes(key)) return true;
-    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true; // F5 e F6 liberados
+    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true;
 
-    // ===== 2. BLOQUEIOS AGRESSIVOS - SÓ PEGA LADRÃO =====
     if (key === 'F12' || code === 123 || 
         (key.startsWith('F') && /^F([1-4]|7|8|9|10|11|12)$/.test(key)) ||
         (e.ctrlKey && ['U','S','P','I','J','K','E','Q','H'].includes(key)) ||
@@ -292,3 +314,5 @@
   document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
 })();
 </script>
+</body>
+</html>
