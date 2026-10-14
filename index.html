@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a0a0a" id="meta-theme-color">
-  <script>!function(){var t=localStorage.getItem('preta-theme')||'dark';if(t==='light')document.documentElement.setAttribute('data-theme','light');}();</script>
+  <script>!function(){try{var k='preta-theme';var t=localStorage.getItem(k);if(!t||t!=='light'){localStorage.setItem(k,'dark');document.documentElement.removeAttribute('data-theme');var m=document.getElementById('meta-theme-color');if(m)m.content='#0a0a0a';}else{document.documentElement.setAttribute('data-theme','light');}}catch(e){document.documentElement.removeAttribute('data-theme');}}();</script>
   <link rel="stylesheet" href="theme.css">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -33,6 +33,8 @@
     .btn-duvidas-topo { position: fixed; top: 25px; right: 25px; z-index: 9998; background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.4); backdrop-filter: blur(10px); color: #fff; padding: 10px 18px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; white-space: nowrap; }
     [data-theme="light"] .btn-duvidas-topo{background:#fff;color:var(--text);border-color:var(--border);box-shadow:0 4px 15px rgba(0,0,0,.06)}
     .btn-duvidas-topo:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .theme-btn{position:fixed;top:25px;left:25px;z-index:9999;width:42px;height:42px;border-radius:50%;border:1px solid rgba(193,53,132,0.4);background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);color:var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center;}
+    [data-theme="light"] .theme-btn{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.06)}
     .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 20px 20px; position: relative; }
     [data-theme="light"] .hero{background: linear-gradient(rgba(255,250,252,0.55), rgba(255,250,252,0.95)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat;}
     .wrap { max-width: 600px; animation: fadeIn 1s ease; }
@@ -42,7 +44,7 @@
     h1 span { color: var(--primary); }
     .slogan { font-size: 13px; letter-spacing: 4px; margin: 12px 0 30px; opacity: 0.7; font-weight: 600; color:var(--muted) }
     .tag { border: 1px solid var(--primary); border-radius: 50px; padding: 12px 24px; display: inline-block; font-weight: 700; font-size: 14px; margin-bottom: 20px; background: rgba(193,53,132,0.1); }
-    [data-theme="light"] .tag{background:#fff;box-shadow:0 2px 10px rgba(193,53,132,.08)}
+    [data-theme="light"] .tag{background:#fff;box-shadow:0 2px 10px rgba(193,132,.08)}
     .destaque { font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 80px); font-weight: 900; color: var(--primary); line-height: 0.9; }
     .destaque small { font-size: 32px; font-style: italic; color: var(--text); display: block; line-height: 1.2; font-weight: 400; }
     .btn { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 18px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); transition: all 0.3s; border: none; cursor: pointer; }
@@ -94,8 +96,12 @@
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(193,53,132,0.6); } 70% { box-shadow: 0 0 0 15px rgba(193,53,132,0); } 100% { box-shadow: 0 0 0 0 rgba(193,53,132,0); } }
     .whatsapp-text { font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 20px; backdrop-filter: blur(10px); letter-spacing: 0.5px; text-align: center; }
     [data-theme="light"] .whatsapp-text{background:var(--text);color:#fff}
+    /* TRAVA ANTI-BRANCO AUTOMÁTICO */
+    html:not([data-theme="light"]) body{background:var(--bg)!important;color:#fff!important;}
+    html:not([data-theme="light"]) .hero{background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat !important;}
     @media (max-width: 768px) {
       .btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; }
+      .theme-btn{top:15px;left:16px;}
       .hero { min-height: 85vh; padding: 70px 16px 40px 16px; }
       .wrap { max-width: 100%; }
       .slogan { letter-spacing: 2px; font-size: 11px; }
@@ -151,7 +157,6 @@
   const urlParams = new URLSearchParams(window.location.search);
   if(urlParams.get('admin') === SENHA_ADMIN) sessionStorage.setItem('adminLiberado', 'true');
   if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile || isGoogleBot) return;
-
   let bloqueado = false;
   function mostrarAlertaSeguranca() {
     if(bloqueado) return;
@@ -182,27 +187,20 @@
         </div>
       </body>`;
   }
-
   window.liberar = function(senha) {
     if(senha === SENHA_ADMIN) {
       sessionStorage.setItem('adminLiberado', 'true');
       location.reload();
     }
   }
-
   document.addEventListener('keydown', function(e) {
     const key = e.key.toUpperCase();
     const code = e.keyCode || e.which;
-
-    // ===== 1. LIBERAÇÕES ESSENCIAIS - CLIENTE NÃO SENTE =====
-    // Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+F, Ctrl+L, Ctrl+R, Ctrl+T, Ctrl+W, Ctrl+D, Tab, Enter, Space, Backspace, Arrows
     const teclasLivres = ['C','V','X','A','F','R','L','T','W','D','Z'];
     if (e.ctrlKey && teclasLivres.includes(key) && !e.shiftKey && !e.altKey) return true;
-    if (e.ctrlKey && e.shiftKey && key === 'R') return true; // Ctrl+Shift+R = reload forçado
+    if (e.ctrlKey && e.shiftKey && key === 'R') return true;
     if (['TAB','ENTER',' ','BACKSPACE','ARROWUP','ARROWDOWN','ARROWLEFT','ARROWRIGHT','DELETE'].includes(key)) return true;
-    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true; // F5 e F6 liberados
-
-    // ===== 2. BLOQUEIOS AGRESSIVOS - SÓ PEGA LADRÃO =====
+    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true;
     if (key === 'F12' || code === 123 || 
         (key.startsWith('F') && /^F([1-4]|7|8|9|10|11|12)$/.test(key)) ||
         (e.ctrlKey && ['U','S','P','I','J','K','E','Q','H'].includes(key)) ||
@@ -214,7 +212,6 @@
       return false;
     }
   }, true);
-
   document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
 })();
 </script>
