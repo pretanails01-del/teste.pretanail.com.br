@@ -198,11 +198,22 @@ h1 span { color:var(--text); font-weight: 400; }
   font-size: 15px;
 }
 .sobre-studio strong { color: var(--primary); font-weight: 700; }
+.theme-btn{position:fixed;top:18px;left:18px;z-index:10001;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,45,146,.3);background:rgba(255,255,255,.06);color:var(--primary);cursor:pointer;backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;}
+[data-theme="light"] .theme-btn{background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+/* BOTAO ROSA WHATS FLUTUANTE - ADICIONADO */
+.whatsapp-float { position: fixed; bottom: 80px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
+.whatsapp-btn { width: 60px; height: 60px; background: linear-gradient(135deg, #FF2D92 0%, #C13584 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 32px; box-shadow: 0 8px 25px rgba(255,45,146,0.5); transition: all 0.3s; animation: pulseW 2s infinite; }
+.whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(255,45,146,0.7); }
+@keyframes pulseW { 0% { box-shadow: 0 0 0 0 rgba(255,45,146,0.6); } 70% { box-shadow: 0 0 0 15px rgba(255,45,146,0); } 100% { box-shadow: 0 0 0 0 rgba(255,45,146,0); } }
+.whatsapp-text { font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 20px; backdrop-filter: blur(10px); letter-spacing: 0.5px; text-align: center; }
+[data-theme="light"] .whatsapp-text{background:#1D1D1F;color:#fff}
 @media(max-width:900px){.semana { grid-template-columns: repeat(2, 1fr); } }
 @media(max-width:600px){
   body { padding: 40px 16px 0 16px; }
   .semana { grid-template-columns: 1fr; } 
   .btn { width: 100%; max-width: 420px; }
+  .whatsapp-float { bottom: 70px; right: 20px; }
+  .whatsapp-btn { width: 55px; height: 55px; font-size: 28px; }
 }
 </style>
 </head>
@@ -236,6 +247,13 @@ h1 span { color:var(--text); font-weight: 400; }
     Atendimento premium com foco em unhas elegantes e duradouras.
   </p>
 </div>
+
+<!-- BOTAO ROSA WHATS FLUTUANTE - ADICIONADO -->
+<a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20tenho%20algumas%20d%C3%BAvidas.%20Poderia%20me%20ajudar%20%3F" target="_blank" class="whatsapp-float">
+  <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
+  <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
+</a>
+
 <script>
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbx7HHxLWed7STrR90uct44kdaTO9MVuJDQss4lfJ3-COwuL0ewD2ZJhCDjortsHA-g/exec";
 async function carregarOcupados() {
@@ -280,7 +298,6 @@ window.addEventListener('load', carregarOcupados);
   const urlParams = new URLSearchParams(window.location.search);
   if(urlParams.get('admin') === SENHA_ADMIN) sessionStorage.setItem('adminLiberado', 'true');
   if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile || isGoogleBot) return;
-
   let bloqueado = false;
   function mostrarAlertaSeguranca() {
     if(bloqueado) return;
@@ -311,27 +328,20 @@ window.addEventListener('load', carregarOcupados);
         </div>
       </body>`;
   }
-
   window.liberar = function(senha) {
     if(senha === SENHA_ADMIN) {
       sessionStorage.setItem('adminLiberado', 'true');
       location.reload();
     }
   }
-
   document.addEventListener('keydown', function(e) {
     const key = e.key.toUpperCase();
     const code = e.keyCode || e.which;
-
-    // ===== 1. LIBERAÇÕES ESSENCIAIS - CLIENTE NÃO SENTE =====
-    // Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+F, Ctrl+L, Ctrl+R, Ctrl+T, Ctrl+W, Ctrl+D, Tab, Enter, Space, Backspace, Arrows
     const teclasLivres = ['C','V','X','A','F','R','L','T','W','D','Z'];
     if (e.ctrlKey && teclasLivres.includes(key) && !e.shiftKey && !e.altKey) return true;
-    if (e.ctrlKey && e.shiftKey && key === 'R') return true; // Ctrl+Shift+R = reload forçado
+    if (e.ctrlKey && e.shiftKey && key === 'R') return true;
     if (['TAB','ENTER',' ','BACKSPACE','ARROWUP','ARROWDOWN','ARROWLEFT','ARROWRIGHT','DELETE'].includes(key)) return true;
-    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true; // F5 e F6 liberados
-
-    // ===== 2. BLOQUEIOS AGRESSIVOS - SÓ PEGA LADRÃO =====
+    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true;
     if (key === 'F12' || code === 123 || 
         (key.startsWith('F') && /^F([1-4]|7|8|9|10|11|12)$/.test(key)) ||
         (e.ctrlKey && ['U','S','P','I','J','K','E','Q','H'].includes(key)) ||
@@ -343,7 +353,8 @@ window.addEventListener('load', carregarOcupados);
       return false;
     }
   }, true);
-
   document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
 })();
 </script>
+</body>
+</html>
