@@ -23,7 +23,7 @@
 .btn-duvidas-topo { position: fixed; top: 20px; right: 25px; z-index: 9998; background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.4); backdrop-filter: blur(10px); color: #fff; padding: 10px 18px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; white-space: nowrap; }
   [data-theme="light"].btn-duvidas-topo{background:#fff;color:#1D1D1F;box-shadow:0 4px 12px rgba(0,0,0,.06)}
 .btn-duvidas-topo:hover { border-color: var(--primary); transform: translateY(-2px); }
- .theme-btn{position:fixed;top:20px;left:25px;z-index:9999;width:42px;height:42px;border-radius:50%;border:1px solid rgba(193,53,132,0.4);background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);color:var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.theme-btn{position:fixed;top:20px;left:25px;z-index:9999;width:42px;height:42px;border-radius:50%;border:1px solid rgba(193,53,132,0.4);background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);color:var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center;}
   [data-theme="light"].theme-btn{background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.06)}
 .horario-selecionado { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 18px; border-radius: 14px; text-align: center; margin-bottom: 25px; border: 2px solid rgba(255,255,255,0.2); }
 .horario-selecionado h3 { font-size: 12px; letter-spacing: 2px; opacity: 0.8; margin-bottom: 5px; }
@@ -79,7 +79,14 @@
 .hidden { display: none!important; }
 .signature-wrapper { background: #C13584; border: 2px solid #000; border-radius: 16px; margin: 12px 0; overflow: hidden; }
 #signatureCanvas { background: transparent; width: 100%; height: 160px; display: block; touch-action: none; cursor: crosshair; }
-  @media (max-width: 640px) {.form-body { padding: 30px 20px; }.header h1 { font-size: 28px; }.checkbox-group { grid-template-columns: 1fr; }.btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; }.theme-btn{top:15px;left:16px;width:38px;height:38px;} }
+  /* BOTÃO ROSA FLUTUANTE FIXO - PRETA NAILS */
+ .whatsapp-float { position: fixed; bottom: 80px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
+ .whatsapp-btn { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 32px; box-shadow: 0 8px 25px rgba(193,53,132,0.5); transition: all 0.3s; animation: pulse 2s infinite; }
+ .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(193,53,132,0.7); }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(193,53,132,0.6); } 70% { box-shadow: 0 0 0 15px rgba(193,53,132,0); } 100% { box-shadow: 0 0 0 0 rgba(193,53,132,0); } }
+ .whatsapp-text { font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 20px; backdrop-filter: blur(10px); letter-spacing: 0.5px; text-align: center; }
+  [data-theme="light"].whatsapp-text{background:#1D1D1F;color:#fff}
+  @media (max-width: 640px) {.form-body { padding: 30px 20px; }.header h1 { font-size: 28px; }.checkbox-group { grid-template-columns: 1fr; }.btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; }.theme-btn{top:15px;left:16px;width:38px;height:38px;}.whatsapp-float{bottom:70px;right:20px;}.whatsapp-btn{width:55px;height:55px;font-size:28px;} }
 </style></head>
 <body>
 <button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
@@ -141,6 +148,9 @@
     <a id="btnWhatsappSucesso" href="#" target="_blank" class="btn-whatsapp-sucesso"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP AGORA</a>
   </div>
 </div>
+
+<!-- BOTÃO ROSA FLUTUANTE - ADICIONADO AQUI -->
+<a href="https://wa.me/5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20pelo%20formul%C3%A1rio%20e%20tenho%20d%C3%BAvidas%20%F0%9F%92%97" target="_blank" class="whatsapp-float"><div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div><div class="whatsapp-text">Dúvidas?<br>Fale comigo</div></a>
 
 <script>
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbx7HHxLWed7STrR90uct44kdaTO9MVuJDQss4lfJ3-COwuL0ewD2ZJhCDjortsHA-g/exec";
@@ -263,7 +273,6 @@ function mostrarSucesso(result, dados){
 
   document.getElementById('sucessoTexto').innerHTML = `Agendamento confirmado!<br><strong>${dados.dia} - ${dados.hora}</strong><br><span style="font-size:13px;opacity:0.9">Por gentileza clique no botão do WhatsApp abaixo para finalizar ${isMobile? '💖' : ''}</span>`;
 
-  // MENSAGEM COM LINK DO DRIVE - FUNCIONA NO CELULAR E NO COMPUTADOR SEM BUG DE EMOJI
   let mensagem;
   if(isMobile){
     mensagem = `💅 NOVO AGENDAMENTO - PRETA NAILS\n\n👤 ${dados.nome}\n📱 ${dados.whatsapp}\n📅 ${dados.dia} - ${dados.hora}\n💅 ${dados.procedimento}\n📄 Ficha: ${linkDrive}\n\n✅ agendamento confirmado`;
