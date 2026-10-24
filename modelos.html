@@ -15,17 +15,17 @@
     [data-theme="light"]{--bg:#FFFAFC;--bg2:#FFFFFF;--text:#1D1D1F;--muted:rgba(29,29,31,0.65);--card:#FFFFFF;--border:rgba(193,53,132,0.16);}
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background .35s,color .35s}
-    .theme-btn{position:fixed;top:15px;left:16px;z-index:9999;width:42px;height:42px;border-radius:50%;border:1px solid rgba(193,53,132,0.4);background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);color:var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center;}
-    [data-theme="light"] .theme-btn{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.06)}
-    .top-bar{position:sticky;top:0;z-index:9991;background:rgba(10,10,10,0.96);backdrop-filter:blur(15px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:14px 22px;gap:14px;flex-wrap:wrap;transition:background .35s}
+    /* TOPO IGUAL PRIMEIRO ATENDIMENTO */
+    .top-bar{position:sticky;top:0;z-index:9991;background:rgba(10,10,10,0.96);backdrop-filter:blur(15px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:14px 20px;gap:12px;transition:background .35s}
     [data-theme="light"] .top-bar{background:rgba(255,255,255,0.96)}
-    .logo{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--text);text-decoration:none;flex-shrink:0;line-height:1}
+    .logo{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--text);text-decoration:none;flex-shrink:0;line-height:1}
     .logo span{color:var(--primary)}
-    .menu-abas-3{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;flex:1;min-width:0}
-    .menu-abas-3 a{padding:10px 16px;border-radius:50px;text-decoration:none;font-weight:800;font-size:11px;color:var(--text);background:var(--card);border:1px solid var(--border);transition:.3s;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,.04)}
-    .menu-abas-3 a.ativa,.menu-abas-3 a:hover{background:linear-gradient(135deg,#C13584 0%,#a02c6e 100%);color:#fff;border-color:#C13584}
+    .theme-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(193,53,132,0.4);background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);color:var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center;margin-left:auto}
+    [data-theme="light"] .theme-btn{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.06)}
+    .btn-voltar{background:rgba(255,255,255,0.06);border:1px solid rgba(193,53,132,0.35);color:var(--text);padding:9px 18px;border-radius:50px;text-decoration:none;font-weight:700;font-size:12px;display:inline-flex;align-items:center;gap:6px}
+    [data-theme="light"] .btn-voltar{background:#fff;color:#1D1D1F;border-color:var(--border)}
     .hero-modelos{padding:50px 20px 30px;text-align:center;background:linear-gradient(180deg,var(--bg2) 0%, var(--bg) 100%)}
-    .hero-modelos .foto-topo{width:90px;height:90px;border-radius:50%;border:2px solid var(--primary);box-shadow:0 0 30px rgba(193,53,132,.25);object-fit:cover;margin:0 auto 16px;display:block}
+    .hero-modelos .foto-topo{width:90px;height:90px;border-radius:50%;border:2px solid var(--primary);box-shadow:0 0 30px rgba(193,53,132,.25);object-fit:cover;margin:0 auto 16px;display:block;cursor:pointer}
     .hero-modelos h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,42px);line-height:1.1;color:var(--text)}
     .hero-modelos h1 span{color:var(--primary)}
     .hero-modelos p{opacity:.7;margin-top:10px;font-size:14px;color:var(--muted)}
@@ -50,31 +50,25 @@
     .btn:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(193,53,132,0.4)}
     .btn::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);animation:glitter 2.5s infinite}
     @keyframes glitter{0%{left:-100%}100%{left:200%}}
-    .whatsapp-float{position:fixed;bottom:80px;right:22px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
+    .whatsapp-float{position:fixed;bottom:22px;right:18px;z-index:9998;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
     .whatsapp-btn{width:58px;height:58px;background:linear-gradient(135deg,#C13584 0%,#a02c6e 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;box-shadow:0 8px 25px rgba(193,53,132,0.4);animation:pulseW 2s infinite}
     @keyframes pulseW{0%{box-shadow:0 0 0 0 rgba(193,53,132,0.4)}70%{box-shadow:0 0 0 15px rgba(193,53,132,0)}100%{box-shadow:0 0 0 0 rgba(193,53,132,0)}}
     .whatsapp-text{font-size:9px;font-weight:700;color:#fff;background:var(--text);padding:5px 10px;border-radius:20px;text-align:center}
     [data-theme="light"] .whatsapp-text{background:#1D1D1F;color:#fff}
     @media(max-width:900px){.grid-modelos{grid-template-columns:repeat(3,1fr)}}
     @media(max-width:600px){
-      .top-bar{padding:12px 14px;gap:10px}
-      .logo{font-size:18px;width:100%;text-align:left}
-      .menu-abas-3{width:100%;justify-content:flex-start;gap:6px}
-      .menu-abas-3 a{font-size:10px;padding:8px 10px;flex:1;max-width:calc(33% - 6px);justify-content:center}
+      .top-bar{padding:12px 14px}
+      .logo{font-size:18px}
       .grid-modelos{grid-template-columns:repeat(2,1fr);gap:10px}
-      .whatsapp-float{bottom:70px;right:16px}
+      .whatsapp-float{bottom:16px;right:14px}
     }
   </style>
 </head>
 <body>
-  <button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
   <div class="top-bar">
     <a href="index.html" class="logo">PRETA<span>NAILS</span></a>
-    <nav class="menu-abas-3">
-      <a href="primeiro-atendimento.html">Primeiro Atendimento</a>
-      <a href="modelos.html" class="ativa">Modelos</a>
-      <a href="manutencao.html">Manutenção</a>
-    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
+    <a href="index.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Início</a>
   </div>
   <section class="hero-modelos">
     <img class="foto-topo" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina">
@@ -84,16 +78,16 @@
   </section>
   <section class="galeria-modelos">
     <div class="grid-modelos">
-      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/ep6215wn25lwmv2joncff/1792338959358_image_1792338958662.jpg?rlkey=u4ibao11ahygs9685msis7p94&dl=1"></div><div class="info"><h4> Almond Nude</h4><span></span></div></div>
-      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/ok8j970kvyeahvuaypp53/1792117169199_image_1792117168251.jpg?rlkey=5tg8psq70scqcnceuw2gdzogv&dl=1"></div><div class="info"><h4>Gel Baby Boomer</h4><span></span></div></div>
-      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/zzddhf8t1wqfccm9hq4jo/1792249727183_image_1792249726226.jpg?rlkey=62sbxal2vj6h81w0o85j20qa6&dl=0 "></div><div class="info"><h4>Banho de Gel</h4><span>  </span></div></div>
-      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/h8012eb6vq21ck6pzz09t/1792341069258_image_1792341068399.jpg?rlkey=mr39b0rrz5iis6024jso365xj&dl=1"></div><div class="info"><h4>Stiletto Power</h4><span></span></div></div>
-      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/0r6h2gc4aa482xda63a33/1792250189483_image_1792250188814.jpg?rlkey=m87t85r1iy75ogicv5ya5hx5y&dl=1"></div><div class="info"><h4>Francesa reversa</h4><span>Delicada</span></div></div>
-      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/4c2v7rftncz1zuz5thedl/1792250788419_image_1792250787765.jpg?rlkey=gn37fe680s6caak4x6pucc2vi&dl=1"></div><div class="info"><h4>Encapsulada</h4><span>Brilho</span></div></div>
-      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/475wa0rn2ouqiuyg32zxp/1792340212449_image_1792340211565.jpg?rlkey=6vh6dcamgkwx8vmqpr8bkvco3&dl=1"></div><div class="info"><h4>Curta Fortalecida</h4><span>Prática</span></div></div>
-      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/puzgho2vauxzhbfzq72eg/1792120663030_image_1792120662571.jpg?rlkey=t4bsmpcmk4odps04pdqelmqn9&dl=1"></div><div class="info"><h4>Nail Art Premium</h4><span>Exclusiva</span></div></div>
-      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/e73mx5du83x9vnm4f94xg/1792340123273_image_1792340122736.jpg?rlkey=j4ry4t2twmmlx1ewhkablqj6p&dl=1"></div><div class="info"><h4>Nail Art 3D</h4><span>Exclusiva</span></div></div>
-      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/sp7admcbrr95pnx3bdd2v/1792120016521_image_1792120015619.jpg?rlkey=jgk2brfz74558j79qn4vvzq5h&dl=1"></div><div class="info"><h4>Bailarina</h4><span>Exclusiva</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/ep6215wn25lwmv2joncff/1792338959358_image_1792338958662.jpg?rlkey=u4ibao11ahygs9685msis7p94&dl=1" alt="Almond Nude" loading="lazy"></div><div class="info"><h4>Almond Nude</h4><span>Exclusiva</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/ok8j970kvyeahvuaypp53/1792117169199_image_1792117168251.jpg?rlkey=5tg8psq70scqcnceuw2gdzogv&dl=1" alt="Gel Baby Boomer" loading="lazy"></div><div class="info"><h4>Gel Baby Boomer</h4><span>Exclusiva</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/zzddhf8t1wqfccm9hq4jo/1792249727183_image_1792249726226.jpg?rlkey=62sbxal2vj6h81w0o85j20qa6&dl=1" alt="Banho de Gel" loading="lazy"></div><div class="info"><h4>Banho de Gel</h4><span>Exclusiva</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/h8012eb6vq21ck6pzz09t/1792341069258_image_1792341068399.jpg?rlkey=mr39b0rrz5iis6024jso365xj&dl=1" alt="Stiletto Power" loading="lazy"></div><div class="info"><h4>Stiletto Power</h4><span>Exclusiva</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/0r6h2gc4aa482xda63a33/1792250189483_image_1792250188814.jpg?rlkey=m87t85r1iy75ogicv5ya5hx5y&dl=1" alt="Francesa reversa" loading="lazy"></div><div class="info"><h4>Francesa reversa</h4><span>Delicada</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/4c2v7rftncz1zuz5thedl/1792250788419_image_1792250787765.jpg?rlkey=gn37fe680s6caak4x6pucc2vi&dl=1" alt="Encapsulada" loading="lazy"></div><div class="info"><h4>Encapsulada</h4><span>Brilho</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/475wa0rn2ouqiuyg32zxp/1792340212449_image_1792340211565.jpg?rlkey=6vh6dcamgkwx8vmqpr8bkvco3&dl=1" alt="Curta Fortalecida" loading="lazy"></div><div class="info"><h4>Curta Fortalecida</h4><span>Prática</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/puzgho2vauxzhbfzq72eg/1792120663030_image_1792120662571.jpg?rlkey=t4bsmpcmk4odps04pdqelmqn9&dl=1" alt="Nail Art Premium" loading="lazy"></div><div class="info"><h4>Nail Art Premium</h4><span>Exclusiva</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/e73mx5du83x9vnm4f94xg/1792340123273_image_1792340122736.jpg?rlkey=j4ry4t2twmmlx1ewhkablqj6p&dl=1" alt="Nail Art 3D" loading="lazy"></div><div class="info"><h4>Nail Art 3D</h4><span>Exclusiva</span></div></div>
+      <div class="card-modelo"><div class="img-wrap"><img src="https://dl.dropboxusercontent.com/scl/fi/sp7admcbrr95pnx3bdd2v/1792120016521_image_1792120015619.jpg?rlkey=jgk2brfz74558j79qn4vvzq5h&dl=1" alt="Bailarina" loading="lazy"></div><div class="info"><h4>Bailarina</h4><span>Exclusiva</span></div></div>
     </div>
     <div class="cta">
       <h3 style="font-family:'Playfair Display',serif;color:var(--primary)">Gostou de um modelo?</h3>
@@ -101,7 +95,7 @@
       <a href="agendamento.html" class="btn">Quero Agendar meu Horário ❤️</a>
     </div>
   </section>
-  <div id="lightbox"><div class="fechar" onclick="fechar()"><i class="fas fa-times"></i></div><img id="light-img" src=""></div>
+  <div id="lightbox"><div class="fechar" onclick="fechar()"><i class="fas fa-times"></i></div><img id="light-img" src="" alt=""></div>
   <a href="https://wa.me/5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vi%20os%20modelos%20no%20site%20e%20gostei%20de%20um.%20Pode%20me%20ajudar%3F%20Jardim%20Peri%20Horto%20Florestal" target="_blank" class="whatsapp-float">
     <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
     <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
@@ -116,7 +110,7 @@
       lightbox.classList.add('ativo');
     });
   });
-  function fechar(){lightbox.classList.remove('ativo')}
+  function fechar(){lightbox.classList.remove('ativo'); lightImg.src='';}
   lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) fechar() });
 let clickCount = 0;
 document.querySelector('.foto-topo').addEventListener('click', function() {
