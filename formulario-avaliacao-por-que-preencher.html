@@ -1,4 +1,4 @@
-QQ<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -29,10 +29,13 @@ QQ<!DOCTYPE html>
     .autor{display:flex;align-items:center;gap:14px;margin-bottom:25px;padding:18px;border-radius:12px;border:1px solid rgba(255,45,146,.2);background:rgba(255,255,255,.04)}
     .autor img{width:55px;height:55px;border-radius:50%;border:2px solid #ff2d92;object-fit:cover}
     .caixa{background:rgba(255,45,146,.08);border:1px solid rgba(255,45,146,.2);border-radius:12px;padding:18px;margin-top:20px}
-    .btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#ff2d92 0%,#C13584 100%);color:#fff;padding:16px 30px;border-radius:50px;text-decoration:none;font-weight:800;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#ff2d92 0%,#C13584 100%);color:#fff;padding:16px 30px;border-radius:50px;text-decoration:none;font-weight:800;margin-top:30px;box-shadow:0 10px 30px rgba(255,45,146,.5)}
     .btn-voltar{margin-left:68px;display:inline-block;border:1px solid #ff2d92;color:#ff2d92;padding:8px 16px;border-radius:50px;text-decoration:none;margin-bottom:20px;font-size:14px;font-weight:700}
     .whatsapp-float{position:fixed;bottom:80px;right:25px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
-    .whatsapp-btn{width:60px;height:60px;background:linear-gradient(135deg,#ff2d92 0%,#C13584 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px;box-shadow:0 8px 25px rgba(255,45,146,.5)}
+    .whatsapp-btn{width:60px;height:60px;background:linear-gradient(135deg,#ff2d92 0%,#C13584 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px;box-shadow:0 8px 25px rgba(255,45,146,.5);animation:pulseRosa 2s infinite}
+    .whatsapp-text{font-size:10px;font-weight:700;color:#fff;background:rgba(0,0,0,0.7);padding:5px 10px;border-radius:20px;text-align:center;line-height:1.2}
+    [data-theme="light"] .whatsapp-text{background:rgba(0,0,0,0.8)}
+    @keyframes pulseRosa{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,45,146,0.7)}70%{transform:scale(1.05);box-shadow:0 0 0 15px rgba(255,45,146,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,45,146,0)}}
   </style>
 
   <script type="application/ld+json">
@@ -101,12 +104,13 @@ QQ<!DOCTYPE html>
     </div>
 
     <div style="text-align:center;">
-      <a href="https://wa.me/5511982311608?text=Oi%20Sabrina!%20Vim%20pela%20pagina%20Formulario%20e%20quero%20preencher%20minha%20ficha%20Jardim%20Peri" class="btn"><i class="fab fa-wpforms"></i> Preencher Minha Avaliação</a>
+      <a href="agendamento.html" class="btn"><i class="fas fa-calendar-check"></i> Preencher Minha Avaliação</a>
     </div>
   </div>
 
-  <a href="https://wa.me/5511982311608?text=Olá%20Preta%20Nails" target="_blank" class="whatsapp-float">
+  <a href="https://wa.me/5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20tenho%20algumas%20d%C3%BAvidas." target="_blank" class="whatsapp-float">
     <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
+    <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
   </a>
 
 <script>
