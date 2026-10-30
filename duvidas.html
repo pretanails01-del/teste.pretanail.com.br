@@ -1,159 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0a0a0a" id="meta-theme-color">
-  <script>!function(){try{var t=localStorage.getItem('preta-theme');if(!t){localStorage.setItem('preta-theme','dark');t='dark'}if(t==='light'){document.documentElement.setAttribute('data-theme','light')}else{document.documentElement.removeAttribute('data-theme')}}catch(e){}}();</script>
-  <!-- SEO - PALAVRAS CHAVE -->
-  <title>Dúvidas Frequentes | Preta Nails - Alongamento Unhas Gel Fibra</title>
-  <meta name="description" content="Tire todas as dúvidas sobre alongamento de unhas em gel e fibra na Preta Nails. Higienização, biossegurança, agendamento, cuidados e gestante com Sabrina Lemos.">
-  <meta name="keywords" content="duvidas alongamento unhas, preta nails faq, sabrina lemos nail designer, higienizacao unhas, biosseguranca manicure, alongamento gel fibra, unha gestante pode, alergia alongamento, cuidados pos alongamento, manutencao de unhas, agendamento unhas, nail art duvidas, cutilagem, esmaltacao em gel, unha de fibra de vidro, manicure profissional, estetica de unhas">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="theme.css">
-  <style>
-    :root {
-      --rosa-brilhante: #ff2d92;
-      --rosa-escuro: #C13584;
-      --bg: #0a0a0a;
-      --text: #ffffff;
-      --card: rgba(255,255,255,0.03);
-    }
-    [data-theme="light"]{
-      --bg:#FFFAFC;
-      --text:#1D1D1F;
-      --card:#FFFFFF;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); transition: background .3s, color .3s; }
-    [data-theme="light"] body{color:#1D1D1F}
-    .theme-btn{position:fixed;top:18px;left:18px;z-index:10001;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,45,146,.3);background:rgba(255,255,255,.06);color:var(--rosa-brilhante);cursor:pointer;backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;}
-    [data-theme="light"] .theme-btn{background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.08)}
-    #full-faq-screen {
-      display: block; position: relative; width: 100%; height: 100%;
-      background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
-      z-index: 1; overflow-y: auto;
-    }
-    [data-theme="light"] #full-faq-screen{background:linear-gradient(180deg,#FFFAFC 0%,#fff 100%)}
-    .full-faq-content {
-      max-width: 900px; margin: 0 auto; padding: 40px 25px; min-height: 100vh;
-    }
-    .full-faq-header {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 30px; position: sticky; top: 0; background: rgba(10,10,10,0.9);
-      backdrop-filter: blur(10px); padding: 15px 0 15px 65px; z-index: 10;
-    }
-    [data-theme="light"] .full-faq-header{background:rgba(255,250,252,.9)}
-    #back-to-list {
-      background: none; border: 1px solid var(--rosa-brilhante); color: var(--rosa-brilhante);
-      padding: 10px 18px; border-radius: 50px; font-weight: 700; cursor: pointer;
-      transition: 0.3s; font-size: 15px;
-    }
-    #back-to-list:hover {
-      background: var(--rosa-brilhante); color: #fff; transform: scale(1.05);
-    }
-    .full-faq-title {
-      font-family: 'Playfair Display', serif; font-size: 33px;
-      text-shadow: 0 0 15px rgba(255,45,146,0.5);
-    }
-    [data-theme="light"] .full-faq-title{color:#1D1D1F;text-shadow:none}
-    .lista-duvidas li {
-      cursor: pointer; padding: 19px 20px; margin-bottom: 12px;
-      background: rgba(255,255,255,0.03); border-radius: 12px;
-      border-left: 3px solid transparent;
-      transition: all 0.3s ease;
-      font-size: 19px; line-height: 1.7;
-    }
-    [data-theme="light"] .lista-duvidas li{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.04);color:#1D1D1F}
-    .lista-duvidas li:hover {
-      border-left: 3px solid var(--rosa-brilhante);
-      transform: translateX(8px);
-      background: rgba(255,45,146,0.08);
-      box-shadow: 0 0 20px rgba(255,45,146,0.2);
-    }
-    h2 { font-size: 31px!important; text-shadow: 0 0 12px rgba(255,45,146,0.6); margin-bottom: 20px; font-family: 'Playfair Display', serif; }
-    [data-theme="light"] h2{color:#C13584!important;text-shadow:none}
-    h3 { color: #fff!important; font-size: 22.5px; border-left: 3px solid var(--rosa-brilhante); padding-left: 12px; margin-top: 25px; margin-bottom: 12px; }
-    [data-theme="light"] h3{color:#1D1D1F!important}
-    strong { color: var(--rosa-brilhante); }
-    p { line-height: 1.9; margin-bottom: 15px; font-size: 18.5px; color: #ddd; }
-    [data-theme="light"] p{color:#333}
-    ul { margin-left: 20px; line-height: 2.2; font-size: 18.5px; }
-    [data-theme="light"] ul{color:#333}
-    .caixa-recado {
-      background: linear-gradient(135deg, rgba(255, 45, 146, 0.2), rgba(0,0,0,0.5));
-      border: 2px solid var(--rosa-brilhante);
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 45, 146, 0.3), inset 0 0 10px rgba(255,45,146,0.1);
-      padding: 20px; margin-top: 25px; font-size: 18.5px;
-    }
-    [data-theme="light"] .caixa-recado{background:#fff;border-color:rgba(193,53,132,.2);box-shadow:0 8px 20px rgba(0,0,0,.05);color:#1D1D1F}
-    .autor-header {
-      background: linear-gradient(135deg, rgba(255, 45, 146, 0.2), rgba(0,0,0,0.7));
-      border: 2px solid var(--rosa-brilhante);
-      box-shadow: 0 0 15px rgba(255,45,146,0.3);
-      display:flex; align-items:center; gap:14px; margin-bottom:25px; padding:18px; border-radius:12px;
-    }
-    [data-theme="light"] .autor-header{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.06)}
-    .autor-header img {
-      width:55px; height:55px; border-radius:50%; border:3px solid #ff2d92; object-fit:cover;
-      box-shadow:0 0 15px rgba(255,45,146,0.6);
-    }
-    .autor-header div p { font-size: 15px; }
-    .autor-header div p:nth-child(2) { font-size: 20px; font-weight:800; }
-    .btn-form-full {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: linear-gradient(135deg, var(--rosa-brilhante) 0%, var(--rosa-escuro) 100%);
-      color: #fff; padding: 18px 35px; border-radius: 50px;
-      text-decoration: none; font-weight: 800; font-size: 18.5px;
-      box-shadow: 0 10px 30px rgba(255,45,146,0.5);
-      margin-top: 30px;
-      animation: pulse-rosa 2s infinite;
-    }
-    @keyframes pulse-rosa {
-      0% { box-shadow: 0 0 0 0 rgba(255,45,146,0.5); }
-      70% { box-shadow: 0 0 0 15px rgba(255,45,146,0); }
-      100% { box-shadow: 0 0 0 0 rgba(255,45,146,0); }
-    }
-    /* BOTAO ROSA WHATS FLUTUANTE - MANTIDO 100% */
-    .whatsapp-float { position: fixed; bottom: 80px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
-    .whatsapp-btn { width: 60px; height: 60px; background: linear-gradient(135deg, #ff2d92 0%, #C13584 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 32px; box-shadow: 0 8px 25px rgba(255,45,146,0.5); transition: all 0.3s; animation: pulse 2s infinite; }
-    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(255,45,146,0.7); }
-    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,45,146,0.6); } 70% { box-shadow: 0 0 0 15px rgba(255,45,146,0); } 100% { box-shadow: 0 0 0 0 rgba(255,45,146,0); } }
-    .whatsapp-text { font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 20px; backdrop-filter: blur(10px); letter-spacing: 0.5px; text-align: center; }
-    [data-theme="light"] .whatsapp-text{background:#1D1D1F;color:#fff}
-    @media (max-width: 768px) {
-      .full-faq-content { margin: 0; padding: 20px 15px; border-radius: 0; min-height: 100vh; border-left: none; border-right: none; }
-      .full-faq-title { font-size: 27px; }
-      #back-to-list { font-size: 14px; padding: 9px 14px; }
-      .theme-btn{top:12px;left:12px;right:auto;}
-      .whatsapp-float { bottom: 70px; right: 20px; }
-      .whatsapp-btn { width: 55px; height: 55px; font-size: 28px; }
-    }
-  </style>
-</head>
-<body>
-<button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
-  <div id="full-faq-screen">
-    <div class="full-faq-content">
-      <div class="full-faq-header">
-        <button id="back-to-list" style="display:none;"><i class="fas fa-arrow-left"></i> Voltar</button>
-        <h1 class="full-faq-title" id="full-title">Dúvidas Frequentes</h1>
-      </div>
-      <div id="full-content"></div>
-    </div>
-  </div>
-
-  <!-- BOTAO ROSA WHATS FLUTUANTE - MANTIDO -->
-  <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20tenho%20algumas%20d%C3%BAvidas.%20Poderia%20me%20ajudar%20%3F" target="_blank" class="whatsapp-float">
-    <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
-    <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
-  </a>
-
-  <script>
+<script>
     const fullTitle = document.getElementById('full-title');
     const fullContent = document.getElementById('full-content');
     const backBtn = document.getElementById('back-to-list');
@@ -175,136 +20,60 @@
       fullContent.innerHTML = `
         ${autorHeader}
         <p style="margin-bottom:25px; font-size:19px; color:#fff;">Escolha uma dúvida sobre alongamento de unhas e eu te explico tudinho com todo carinho:</p>
-        <ul class="lista-duvidas" style="list-style:none;">
-          <li onclick="loadFaq('Higienização')">• 1. Como funciona a higienização e esterilização?</li>
-          <li onclick="loadFaq('Sou gestante')">• 2. Sou gestante, posso fazer alongamento?</li>
-          <li onclick="loadFaq('Site seguro')">• 3. Seu site é seguro? Meus dados estão protegidos?</li>
-          <li onclick="loadFaq('Formulario')">• 4. Por que preencher o formulário de avaliação?</li>
-          <li onclick="loadFaq('Sinais de alergia')">• 5. Sinais de alergia e como eu previno</li>
-          <li onclick="loadFaq('Cuidados com a unha')">• 6. Cuidados completos após o alongamento</li>
-          <li onclick="loadFaq('Dica semanal')">• 7. Dica semanal da Preta Nails</li>
+        <ul class="lista-duvidas" style="list-style:none; margin-left:0;">
+          
+          <li>
+            <a href="higienizacao-esterilizacao-jardim-peri.html" style="text-decoration:none; color:inherit; display:flex; justify-content:space-between; align-items:center;">
+              <span>• 1. Como funciona a higienização e esterilização?</span>
+              <i class="fas fa-arrow-right" style="color:var(--rosa-brilhante); font-size:14px;"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="gestante-pode-fazer-alongamento-horto-florestal.html" style="text-decoration:none; color:inherit; display:flex; justify-content:space-between; align-items:center;">
+              <span>• 2. Sou gestante, posso fazer alongamento?</span>
+              <i class="fas fa-arrow-right" style="color:var(--rosa-brilhante); font-size:14px;"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="site-seguro-lgpd-preta-nails.html" style="text-decoration:none; color:inherit; display:flex; justify-content:space-between; align-items:center;">
+              <span>• 3. Seu site é seguro? Meus dados estão protegidos?</span>
+              <i class="fas fa-arrow-right" style="color:var(--rosa-brilhante); font-size:14px;"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="formulario-avaliacao-por-que-preencher.html" style="text-decoration:none; color:inherit; display:flex; justify-content:space-between; align-items:center;">
+              <span>• 4. Por que preencher o formulário de avaliação?</span>
+              <i class="fas fa-arrow-right" style="color:var(--rosa-brilhante); font-size:14px;"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="alergia-alongamento-sinais-prevencao.html" style="text-decoration:none; color:inherit; display:flex; justify-content:space-between; align-items:center;">
+              <span>• 5. Sinais de alergia e como eu previno</span>
+              <i class="fas fa-arrow-right" style="color:var(--rosa-brilhante); font-size:14px;"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="cuidados-apos-alongamento-durabilidade.html" style="text-decoration:none; color:inherit; display:flex; justify-content:space-between; align-items:center;">
+              <span>• 6. Cuidados completos após o alongamento</span>
+              <i class="fas fa-arrow-right" style="color:var(--rosa-brilhante); font-size:14px;"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="dica-semanal-oleo-cuticula-segredo.html" style="text-decoration:none; color:inherit; display:flex; justify-content:space-between; align-items:center;">
+              <span>• 7. Dica semanal da Preta Nails</span>
+              <i class="fas fa-arrow-right" style="color:var(--rosa-brilhante); font-size:14px;"></i>
+            </a>
+          </li>
+
         </ul>
         <div style="text-align:center;">
           <a href="agendamento.html" class="btn-form-full"><i class="fas fa-calendar-check"></i> IR PARA AGENDAMENTO</a>
         </div>`;
     }
-    window.loadFaq = function(title) {
-      isInList = false;
-      backBtn.style.display = 'inline-block';
-      fullTitle.textContent = title;
-      if(title === 'Higienização'){
-        fullContent.innerHTML = `${autorHeader}<h2>HIGIENIZAÇÃO E ESTERILIZAÇÃO NA PRETA NAILS</h2><p><strong>Oi, linda 💖 Aqui é a Sabrina.</strong></p><p>Segurança é prioridade máxima aqui. Eu sei que você confia suas mãos pra mim, então quero te mostrar exatamente como funciona todo o protocolo de higienização. Nada é feito sem seguir as normas da Anvisa e do Ministério da Saúde.</p><h3>1. ESTERILIZAÇÃO DOS ALICATES E MATERIAIS</h3><p>Todos os alicates, espátulas e cortadores passam por 3 etapas rigorosas: <strong>Lavagem com sabão bactericida > Secagem > Esterilização em estufa a 180°C por 1 hora.</strong> Só uso o material depois desse processo completo. Cada cliente tem seu kit esterilizado.</p><h3>2. MATERIAIS DESCARTÁVEIS</h3><ul><li><strong>Lixas e blocos:</strong> São de uso único. Uso na você e descarto imediatamente.</li><li><strong>Toalhas e aventais:</strong> Sempre limpos, higienizados e trocados a cada cliente.</li><li><strong>Luva:</strong> Eu uso luva de procedimento em todos os atendimentos.</li></ul><h3>3. AMBIENTE E PRODUTOS</h3><p>A bancada é limpa com álcool 70% entre um cliente e outro. Uso apenas produtos liberados pela Anvisa, de marcas profissionais. Sua saúde vem em primeiro lugar sempre.</p><div class="caixa-recado"><strong>RECADO DA PRETA:</strong><br>Fica tranquila. Aqui você é tratada com todo cuidado e respeito. Higiene não é luxo, é obrigação. Se tiver dúvida me pergunta no Whats 💖</div>`;
-      } 
-      else if(title === 'Formulario'){
-        fullContent.innerHTML = `${autorHeader}<h2>POR QUE PEDIMOS O FORMULÁRIO DE AVALIAÇÃO INICIAL?</h2><p><strong>Oi, linda 💖 Aqui é a Sabrina.</strong></p><p>Eu sei que preencher formulário dá preguiça, mas ele é SUPER importante pra sua segurança e pro resultado ficar perfeito. Leva só 2 minutinhos e faz toda diferença.</p><h3>1. SUA SEGURANÇA EM PRIMEIRO LUGAR</h3><p>Preciso saber se você tem alergia, diabetes, problemas de circulação ou usa algum medicamento. Assim eu escolho os produtos certos e evito qualquer risco pra você.</p><h3>2. PERSONALIZAR SEU ATENDIMENTO</h3><p>No formulário você me conta o formato que gosta, comprimento, se trabalha com as mãos. Com isso eu já deixo tudo preparado pra você e o atendimento fica mais rápido e do jeitinho que você sonhou.</p><h3>3. CUIDAR MELHOR DA SUA UNHA NATURAL</h3><p>Se você já fez alongamento antes, se roe unha, se tem unha fraca... eu preciso saber pra usar a técnica correta e não agredir sua unha natural. Meu objetivo é deixar ela forte por baixo também.</p><div class="caixa-recado"><strong>RECADO DA PRETA:</strong><br>É pra te cuidar melhor e garantir que suas unhas fiquem lindas e seguras. Bora preencher? 💖</div><div style="text-align:center;"><a href="agendamento.html" class="btn-form-full"><i class="fas fa-calendar-check"></i> IR PARA AGENDAMENTO</a></div>`;
-      }
-      else if(title === 'Sou gestante'){
-        fullContent.innerHTML = `${autorHeader}<h2>GESTANTE PODE FAZER ALONGAMENTO? GUIA COMPLETO</h2><p><strong>Oi, mamãe 💖 Aqui é a Sabrina.</strong></p><p><strong>A RESPOSTA CURTA: SIM, PODE SIM!</strong></p><p>Eu atendo várias mamães aqui na Preta Nails e sei como é importante se sentir linda nessa fase. Se cuidar eleva a autoestima e faz muito bem pra você e pro bebê.</p><h3>POR QUE É 100% SEGURO AQUI?</h3><ul><li><strong>Não usa forno UV:</strong> Aqui é Fibra de Vidro. Zero radiação.</li><li><strong>Produtos profissionais:</strong> Apenas marcas liberadas pela Anvisa.</li><li><strong>Ambiente arejado:</strong> Meu espaço tem exaustor e janelas.</li><li><strong>Higienização total:</strong> Alicates esterilizados em estufa.</li></ul><h3>ÚNICO CUIDADO ESPECIAL</h3><p>Se estiver no primeiro trimestre e com enjoo forte, me avisa. A gente agenda num horário mais calmo. Pode levar água e lanchinho.</p><div class="caixa-recado"><strong>RECADO DA PRETA:</strong><br>Amiga, esse é o momento de você se cuidar também. Você merece! Me chama no Whats pra agendar 💖</div>`;
-      }
-      else if(title === 'Site seguro'){
-        fullContent.innerHTML = `${autorHeader}<h2>SEU SITE É SEGURO? ENTENDA TODA SEGURANÇA</h2><p><strong>Oi, linda 💖 Aqui é a Sabrina.</strong></p><p><strong>RESPOSTA CURTA: SIM, MEU SITE É 100% SEGURO.</strong></p><p>Eu sei que na internet a gente tem que ter cuidado. Por isso me preocupei em deixar tudo blindado pra você navegar tranquila.</p><h3>1. CRIPTOGRAFIA SSL - CADEADO VERDE 🔒</h3><p>Todo o nosso site tem certificado SSL. É aquele cadeadinho que aparece do lado do endereço. Mesma segurança de banco.</p><h3>2. SEUS DADOS NÃO FICAM SALVOS</h3><p>Quando você preenche o formulário, ele vai direto pro meu WhatsApp. Eu não guardo em banco de dados nenhum. Zero risco de vazamento.</p><h3>3. LGPD - LEI GERAL DE PROTEÇÃO DE DADOS</h3><p>Eu sigo a lei à risca. Se quiser que eu apague seus dados, é só pedir no WhatsApp que eu apago na hora.</p><div class="caixa-recado"><strong>RECADO DA PRETA:</strong><br>Minha maior preocupação é você se sentir segura comigo. Seja na cadeira do salão, seja aqui no site 💖</div>`;
-      }
-      else if(title === 'Sinais de alergia'){
-        fullContent.innerHTML = `${autorHeader}<h2>SINAIS DE ALERGIA: COMO IDENTIFICAR E O QUE FAZER</h2><p><strong>Oi, linda 💖 Aqui é a Sabrina.</strong></p><p>Transparência total: alergia é RARA, menos de 1% das clientes, mas pode acontecer. E eu quero que você saiba identificar pra ficar tranquila.</p><h3>FICA ATENTA NOS PRIMEIROS 3 DIAS:</h3><ul><li><strong>Coceira intensa</strong> ao redor da unha</li><li><strong>Vermelhidão</strong> que não passa</li><li><strong>Inchaço</strong> ou bolhinhas na pele</li><li><strong>Ardência</strong> que aumenta</li></ul><h3>O QUE FAZER IMEDIATAMENTE?</h3><p><strong>1. Me chama IMEDIATO no WhatsApp</strong><br><strong>2. A gente remove com segurança</strong> e sem custo<br><strong>3. Eu te oriento</strong> sobre o que fazer</p><div class="caixa-recado"><strong>RECADO IMPORTANTE:</strong><br>Minha prioridade é sua saúde. Prefiro perder 1 cliente do que ver você mal. Conte comigo 💖</div>`;
-      }
-      else if(title === 'Cuidados com a unha'){
-        fullContent.innerHTML = `${autorHeader}<h2>CUIDADOS COMPLETOS COM A UNHA APÓS O ALONGAMENTO</h2><p><strong>Oi, linda 💅 Aqui é a Sabrina.</strong></p><p>Preparei um guia completo pra suas unhas durarem de 20 a 25 dias perfeitas e intactas.</p><h3>REGRA DE OURO #1: ÁGUA QUENTE É INIMIGA</h3><p>Nos primeiros 2 dias evita água muito quente e produtos de limpeza sem luva. Dica da Preta: usa luva pra lavar louça.</p><h3>REGRA DE OURO #2: HIDRATAÇÃO TODO DIA</h3><p>Passa óleo de cutícula antes de dormir. Só 10 segundos em cada mão. Isso evita que levante e dá brilho de salão todo dia.</p><h3>REGRA DE OURO #3: NUNCA TIRA EM CASA</h3><p>Se quebrar me chama no WhatsApp. Arrancar em casa arranca sua unha natural junto. A remoção correta comigo leva 20 minutinhos.</p><div class="caixa-recado"><strong>RECADO FINAL:</strong><br>Cuida da sua unha como você cuida de você. Fez isso? Vai durar 20-25 dias lindas. Qualquer dúvida me chama 💖</div>`;
-      }
-      else if(title === 'Dica semanal'){
-        fullContent.innerHTML = `${autorHeader}<h2>DICA SEMANAL DA PRETANAILS - #1: SEGREDO DA DURABILIDADE</h2><p><strong>Oi, linda! Aqui é a Sabrina 💅</strong></p><p>Toda semana eu vou te deixar 1 dica aqui pra sua unha durar mais e ficar mais linda. Salva esse post!</p><h3>DICA #1: O PODER DO ÓLEO DE CUTÍCULA</h3><div class="caixa-recado" style="text-align:center;"><strong>Passa óleo de cutícula todo dia antes de dormir.</strong></div><h3>POR QUE ISSO FAZ TODA DIFERENÇA?</h3><ul><li><strong>Evita que a fibra levante:</strong> Hidrata e sela a ponta</li><li><strong>Dá brilho</strong> de salão todos os dias</li><li><strong>Fortalece</strong> sua unha natural por baixo</li></ul><h3>COMO APLICAR:</h3><p>1 gotinha em cada cutícula, massageia por 10 segundos. Pode usar o óleo da Preta Nails ou qualquer um de farmácia.</p>`;
-      }
-    };
-    backBtn.addEventListener('click', () => showList());
-    showList();
-  </script>
-<script src="theme.js"></script>
-<script>
-(function() {
-  "use strict";
-  const SENHA_ADMIN = "preta2026"; 
-  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  const urlParams = new URLSearchParams(window.location.search);
-  const liberouPorLink = urlParams.get('admin') === SENHA_ADMIN;
-  if(liberouPorLink) sessionStorage.setItem('adminLiberado', 'true');
-  if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile) { return; }
-  let bloqueado = false;
-  function mostrarAlertaSeguranca() {
-    if(bloqueado) return; bloqueado = true;
-    document.documentElement.innerHTML = `<body style="margin:0;padding:0;background:#F8F9FA;font-family:'Google Sans', Roboto, Arial, sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;"><div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;"><h2 style="color:#E91E63;">Preta Nails - Navegação Segura</h2><p>Acesso ao código-fonte bloqueado</p><button onclick="window.location.reload()" style="padding:12px 24px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;">Entendi</button></div></body>`;
-  }
-  document.addEventListener('keydown', function(e) { if (e.key === 'F12') { e.preventDefault(); mostrarAlertaSeguranca(); } }, true);
-  document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
-})();
 </script>
-  <!-- ==================== BLOQUEIO V12.3 - MODO CLIENTE INVISÍVEL ==================== -->
-<script>
-(function() {
-  "use strict";
-  const SENHA_ADMIN = "preta2026"; 
-  const isGoogleBot = /googlebot|google-inspection|adsbot-google|mediapartners-google|apis-google|chrome-lighthouse|gtmetrix|lighthouse|bingbot|yandex|duckduckbot/i.test(navigator.userAgent);
-  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  const urlParams = new URLSearchParams(window.location.search);
-  if(urlParams.get('admin') === SENHA_ADMIN) sessionStorage.setItem('adminLiberado', 'true');
-  if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile || isGoogleBot) return;
-  let bloqueado = false;
-  function mostrarAlertaSeguranca() {
-    if(bloqueado) return;
-    bloqueado = true;
-    document.documentElement.innerHTML = `
-      <body style="margin:0;padding:0;background:#F8F9FA;font-family:'Google Sans', Roboto, Arial, sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;">
-        <div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
-          <div style="display:flex;align-items:center;margin-bottom:25px;">
-            <div style="font-size:40px;margin-right:15px;">🛡️</div>
-            <div>
-              <h2 style="font-size:24px;margin:0;color:#E91E63;">Preta Nails - Navegação Segura</h2>
-              <p style="font-size:13px;margin:2px 0 0 0;color:#5F6368;">Sistema de Proteção da Loja</p>
-            </div>
-          </div>
-          <h3 style="font-size:18px;margin-bottom:12px;color:#202124;">Acesso avançado detectado</h3>
-          <p style="font-size:15px;line-height:1.6;color:#3C4043;margin-bottom:20px;">
-            Por segurança, detectamos uma tentativa de acesso ao código-fonte da <strong>Preta Nails</strong>. 
-            Para proteger nossos produtos e dados, o acesso foi bloqueado.
-          </p>
-          <p style="font-size:14px;line-height:1.6;color:#5F6368;margin-bottom:25px;">
-            <strong>Você pode continuar:</strong><br>
-            - Navegando e comprando normalmente pelo <strong>celular</strong> 💅<br>
-            - Usando <strong>Ctrl+C</strong> para copiar PIX e informações
-          </p>
-          <button onclick="window.location.reload()" style="padding:12px 24px;font-size:14px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;font-weight:500;">
-            Entendi e Voltar para Loja
-          </button>
-        </div>
-      </body>`;
-  }
-  window.liberar = function(senha) {
-    if(senha === SENHA_ADMIN) {
-      sessionStorage.setItem('adminLiberado', 'true');
-      location.reload();
-    }
-  }
-  document.addEventListener('keydown', function(e) {
-    const key = e.key.toUpperCase();
-    const code = e.keyCode || e.which;
-    const teclasLivres = ['C','V','X','A','F','R','L','T','W','D','Z'];
-    if (e.ctrlKey && teclasLivres.includes(key) && !e.shiftKey && !e.altKey) return true;
-    if (e.ctrlKey && e.shiftKey && key === 'R') return true;
-    if (['TAB','ENTER',' ','BACKSPACE','ARROWUP','ARROWDOWN','ARROWLEFT','ARROWRIGHT','DELETE'].includes(key)) return true;
-    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true;
-    if (key === 'F12' || code === 123 || 
-        (key.startsWith('F') && /^F([1-4]|7|8|9|10|11|12)$/.test(key)) ||
-        (e.ctrlKey && ['U','S','P','I','J','K','E','Q','H'].includes(key)) ||
-        (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','E','D'].includes(key)) ||
-        (e.altKey && ['F','U','D'].includes(key)) ) {
-      e.preventDefault();
-      e.stopPropagation();
-      mostrarAlertaSeguranca();
-      return false;
-    }
-  }, true);
-  document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
-})();
-</script>
-</body>
-</html>
