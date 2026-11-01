@@ -45,7 +45,12 @@
     .autor-header { background: linear-gradient(135deg, rgba(255, 45, 146, 0.2), rgba(0,0,0,0.7)); border: 2px solid var(--rosa-brilhante); display:flex; align-items:center; gap:14px; margin-bottom:25px; padding:18px; border-radius:12px; }
     [data-theme="light"] .autor-header{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.06)}
     .autor-header img { width:55px; height:55px; border-radius:50%; border:3px solid #ff2d92; object-fit:cover; }
-    .btn-form-full { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--rosa-brilhante) 0%, var(--rosa-escuro) 100%); color: #fff; padding: 18px 35px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 18.5px; box-shadow: 0 10px 30px rgba(255,45,146,0.5); margin-top: 30px; }
+    .btn-form-full { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--rosa-brilhante) 0%, var(--rosa-escuro) 100%); color: #fff; padding: 18px 35px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 18.5px; box-shadow: 0 10px 30px rgba(255,45,146,0.5); margin-top: 30px; transition:.3s }
+    .btn-form-full:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(255,45,146,0.7)}
+    /* BOTÃO BLOG ROSA - NOVO */
+    .btn-blog-rosa { display:inline-flex; align-items:center; gap:10px; background: transparent; border:1.5px solid var(--rosa-brilhante); color: var(--rosa-brilhante); padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 15px; margin-top: 16px; backdrop-filter: blur(10px); transition:.3s }
+    [data-theme="light"] .btn-blog-rosa{background:#fff}
+    .btn-blog-rosa:hover{background:var(--rosa-brilhante);color:#fff;transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,45,146,0.35)}
     .whatsapp-float { position: fixed; bottom: 80px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
     .whatsapp-btn { width: 60px; height: 60px; background: linear-gradient(135deg, #ff2d92 0%, #C13584 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 32px; }
     .whatsapp-text { font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 20px; }
@@ -94,13 +99,13 @@
           <li><a href="cuidados-apos-alongamento-durabilidade.html">• 6. Cuidados completos após o alongamento <i class="fas fa-arrow-right" style="color:var(--rosa-brilhante);"></i></a></li>
           <li><a href="dica-semanal-oleo-cuticula-segredo.html">• 7. Dica semanal da Preta Nails <i class="fas fa-arrow-right" style="color:var(--rosa-brilhante);"></i></a></li>
         </ul>
-        <div style="text-align:center;">
+        <div style="text-align:center; display:flex; flex-direction:column; align-items:center;">
           <a href="agendamento.html" class="btn-form-full"><i class="fas fa-calendar-check"></i> IR PARA AGENDAMENTO</a>
+          <a href="blog.html" class="btn-blog-rosa"><i class="fas fa-book-open"></i> Blog Preta Nails</a>
         </div>`;
     }
     showList();
 
-    // TEMA - ESCURO PADRÃO, BRANCO SÓ SE CLICAR
     const themeBtn = document.getElementById('themeBtn');
     const themeIcon = document.getElementById('themeIcon');
     const metaTheme = document.getElementById('meta-theme-color');
