@@ -37,8 +37,13 @@
     [data-theme="light"] .caixa-recado{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.06)}
     .autor-header{background:linear-gradient(135deg, rgba(255,45,146,.2), rgba(0,0,0,.7));border:2px solid var(--rosa-brilhante);display:flex;align-items:center;gap:14px;margin-bottom:25px;padding:18px;border-radius:12px}
     .autor-header img{width:55px;height:55px;border-radius:50%;border:3px solid #ff2d92;object-fit:cover}
-    .btn-form-full{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#ff2d92 0%,#C13584 100%);color:#fff;padding:18px 35px;border-radius:50px;text-decoration:none;font-weight:800;font-size:18px;box-shadow:0 10px 30px rgba(255,45,146,.5);margin-top:30px}
-    .btn-voltar{margin-left:68px;display:inline-block;border:1px solid #ff2d92;color:#ff2d92;padding:10px 18px;border-radius:50px;text-decoration:none;margin-bottom:20px;font-weight:700}
+    .btn-form-full{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#ff2d92 0%,#C13584 100%);color:#fff;padding:18px 35px;border-radius:50px;text-decoration:none;font-weight:800;font-size:18px;box-shadow:0 10px 30px rgba(255,45,146,.5);margin-top:30px;transition:.2s}
+    .btn-form-full:hover{transform:translateY(-2px)}
+    .btn-voltar{margin-left:8px;display:inline-flex;align-items:center;gap:8px;border:1px solid #ff2d92;color:#ff2d92;padding:10px 18px;border-radius:50px;text-decoration:none;margin-bottom:20px;font-weight:700;background:rgba(255,45,146,.06)}
+    .btn-home{margin-right:8px;display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.2);color:#fff;opacity:.7;padding:10px 18px;border-radius:50px;text-decoration:none;margin-bottom:20px;font-weight:700;background:rgba(255,255,255,.04)}
+    .btn-home:hover{opacity:1;background:rgba(255,255,255,.08)}
+    .top-links{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px}
+    .btn-middle{display:flex;justify-content:center;margin:38px 0}
     .whatsapp-float{position:fixed;bottom:80px;right:25px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
     .whatsapp-btn{width:60px;height:60px;background:linear-gradient(135deg,#ff2d92 0%,#C13584 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px;box-shadow:0 8px 25px rgba(255,45,146,.5);animation:pulseRosa 2s infinite}
     .whatsapp-text{font-size:10px;font-weight:700;color:#fff;background:rgba(0,0,0,0.7);padding:5px 10px;border-radius:20px;text-align:center;line-height:1.2}
@@ -55,30 +60,20 @@
     "areaServed": ["Jardim Peri","Horto Florestal","Santana","Mandaqui","Tremembé","Tucuruvi","Jaçanã","Pedra Branca"]
   }
   </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Como saber se tenho alergia ao alongamento de unhas?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Sinais de alergia são coceira, vermelhidão, inchaço e ardor ao redor da unha. No Jardim Peri CEP 02632-090, Preta Nails usa gel sem ácido e hipoalergênico para prevenir alergia, inclusive para unhas fracas e mold F1."}
-      }
-    ]
-  }
-  </script>
 </head>
 <body>
 <button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
 
   <div class="full-faq-content">
-    <a href="duvidas.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar para Dúvidas</a>
+    <div class="top-links">
+      <a href="index.html" class="btn-home"><i class="fas fa-arrow-left"></i> Voltar ao início</a>
+      <a href="duvidas.html" class="btn-voltar"><i class="fas fa-question"></i> Voltar para Dúvidas</a>
+    </div>
 
     <div class="autor-header">
       <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos Nail Designer">
       <div>
-        <p style="margin:0; color:#aaa; font-size:14px;">Nail Designer</p>
+        <p style="margin:0; color:#aaa; font-size:14px;">Nail Designer • Anti-coceira profissional 😅</p>
         <p style="margin:2px 0 0 0; font-weight:800; font-size:19px;">Sabrina Lemos - Preta Nails</p>
         <p style="margin:0; color:#aaa; font-size:13px;">Jardim Peri - Próximo ao Horto Florestal - CEP 02632-090</p>
       </div>
@@ -86,30 +81,37 @@
 
     <h1>Sinais de Alergia no Alongamento e Como eu Previno Aqui no Jardim Peri</h1>
 
-    <p><strong>Oi, linda 💖</strong> Alergia no alongamento dá medo, né? Como sua Nail Designer aqui no <strong>Jardim Peri CEP 02632-090 próximo ao Horto</strong>, eu vou te explicar tudinho pra você fazer sua fibra de vidro ou mold F1 tranquila, mesmo se tem unha fraca.</p>
+    <p><strong>Oi, linda 💖</strong> Vamos falar de alergia sem terror? Porque no TikTok parece que todo alongamento vai te deixar com a mão do Hulk. Calma, não é assim. Como sua Nail Designer aqui no <strong>Jardim Peri CEP 02632-090</strong>, eu já vi de tudo: de cliente que jurou que tinha alergia e era só cutícula ressecada, até a que coçava mais que quando esquece o anti-alérgico na primavera.</p>
 
-    <h2>Quais os sinais de alergia no alongamento?</h2>
-    <p>Se você sente esses sintomas depois do alongamento, pode ser alergia:</p>
+    <h2>Quais os sinais de que não foi amor, foi alergia mesmo? 🚨</h2>
+    <p>Se depois de fazer a unha você sentir isso, me chama no zap na hora, não vai no Google às 2h da manhã:</p>
     <ul>
-      <li><strong>Coceira intensa e vermelhidão</strong> ao redor da unha</li>
-      <li><strong>Inchaço</strong> nos dedos e cutícula</li>
-      <li><strong>Ardor ou queimação</strong> na hora da cabine UV</li>
-      <li><strong>Descolamento rápido</strong> e bolhas</li>
+      <li><strong>Coceira que não passa</strong> - aquela vontade de coçar igual mosquito no verão</li>
+      <li><strong>Vermelhidão e inchaço</strong> - dedo parecendo salsichinha de churrasco</li>
+      <li><strong>Ardor na cabine</strong> - se queimar mais que o sol de Santana em janeiro, tem algo errado</li>
+      <li><strong>Descolamento com bolhinhas</strong> - não é decoração, é seu corpo falando "amiga, não curti"</li>
     </ul>
+    <p style="font-size:14px;opacity:.6"><i>Brincadeiras à parte: alergia é coisa séria, mas 90% das vezes é produto de baixa qualidade ou técnica encostando na pele. Aqui não rola.</i></p>
 
-    <h2>Como eu previno alergia aqui no Jardim Peri?</h2>
-    <p>Aqui no meu studio no <strong>Jardim Peri</strong> eu só uso <strong>gel sem ácido, hipoalergênico, pra unhas fracas e sensíveis</strong>. Faço ficha de anamnese completa antes pra saber se você tem alergia a esmalte, acetona ou gel. Uso técnica de <strong>mold F1 e fibra de vidro sem encostar na pele</strong>, cabine higienizada e esterilização 180°C padrão Anvisa. Por isso atendo tantas meninas de Santana, Mandaqui, Tremembé, Tucuruvi, Jaçanã que tinham alergia em outros lugares.</p>
+    <!-- BOTÃO DO MEIO -->
+    <div class="btn-middle">
+      <a href="agendamento.html" class="btn-form-full"><i class="fas fa-shield-heart"></i> QUERO AGENDAR SEM MEDO DE ALERGIA</a>
+    </div>
 
-    <h2>Unhas fracas o que fazer se tenho alergia?</h2>
-    <p>Se sua unha é fraca, roída e você tem alergia, o <strong>alongamento mold F1</strong> é perfeito. Ele não agride a unha natural, acabamento fino e natural, ideal pra unha fraca que vive quebrando. Aqui no Jardim Peri eu avalio sua unha antes.</p>
+    <h2>Como eu previno alergia aqui no meu cantinho no Jardim Peri?</h2>
+    <p>Olha, eu sou chata com isso. Tipo tia da limpeza que passa álcool em tudo. Aqui no meu studio no <strong>Jardim Peri</strong> eu só uso <strong>gel sem ácido, hipoalergênico, próprio pra unhas fracas e sensíveis</strong>. Antes de tudo faço uma ficha de anamnese completa - vou te perguntar até se você tem alergia a esmalte da farmácia que custou R$ 3,50 em 2015.</p>
+    <p>Uso técnica de <strong>mold F1 e fibra sem encostar nadinha na pele</strong>, cabine higienizada e tudo esterilizado a 180°C padrão Anvisa. É por isso que atendo tanta menina de Santana, Mandaqui, Tremembé, Tucuruvi que teve alergia em outro lugar e aqui fala: "Preta, pela primeira vez não coçou!"</p>
+
+    <h2>Unha fraca + alergia = fim da linha? Que nada!</h2>
+    <p>Se sua unha é fraca, roída e ainda alérgica, você é meu desafio favorito. O <strong>mold F1</strong> é perfeito pra você: não agride a unha natural, fica fininho e natural, ideal pra quem vive com a unha quebrando e já achou que nunca ia ter unha grande. Aqui no Jardim Peri eu avalio antes, sem pressa.</p>
 
     <div class="caixa-recado">
-      <strong>RECADO DA SUA NAIL DESIGNER:</strong><br>
-      Já teve alergia antes? Me conta tudo na ficha com sinceridade. Aqui no Jardim Peri eu tenho produto específico pra alérgica e pra unha fraca. Sua segurança é lei pra mim. 💖
+      <strong>RECADO DA SUA NAIL DESIGNER ANTI-ALERGIA:</strong><br>
+      Já teve alergia antes? Me conta TUDO com sinceridade, até se você escondeu do Google. Aqui no Jardim Peri eu tenho produto específico pra alérgica e pra unha fraca. Pode falar que roeu, que arrancou, que usou Super Bonder (sim, já vi). Sua segurança é lei pra mim e o julgamento é zero. 💖😅
     </div>
 
     <div style="text-align:center;">
-      <a href="agendamento.html" class="btn-form-full"><i class="fas fa-calendar-check"></i>Quero meu Horário ❤️</a>
+      <a href="agendamento.html" class="btn-form-full"><i class="fas fa-calendar-check"></i> Quero meu Horário Seguro ❤️</a>
       <p style="margin-top:15px; font-size:12px; color:#888;">Nail Designer - Alergia - Unhas Fracas Mold F1 - Jardim Peri - Próximo ao Horto - CEP 02632-090</p>
     </div>
   </div>
@@ -118,11 +120,6 @@
     <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
     <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
   </a>
-
-  <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
-    <h2>Nail Designer Alergia Jardim Peri</h2>
-    <p>Sabrina Lemos nail designer alergia alongamento sinais prevenção unhas fracas o que fazer alongamento mold f1 jardim peri cep 02632-090 horto florestal Santana Mandaqui Tremembé Tucuruvi.</p>
-  </div>
 
 <script>
   const themeBtn=document.getElementById('themeBtn');const themeIcon=document.getElementById('themeIcon');const metaTheme=document.getElementById('meta-theme-color');
