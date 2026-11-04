@@ -20,7 +20,10 @@ body{font-family:Inter,sans-serif;background:var(--dark);color:#fff;line-height:
 .logo{font-family:Playfair Display,serif;font-weight:900;font-size:22px;color:#fff;text-decoration:none;display:flex;gap:10px;align-items:center}
 .logo img{width:38px;height:38px;border-radius:50%;border:2px solid var(--primary);object-fit:cover}
 .btn-top{background:linear-gradient(135deg,var(--rosa),var(--primary));color:#fff;padding:10px 18px;border-radius:50px;text-decoration:none;font-weight:800;font-size:12px}
-.hero{max-width:1100px;margin:0 auto;padding:40px 20px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:start}
+.top-links{max-width:1100px;margin:0 auto;padding:0 20px 10px;display:flex;gap:10px}
+.btn-home{display:inline-flex;align-items:center;gap:8px;color:#fff;opacity:.7;text-decoration:none;font-size:13px;font-weight:700;border:1px solid var(--border);padding:8px 14px;border-radius:50px;background:var(--card)}
+.btn-home:hover{opacity:1;background:rgba(193,53,132,.15)}
+.hero{max-width:1100px;margin:0 auto;padding:20px 20px 40px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:start}
 .hero h1{font-family:Playfair Display,serif;font-size:33px;line-height:1.15}
 .hero h1 span{color:var(--primary)}
 .hero p{opacity:.85;margin-top:14px;font-size:15.5px}
@@ -34,6 +37,8 @@ body{font-family:Inter,sans-serif;background:var(--dark);color:#fff;line-height:
 .badge{display:inline-block;background:var(--card);border:1px solid var(--border);padding:8px 14px;border-radius:50px;font-size:11px;font-weight:700;margin:6px 6px 0 0}
 .quote{border-left:3px solid var(--primary);padding:16px 20px;background:var(--card);border-radius:0 16px 16px 0;margin:28px 0;opacity:.92}
 .faq{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;margin-top:20px}
+.btn-middle{display:flex;justify-content:center;margin:36px 0}
+.btn-middle a{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--rosa),var(--primary));color:#fff;padding:16px 32px;border-radius:50px;text-decoration:none;font-weight:900;font-size:14px;letter-spacing:.5px;box-shadow:0 8px 25px rgba(193,53,132,.35)}
 .cta-box{margin:56px 0;padding:36px;border-radius:24px;background:linear-gradient(135deg,rgba(193,53,132,0.18),rgba(0,0,0,0.4));border:1px solid var(--border);text-align:center}
 .cta-box .btn{display:inline-flex;margin-top:18px;background:linear-gradient(135deg,var(--rosa),var(--primary));color:#fff;padding:16px 30px;border-radius:50px;text-decoration:none;font-weight:800;gap:10px}
 @media(max-width:800px){.hero{grid-template-columns:1fr}.hero .foto-pequena{order:-1}}
@@ -43,6 +48,10 @@ body{font-family:Inter,sans-serif;background:var(--dark);color:#fff;line-height:
 <div class="topbar">
 <a href="index.html" class="logo"><img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0"> PRETA NAILS</a>
 <a href="agendamento.html" class="btn-top">AGENDAR</a>
+</div>
+
+<div class="top-links">
+<a href="index.html" class="btn-home"><i class="fas fa-arrow-left"></i> Voltar ao início</a>
 </div>
 
 <div class="hero">
@@ -66,6 +75,11 @@ body{font-family:Inter,sans-serif;background:var(--dark);color:#fff;line-height:
 <p>Fui designer gráfica por 2 anos. Trabalhava com criação, Photoshop, Illustrator, fazia arte até tarde. Gostava muito do que fazia. Só que tive complicações nos rins e outras questões graves de saúde que começaram a atrapalhar minha rotina. Precisei me afastar várias vezes e acabei sendo desligada do emprego.</p>
 <p>Na época eu morava na Zona Sul, no Jardim Helena. Com o desligamento, as contas apertaram e não tive muitas opções. Precisei me mudar para a Zona Norte e vim para o Jardim Peri, CEP 02632-090, bem próximo ao Horto Florestal. Foi um recomeço completo, longe da minha área original, sem saber ao certo o que faria a seguir.</p>
 
+<!-- BOTÃO DO MEIO 1 -->
+<div class="btn-middle">
+<a href="agendamento.html"><i class="fas fa-calendar-check"></i> QUERO AGENDAR</a>
+</div>
+
 <h2>Designer de unhas sem dinheiro pra fazer curso - meu início</h2>
 <p>Sem recurso financeiro para fazer curso na época, comecei a pesquisar por conta própria. Eu sempre roí unha desde criança e tinha vergonha das minhas mãos. Vi vídeos de alongamento para unhas roídas e me identifiquei. Comprei um kit simples parcelado e comecei a treinar em casa. No início tive perdas como toda iniciante: unha que descolava, material que não rendia, cliente que não voltava. Foi difícil, mas fui estudando muito, anotando técnicas de fibra, curvatura e biossegurança até conseguir um resultado que durava de verdade.</p>
 <p>Foi estudando unhas roídas que entendi que queria ser designer de unhas. Não só por estética, mas porque eu sabia o que era esconder a mão no bolso.</p>
@@ -73,6 +87,11 @@ body{font-family:Inter,sans-serif;background:var(--dark);color:#fff;line-height:
 <h2>Designer de unhas especialista em <span>unhas roídas que atende Santana</span></h2>
 <p>Hoje, como nail designer no Jardim Peri, meu foco é atender quem rói. Quem procura no Google por nail designer Santana SP, designer de unhas Santana SP ou unhas roídas Santana SP me encontra porque faço um trabalho diferente: fibra extra fina, sem dor, sem queimar na cabine, com primer sem ácido hipoalergênico e blindagem que protege a unha natural. O leito de quem rói é curtinho e sensível, não dá para lixar como unha normal. Faço curvatura suave para não virar garra e deixo leve, natural, que parece que nasceu com você.</p>
 <p>Aqui no Jardim Peri atendo 1 cliente por vez, horário marcado, sem correria. Kit lacrado aberto na sua frente, lixa descartável, broca esterilizada em autoclave, biossegurança real 180 graus. Por isso dura 25 dias sem infiltração. É por isso que 70% das minhas clientes vêm de Santana mesmo eu estando no Jardim Peri.</p>
+
+<!-- BOTÃO DO MEIO 2 -->
+<div class="btn-middle">
+<a href="agendamento.html"><i class="fas fa-crown"></i> QUERO AGENDAR EM SANTANA - 12 MIN DE MIM</a>
+</div>
 
 <h2>Como chegar de Santana até o studio <span>próximo ao Horto Florestal</span></h2>
 <p>Fico no Jardim Peri, CEP 02632-090, a 5 minutos do Horto Florestal. Para quem vem de Santana é super tranquilo: 12 minutos de carro pela Av. Cruzeiro do Sul e Av. Eng. Caetano Álvares, ou metrô Santana e Tucuruvi + 5 minutos de carro ou ônibus Santana x Jardim Peri que para na esquina. Tem vaga na porta. Por segurança, mando localização exata e vídeo da fachada via WhatsApp só após agendamento confirmado.</p>
