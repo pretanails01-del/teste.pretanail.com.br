@@ -17,7 +17,10 @@ body{font-family:Inter,sans-serif;background:var(--dark);color:#fff;line-height:
 .logo{font-family:Playfair Display,serif;font-weight:900;font-size:22px;color:#fff;text-decoration:none;display:flex;gap:10px;align-items:center}
 .logo img{width:38px;height:38px;border-radius:50%;border:2px solid var(--primary);object-fit:cover}
 .btn-top{background:linear-gradient(135deg,var(--rosa),var(--primary));color:#fff;padding:10px 18px;border-radius:50px;text-decoration:none;font-weight:800;font-size:12px}
-.hero{max-width:1100px;margin:0 auto;padding:40px 20px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:start}
+.back-bar{max-width:1100px;margin:0 auto;padding:0 20px 10px}
+.back-link{display:inline-flex;align-items:center;gap:8px;color:#fff;opacity:.7;text-decoration:none;font-size:13px;font-weight:700;border:1px solid var(--border);padding:8px 14px;border-radius:50px;background:var(--card);transition:.2s}
+.back-link:hover{opacity:1;background:rgba(193,53,132,0.15)}
+.hero{max-width:1100px;margin:0 auto;padding:20px 20px 40px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:start}
 .hero h1{font-family:Playfair Display,serif;font-size:38px;line-height:1.1}
 .hero h1 span{color:var(--primary)}
 .hero p{opacity:.85;margin-top:14px;font-size:15.5px}
@@ -29,6 +32,8 @@ body{font-family:Inter,sans-serif;background:var(--dark);color:#fff;line-height:
 .content p{opacity:.88;font-size:15.5px;margin-bottom:16px}
 .badge{display:inline-block;background:var(--card);border:1px solid var(--border);padding:8px 14px;border-radius:50px;font-size:11px;font-weight:700;margin:6px 6px 0 0}
 .faq{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;margin-top:16px}
+.btn-middle{display:flex;justify-content:center;margin:36px 0}
+.btn-middle a{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--rosa),var(--primary));color:#fff;padding:16px 32px;border-radius:50px;text-decoration:none;font-weight:900;font-size:14px;letter-spacing:.5px;box-shadow:0 8px 25px rgba(193,53,132,.35)}
 .cta-box{margin:50px 0;padding:36px;border-radius:24px;background:linear-gradient(135deg,rgba(193,53,132,0.18),rgba(0,0,0,0.4));border:1px solid var(--border);text-align:center}
 .cta-box .btn{display:inline-flex;margin-top:18px;background:linear-gradient(135deg,var(--rosa),var(--primary));color:#fff;padding:16px 30px;border-radius:50px;text-decoration:none;font-weight:800;gap:10px}
 @media(max-width:800px){.hero{grid-template-columns:1fr}.hero h1{font-size:32px}}
@@ -38,6 +43,10 @@ body{font-family:Inter,sans-serif;background:var(--dark);color:#fff;line-height:
 <div class="topbar">
 <a href="index.html" class="logo"><img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0"> PRETA NAILS</a>
 <a href="agendamento.html" class="btn-top">AGENDAR</a>
+</div>
+
+<div class="back-bar">
+<a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar ao início</a>
 </div>
 
 <div class="hero">
@@ -59,6 +68,11 @@ body{font-family:Inter,sans-serif;background:var(--dark);color:#fff;line-height:
 
 <h2>Por que unha roída precisa de técnica diferente</h2>
 <p>Unha roída não é só colar fibra e pronto. O leito é curtinho, úmido, a pele é sensível, tem muita gente que vem com inflamação de tanto mexer. Se a profissional lixar como lixa unha normal, vai doer e vai descolar em 3 dias. Eu desenvolvi um método aqui no Jardim Peri pensando em quem rói: primeiro faço uma blindagem protetora sem acido, que não arde. Depois reconstruo o leito com fibra extra fina, sem pressionar a matriz. Faço curvatura suave pra não dar aquela unha de garra. Uso primer hipoalergênico porque quem rói já tem pele sensível. É leve, fina, parece que nasceu com você. E o mais importante: não dói. Zero dor. Você que rói há 10, 15 anos pode ter unha grande sim.</p>
+
+<!-- BOTÃO DO MEIO -->
+<div class="btn-middle">
+<a href="agendamento.html"><i class="fas fa-calendar-check"></i> QUERO AGENDAR</a>
+</div>
 
 <h2>Meu studio no Jardim Peri - <span>seu recomeço</span></h2>
 <p>Meu espaço fica no Jardim Peri, CEP 02632-090, a 5 minutos do Horto Florestal. É 1 cliente por vez, com horário marcado. Você chega, eu abro seu kit lacrado na sua frente: lixa descartável, broca esterilizada em autoclave, tudo higienizado. Sem barulho, sem gente te apressando. Muita cliente roedora vem ansiosa, com vergonha de mostrar a mão. Aqui você pode respirar. Já atendi meninas de Santana, Tucuruvi, Mandaqui, Jaçanã, Cachoeirinha, todas com a mesma história. Em 2 horas você sai com outra mão e outra autoestima. Endereço exato via WhatsApp após agendamento, por segurança.</p>
