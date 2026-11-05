@@ -4,20 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a0a0a" id="meta-theme-color">
+
+<!-- CONFIG FÁCIL - TROQUE AS FOTOS AQUI -->
+<script>
+const FOTOS = {
+  logo: "https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0",
+  perfil: "https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0",
+  favicon: "/Icon.jpg"
+};
+</script>
+
   <script>!function(){try{var t=localStorage.getItem('preta-theme');if(!t){localStorage.setItem('preta-theme','dark');t='dark';}if(t==='light'){document.documentElement.setAttribute('data-theme','light');}else{document.documentElement.removeAttribute('data-theme');}}catch(e){}}();</script>
 
   <title>Unhas de Luxo Tremembé SP | Fibra Fina Jardim Peri 15 min do Tremembé</title>
-  <meta name="description" content="É do Tremembé e quer unha fina que não parece fake? Meu cantinho no Jardim Peri CEP 02632-090 pertinho do Horto, 15 min do Tremembé, fácil acesso. Fibra europeia que dura 25 dias.">
-  <meta name="keywords" content="alongamento de unhas tremembe, unhas tremembe sp, fibra de vidro tremembe, nail designer tremembe, unhas luxo tremembe zona norte">
+  <meta name="description" content="É do Tremembé e quer unha fina que não parece fake? Meu cantinho no Jardim Peri pertinho do Horto, 15 min do Tremembé, fácil acesso. Fibra europeia que dura 25 dias. Avaliação inicial presencial.">
   <link rel="canonical" href="https://pretanail.com.br/alongamento-de-unhas-tremembe-sp.html">
-  <link rel="icon" href="/Icon.jpg">
+  <link rel="icon" href="/Icon.jpg" id="favicon">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root{--rosa:#ff2d92;--primary:#C13584;--dark:#0a0a0a;--card:rgba(255,255,255,0.04);--border:rgba(193,53,132,0.18)}
     [data-theme="light"]{--dark:#FFFAFC}
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',sans-serif;background:var(--dark);color:#fff;line-height:1.78}
+    body{font-family:'Inter',sans-serif;background:var(--dark);color:#fff;line-height:1.85}
     [data-theme="light"] body{color:#1D1D1F}
     .theme-btn{position:fixed;top:18px;left:18px;z-index:10001;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,45,146,.3);background:rgba(255,255,255,.06);color:var(--rosa);cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px)}
     [data-theme="light"] .theme-btn{background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.08)}
@@ -27,24 +36,27 @@
     .logo img{width:38px;height:38px;border-radius:50%;border:2px solid var(--primary);object-fit:cover}
     .btn-top{background:linear-gradient(135deg,var(--rosa),var(--primary));color:#fff;padding:10px 18px;border-radius:50px;text-decoration:none;font-weight:800;font-size:12px}
     .back-bar{max-width:800px;margin:0 auto;padding:12px 20px 0;display:flex;gap:10px;flex-wrap:wrap}
-    .btn-voltar-inicio-rosa{display:inline-flex;align-items:center;gap:8px;color:var(--rosa)!important;text-decoration:none!important;font-size:13px;font-weight:700}
+    .btn-voltar-inicio-rosa{display:inline-flex;align-items:center;gap:8px;color:var(--rosa)!important;text-decoration:none!important;font-size:13px;font-weight:700;border:1px solid rgba(255,45,146,.25);padding:8px 14px;border-radius:50px;background:rgba(255,45,146,.06)}
     .wrap{max-width:800px;margin:0 auto;padding:20px}
     .bread{font-size:11px;opacity:.5;margin:10px 0 20px;display:flex;gap:6px}
     .bread a{color:var(--primary);text-decoration:none}
     .tag{display:inline-flex;background:rgba(193,53,132,0.15);border:1px solid var(--primary);padding:6px 14px;border-radius:50px;font-size:10px;font-weight:800;letter-spacing:1px;color:var(--rosa)}
-    h1{font-family:'Playfair Display',serif;font-size:37px;line-height:1.08;margin:18px 0}
+    h1{font-family:'Playfair Display',serif;font-size:36px;line-height:1.08;margin:18px 0}
     h1 span{color:var(--primary)}
-    h2{font-family:'Playfair Display',serif;font-size:24px;margin:36px 0 12px}
-    p{opacity:.88;font-size:15.6px;margin-bottom:16px}
+    h2{font-family:'Playfair Display',serif;font-size:25px;margin:38px 0 12px;line-height:1.25}
+    p{opacity:.88;font-size:16px;margin-bottom:16px}
     [data-theme="light"] p{color:#333}
     .box{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;margin:24px 0}
     [data-theme="light"] .box{background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.05)}
-    .cta{text-align:center;margin:40px 0;padding:32px 20px;background:linear-gradient(135deg,rgba(193,53,132,0.18),rgba(0,0,0,0.4));border:1px solid var(--border);border-radius:24px}
+    .btn-minimal{display:flex;justify-content:center;margin:38px 0}
+    .btn-minimal a{border:1px solid var(--rosa);color:var(--rosa);background:transparent;padding:14px 28px;border-radius:50px;text-decoration:none;font-weight:800;font-size:13px;letter-spacing:.5px;transition:.3s}
+    .btn-minimal a:hover{background:var(--rosa);color:#fff}
+    [data-theme="light"] .btn-minimal a{border-color:var(--primary);color:var(--primary)}
+    [data-theme="light"] .btn-minimal a:hover{background:var(--primary);color:#fff}
+    .cta{text-align:center;margin:50px 0;padding:36px 20px;background:linear-gradient(135deg,rgba(193,53,132,0.18),rgba(0,0,0,0.4));border:1px solid var(--border);border-radius:24px}
     [data-theme="light"] .cta{background:#fff}
-    .btn{display:inline-flex;margin-top:16px;background:linear-gradient(135deg,var(--rosa),var(--primary));color:#fff;padding:15px 28px;border-radius:50px;text-decoration:none;font-weight:800;gap:10px;box-shadow:0 10px 30px rgba(255,45,146,0.4);font-size:14px}
-    .btn-middle{display:flex;flex-direction:column;align-items:center;margin:40px 0;gap:8px}
-    .btn-middle a{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--rosa),var(--primary));color:#fff;padding:18px 34px;border-radius:50px;text-decoration:none;font-weight:900;font-size:14px;box-shadow:0 8px 25px rgba(193,53,132,.35)}
-    .small-alert{font-size:11px;opacity:.6;text-align:center;max-width:540px}
+    .btn-full{display:inline-flex;margin-top:16px;background:linear-gradient(135deg,var(--rosa),var(--primary));color:#fff;padding:16px 32px;border-radius:50px;text-decoration:none;font-weight:800;gap:10px;box-shadow:0 10px 30px rgba(255,45,146,0.35);font-size:14px}
+    .small-alert{font-size:11px;opacity:.55;text-align:center;max-width:520px;margin:10px auto 0;display:block}
     .rel{margin-top:40px;display:flex;justify-content:space-between;gap:10px}
     .rel a{flex:1;background:var(--card);border:1px solid var(--border);padding:14px;border-radius:14px;text-decoration:none;color:#fff;font-size:12px;font-weight:700;text-align:center}
     .seo-forte{margin-top:30px;padding:16px 18px;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,45,146,0.15);border-radius:12px;opacity:0.55;font-size:11px;line-height:1.8;color:rgba(255,255,255,0.6)}
@@ -56,7 +68,7 @@
 <button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
 
   <div class="topbar">
-    <a href="index.html" class="logo"><img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Preta Nails"> PRETA NAILS</a>
+    <a href="index.html" class="logo"><img id="foto-logo" alt="Preta Nails"> PRETA NAILS</a>
     <a href="agendamento.html" class="btn-top">AGENDAR</a>
   </div>
 
@@ -67,48 +79,52 @@
   <div class="wrap">
     <div class="bread"><a href="index.html">Início</a> / <a href="blog.html">Blog</a> / Tremembé</div>
     <span class="tag">TREMEMBÉ → JARDIM PERI - 15 MIN - FÁCIL ACESSO</span>
-    <h1>Do Tremembé pra ter unha de luxo que não parece fake? <span>É aqui no Jardim Peri.</span></h1>
+    <h1>Do Tremembé pra ter unha de luxo que não parece fake? <span>É aqui.</span></h1>
 
     <div class="box" style="display:grid;grid-template-columns:80px 1fr;gap:14px;align-items:center">
-      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos - Jardim Peri" style="width:80px;height:80px;border-radius:50%;border:2px solid var(--primary);object-fit:cover">
+      <img id="foto-perfil" alt="Sabrina Lemos - Jardim Peri" style="width:80px;height:80px;border-radius:50%;border:2px solid var(--primary);object-fit:cover">
       <div>
-        <p style="margin:0;font-size:13px;line-height:1.45"><strong>Meu cantinho no Jardim Peri</strong><br>
-        <span style="opacity:.85">Pertinho do Horto Florestal - 15 min do Tremembé<br>
-        CEP 02632-090 - fácil acesso Tremembé</span></p>
+        <p style="margin:0;font-size:13px;line-height:1.45"><strong>Meu cantinho pertinho do Horto</strong><br>
+        <span style="opacity:.85">15 min do Tremembé com acesso tranquilo<br>
+        Atendimento individual e sem pressa</span></p>
       </div>
     </div>
 
-    <p>Se você é do Tremembé e já fez alongamento que ficou grosso, torto, com aquele degrau na cutícula que prende no cabelo, eu te entendo. Eu sou a Sabrina Lemos, e meu cantinho fica aqui no <strong>Jardim Peri, pertinho do Horto, CEP 02632-090</strong>, a <strong>15 min do Tremembé e com fácil acesso</strong>. Criei meu espaço justamente pra entregar o que faltava: <strong>fibra fina, curvatura europeia, brilho natural</strong>. Nada de unha de plástico.</p>
+    <p>Se você é do Tremembé e já fez alongamento que ficou grosso, torto, com aquele degrau na cutícula que prende no cabelo, eu te entendo. Eu sou a Sabrina Lemos. Já passei pela fase de esconder as mãos no bolso por vergonha de roer unha até sangrar. Hoje meu cantinho fica aqui pertinho do Horto, a 15 minutos do Tremembé, e foi criado justamente pra entregar o que faltava por aí: <strong>fibra fina, curvatura europeia, brilho que parece esmalte, mas é a própria fibra selada</strong>. Nada de unha de plástico.</p>
 
-    <div class="btn-middle">
-      <a href="agendamento.html">QUERO UNHA FINA - 15 MIN DO TREMEMBÉ</a>
-      <span class="small-alert">Meu cantinho no Jardim Peri - pertinho do Horto - CEP 02632-090 • Fácil acesso Tremembé, Jaçanã, Jardim Fontalis • 1 cliente por vez</span>
+    <p>Quando você olha pra sua mão e vê uma unha fina, alinhada, que não enrosca na roupa, sua postura muda. Você fala gesticulando, tira foto segurando a xícara, faz story sem esconder a mão. Não é sobre unha. É sobre se sentir bonita de novo. É por isso que minhas clientes saem do Tremembé e vêm até aqui - porque aqui você é ouvida, não é só mais uma na fila do salão lotado.</p>
+
+    <div class="btn-minimal">
+      <a href="agendamento.html">QUERO MINHA AVALIAÇÃO INICIAL</a>
     </div>
 
-    <h2>O tijolão que você fez vs a fibra luxo aqui no Jardim Peri</h2>
-    <p>A diferença está no lixamento. No salão lotado lixam grosso pra terminar rápido, aí fica aquele aspecto artificial. Aqui no Jardim Peri eu faço lixamento técnico em 4 etapas: nivelamento, refinamento, selagem e brilho. Fica fina como sua unha natural, mas aguenta 25 dias. Você consegue passar a mão no cabelo e não enrosca. É por isso que quem busca por unhas luxo Tremembé vem até o Jardim Peri - acesso super fácil.</p>
+    <h2>O tijolão que você fez vs a fibra luxo aqui</h2>
+    <p>A diferença está no lixamento e no tempo. No salão lotado precisam lixar grosso pra terminar rápido, aí fica aquele aspecto artificial que todo mundo percebe que é alongamento. Aqui eu faço lixamento técnico em 4 etapas: nivelamento, refinamento, selagem e polimento de brilho. Fica fina como sua unha natural, mas com resistência pra 25 dias. Você passa a mão no cabelo e não enrosca. Passa a mão na bolsa e não arranha.</p>
+    <p>Isso só é possível porque atendo 1 cliente por vez, com horário marcado e porta fechada. Sem interrupção, sem correria. Consigo fazer uma preparação de 40 minutos removendo a cutícula invisível que causa infiltração. Por isso não dá aquele verdinho por baixo e não descola na lateral. É detalhe que só quem faz com calma entrega.</p>
 
-    <h2>Pra quem trabalha, treina e não tem tempo</h2>
-    <p>Muita cliente que vem do Tremembé trabalha o dia todo, vai pra academia, tem filho. Não pode ficar refazendo unha que quebrou. Meu método aqui no Jardim Peri é pensado pra resistência: fibra selada sem degrau, sem infiltração de água, sem descolar na lateral. Você faz uma vez no mês e fica tranquila. Zero manutenção de emergência. E por atender com horário marcado no Jardim Peri, faço com calma.</p>
+    <h2>Pra quem trabalha, treina e não tem tempo pra retoque</h2>
+    <p>Muita cliente que vem do Tremembé trabalha o dia todo, vai pra academia, tem filho, dirige, digita o dia todo. Não pode ficar refazendo unha que quebrou na segunda-feira. Meu método é pensado pra resistência real: fibra selada sem degrau, sem infiltração de água, sem descolar. Você faz uma vez no mês e fica tranquila. Zero manutenção de emergência.</p>
+    <p>E eu sei que você já sentiu aquela queimação insuportável na cabine, aquele choque que arde o leito. Aqui é diferente. Uso técnica de camadas finas e cabine com potência controlada. Ideal também pra quem tem unhas roídas e pele sensível, que já sofreu com primer ácido. Aqui não arde. Zero dor.</p>
 
-    <div class="btn-middle">
-      <a href="agendamento.html">QUERO AGENDAR NO JARDIM PERI</a>
-      <span class="small-alert">Jardim Peri - 15 min do Tremembé - fácil acesso • Kit lacrado • Esterilização 180°C</span>
+    <h2>Você merece se olhar no espelho e se reconhecer</h2>
+    <p>Sabe aquela sensação de colocar uma roupa nova e se sentir poderosa? É a mesma com a unha. Quando sua mão está bonita, você se sente mais feminina, mais segura pra cumprimentar, pra entregar um cartão, pra segurar a mão de alguém. Eu já atendi muitas mulheres do Tremembé que chegaram com vergonha de mostrar a mão e saíram chorando de emoção porque finalmente se reconheceram.</p>
+    <p>Por isso meu atendimento é diferente. Você chega, eu abro seu kit lacrado na sua frente: lixa descartável, broca esterilizada em autoclave. Te ofereço água, você escolhe a música. É seu momento. Sem barulho de salão lotado. Só você e eu, conversando, rindo, transformando sua autoestima.</p>
+
+    <div class="btn-minimal">
+      <a href="agendamento.html">AGENDAR MINHA VAGA - TREMEMBÉ</a>
     </div>
-
-    <h2>Sem dor, sem aquele choque na cabine</h2>
-    <p>Se você já sentiu aquela queimação insuportável, aqui no meu cantinho no Jardim Peri é diferente. Técnica de camadas finas e cabine com controle. Ideal também pra quem tem unhas roídas e quer alongamento natural que ninguém percebe que é alongamento. Atendo Tremembé aqui no Jardim Peri.</p>
+    <span class="small-alert">Avaliação inicial presencial • 1 cliente por vez • Kit lacrado • Autoclave 180°C</span>
 
     <div class="cta">
-      <h2>Você do Tremembé merece unha de luxo que dura ♡</h2>
-      <p style="font-size:13px;opacity:.7">Meu cantinho no Jardim Peri - 1 cliente por vez - Garantia de 7 dias - 15 min do Tremembé</p>
-      <a href="agendamento.html" class="btn">AGENDAR - JARDIM PERI - 15 MIN DO TREMEMBÉ</a>
-      <p class="small-alert" style="margin-top:10px">Atendo no Jardim Peri, com fácil acesso para Tremembé, Jaçanã, Jardim Fontalis e Vila Nivi - CEP 02632-090</p>
+      <h2>Você do Tremembé merece unha de luxo que dura de verdade ♡</h2>
+      <p style="font-size:13px;opacity:.7">Meu cantinho pertinho do Horto - 1 cliente por vez - Garantia de 7 dias - 15 min do Tremembé</p>
+      <a href="agendamento.html" class="btn-full">QUERO AGENDAR MINHA AVALIAÇÃO</a>
+      <span class="small-alert">Fácil acesso Tremembé, Jaçanã, Jardim Fontalis e Vila Nivi - Endereço via WhatsApp após agendamento</span>
     </div>
 
     <div class="seo-forte">
       <p>📍 <strong>Preta Nails - Meu cantinho no Jardim Peri - Próximo ao Horto Florestal - CEP 02632-090 - SP</strong></p>
-      <p style="margin-top:8px;">Meu atendimento acontece no Jardim Peri, pertinho do Horto, CEP 02632-090, com fácil acesso para quem vem do Tremembé, Jaçanã, Jardim Fontalis, Vila Nivi e Tremembé Zona Norte. 15 min do Tremembé. Referência em fibra fina e unhas de luxo no Jardim Peri.</p>
+      <p style="margin-top:8px;">Atendimento no Jardim Peri, pertinho do Horto, com fácil acesso para Tremembé, Jaçanã, Jardim Fontalis, Vila Nivi e Zona Norte. Referência em fibra fina e unhas de luxo. Avaliação inicial presencial.</p>
     </div>
 
     <div class="rel">
@@ -119,6 +135,9 @@
   </div>
 
 <script>
+document.getElementById('foto-logo').src = FOTOS.logo;
+document.getElementById('foto-perfil').src = FOTOS.perfil;
+document.getElementById('favicon').href = FOTOS.favicon;
   const themeBtn=document.getElementById('themeBtn');const themeIcon=document.getElementById('themeIcon');const metaTheme=document.getElementById('meta-theme-color');
   function updateIcon(t){if(t==='light'){themeIcon.className='fas fa-moon';if(metaTheme)metaTheme.content='#FFFAFC';}else{themeIcon.className='fas fa-sun';if(metaTheme)metaTheme.content='#0a0a0a';}}
   updateIcon(localStorage.getItem('preta-theme')||'dark');
