@@ -325,7 +325,14 @@
   const e2 = document.getElementById('btnYoutube'); if(e2) e2.href = LINK_YOUTUBE;
   </script>
 
-  <script src="tradutor.js"></script>
+  <div id="google_translate_element" style="position:fixed; top:20px; right:20px; z-index:99999; background:white; padding:10px; border:1px solid red;"></div>
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'pt'}, 'google_translate_element');
+}
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
   
   <!-- ==================== BLOQUEIO V12.3 - MODO CLIENTE INVISÍVEL - NÃO MEXIDO ==================== -->
