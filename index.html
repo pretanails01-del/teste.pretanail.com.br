@@ -180,6 +180,31 @@
 </head>
 <body>
   <button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
+  <!-- BOTÃO TRADUZIR - ADICIONADO SEM MEXER EM NADA -->
+  <div id="google_translate_element" style="display:none"></div>
+  <button class="translate-btn" id="btnTraduzir" aria-label="Traduzir"><i class="fas fa-globe"></i></button>
+  <div class="translate-menu" id="translateMenu">
+    <button onclick="trocarIdioma('pt')">🇧🇷 Português</button>
+    <button onclick="trocarIdioma('en')">🇺🇸 English</button>
+    <button onclick="trocarIdioma('es')">🇪🇸 Español</button>
+    <button onclick="trocarIdioma('fr')">🇫🇷 Français</button>
+  </div>
+  <style>
+  .translate-btn{position:fixed;top:75px;left:25px;z-index:9999;width:42px;height:42px;border-radius:50%;border:1px solid rgba(193,53,132,0.4);background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);color:var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center;}
+  [data-theme="light"] .translate-btn{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.06)}
+  .translate-menu{position:fixed;top:125px;left:25px;z-index:9999;background:rgba(10,10,10,0.95);border:1px solid rgba(193,53,132,0.4);border-radius:15px;padding:8px;display:none;flex-direction:column;gap:6px;backdrop-filter:blur(15px);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+  [data-theme="light"] .translate-menu{background:#fff}
+  .translate-menu button{background:rgba(255,255,255,0.06);border:1px solid rgba(193,53,132,0.2);border-radius:10px;padding:10px 16px;color:var(--text);font-weight:700;font-size:13px;cursor:pointer;text-align:left;transition:.2s}
+  .translate-menu button:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .translate-menu.show{display:flex}
+  .goog-te-banner-frame,.goog-te-balloon-frame{display:none!important}
+  body{top:0!important}
+  .goog-logo-link,.goog-te-gadget span{display:none!important}
+  .goog-te-gadget{font-size:0!important}
+  @media(max-width:768px){.translate-btn{top:65px;left:16px}.translate-menu{top:115px;left:16px}}
+  </style>
+  <!-- FIM BOTÃO TRADUZIR -->
+
   <a href="duvidas.html" class="btn-duvidas-topo"><i class="fas fa-circle-question"></i> Dúvidas Frequentes</a>
   <section class="hero"><div class="wrap"><div class="coroa">👑</div><h1>PRETA<span>NAILS</span></h1><div class="slogan">BELEZA • CONFIANÇA • PODER</div><div class="tag">ESPECIALISTA EM ALONGAMENTO DE UNHAS PRÓXIMO AO HORTO FLORESTAL - JARDIM PERI - CEP 02632-090</div><div class="aviso-endereco"><i class="fas fa-shield-halved"></i> ❤️ Ponto de ref: Horto Florestal - Jardim Peri - Endereço completo enviado após confirmação via WhatsApp</div><div class="destaque">MELHOR<br><small>versão! ♡</small></div>
   <a href="agendamento.html" class="btn">QUERO MINHAS UNHAS PERFEITAS <i class="fas fa-arrow-right"></i></a>
@@ -300,7 +325,6 @@
 }
 </style>
 
-
   
     
   <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20tenho%20algumas%20d%C3%BAvidas.%20Poderia%20me%20ajudar%20%3F" target="_blank" class="whatsapp-float"><div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div><div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div></a>
@@ -324,6 +348,38 @@
   const e1 = document.getElementById('btnInstagram'); if(e1) e1.href = LINK_INSTAGRAM;
   const e2 = document.getElementById('btnYoutube'); if(e2) e2.href = LINK_YOUTUBE;
   </script>
+
+  <!-- GOOGLE TRADUTOR SCRIPT -->
+  <script>
+  const btnTrad = document.getElementById('btnTraduzir');
+  const menuTrad = document.getElementById('translateMenu');
+  btnTrad.addEventListener('click',()=>{menuTrad.classList.toggle('show')});
+  document.addEventListener('click',(e)=>{if(!btnTrad.contains(e.target)&&!menuTrad.contains(e.target)){menuTrad.classList.remove('show')}});
+  function googleTranslateElementInit(){
+    new google.translate.TranslateElement({pageLanguage:'pt', includedLanguages:'pt,en,es,fr', autoDisplay:false}, 'google_translate_element');
+  }
+  function trocarIdioma(lang){
+    const select = document.querySelector('select.goog-te-combo');
+    if(select){
+      if(lang==='pt'){
+        // Volta pro original: limpa cookie e recarrega
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain='+location.hostname;
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.'+location.hostname;
+        location.reload();
+        return;
+      }
+      select.value = lang;
+      select.dispatchEvent(new Event('change'));
+      menuTrad.classList.remove('show');
+    } else {
+      if(lang==='pt'){ location.reload(); return; }
+      alert('Tradutor carregando... clique novamente em 2 segundos');
+    }
+  }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
   <!-- ==================== BLOQUEIO V12.3 - MODO CLIENTE INVISÍVEL - NÃO MEXIDO ==================== -->
   <script>
   (function() {
