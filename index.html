@@ -300,8 +300,56 @@
 }
 </style>
 
-<script src="tradutor.js"></script>
-</body>
+
+  
+  <!-- TRADUTOR PRETANAIL - PEQUENO + TRADUZIR - COLE AQUI -->
+<style>
+#google_translate_element{display:none!important}
+.goog-te-banner-frame.skiptranslate,iframe.goog-te-banner-frame{display:none!important}
+body{top:0!important}
+.preta-translate{position:fixed;z-index:9997;left:25px;top:85px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.preta-translate-btn{width:32px;height:32px;border-radius:50%;border:1px solid rgba(193,53,132,.35);background:rgba(20,20,20,.9);color:#C13584;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px}
+.preta-translate-btn:hover{background:#C13584;color:#fff}
+.preta-translate-label{font-size:8px;font-weight:800;letter-spacing:.8px;color:#C13584;text-transform:uppercase}
+[data-theme="light"] .preta-translate-btn{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.08)}
+[data-theme="light"] .preta-translate-label{color:#888}
+.preta-translate-menu{position:absolute;left:0;top:48px;background:#111;border:1px solid rgba(193,53,132,.3);border-radius:14px;padding:6px;display:none;flex-direction:column;gap:4px;min-width:160px;box-shadow:0 15px 40px rgba(0,0,0,.6)}
+.preta-translate-menu.show{display:flex}
+[data-theme="light"] .preta-translate-menu{background:#fff;border-color:#eee}
+.preta-translate-menu button{background:transparent;border:0;border-radius:8px;padding:9px 12px;color:#fff;font-weight:600;font-size:12px;cursor:pointer;text-align:left}
+[data-theme="light"] .preta-translate-menu button{color:#222}
+.preta-translate-menu button:hover{background:#C13584;color:#fff!important}
+@media(max-width:768px){.preta-translate{left:16px;top:70px}}
+</style>
+<div id="google_translate_element"></div>
+<div class="preta-translate" id="pretaTranslateWrap">
+  <button class="preta-translate-btn" id="pretaTranslateBtn"><i class="fas fa-globe"></i></button>
+  <span class="preta-translate-label">traduzir</span>
+  <div class="preta-translate-menu" id="pretaTranslateMenu">
+    <button data-lang="pt">🇧🇷 Português</button>
+    <button data-lang="en">🇺🇸 English</button>
+    <button data-lang="es">🇪🇸 Español</button>
+    <button data-lang="fr">🇫🇷 Français</button>
+    <button data-lang="it">🇮🇹 Italiano</button>
+    <button data-lang="de">🇩🇪 Deutsch</button>
+  </div>
+</div>
+<script>
+(function(){
+  const btn=document.getElementById('pretaTranslateBtn'); const menu=document.getElementById('pretaTranslateMenu'); const wrap=document.getElementById('pretaTranslateWrap');
+  btn.onclick=(e)=>{e.stopPropagation(); menu.classList.toggle('show');};
+  document.addEventListener('click',(e)=>{if(!wrap.contains(e.target)) menu.classList.remove('show');});
+  window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'pt',includedLanguages:'pt,en,es,fr,it,de',autoDisplay:false},'google_translate_element');};
+  window.trocarIdioma=function(lang){
+    const sel=document.querySelector('select.goog-te-combo');
+    if(lang==='pt'){document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain='+location.hostname;document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.'+location.hostname;location.reload();return;}
+    if(sel){sel.value=lang;sel.dispatchEvent(new Event('change'));menu.classList.remove('show');const v='/pt/'+lang;document.cookie='googtrans='+v+'; path=/;';document.cookie='googtrans='+v+'; path=/; domain=.'+location.hostname;}
+  };
+  menu.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>trocarIdioma(b.dataset.lang)));
+  const s=document.createElement('script');s.src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';document.body.appendChild(s);
+})();
+</script>
+<!-- FIM TRADUTOR -->
 
   <!-- ==================== BLOQUEIO V12.3 - MODO CLIENTE INVISÍVEL - NÃO MEXIDO ==================== -->
   <script>
