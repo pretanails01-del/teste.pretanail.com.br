@@ -15,14 +15,15 @@
     [data-theme="light"]{--bg:#FFFAFC;--bg2:#FFFFFF;--text:#1D1D1F;--muted:rgba(29,29,31,0.65);--card:#FFFFFF;--border:rgba(193,53,132,0.16);}
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background .35s,color .35s}
-    .top-bar{position:sticky;top:0;z-index:9990;background:rgba(10,10,10,0.96);backdrop-filter:blur(15px);border-bottom:1px solid rgba(193,53,132,0.2);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:nowrap}
+    .top-bar{position:sticky;top:0;z-index:9990;background:rgba(10,10,10,0.96);backdrop-filter:blur(15px);border-bottom:1px solid rgba(193,53,132,0.2);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:nowrap}
     [data-theme="light"] .top-bar{background:rgba(255,255,255,.92);border-bottom-color:var(--border)}
     .logo{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:#fff;text-decoration:none;flex-shrink:0}
     .logo span{color:var(--primary)}
     [data-theme="light"] .logo{color:#1D1D1F}
+    .top-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
     .btn-voltar{background:rgba(255,255,255,0.06);border:1px solid rgba(193,53,132,0.35);color:#fff;padding:9px 18px;border-radius:50px;text-decoration:none;font-weight:700;font-size:12px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
     [data-theme="light"] .btn-voltar{background:#fff;color:#1D1D1F;border-color:var(--border)}
-    .theme-btn{position:static !important;margin-left:auto;transform:none !important;width:42px;height:42px;border-radius:50%;border:1px solid rgba(193,53,132,0.4);background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);color:var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .theme-btn{position:static !important;margin-left:0;transform:none !important;width:42px;height:42px;border-radius:50%;border:1px solid rgba(193,53,132,0.4);background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);color:var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
     [data-theme="light"] .theme-btn{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.06)}
     .hero-modelos{padding:50px 20px 30px;text-align:center;background:linear-gradient(180deg,var(--bg2) 0%, var(--bg) 100%)}
     .hero-modelos .foto-topo{width:90px;height:90px;border-radius:50%;border:2px solid var(--primary);box-shadow:0 0 30px rgba(193,53,132,.25);object-fit:cover;margin:0 auto 16px;display:block;cursor:pointer}
@@ -56,14 +57,38 @@
     .whatsapp-text{font-size:9px;font-weight:700;color:#fff;background:#1D1D1F;padding:5px 10px;border-radius:20px;text-align:center}
     @media(max-width:900px){.grid-modelos{grid-template-columns:repeat(3,1fr)}}
     @media(max-width:600px){.grid-modelos{grid-template-columns:repeat(2,1fr);gap:10px}}
+    #google_translate_element{display:none!important}
+    .goog-te-banner-frame.skiptranslate,iframe.goog-te-banner-frame{display:none!important;visibility:hidden!important;height:0!important}
+    body{top:0!important;position:static!important}
+    html{top:0!important}
+    .skiptranslate{display:none!important}
+    .goog-te-gadget-icon,.goog-logo-link,.goog-te-gadget span{display:none!important}
+    #goog-gt-tt,.goog-te-balloon-frame,.VIpgJd-ZVi9od-ORHb-OEVmcd,.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,.VIpgJd-ZVi9od-aZ2wEe-OiiCO{display:none!important}
+    .goog-text-highlight{background:transparent!important;box-shadow:none!important}
+    font.goog-text-highlight{background:transparent!important}
+    .translated-ltr body,.translated-rtl body{top:0!important}
   </style>
 </head>
 <body>
   <div class="top-bar">
     <a href="index.html" class="logo">PRETA<span>NAILS</span></a>
-    <button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
-    <a href="index.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Início</a>
+    <div class="top-actions notranslate">
+      <div id="pretaTranslateWrap" style="position:relative;">
+        <button id="pretaTranslateBtn" aria-label="Traduzir" style="width:42px;height:42px;border-radius:50%;border:1px solid rgba(193,53,132,0.4);background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);color:#C13584;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fas fa-globe"></i></button>
+        <div id="pretaTranslateMenu" style="position:absolute;right:0;top:50px;background:#111;border:1px solid rgba(193,53,132,.3);border-radius:14px;padding:6px;display:none;flex-direction:column;gap:4px;min-width:160px;box-shadow:0 15px 40px rgba(0,0,0,.6);z-index:10001">
+          <button data-lang="pt" style="background:transparent;border:0;border-radius:8px;padding:9px 12px;color:#fff;font-weight:600;font-size:12px;cursor:pointer;text-align:left">🇧🇷 Português</button>
+          <button data-lang="en" style="background:transparent;border:0;border-radius:8px;padding:9px 12px;color:#fff;font-weight:600;font-size:12px;cursor:pointer;text-align:left">🇺🇸 English</button>
+          <button data-lang="es" style="background:transparent;border:0;border-radius:8px;padding:9px 12px;color:#fff;font-weight:600;font-size:12px;cursor:pointer;text-align:left">🇪🇸 Español</button>
+          <button data-lang="fr" style="background:transparent;border:0;border-radius:8px;padding:9px 12px;color:#fff;font-weight:600;font-size:12px;cursor:pointer;text-align:left">🇫🇷 Français</button>
+          <button data-lang="it" style="background:transparent;border:0;border-radius:8px;padding:9px 12px;color:#fff;font-weight:600;font-size:12px;cursor:pointer;text-align:left">🇮🇹 Italiano</button>
+          <button data-lang="de" style="background:transparent;border:0;border-radius:8px;padding:9px 12px;color:#fff;font-weight:600;font-size:12px;cursor:pointer;text-align:left">🇩🇪 Deutsch</button>
+        </div>
+      </div>
+      <button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
+      <a href="index.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Início</a>
+    </div>
   </div>
+
   <section class="hero-modelos">
     <img class="foto-topo" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina">
     <h1>Portfólio <span>Preta Nails</span> - Jardim Peri</h1>
@@ -90,10 +115,11 @@
     </div>
   </section>
   <div id="lightbox"><div class="fechar" onclick="fechar()"><i class="fas fa-times"></i></div><img id="light-img" src="" alt=""></div>
-  <a href="https://wa.me/5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vi%20os%20modelos%20no%20site%20e%20gostei%20de%20um.%20Pode%20me%20ajudar%3F%20Jardim%20Peri%20Horto%20Florestal" target="_blank" class="whatsapp-float">
+  <a href="https://wa.me/5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vi%20os%20modelos%20no%20site%20e%20gostei%20de%20um.%20Pode%20me%20ajudar%3F%20Jardim%20Peri%20Horto%20Florestal" target="_blank" class="whatsapp-float notranslate">
     <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
     <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
   </a>
+
 <script>
   const cards = document.querySelectorAll('.card-modelo img');
   const lightbox = document.getElementById('lightbox');
@@ -111,6 +137,148 @@ document.querySelector('.foto-topo').addEventListener('click', function() {
   clickCount++;
   if(clickCount >= 5) { window.location.href = 'controleagendamento.html'; }
 });
+</script>
+
+<div id="google_translate_element"></div>
+<script>
+/* TRADUTOR COM IDIOMA PERSISTENTE EM TODAS AS PÁGINAS - IGUAL O TEMA */
+(function(){
+  const btn=document.getElementById('pretaTranslateBtn'); 
+  const menu=document.getElementById('pretaTranslateMenu'); 
+  const wrap=document.getElementById('pretaTranslateWrap');
+  btn.addEventListener('click',(e)=>{e.stopPropagation(); menu.style.display = menu.style.display==='flex' ? 'none' : 'flex'; menu.style.flexDirection='column';});
+  document.addEventListener('click',(e)=>{if(!wrap.contains(e.target)) menu.style.display='none';});
+
+  function getLang(){
+    const m=document.cookie.match(/googtrans=\/pt\/(\w+)/);
+    if(m) return m[1];
+    return localStorage.getItem('preta-lang')||'pt';
+  }
+  function saveLang(lang){
+    localStorage.setItem('preta-lang',lang);
+    const v='/pt/'+lang;
+    document.cookie='googtrans='+v+'; path=/; max-age=31536000';
+    try{
+      document.cookie='googtrans='+v+'; path=/; domain=.'+location.hostname+'; max-age=31536000';
+      document.cookie='googtrans='+v+'; path=/; domain='+location.hostname+'; max-age=31536000';
+    }catch(e){}
+  }
+  function clearLang(){
+    localStorage.setItem('preta-lang','pt');
+    document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    try{
+      document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain='+location.hostname;
+      document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.'+location.hostname;
+    }catch(e){}
+  }
+  function getCombo(){return document.querySelector('select.goog-te-combo');}
+  function applyLang(lang,isAuto){
+    if(lang==='pt'){clearLang(); if(!isAuto) location.reload(); return;}
+    saveLang(lang);
+    let tries=0;
+    const iv=setInterval(()=>{
+      const sel=getCombo();
+      if(sel){
+        clearInterval(iv);
+        sel.value=lang;
+        sel.dispatchEvent(new Event('change'));
+        menu.style.display='none';
+        document.body.style.top='0px';
+        document.documentElement.style.top='0px';
+      }
+      if(++tries>60) clearInterval(iv);
+    },300);
+  }
+  window.googleTranslateElementInit=function(){
+    new google.translate.TranslateElement({pageLanguage:'pt',includedLanguages:'pt,en,es,fr,it,de',autoDisplay:false},'google_translate_element');
+    const saved=getLang();
+    if(saved && saved!=='pt'){
+      setTimeout(()=>applyLang(saved,true),600);
+    }
+  };
+  menu.querySelectorAll('button').forEach(b=>{
+    b.addEventListener('mouseenter',()=>b.style.background='#C13584');
+    b.addEventListener('mouseleave',()=>b.style.background='transparent');
+    b.addEventListener('click',()=>applyLang(b.dataset.lang));
+  });
+  const obs=new MutationObserver(()=>{
+    document.body.style.top='0px';
+    document.documentElement.style.top='0px';
+    document.querySelectorAll('.goog-te-banner-frame').forEach(el=>el.style.display='none');
+  });
+  obs.observe(document.documentElement,{childList:true,subtree:true});
+  const s=document.createElement('script');
+  s.src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  s.async=true;
+  document.body.appendChild(s);
+})();
+</script>
+
+<script>
+(function() {
+  "use strict";
+  const SENHA_ADMIN = "preta2026"; 
+  const paginaAtual = window.location.pathname.toLowerCase();
+  const paginasLiberadas = ['/duvidas.html', '/duvidas', '/faq.html', '/faq'];
+  const isPaginaLiberada = paginasLiberadas.some(p => paginaAtual.includes(p));
+  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const urlParams = new URLSearchParams(window.location.search);
+  const liberouPorLink = urlParams.get('admin') === SENHA_ADMIN;
+  if(liberouPorLink) { sessionStorage.setItem('adminLiberado', 'true'); }
+  if (sessionStorage.getItem('adminLiberado') === 'true' || isPaginaLiberada) { return; }
+  if (isLocal || isMobile) { return; }
+  let bloqueado = false;
+  function mostrarAlertaSeguranca() {
+    if(bloqueado) return; bloqueado = true;
+    document.documentElement.innerHTML = `<body style="margin:0;padding:0;background:#F8F9FA;font-family:'Google Sans', Roboto, Arial, sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;"><div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.12);"><h2 style="color:#E91E63;">Preta Nails - Navegação Segura</h2><p>Acesso ao código-fonte bloqueado</p><button onclick="window.location.reload()" style="padding:12px 24px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;">Entendi</button></div></body>`;
+  }
+  document.addEventListener('keydown', function(e) { if (e.key === 'F12') { e.preventDefault(); mostrarAlertaSeguranca(); } }, true);
+  document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
+})();
+</script>
+<script>
+(function() {
+  "use strict";
+  const SENHA_ADMIN = "preta2026"; 
+  const isGoogleBot = /googlebot|google-inspection|adsbot-google|mediapartners-google|apis-google|chrome-lighthouse|gtmetrix|lighthouse|bingbot|yandex|duckduckbot/i.test(navigator.userAgent);
+  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const urlParams = new URLSearchParams(window.location.search);
+  if(urlParams.get('admin') === SENHA_ADMIN) sessionStorage.setItem('adminLiberado', 'true');
+  if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile || isGoogleBot) return;
+  let bloqueado = false;
+  function mostrarAlertaSeguranca() {
+    if(bloqueado) return; bloqueado = true;
+    document.documentElement.innerHTML = `<body style="margin:0;padding:0;background:#F8F9FA;font-family:'Google Sans', Roboto, Arial, sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;"><div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;"><h2 style="color:#E91E63;">Preta Nails - Navegação Segura</h2><p>Acesso ao código-fonte bloqueado</p><button onclick="window.location.reload()" style="padding:12px 24px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;">Entendi</button></div></body>`;
+  }
+  window.liberar = function(senha) {
+    if(senha === SENHA_ADMIN) {
+      sessionStorage.setItem('adminLiberado', 'true');
+      location.reload();
+    }
+  }
+  document.addEventListener('keydown', function(e) {
+    const key = e.key.toUpperCase();
+    const code = e.keyCode || e.which;
+    const teclasLivres = ['C','V','X','A','F','R','L','T','W','D','Z'];
+    if (e.ctrlKey && teclasLivres.includes(key) && !e.shiftKey && !e.altKey) return true;
+    if (e.ctrlKey && e.shiftKey && key === 'R') return true;
+    if (['TAB','ENTER',' ','BACKSPACE','ARROWUP','ARROWDOWN','ARROWLEFT','ARROWRIGHT','DELETE'].includes(key)) return true;
+    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true;
+    if (key === 'F12' || code === 123 || 
+        (key.startsWith('F') && /^F([1-4]|7|8|9|10|11|12)$/.test(key)) ||
+        (e.ctrlKey && ['U','S','P','I','J','K','E','Q','H'].includes(key)) ||
+        (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','E','D'].includes(key)) ||
+        (e.altKey && ['F','U','D'].includes(key)) ) {
+      e.preventDefault();
+      e.stopPropagation();
+      mostrarAlertaSeguranca();
+      return false;
+    }
+  }, true);
+  document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
+})();
 </script>
 <script src="theme.js"></script>
 </body>
