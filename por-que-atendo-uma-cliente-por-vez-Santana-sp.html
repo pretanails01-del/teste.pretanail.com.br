@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -32,6 +31,11 @@ body{font-family:Inter,sans-serif;background:var(--dark);color:#fff;line-height:
 .cta-box{margin:56px 0;padding:36px;border-radius:24px;background:linear-gradient(135deg,rgba(193,53,132,0.22),rgba(0,0,0,0.4));border:1px solid var(--primary);text-align:center}
 .cta-box .btn{display:inline-flex;margin-top:18px;background:linear-gradient(135deg,var(--rosa),var(--primary));color:#fff;padding:18px 32px;border-radius:50px;text-decoration:none;font-weight:900;gap:10px;box-shadow:0 10px 30px rgba(193,53,132,0.4)}
 @media(max-width:800px){.hero{grid-template-columns:1fr}.foto-pequena{order:-1}}
+/* BOTÃO WHATSAPP ROSA PULSANDO COM FRASE EMBAIXO */
+.whatsapp-float{position:fixed;bottom:80px;right:25px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
+.whatsapp-btn{width:60px;height:60px;background:linear-gradient(135deg,#ff2d92 0%,#C13584 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px;box-shadow:0 8px 25px rgba(255,45,146,.5);animation:pulseRosa 2s infinite}
+.whatsapp-text{font-size:10px;font-weight:700;color:#fff;background:rgba(0,0,0,0.7);padding:5px 10px;border-radius:20px;text-align:center;line-height:1.2}
+@keyframes pulseRosa{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,45,146,0.7)}70%{transform:scale(1.05);box-shadow:0 0 0 15px rgba(255,45,146,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,45,146,0)}}
 </style>
 </head>
 <body>
@@ -93,5 +97,12 @@ Se fizer anamnese aqui 1 vez, daqui 30 dias você vai estar com unha intacta, se
 <p style="margin-top:12px;opacity:.5;font-size:11px">Análise gratuita no WhatsApp - Resposta em até 2h</p>
 </div>
 </div>
+
+<!-- BOTÃO WHATSAPP FLUTUANTE ROSA PULSANDO COM FRASE -->
+<a href="https://wa.me/5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20tenho%20algumas%20d%C3%BAvidas." target="_blank" class="whatsapp-float">
+  <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
+  <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
+</a>
+
 </body>
 </html>
