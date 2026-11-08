@@ -4,16 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a0a0a" id="meta-theme-color">
-  <script>
-    !function(){
-      try{
-        var t = localStorage.getItem('preta-theme');
-        if(!t){ localStorage.setItem('preta-theme','dark'); t='dark'; }
-        if(t==='light'){ document.documentElement.setAttribute('data-theme','light'); }
-        else{ document.documentElement.removeAttribute('data-theme'); }
-      }catch(e){}
-    }();
-  </script>
+  <script>!function(){try{var k='preta-theme';var t=localStorage.getItem(k);if(!t||t!=='light'){localStorage.setItem(k,'dark');document.documentElement.removeAttribute('data-theme');var m=document.getElementById('meta-theme-color');if(m)m.content='#0a0a0a';}else{document.documentElement.setAttribute('data-theme','light');var m2=document.getElementById('meta-theme-color');if(m2)m2.content='#FFFAFC';}}catch(e){document.documentElement.removeAttribute('data-theme');}}();</script>
   <title>Alongamento de Unhas Mandaqui SP - Fácil Acesso Jardim Peri CEP 02632-090 | Preta Nails</title>
   <meta name="description" content="Você é da região do Mandaqui e tem unhas roídas? Atendo no Jardim Peri - CEP 02632-090 - Próximo ao Horto. Fácil acesso, 7 min, uma cliente por vez, autoclave. Sabrina Lemos.">
   <link rel="canonical" href="https://pretanail.com.br/alongamento-de-unhas-mandaqui-sp.html">
@@ -21,24 +12,53 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    :root { --rosa-brilhante: #ff2d92; --rosa-escuro: #C13584; --bg: #0a0a0a; --text: #ffffff; --card: rgba(255,255,255,0.03); --border: rgba(193,53,132,0.18); }
-    [data-theme="light"]{ --bg:#FFFAFC; --text:#1D1D1F; --card:#FFFFFF; --border: rgba(193,53,132,0.12); }
+    :root { --primary: #C13584; --rosa-brilhante: #ff2d92; --rosa-escuro: #C13584; --bg: #0a0a0a; --bg2:#050505; --text: #ffffff; --muted: rgba(255,255,255,0.7); --card: rgba(255,255,255,0.04); --border: rgba(193,53,132,0.25); }
+    [data-theme="light"] { --bg: #FFFAFC; --bg2: #FFFFFF; --text: #1D1D1F; --muted: rgba(29,29,31,0.65); --card: #FFFFFF; --border: rgba(193,53,132,0.16); }
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.9;transition:.3s}
-    .theme-btn{position:fixed;top:18px;left:18px;z-index:10001;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,45,146,.3);background:rgba(255,255,255,.06);color:var(--rosa-brilhante);cursor:pointer;backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center}
-    .translate-btn{position:fixed;top:18px;left:68px;z-index:10001;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,45,146,.3);background:rgba(255,255,255,.06);color:var(--rosa-brilhante);cursor:pointer;backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center}
-    .theme-btn:hover, .translate-btn:hover{transform:scale(1.05);border-color:var(--rosa-brilhante)}
-    [data-theme="light"] .theme-btn, [data-theme="light"] .translate-btn{background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.08)}
-    .topbar{max-width:1000px;margin:0 auto;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;padding-left:125px}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.9;transition:.35s;top:0!important}
+    html{top:0!important}
+
+    /* ===== EXATAMENTE SEU TEMA DO INDEX ===== */
+    .theme-btn{position:fixed!important;top:25px!important;left:25px!important;z-index:9999!important;width:42px!important;height:42px!important;border-radius:50%!important;border:1px solid rgba(193,53,132,0.4)!important;background:rgba(255,255,255,0.06)!important;backdrop-filter:blur(10px)!important;color:var(--primary)!important;cursor:pointer!important;display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;transform:none!important}
+    [data-theme="light"] .theme-btn{background:#fff!important;box-shadow:0 4px 15px rgba(0,0,0,.06)!important}
+
+    /* ===== EXATAMENTE SEU TRADUTOR DO INDEX ===== */
+    #google_translate_element{display:none!important}
+    .goog-te-banner-frame.skiptranslate, iframe.goog-te-banner-frame, iframe[name="goog-te-banner-frame"]{display:none!important;visibility:hidden!important;height:0!important}
+    .skiptranslate{display:none!important}
+    .goog-te-gadget-icon{display:none!important}
+    .goog-logo-link,.goog-te-gadget span{display:none!important}
+    #goog-gt-tt,.goog-te-balloon-frame,.VIpgJd-ZVi9od-ORHb-OEVmcd,.VIpgJd-ZVi9od-aZ2wEe-wOHMyf{display:none!important}
+    .goog-text-highlight{background:transparent!important;box-shadow:none!important;border:none!important}
+    font.goog-text-highlight{background:transparent!important}
+    .VIpgJd-ZVi9od-aZ2wEe-OiiCO,.VIpgJd-ZVi9od-aZ2wEe{display:none!important}
+    .translated-ltr body,.translated-rtl body{top:0!important}
+    .preta-translate{position:fixed!important;z-index:9997!important;left:25px!important;top:85px!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:4px!important;margin:0!important}
+    .preta-translate-btn{width:32px!important;height:32px!important;border-radius:50%!important;border:1px solid rgba(193,53,132,.35)!important;background:rgba(20,20,20,.9)!important;color:#C13584!important;cursor:pointer!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:14px!important}
+    .preta-translate-btn:hover{background:#C13584!important;color:#fff!important}
+    .preta-translate-label{font-size:8px!important;font-weight:800!important;letter-spacing:.8px!important;color:#C13584!important;text-transform:uppercase!important}
+    [data-theme="light"] .preta-translate-btn{background:#fff!important;box-shadow:0 4px 15px rgba(0,0,0,.08)!important}
+    [data-theme="light"] .preta-translate-label{color:#888!important}
+    .preta-translate-menu{position:absolute!important;left:0!important;top:48px!important;background:#111!important;border:1px solid rgba(193,53,132,.3)!important;border-radius:14px!important;padding:6px!important;display:none!important;flex-direction:column!important;gap:4px!important;min-width:160px!important;box-shadow:0 15px 40px rgba(0,0,0,.6)!important;z-index:10002!important}
+    .preta-translate-menu.show{display:flex!important}
+    [data-theme="light"] .preta-translate-menu{background:#fff!important;border-color:#eee!important}
+    .preta-translate-menu button{background:transparent!important;border:0!important;border-radius:8px!important;padding:9px 12px!important;color:#fff!important;font-weight:600!important;font-size:12px!important;cursor:pointer!important;text-align:left!important}
+    [data-theme="light"] .preta-translate-menu button{color:#222!important}
+    .preta-translate-menu button:hover{background:#C13584!important;color:#fff!important}
+    .preta-translate-menu button.active{background:#C13584!important;color:#fff!important}
+    @media(max-width:768px){.preta-translate{left:16px!important;top:70px!important} .theme-btn{top:15px!important;left:16px!important}}
+
+    /* CONTEUDO MANDAQUI - 580 PALAVRAS */
+    .topbar{max-width:1000px;margin:0 auto;padding:18px 20px 18px 85px;display:flex;justify-content:space-between;align-items:center}
     .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;font-family:'Playfair Display',serif;font-weight:900;font-size:20px}
-    .logo img{width:38px;height:38px;border-radius:50%;border:2px solid var(--rosa-brilhante);object-fit:cover}
+    .logo img{width:38px;height:38px;border-radius:50%;border:2px solid var(--primary);object-fit:cover}
     .btn-top{background:linear-gradient(135deg,var(--rosa-brilhante),var(--rosa-escuro));color:#fff;padding:10px 18px;border-radius:50px;text-decoration:none;font-weight:800;font-size:12px}
     .container{max-width:800px;margin:0 auto;padding:20px}
     .breadcrumb{font-size:11px;color:#aaa;margin:10px 0 20px}
-    .breadcrumb a{color:var(--rosa-brilhante);text-decoration:none}
+    .breadcrumb a{color:var(--primary);text-decoration:none}
     h1{font-family:'Playfair Display',serif;font-size:35px;line-height:1.15;margin-bottom:12px}
-    h1 span{color:var(--rosa-brilhante)}
-    h2{font-family:'Playfair Display',serif;font-size:24px;margin:30px 0 14px;color:var(--rosa-brilhante)}
+    h1 span{color:var(--primary)}
+    h2{font-family:'Playfair Display',serif;font-size:24px;margin:30px 0 14px;color:var(--primary)}
     .meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
     .meta span{background:var(--card);border:1px solid var(--border);padding:6px 12px;border-radius:50px;font-size:11px;font-weight:700}
     .foto-principal{border-radius:20px;overflow:hidden;border:1px solid var(--border);margin:20px 0}
@@ -47,7 +67,7 @@
     p{font-size:15.5px;color:#ccc;margin-bottom:14px}
     [data-theme="light"] p{color:#444}
     p strong{color:var(--text)}
-    .autor-header{background:linear-gradient(135deg,rgba(255,45,146,0.2),rgba(0,0,0,0.7));border:2px solid var(--rosa-brilhante);display:flex;align-items:center;gap:14px;margin-bottom:25px;padding:18px;border-radius:12px}
+    .autor-header{background:linear-gradient(135deg,rgba(255,45,146,0.2),rgba(0,0,0,0.7));border:2px solid var(--primary);display:flex;align-items:center;gap:14px;margin-bottom:25px;padding:18px;border-radius:12px}
     [data-theme="light"] .autor-header{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.06)}
     .autor-header img{width:55px;height:55px;border-radius:50%;border:3px solid #ff2d92;object-fit:cover}
     .box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;margin:24px 0}
@@ -55,25 +75,33 @@
     .btn-cta{display:inline-flex;background:linear-gradient(135deg,var(--rosa-brilhante),var(--rosa-escuro));color:#fff;padding:16px 30px;border-radius:50px;text-decoration:none;font-weight:800;gap:10px;box-shadow:0 10px 30px rgba(255,45,146,.4)}
     .cta-final{text-align:center;margin:40px 0;padding:40px 20px;background:linear-gradient(135deg,rgba(193,53,132,0.18),rgba(0,0,0,0.3));border:1px solid var(--border);border-radius:24px}
     .whatsapp-float{position:fixed;bottom:80px;right:25px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
-    .whatsapp-btn{width:60px;height:60px;background:linear-gradient(135deg,#ff2d92 0%,#C13584 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px}
+    .whatsapp-btn{width:60px;height:60px;background:linear-gradient(135deg,var(--primary) 0%,var(--rosa-escuro) 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px}
     .whatsapp-text{font-size:10px;font-weight:700;color:#fff;background:rgba(0,0,0,0.7);padding:5px 10px;border-radius:20px;text-align:center}
-    .seo-regioes{margin-top:35px;padding:18px 20px;background:rgba(255,255,255,0.03);border:1px dashed rgba(255,45,146,0.18);border-radius:12px;font-size:11px;line-height:1.8;color:rgba(255,255,255,0.6)}
+    .seo-regioes{margin-top:35px;padding:18px 20px;background:rgba(255,255,255,0.03);border:1px dashed rgba(193,53,132,0.18);border-radius:12px;font-size:11px;line-height:1.8;color:rgba(255,255,255,0.6)}
     [data-theme="light"] .seo-regioes{background:#fff;color:rgba(0,0,0,0.5)}
-    .seo-regioes strong{color:var(--rosa-brilhante)}
+    .seo-regioes strong{color:var(--primary)}
     .seo-rodape{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.05);font-size:10px;color:rgba(255,255,255,0.18);text-align:center}
-    #google_translate_element{display:none}
-    .goog-te-banner-frame.skiptranslate{display:none !important}
-    body{top:0 !important}
-    @media(max-width:700px){h1{font-size:30px}.foto-principal img{height:320px}.topbar{padding-left:20px;padding-top:70px}}
+    @media(max-width:700px){h1{font-size:28px}.foto-principal img{height:320px}.topbar{padding-left:20px;padding-top:70px}}
   </style>
 </head>
 <body>
-  <button class="theme-btn" id="themeBtn"><i class="fas fa-sun" id="themeIcon"></i></button>
-  <button class="translate-btn" id="translate-btn"><i class="fas fa-language"></i></button>
+  <!-- EXATAMENTE SEU TEMA E TRADUTOR DO INDEX - SEM SOBREPOR -->
+  <button class="theme-btn notranslate" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
   <div id="google_translate_element"></div>
+  <div class="preta-translate notranslate" id="pretaTranslateWrap">
+    <button class="preta-translate-btn" id="pretaTranslateBtn" aria-label="Traduzir"><i class="fas fa-globe"></i></button>
+    <span class="preta-translate-label">traduzir</span>
+    <div class="preta-translate-menu" id="pretaTranslateMenu">
+      <button data-lang="pt">🇧🇷 Português</button>
+      <button data-lang="en">🇺🇸 English</button>
+      <button data-lang="es">🇪🇸 Español</button>
+      <button data-lang="fr">🇫🇷 Français</button>
+      <button data-lang="it">🇮🇹 Italiano</button>
+      <button data-lang="de">🇩🇪 Deutsch</button>
+    </div>
+  </div>
 
   <div class="topbar">
-    <!-- LOGO DO BLOG - FÁCIL DE TROCAR -->
     <a href="index.html" class="logo"><img id="logo-blog" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Preta Nails"> PRETA NAILS</a>
     <a href="agendamento.html" class="btn-top"><i class="fas fa-calendar-check"></i> AGENDAR</a>
   </div>
@@ -82,7 +110,6 @@
     <div class="breadcrumb"><a href="index.html">Início</a> / <a href="blog.html">Blog</a> / Mandaqui</div>
 
     <div class="autor-header">
-      <!-- FOTO DA SABRINA - FÁCIL DE TROCAR -->
       <img id="foto-blog" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos">
       <div>
         <p style="margin:0;color:#aaa;font-size:13px">Conteúdo e atendimento por</p>
@@ -94,9 +121,9 @@
     <h1>Você é da região do <span>Mandaqui</span> e esconde as mãos por causa das unhas roídas? Vem cá ♡</h1>
     
     <div class="meta">
-      <span><i class="fas fa-location-dot" style="color:var(--rosa-brilhante)"></i> Base Jardim Peri - CEP 02632-090 - Horto</span>
-      <span><i class="fas fa-map-location-dot" style="color:var(--rosa-brilhante)"></i> Fácil acesso</span>
-      <span><i class="fas fa-shield-halved" style="color:var(--rosa-brilhante)"></i> Uma cliente por vez</span>
+      <span><i class="fas fa-location-dot" style="color:var(--primary)"></i> Base Jardim Peri - CEP 02632-090 - Horto</span>
+      <span><i class="fas fa-map-location-dot" style="color:var(--primary)"></i> Fácil acesso</span>
+      <span><i class="fas fa-shield-halved" style="color:var(--primary)"></i> Uma cliente por vez</span>
     </div>
 
     <div class="foto-principal">
@@ -114,12 +141,11 @@
     <p>Elas buscam algo que seja natural, que não pese, que dure e que não agrida ainda mais. E encontram aqui esse cuidado mais delicado.</p>
 
     <div class="box">
-      <p><strong><i class="fas fa-location-dot" style="color:var(--rosa-brilhante)"></i> Nossa base:</strong> Jardim Peri - CEP 02632-090 - Próximo ao Horto Florestal - Zona Norte SP<br>
-      <strong><i class="fas fa-map-location-dot" style="color:var(--rosa-brilhante)"></i> Chegar é fácil:</strong> 7 min do Mandaqui, Santana, Tucuruvi, Casa Verde, Vila Mazzei<br>
-      <strong><i class="fas fa-heart" style="color:var(--rosa-brilhante)"></i> Meu método:</strong> Avaliação tranquila, preparo suave sem machucar, fibra curtinha clean girl no início</p>
+      <p><strong><i class="fas fa-location-dot" style="color:var(--primary)"></i> Nossa base:</strong> Jardim Peri - CEP 02632-090 - Próximo ao Horto Florestal - Zona Norte SP<br>
+      <strong><i class="fas fa-map-location-dot" style="color:var(--primary)"></i> Chegar é fácil:</strong> 7 min do Mandaqui, Santana, Tucuruvi, Casa Verde, Vila Mazzei<br>
+      <strong><i class="fas fa-heart" style="color:var(--primary)"></i> Meu método:</strong> Avaliação tranquila, preparo suave sem machucar, fibra curtinha clean girl no início</p>
     </div>
 
-    <!-- BOTÃO DE AGENDAMENTO NO MEIO -->
     <div class="cta-meio">
       <a href="agendamento.html" class="btn-cta"><i class="fas fa-calendar-check"></i> QUERO AGENDAR MINHA AVALIAÇÃO</a>
       <p style="font-size:11px;margin-top:10px;opacity:.6">Atendimento no Jardim Peri - Fácil acesso Mandaqui - Vagas limitadas</p>
@@ -157,35 +183,94 @@
   </a>
 
 <script>
-  const themeBtn = document.getElementById('themeBtn');
-  const themeIcon = document.getElementById('themeIcon');
-  const metaTheme = document.getElementById('meta-theme-color');
-  function updateIcon(theme){
-    if(theme === 'light'){ themeIcon.className = 'fas fa-moon'; if(metaTheme) metaTheme.content = '#FFFAFC'; }
-    else{ themeIcon.className = 'fas fa-sun'; if(metaTheme) metaTheme.content = '#0a0a0a'; }
+// TEMA EXATO DO INDEX
+(function(){
+  const btn=document.getElementById('themeBtn');
+  const icon=document.getElementById('themeIcon');
+  const meta=document.getElementById('meta-theme-color');
+  function updateIcon(t){
+    if(t==='light'){icon.className='fas fa-moon'; if(meta) meta.content='#FFFAFC';}
+    else{icon.className='fas fa-sun'; if(meta) meta.content='#0a0a0a';}
   }
-  updateIcon(localStorage.getItem('preta-theme') || 'dark');
-  themeBtn.addEventListener('click', ()=>{
-    const current = localStorage.getItem('preta-theme') || 'dark';
-    const next = current === 'dark' ? 'light' : 'dark';
-    localStorage.setItem('preta-theme', next);
-    if(next === 'light'){ document.documentElement.setAttribute('data-theme','light'); }
-    else{ document.documentElement.removeAttribute('data-theme'); }
+  updateIcon(localStorage.getItem('preta-theme')||'dark');
+  btn.addEventListener('click',()=>{
+    const cur=localStorage.getItem('preta-theme')||'dark';
+    const next=cur==='dark'?'light':'dark';
+    localStorage.setItem('preta-theme',next);
+    if(next==='light'){document.documentElement.setAttribute('data-theme','light');}
+    else{document.documentElement.removeAttribute('data-theme');}
     updateIcon(next);
   });
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'pt',
-      includedLanguages: 'en,es,fr,it,de,ja,zh-CN,pt',
-      autoDisplay: false,
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
+})();
+
+// TRADUTOR EXATO DO INDEX - 6 IDIOMAS PEGANDO AUTOMATICO
+(function(){
+  const btn=document.getElementById('pretaTranslateBtn'); 
+  const menu=document.getElementById('pretaTranslateMenu'); 
+  const wrap=document.getElementById('pretaTranslateWrap');
+  btn.addEventListener('click',(e)=>{e.stopPropagation(); menu.classList.toggle('show');});
+  document.addEventListener('click',(e)=>{if(!wrap.contains(e.target)) menu.classList.remove('show');});
+  function getLang(){
+    const m=document.cookie.match(/googtrans=\/pt\/(\w+)/);
+    if(m) return m[1];
+    return localStorage.getItem('preta-lang')||'pt';
   }
-  document.getElementById('translate-btn').addEventListener('click', ()=>{
-    const sel = document.querySelector('.goog-te-gadget-simple');
-    if(sel) sel.click();
+  function saveLang(lang){
+    localStorage.setItem('preta-lang',lang);
+    const v='/pt/'+lang;
+    document.cookie='googtrans='+v+'; path=/; max-age=31536000';
+    try{
+      document.cookie='googtrans='+v+'; path=/; domain=.'+location.hostname+'; max-age=31536000';
+      document.cookie='googtrans='+v+'; path=/; domain=.'+location.hostname+'; max-age=31536000';
+    }catch(e){}
+  }
+  function clearLang(){
+    localStorage.setItem('preta-lang','pt');
+    document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    try{
+      document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain='+location.hostname;
+      document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.'+location.hostname;
+    }catch(e){}
+  }
+  function getCombo(){return document.querySelector('select.goog-te-combo');}
+  function applyLang(lang,isAuto){
+    if(lang==='pt'){clearLang(); if(!isAuto) location.reload(); return;}
+    saveLang(lang);
+    let tries=0;
+    const iv=setInterval(()=>{
+      const sel=getCombo();
+      if(sel){
+        clearInterval(iv);
+        sel.value=lang;
+        sel.dispatchEvent(new Event('change'));
+        menu.classList.remove('show');
+        document.body.style.top='0px';
+        document.documentElement.style.top='0px';
+        menu.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+      }
+      if(++tries>60) clearInterval(iv);
+    },300);
+  }
+  window.googleTranslateElementInit=function(){
+    new google.translate.TranslateElement({pageLanguage:'pt',includedLanguages:'pt,en,es,fr,it,de',autoDisplay:false},'google_translate_element');
+    const saved=getLang();
+    if(saved && saved!=='pt'){
+      setTimeout(()=>applyLang(saved,true),600);
+      menu.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b.dataset.lang===saved));
+    }
+  };
+  menu.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+  const obs=new MutationObserver(()=>{
+    document.body.style.top='0px';
+    document.documentElement.style.top='0px';
+    document.querySelectorAll('.goog-te-banner-frame').forEach(el=>el.style.display='none');
   });
+  obs.observe(document.documentElement,{childList:true,subtree:true});
+  const s=document.createElement('script');
+  s.src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  s.async=true;
+  document.body.appendChild(s);
+})();
 </script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
