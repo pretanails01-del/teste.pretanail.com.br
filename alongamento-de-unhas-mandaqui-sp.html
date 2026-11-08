@@ -42,8 +42,6 @@
     [data-theme="light"] .preta-translate-menu button{color:#222!important}
     .preta-translate-menu button:hover{background:#C13584!important;color:#fff!important}
     .preta-translate-menu button.active{background:#C13584!important;color:#fff!important}
-    @media(max-width:768px){.preta-translate{left:16px!important;top:70px!important} .theme-btn{top:15px!important;left:16px!important}}
-    /* TOPBAR CORRIGIDO - NÃO SOBREPÕE MAIS */
     .topbar{max-width:1000px;margin:0 auto;padding:18px 20px 18px 95px;display:flex;justify-content:space-between;align-items:center}
     .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;font-family:'Playfair Display',serif;font-weight:900;font-size:20px}
     .logo img{width:38px;height:38px;border-radius:50%;border:2px solid var(--primary);object-fit:cover}
@@ -76,7 +74,19 @@
     [data-theme="light"] .seo-regioes{background:#fff;color:rgba(0,0,0,0.5)}
     .seo-regioes strong{color:var(--primary)}
     .seo-rodape{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.05);font-size:10px;color:rgba(255,255,255,0.18);text-align:center}
-    @media(max-width:700px){h1{font-size:28px}.foto-principal img{height:320px}.topbar{padding-left:20px;padding-top:75px}}
+    /* ===== CORREÇÃO DEFINITIVA MOBILE - NÃO SOBREPÕE LOGO ===== */
+    @media(max-width:768px){
+      .theme-btn{top:15px!important;left:16px!important}
+      .preta-translate{left:70px!important;top:15px!important;flex-direction:row!important;gap:0!important}
+      .preta-translate-label{display:none!important}
+      .preta-translate-btn{width:42px!important;height:42px!important}
+      .preta-translate-menu{left:auto!important;right:0!important;top:50px!important}
+    }
+    @media(max-width:700px){
+      h1{font-size:28px}
+      .foto-principal img{height:320px}
+      .topbar{padding-left:20px!important;padding-top:120px!important}
+    }
   </style>
 </head>
 <body>
@@ -96,16 +106,13 @@
   </div>
 
   <div class="topbar">
-    <!-- ============ LOGO FÁCIL DE TROCAR ============ -->
     <a href="index.html" class="logo"><img id="logo-blog" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Preta Nails"> PRETA NAILS</a>
     <a href="agendamento.html" class="btn-top"><i class="fas fa-calendar-check"></i> AGENDAR</a>
   </div>
 
   <div class="container">
     <div class="breadcrumb"><a href="index.html">Início</a> / <a href="blog.html">Blog</a> / Mandaqui</div>
-
     <div class="autor-header">
-      <!-- ============ FOTO SABRINA FÁCIL DE TROCAR ============ -->
       <img id="foto-blog" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos">
       <div>
         <p style="margin:0;color:#aaa;font-size:13px">Conteúdo e atendimento por</p>
@@ -113,72 +120,53 @@
         <p style="margin:0;color:#aaa;font-size:11px">Preta Nails • Jardim Peri CEP 02632-090 • Fácil acesso região do Mandaqui</p>
       </div>
     </div>
-    
     <h1>Você é da região do <span>Mandaqui</span> e esconde as mãos por causa das unhas roídas? Vem cá ♡</h1>
-    
     <div class="meta">
       <span><i class="fas fa-location-dot" style="color:var(--primary)"></i> Base Jardim Peri - CEP 02632-090 - Horto</span>
       <span><i class="fas fa-map-location-dot" style="color:var(--primary)"></i> Fácil acesso</span>
       <span><i class="fas fa-shield-halved" style="color:var(--primary)"></i> Uma cliente por vez</span>
     </div>
-
     <div class="foto-principal">
-      <!-- ============ FOTO PRINCIPAL FÁCIL DE TROCAR ============ -->
       <img id="foto-principal-blog" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Atendimento Jardim Peri para quem vem do Mandaqui">
       <p>Atendimento acolhedor no Jardim Peri - CEP 02632-090 - Próximo ao Horto Florestal - Fácil acesso para quem vem do Mandaqui</p>
     </div>
-
     <p>Se você pesquisou por alongamento na região do Mandaqui e sente vergonha de mostrar as mãos, respira comigo. Eu sei exatamente como é. Sou a Sabrina, da Preta Nails, e já passei por isso também. Foi por isso que criei um espaço só nosso aqui no <strong>Jardim Peri - CEP 02632-090, pertinho do Horto Florestal</strong>, onde você é atendida com calma, sem pressa e sem julgamento.</p>
-
     <p>Minha base é fixa aqui no Jardim Peri. Não fico na região do Mandaqui, mas o acesso é super tranquilo - são cerca de 7 minutos de carro, com ônibus direto e rua tranquila. O endereço completo eu envio no WhatsApp após confirmação, por segurança. Aqui você tem horário marcado e atendimento individual.</p>
-
     <h2>Por que tanta gente daí vem até aqui?</h2>
     <p>Vou ser bem sincera. Por aqui perto, na Zona Norte, é difícil achar um lugar que entenda de verdade quem rói unha. Quem tem leito curtinho, pele machucada, sensibilidade. Que esterilize tudo em autoclave e abra o kit na sua frente. Aqui é assim. Por isso minhas clientes começaram a indicar as amigas, vizinhas e primas da mesma região.</p>
-
     <p>Elas buscam algo que seja natural, que não pese, que dure e que não agrida ainda mais. E encontram aqui esse cuidado mais delicado.</p>
-
     <div class="box">
       <p><strong><i class="fas fa-location-dot" style="color:var(--primary)"></i> Nossa base:</strong> Jardim Peri - CEP 02632-090 - Próximo ao Horto Florestal - Zona Norte SP<br>
       <strong><i class="fas fa-map-location-dot" style="color:var(--primary)"></i> Chegar é fácil:</strong> 7 min do Mandaqui, Santana, Tucuruvi, Casa Verde, Vila Mazzei<br>
       <strong><i class="fas fa-heart" style="color:var(--primary)"></i> Meu método:</strong> Avaliação tranquila, preparo suave sem machucar, fibra curtinha clean girl no início</p>
     </div>
-
     <div class="cta-meio">
       <a href="agendamento.html" class="btn-cta"><i class="fas fa-calendar-check"></i> QUERO AGENDAR MINHA AVALIAÇÃO</a>
       <p style="font-size:11px;margin-top:10px;opacity:.6">Atendimento no Jardim Peri - Fácil acesso Mandaqui - Vagas limitadas</p>
     </div>
-
     <h2>Como eu cuido do seu caso com carinho</h2>
     <p>Quem rói não pode fazer de qualquer jeito. Primeiro eu olho tudo com calma - tamanho do leito, cutícula, se tem alguma inflamação. Só depois te indico o que vai funcionar pra sua rotina.</p>
     <p>Na maioria das vezes começamos com blindagem ou fibra bem curtinha, bem natural, só pra devolver proteção e autoestima. Sem dor, sem aquele aspecto artificial. Ideal pra quem digita muito, cuida da casa, trabalha com as mãos e quer algo prático pro dia a dia.</p>
     <p>E a manutenção é tranquila. Te ensino a cuidar em casa com óleo de cutícula e como evitar quebras até voltar aqui.</p>
-
     <h2>Segurança em primeiro lugar</h2>
     <p>Quem tem unha roída tem micro machucadinhos abertos. Por isso biossegurança aqui não é detalhe, é respeito. Todo material é esterilizado em autoclave e aberto na sua frente. Alicate, broca, tudo individual. Você vê tudo. É a sua saúde em primeiro lugar.</p>
-
     <h2>Quanto custa?</h2>
     <p>Como cada mão é única - tamanho do leito, sensibilidade, sua rotina - eu te explico os valores após uma avaliação rápida no WhatsApp. Assim te indico a técnica certa, sem te empurrar nada que você não precise. Seja você daqui do Jardim Peri ou vindo da região do Mandaqui com fácil acesso.</p>
-
     <div class="cta-final">
       <h2>Vem conversar comigo sem vergonha ♡</h2>
       <p style="font-size:13px;opacity:.7;margin-top:8px">Base fixa: Jardim Peri - CEP 02632-090 - Próximo ao Horto Florestal - Uma cliente por vez - Atendimento acolhedor</p>
       <a href="agendamento.html" class="btn-cta"><i class="fas fa-comments"></i> QUERO CONVERSAR NO WHATSAPP</a>
     </div>
-
     <div class="seo-regioes">
       <p><i class="fas fa-map-pin"></i> <strong>Base exclusiva Jardim Peri - CEP 02632-090</strong> - Próximo ao Horto Florestal</p>
       <p style="margin-top:8px;">Atendemos com fácil acesso para quem buscou alongamento de unhas na região do Mandaqui, Santana, Tucuruvi, Tremembé, Casa Verde, Vila Mazzei, Jardim São Paulo. Endereço completo enviado via WhatsApp após confirmação por segurança.</p>
     </div>
-    <div class="seo-rodape">
-      PRETA NAILS - JARDIM PERI CEP 02632-090 • PRÓX. HORTO • FÁCIL ACESSO MANDAQUI • SANTANA • TUCURUVI • ZONA NORTE SP
-    </div>
+    <div class="seo-rodape">PRETA NAILS - JARDIM PERI CEP 02632-090 • PRÓX. HORTO • FÁCIL ACESSO MANDAQUI • SANTANA • TUCURUVI • ZONA NORTE SP</div>
   </div>
-
   <a href="https://wa.me/+5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20pelo%20site%20de%20Mandaqui%20e%20quero%20agendar%20avalia%C3%A7%C3%A3o." target="_blank" class="whatsapp-float">
     <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
     <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
   </a>
-
 <script>
 (function(){
   const btn=document.getElementById('themeBtn');
