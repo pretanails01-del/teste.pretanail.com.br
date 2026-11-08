@@ -17,12 +17,8 @@
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.9;transition:.35s;top:0!important}
     html{top:0!important}
-
-    /* ===== EXATAMENTE SEU TEMA DO INDEX ===== */
     .theme-btn{position:fixed!important;top:25px!important;left:25px!important;z-index:9999!important;width:42px!important;height:42px!important;border-radius:50%!important;border:1px solid rgba(193,53,132,0.4)!important;background:rgba(255,255,255,0.06)!important;backdrop-filter:blur(10px)!important;color:var(--primary)!important;cursor:pointer!important;display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;transform:none!important}
     [data-theme="light"] .theme-btn{background:#fff!important;box-shadow:0 4px 15px rgba(0,0,0,.06)!important}
-
-    /* ===== EXATAMENTE SEU TRADUTOR DO INDEX ===== */
     #google_translate_element{display:none!important}
     .goog-te-banner-frame.skiptranslate, iframe.goog-te-banner-frame, iframe[name="goog-te-banner-frame"]{display:none!important;visibility:hidden!important;height:0!important}
     .skiptranslate{display:none!important}
@@ -47,9 +43,8 @@
     .preta-translate-menu button:hover{background:#C13584!important;color:#fff!important}
     .preta-translate-menu button.active{background:#C13584!important;color:#fff!important}
     @media(max-width:768px){.preta-translate{left:16px!important;top:70px!important} .theme-btn{top:15px!important;left:16px!important}}
-
-    /* CONTEUDO MANDAQUI - 580 PALAVRAS */
-    .topbar{max-width:1000px;margin:0 auto;padding:18px 20px 18px 85px;display:flex;justify-content:space-between;align-items:center}
+    /* TOPBAR CORRIGIDO - NÃO SOBREPÕE MAIS */
+    .topbar{max-width:1000px;margin:0 auto;padding:18px 20px 18px 95px;display:flex;justify-content:space-between;align-items:center}
     .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;font-family:'Playfair Display',serif;font-weight:900;font-size:20px}
     .logo img{width:38px;height:38px;border-radius:50%;border:2px solid var(--primary);object-fit:cover}
     .btn-top{background:linear-gradient(135deg,var(--rosa-brilhante),var(--rosa-escuro));color:#fff;padding:10px 18px;border-radius:50px;text-decoration:none;font-weight:800;font-size:12px}
@@ -81,11 +76,10 @@
     [data-theme="light"] .seo-regioes{background:#fff;color:rgba(0,0,0,0.5)}
     .seo-regioes strong{color:var(--primary)}
     .seo-rodape{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.05);font-size:10px;color:rgba(255,255,255,0.18);text-align:center}
-    @media(max-width:700px){h1{font-size:28px}.foto-principal img{height:320px}.topbar{padding-left:20px;padding-top:70px}}
+    @media(max-width:700px){h1{font-size:28px}.foto-principal img{height:320px}.topbar{padding-left:20px;padding-top:75px}}
   </style>
 </head>
 <body>
-  <!-- EXATAMENTE SEU TEMA E TRADUTOR DO INDEX - SEM SOBREPOR -->
   <button class="theme-btn notranslate" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
   <div id="google_translate_element"></div>
   <div class="preta-translate notranslate" id="pretaTranslateWrap">
@@ -102,6 +96,7 @@
   </div>
 
   <div class="topbar">
+    <!-- ============ LOGO FÁCIL DE TROCAR ============ -->
     <a href="index.html" class="logo"><img id="logo-blog" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Preta Nails"> PRETA NAILS</a>
     <a href="agendamento.html" class="btn-top"><i class="fas fa-calendar-check"></i> AGENDAR</a>
   </div>
@@ -110,6 +105,7 @@
     <div class="breadcrumb"><a href="index.html">Início</a> / <a href="blog.html">Blog</a> / Mandaqui</div>
 
     <div class="autor-header">
+      <!-- ============ FOTO SABRINA FÁCIL DE TROCAR ============ -->
       <img id="foto-blog" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos">
       <div>
         <p style="margin:0;color:#aaa;font-size:13px">Conteúdo e atendimento por</p>
@@ -127,7 +123,8 @@
     </div>
 
     <div class="foto-principal">
-      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Atendimento Jardim Peri para quem vem do Mandaqui">
+      <!-- ============ FOTO PRINCIPAL FÁCIL DE TROCAR ============ -->
+      <img id="foto-principal-blog" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Atendimento Jardim Peri para quem vem do Mandaqui">
       <p>Atendimento acolhedor no Jardim Peri - CEP 02632-090 - Próximo ao Horto Florestal - Fácil acesso para quem vem do Mandaqui</p>
     </div>
 
@@ -183,7 +180,6 @@
   </a>
 
 <script>
-// TEMA EXATO DO INDEX
 (function(){
   const btn=document.getElementById('themeBtn');
   const icon=document.getElementById('themeIcon');
@@ -202,8 +198,6 @@
     updateIcon(next);
   });
 })();
-
-// TRADUTOR EXATO DO INDEX - 6 IDIOMAS PEGANDO AUTOMATICO
 (function(){
   const btn=document.getElementById('pretaTranslateBtn'); 
   const menu=document.getElementById('pretaTranslateMenu'); 
