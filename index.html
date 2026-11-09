@@ -105,10 +105,40 @@
     .card-glass:hover { border-color: var(--primary); transform: translateY(-10px); }
     .card-glass img { width: 100%; height: auto; max-height: 650px; object-fit: contain; border-radius: 18px; display: block; background: #000; }
     [data-theme="light"] .card-glass img{background:#fff}
-    .swiper-button-next, .swiper-button-prev { color: var(--primary) !important; background: rgba(0,0,0,0.6); width: 55px; height: 55px; border-radius: 50%; border: 1.5px solid var(--primary); backdrop-filter: blur(10px); transition: 0.3s; }
-    [data-theme="light"] .swiper-button-next,[data-theme="light"] .swiper-button-prev{background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.08)}
-    .swiper-button-next:hover, .swiper-button-prev:hover { background: var(--primary); color: #fff !important; }
-    .swiper-button-next:after, .swiper-button-prev:after { font-size: 20px !important; font-weight: 900; }
+    /* BOTÕES < > - DESKTOP E CELULAR PERFEITO */
+.swiper-button-next, .swiper-button-prev { 
+  color: var(--primary) !important; 
+  background: rgba(0,0,0,0.45) !important; 
+  width: 46px !important; 
+  height: 46px !important; 
+  border-radius: 50% !important; 
+  border: 1.5px solid var(--primary) !important; 
+  backdrop-filter: blur(10px) !important; 
+  transition: 0.3s !important; 
+}
+[data-theme="light"] .swiper-button-next,[data-theme="light"] .swiper-button-prev{
+  background: rgba(255,255,255,0.85) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,.08) !important;
+}
+.swiper-button-next:hover, .swiper-button-prev:hover { 
+  background: var(--primary) !important; 
+  color: #fff !important; 
+}
+.swiper-button-next:after, .swiper-button-prev:after { 
+  font-size: 16px !important; 
+  font-weight: 900 !important; 
+}
+
+/* NO CELULAR FICA MENOR - ESSA É A MÁGICA */
+@media(max-width:768px){
+  .swiper-button-next, .swiper-button-prev{
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .swiper-button-next:after, .swiper-button-prev:after{
+    font-size: 13px !important;
+  }
+}
     .swiper-pagination-bullet { background: rgba(255,255,255,0.3) !important; width: 12px; height: 12px; }
     .swiper-pagination-bullet-active { background: var(--primary) !important; }
     .desconto-wrap { max-width: 600px; margin: 0 auto 80px; padding: 40px 30px; text-align: center; background: linear-gradient(135deg, rgba(193,53,132,0.22) 0%, rgba(160,44,110,0.15) 100%); border: 2px solid var(--primary); border-radius: 25px; backdrop-filter: blur(20px); box-shadow: 0 15px 50px rgba(193,53,132,0.3); }
