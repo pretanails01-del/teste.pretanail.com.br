@@ -544,6 +544,26 @@
 <!-- FIM PATCH UNIVERSAL -->
 
 
+
+  
+<!-- BOTÃO WHATSAPP UNIVERSAL FINAL COM EMOJI - COLAR ANTES DO </body> -->
+<style>
+  .whatsapp-float{position:fixed!important;bottom:80px!important;right:18px!important;z-index:99999!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:6px!important;text-decoration:none!important}
+  .whatsapp-btn{width:62px!important;height:62px!important;background:linear-gradient(135deg,#ff2d92 0%,#C13584 100%)!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important;color:#fff!important;font-size:32px!important;box-shadow:0 8px 25px rgba(255,45,146,.45)!important;animation:pretaPulse 2s infinite!important;border:2px solid rgba(255,255,255,.9)!important}
+  .whatsapp-text{font-size:10px!important;font-weight:800!important;line-height:1.2!important;text-align:center!important;padding:6px 10px!important;border-radius:20px!important}
+  :root .whatsapp-text,html:not([data-theme="light"]) .whatsapp-text{color:#fff!important;background:rgba(0,0,0,.75)!important;border:1px solid rgba(255,45,146,.25)!important}
+  [data-theme="light"] .whatsapp-text{color:#1D1D1F!important;background:#fff!important;border:1px solid rgba(255,45,146,.35)!important;box-shadow:0 4px 12px rgba(0,0,0,.12)!important}
+  @keyframes pretaPulse{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,45,146,.7)}70%{transform:scale(1.06);box-shadow:0 0 0 14px rgba(255,45,146,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,45,146,0)}}
+</style>
+
+<a href="https://wa.me/5511982311608?text=Oi%20Sabrina!%20%F0%9F%92%96%20Vim%20do%20seu%20site%20e%20tenho%20d%C3%BAvidas" target="_blank" class="whatsapp-float notranslate" id="pretaWhatsFloat">
+  <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
+  <div class="whatsapp-text">Dúvidas?<br>Fale comigo</div>
+</a>
+
+<script>(function(){const all=document.querySelectorAll('.whatsapp-float');if(all.length>1){for(let i=0;i<all.length-1;i++)all[i].remove();}})();</script>
+<!-- FIM BOTÃO UNIVERSAL -->
+
   
 </body>
 </html>
