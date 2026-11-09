@@ -20,8 +20,9 @@
     *{margin:0;padding:0;box-sizing:border-box}
     a{ text-decoration:none !important; outline:none !important; -webkit-tap-highlight-color: transparent; }
     a:focus, a:active{ outline:none !important; box-shadow:none !important; }
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);transition:.3s}
-    .theme-btn{position:fixed;top:18px;left:18px;z-index:10001;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,45,146,.3);background:rgba(255,255,255,.06);color:var(--rosa-brilhante);cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px)}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);transition:.3s;top:0!important;position:static!important}
+    html{top:0!important}
+    .theme-btn{position:fixed;top:18px;left:18px;z-index:10001;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,45,146,.3);background:rgba(20,20,20,.9);color:var(--rosa-brilhante);cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px)}
     [data-theme="light"] .theme-btn{background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.08)}
     .full-faq-content{max-width:900px;margin:0 auto;padding:90px 25px 120px 25px}
     h1{font-family:'Playfair Display',serif;font-size:38px;line-height:1.1;margin-bottom:10px;text-shadow:0 0 15px rgba(255,45,146,.5)}
@@ -38,39 +39,51 @@
     .autor-header img{width:55px;height:55px;border-radius:50%;border:3px solid #ff2d92;object-fit:cover}
     .btn-form-full{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#ff2d92 0%,#C13584 100%);color:#fff;padding:18px 35px;border-radius:50px;text-decoration:none;font-weight:800;font-size:18px;box-shadow:0 10px 30px rgba(255,45,146,.5);margin-top:30px}
     .btn-voltar{margin-left:68px; display:inline-block; border:1px solid #ff2d92; color:#ff2d92; padding:10px 18px; border-radius:50px; text-decoration:none; margin-bottom:20px; font-weight:700;}
+
+    /* 2 BOTÕES UNIVERSAIS + WHATSAPP PULSANDO */
+    #google_translate_element{display:none!important}
+    .goog-te-banner-frame.skiptranslate,iframe.goog-te-banner-frame{display:none!important;visibility:hidden!important;height:0!important}
+    .skiptranslate{display:none!important}
+    .goog-te-gadget-icon,.goog-logo-link,.goog-te-gadget span{display:none!important}
+    #goog-gt-tt,.goog-te-balloon-frame,.VIpgJd-ZVi9od-ORHb-OEVmcd{display:none!important}
+    .goog-text-highlight{background:transparent!important;box-shadow:none!important}
+    .translated-ltr body,.translated-rtl body{top:0!important}
+    .preta-translate{position:fixed!important;z-index:10000!important;left:18px!important;top:78px!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:4px!important;pointer-events:auto!important}
+    .preta-translate-btn{width:42px!important;height:42px!important;border-radius:50%!important;border:1px solid rgba(193,53,132,.35)!important;background:rgba(20,20,20,.9)!important;color:#C13584!important;cursor:pointer!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:15px!important}
+    [data-theme="light"] .preta-translate-btn{background:#fff!important;box-shadow:0 4px 12px rgba(0,0,0,.08)!important}
+    .preta-translate-label{font-size:8px!important;font-weight:800!important;letter-spacing:.8px!important;color:#C13584!important;text-transform:uppercase!important}
+    .preta-translate-menu{position:absolute!important;left:0!important;top:52px!important;background:#111!important;border:1px solid rgba(193,53,132,.3)!important;border-radius:14px!important;padding:6px!important;display:none!important;flex-direction:column!important;gap:4px!important;min-width:175px!important;box-shadow:0 15px 40px rgba(0,0,0,.6)!important;z-index:10002!important}
+    .preta-translate-menu.show{display:flex!important}
+    [data-theme="light"] .preta-translate-menu{background:#fff!important}
+    .preta-translate-menu button{background:transparent!important;border:0!important;border-radius:8px!important;padding:9px 12px!important;color:#fff!important;font-weight:600!important;font-size:12px!important;cursor:pointer!important;text-align:left!important}
+    [data-theme="light"] .preta-translate-menu button{color:#222!important}
+    .preta-translate-menu button:hover,.preta-translate-menu button.active{background:#C13584!important;color:#fff!important}
     .whatsapp-float{position:fixed;bottom:80px;right:25px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
     .whatsapp-btn{width:60px;height:60px;background:linear-gradient(135deg,#ff2d92 0%,#C13584 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px;box-shadow:0 8px 25px rgba(255,45,146,.5);animation:pulseRosa 2s infinite}
     .whatsapp-text{font-size:10px;font-weight:700;color:#fff;background:rgba(0,0,0,0.7);padding:5px 10px;border-radius:20px;text-align:center;line-height:1.2}
     [data-theme="light"] .whatsapp-text{background:rgba(0,0,0,0.8)}
     @keyframes pulseRosa{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,45,146,0.7)}70%{transform:scale(1.05);box-shadow:0 0 0 15px rgba(255,45,146,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,45,146,0)}}
+    @media(max-width:768px){
+      .preta-translate{left:70px!important;top:18px!important;flex-direction:row!important;gap:0!important}
+      .preta-translate-label{display:none!important}
+    }
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "NailSalon",
-    "name": "Preta Nails - Sabrina Lemos Nail Designer - Gestante",
-    "address": { "@type": "PostalAddress", "postalCode": "02632-090", "addressLocality": "São Paulo", "addressRegion": "SP", "addressNeighborhood": "Jardim Peri - Próximo ao Horto Florestal" },
-    "areaServed": ["Jardim Peri", "Horto Florestal", "Santana", "Mandaqui", "Tremembé", "Tucuruvi", "Jaçanã", "Pedra Branca"]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [{
-      "@type": "Question",
-      "name": "Grávida pode fazer alongamento de unhas?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sim, gestante pode fazer alongamento fibra de vidro e banho de gel com Nail Designer que usa produtos sem ácido, com liberação médica. No Jardim Peri CEP 02632-090 próximo ao Horto, usamos produtos seguros para gestantes."
-      }
-    }]
-  }
-  </script>
 </head>
 <body>
-<button class="theme-btn" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
+<button class="theme-btn notranslate" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
+<div id="google_translate_element"></div>
+<div class="preta-translate notranslate" id="pretaTranslateWrap">
+  <button class="preta-translate-btn" id="pretaTranslateBtn" aria-label="Traduzir"><i class="fas fa-globe"></i></button>
+  <span class="preta-translate-label">traduzir</span>
+  <div class="preta-translate-menu" id="pretaTranslateMenu">
+    <button data-lang="pt">🇧🇷 Português</button>
+    <button data-lang="en">🇺🇸 English</button>
+    <button data-lang="es">🇪🇸 Español</button>
+    <button data-lang="fr">🇫🇷 Français</button>
+    <button data-lang="it">🇮🇹 Italiano</button>
+    <button data-lang="de">🇩🇪 Deutsch</button>
+  </div>
+</div>
 
   <div class="full-faq-content">
     <a href="duvidas.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar para Dúvidas</a>
@@ -128,6 +141,22 @@
   function updateIcon(t){if(t==='light'){themeIcon.className='fas fa-moon';if(metaTheme)metaTheme.content='#FFFAFC';}else{themeIcon.className='fas fa-sun';if(metaTheme)metaTheme.content='#0a0a0a';}}
   updateIcon(localStorage.getItem('preta-theme')||'dark');
   themeBtn.addEventListener('click',()=>{const c=localStorage.getItem('preta-theme')||'dark';const n=c==='dark'?'light':'dark';localStorage.setItem('preta-theme',n);if(n==='light'){document.documentElement.setAttribute('data-theme','light');}else{document.documentElement.removeAttribute('data-theme');}updateIcon(n);});
+
+  (function(){
+    const btn=document.getElementById('pretaTranslateBtn'); 
+    const menu=document.getElementById('pretaTranslateMenu'); 
+    const wrap=document.getElementById('pretaTranslateWrap');
+    if(!btn||!menu) return;
+    btn.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();menu.classList.toggle('show');});
+    document.addEventListener('click',(e)=>{if(!wrap.contains(e.target)) menu.classList.remove('show');});
+    function saveLang(lang){localStorage.setItem('preta-lang',lang);const v='/pt/'+lang;document.cookie='googtrans='+v+'; path=/; max-age=31536000; SameSite=Lax';}
+    function clearLang(){localStorage.setItem('preta-lang','pt');document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';}
+    function getCombo(){return document.querySelector('select.goog-te-combo');}
+    function applyLang(lang){if(lang==='pt'){clearLang();location.reload();return;}saveLang(lang);let tries=0;const iv=setInterval(()=>{const sel=getCombo();if(sel){clearInterval(iv);sel.value=lang;sel.dispatchEvent(new Event('change'));menu.classList.remove('show');document.body.style.top='0px';document.documentElement.style.top='0px';}if(++tries>80)clearInterval(iv);},250);}
+    window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'pt',includedLanguages:'pt,en,es,fr,it,de',autoDisplay:false},'google_translate_element');};
+    menu.querySelectorAll('button').forEach(bb=>bb.addEventListener('click',()=>applyLang(bb.dataset.lang)));
+    const s=document.createElement('script');s.src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';s.async=true;document.body.appendChild(s);
+  })();
 </script>
 </body>
 </html>
