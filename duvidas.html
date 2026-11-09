@@ -17,8 +17,6 @@
   </script>
   <title>Dúvidas Frequentes | Preta Nails - Jardim Peri - Santana, Tucuruvi CEP 02632-090</title>
   <meta name="description" content="Tire dúvidas sobre alongamento de unhas na Preta Nails Jardim Peri. Higienização, gestante, alergia, cuidados. Atendemos Santana, Mandaqui, Tremembé, Tucuruvi, Jaçanã, Pedra Branca - CEP 02632-090 Próximo ao Horto.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="theme.css">
@@ -52,6 +50,9 @@
     [data-theme="light"] .preta-translate-menu button{color:#222!important}
     .preta-translate-menu button:hover{background:#C13584!important;color:#fff!important}
     .preta-translate-menu button.active{background:#C13584!important;color:#fff!important}
+    /* BOTÃO TOPO DIREITO - QUERO MEU HORÁRIO */
+    .top-agenda{position:fixed!important;top:25px!important;right:25px!important;z-index:9998!important;background:linear-gradient(135deg,#ff2d92,#C13584)!important;color:#fff!important;padding:11px 22px!important;border-radius:50px!important;text-decoration:none!important;font-weight:800!important;font-size:12.5px!important;letter-spacing:.3px!important;box-shadow:0 8px 25px rgba(255,45,146,.35)!important;transition:.3s!important;display:inline-flex!important;align-items:center!important;gap:8px!important}
+    .top-agenda:hover{transform:translateY(-2px)!important;box-shadow:0 12px 35px rgba(255,45,146,.5)!important}
     #full-faq-screen { display: block; width: 100%; background: linear-gradient(180deg, #0a0a0a 0%, #000 100%); }
     [data-theme="light"] #full-faq-screen{background:linear-gradient(180deg,#FFFAFC 0%,#fff 100%)}
     .full-faq-content { max-width: 900px; margin: 0 auto; padding: 40px 25px; min-height: 100vh; }
@@ -68,11 +69,12 @@
     .autor-header { background: linear-gradient(135deg, rgba(255, 45, 146, 0.2), rgba(0,0,0,0.7)); border: 2px solid var(--rosa-brilhante); display:flex; align-items:center; gap:14px; margin-bottom:25px; padding:18px; border-radius:12px; }
     [data-theme="light"] .autor-header{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.06)}
     .autor-header img { width:55px; height:55px; border-radius:50%; border:3px solid #ff2d92; object-fit:cover; }
-    .btn-form-full { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--rosa-brilhante) 0%, var(--rosa-escuro) 100%); color: #fff; padding: 18px 35px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 18.5px; box-shadow: 0 10px 30px rgba(255,45,146,0.5); margin-top: 30px; transition:.3s }
-    .btn-form-full:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(255,45,146,0.7)}
-    .btn-blog-rosa { display:inline-flex; align-items:center; gap:10px; background: transparent; border:1.5px solid var(--rosa-brilhante); color: var(--rosa-brilhante); padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 15px; margin-top: 16px; backdrop-filter: blur(10px); transition:.3s }
-    [data-theme="light"] .btn-blog-rosa{background:#fff}
-    .btn-blog-rosa:hover{background:var(--rosa-brilhante);color:#fff;transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,45,146,0.35)}
+    .btn-agenda-principal { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--rosa-brilhante) 0%, var(--rosa-escuro) 100%); color: #fff; padding: 18px 38px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 17px; box-shadow: 0 10px 30px rgba(255,45,146,0.45); margin-top: 28px; transition:.3s }
+    .btn-agenda-principal:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(255,45,146,0.6)}
+    .btn-blog-discreto { display:inline-flex; align-items:center; gap:8px; background: transparent; border:1px solid rgba(255,255,255,0.12); color: #aaa; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 12.5px; margin-top: 10px; transition:.3s }
+    .btn-blog-discreto:hover{border-color:var(--rosa-brilhante); color:var(--rosa-brilhante)}
+    [data-theme="light"] .btn-blog-discreto{border-color:rgba(0,0,0,0.1); color:#777; background:#fff}
+    [data-theme="light"] .btn-blog-discreto:hover{border-color:var(--rosa-brilhante); color:var(--rosa-brilhante)}
     .btn-voltar-inicio { display:inline-flex; align-items:center; gap:8px; color: var(--rosa-brilhante); font-size:13px; font-weight:700; text-decoration:none; margin-bottom:18px; letter-spacing:0.3px; transition:.2s }
     .btn-voltar-inicio:hover{transform:translateX(-3px);color:#ff8ac0}
     .whatsapp-float { position: fixed; bottom: 80px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
@@ -90,6 +92,7 @@
       .preta-translate-label{display:none!important}
       .preta-translate-btn{width:42px!important;height:42px!important}
       .preta-translate-menu{left:auto!important;right:0!important;top:50px!important}
+      .top-agenda{top:15px!important;right:16px!important;padding:9px 16px!important;font-size:11px!important}
       .full-faq-header{padding-left:0!important;padding-top:85px!important}
     }
   </style>
@@ -109,6 +112,9 @@
     <button data-lang="de">🇩🇪 Deutsch</button>
   </div>
 </div>
+
+<!-- QUERO MEU HORÁRIO - CANTO DIREITO -->
+<a href="agendamento.html" class="top-agenda notranslate"><i class="fas fa-calendar-check"></i> QUERO MEU HORÁRIO</a>
 
   <div id="full-faq-screen">
     <div class="full-faq-content">
@@ -141,8 +147,16 @@
       fullContent.innerHTML = `
         <a href="index.html" class="btn-voltar-inicio"><i class="fas fa-arrow-left"></i> Voltar ao início</a>
         ${autorHeader}
-        <p style="margin-bottom:25px; font-size:19px;">Escolha uma dúvida sobre alongamento de unhas e eu te explico tudinho com todo carinho:</p>
-        <p style="font-size:13px; color:#ff8ac0; margin-bottom:15px; font-weight:700;"><i class="fas fa-map-marker-alt"></i> ATENDEMOS NO JARDIM PERI • CEP 02632-090 • PRÓX. HORTO</p>
+        
+        <!-- BLOG NO COMEÇO - DISCRETO -->
+        <div style="margin-bottom:22px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+          <p style="font-size:13px; color:#888; margin:0;">Se ainda está insegura, dá uma olhadinha:</p>
+          <a href="blog.html" class="btn-blog-discreto"><i class="fas fa-book-open"></i> Conheça meu blog</a>
+        </div>
+
+        <p style="margin-bottom:25px; font-size:18px; line-height:1.6;">Separei aqui as dúvidas que mais recebo com muito carinho. Sei que é normal ter receio antes do primeiro alongamento, por isso explico tudo com calma pra você se sentir segura:</p>
+        <p style="font-size:12px; color:#ff8ac0; margin-bottom:15px; font-weight:700; letter-spacing:.5px;"><i class="fas fa-map-marker-alt"></i> JARDIM PERI • CEP 02632-090 • PRÓX. HORTO • 1 CLIENTE POR VEZ</p>
+        
         <ul class="lista-duvidas">
           <li><a href="higienizacao-esterilizacao-jardim-peri.html">• 1. Como funciona a higienização e esterilização? <i class="fas fa-arrow-right" style="color:var(--rosa-brilhante);"></i></a></li>
           <li><a href="gestante-pode-fazer-alongamento-horto-florestal.html">• 2. Sou gestante, posso fazer alongamento? <i class="fas fa-arrow-right" style="color:var(--rosa-brilhante);"></i></a></li>
@@ -153,27 +167,16 @@
           <li><a href="dica-semanal-oleo-cuticula-segredo.html">• 7. Dica semanal da Preta Nails <i class="fas fa-arrow-right" style="color:var(--rosa-brilhante);"></i></a></li>
         </ul>
 
-        <!-- BLOG + AGENDAMENTO - PSICOLOGIA DE VENDA -->
-        <div style="margin:30px 0 10px 0; display:flex; flex-direction:column; gap:12px;">
-          <div style="background:rgba(255,45,146,0.06); border:1px solid rgba(255,45,146,0.18); border-radius:16px; padding:18px;">
-            <p style="font-size:13px; font-weight:800; color:#ff2d92; margin-bottom:6px;"><i class="fas fa-shield-halved"></i> AINDA INSEGURA? PROVA SOCIAL</p>
-            <p style="font-size:12.5px; color:#bbb; line-height:1.5; margin-bottom:12px;">50 mulheres de Santana, Tucuruvi e Tremembé contaram como saíram da vergonha de esconder a mão. Lê 2 minutos e você vai se sentir segura pra agendar.</p>
-            <a href="blog.html" class="btn-blog-rosa" style="margin-top:0;"><i class="fas fa-book-open"></i> Ver 50 histórias reais no Blog → blog.html</a>
-          </div>
-
-          <div style="background:linear-gradient(135deg, rgba(255,45,146,0.12), rgba(0,0,0,0.3)); border:1px solid rgba(255,45,146,0.2); border-radius:16px; padding:18px;">
-            <p style="font-size:13px; font-weight:800; color:#fff; margin-bottom:6px;">💅 FIBRA FINA QUE NÃO PARECE FAKE - VEJA O ANTES E DEPOIS</p>
-            <p style="font-size:12px; color:#aaa; margin-bottom:10px;">No blog eu mostro por que tijolão grosso descola em 5 dias e por que 1 cliente por vez dura 25 dias. Depois que ver, agenda com confiança.</p>
-            <a href="blog.html" class="btn-blog-rosa"><i class="fas fa-images"></i> Ver fotos no Blog - blog.html</a>
-          </div>
+        <!-- AGENDE SEU HORÁRIO - PERTO DO FINAL - DESTAQUE MÁXIMO COM PSICOLOGIA -->
+        <div style="text-align:center; margin:48px 0 30px 0; padding:32px 22px; background:linear-gradient(135deg, rgba(255,45,146,0.08), rgba(0,0,0,0.2)); border:1px solid rgba(255,45,146,0.18); border-radius:22px;">
+          <p style="font-family:'Playfair Display',serif; font-size:22px; font-weight:800; color:#fff; margin-bottom:8px; line-height:1.2;">Você merece se olhar e se reconhecer ♡</p>
+          <p style="font-size:13.5px; color:#bbb; line-height:1.6; max-width:520px; margin:0 auto;">Eu sei como é esconder as mãos. Aqui você é atendida com calma, porta fechada, 1 cliente por vez, kit lacrado aberto na sua frente. Sem pressa, sem julgamento. Só carinho e um acabamento fino que dura de verdade.</p>
+          <a href="agendamento.html" class="btn-agenda-principal"><i class="fas fa-calendar-check"></i> AGENDE SEU HORÁRIO</a>
+          <p style="font-size:11px; color:#888; margin-top:12px;">Vagas limitadas essa semana • Jardim Peri CEP 02632-090 • Respondo em até 15 min</p>
         </div>
 
-        <div style="text-align:center; display:flex; flex-direction:column; align-items:center;">
-          <a href="agendamento.html" class="btn-form-full"><i class="fas fa-calendar-check"></i> IR PARA AGENDAMENTO - agendamento.html</a>
-          <p style="font-size:11px; color:#888; margin-top:10px;">1 cliente por vez • Kit lacrado • Autoclave • Jardim Peri CEP 02632-090 • Vagas limitadas essa semana</p>
-          <a href="blog.html" class="btn-blog-rosa"><i class="fas fa-book-open"></i> Blog Preta Nails - blog.html</a>
-          <a href="blog.html" class="btn-blog-rosa" style="border-style:dashed; font-size:13px;"><i class="fas fa-heart"></i> Ainda com medo? Lê no blog.html e volta pra agendar no agendamento.html</a>
-          <a href="agendamento.html" class="btn-form-full" style="background:transparent; border:1.5px solid #ff2d92; color:#ff2d92; box-shadow:none; font-size:15px; margin-top:12px;"><i class="fas fa-crown"></i> QUERO GARANTIR MINHA VAGA AGORA - agendamento.html</a>
+        <div style="text-align:center; margin-bottom:10px;">
+          <a href="blog.html" class="btn-blog-discreto"><i class="fas fa-heart"></i> Conheça meu blog - 50 histórias reais</a>
         </div>
 
         <div class="seo-regioes-invisivel">
@@ -204,7 +207,6 @@
       updateIcon(next);
     });
 
-    // TRADUTOR UNIVERSAL DESTRAVADO
     (function(){
       const btn=document.getElementById('pretaTranslateBtn'); 
       const menu=document.getElementById('pretaTranslateMenu'); 
