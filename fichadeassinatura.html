@@ -1,620 +1,185 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0a0a0a" id="meta-theme-color">
 <script>!function(){try{var t=localStorage.getItem('preta-theme');if(!t){localStorage.setItem('preta-theme','dark');t='dark'}if(t==='light'){document.documentElement.setAttribute('data-theme','light')}else{document.documentElement.removeAttribute('data-theme')}}catch(e){}}();</script>
 <title>Formulário de Avaliação Inicial • Preta NailS</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="theme.css">
 <style>
-  :root { --primary: #C13584; --primary-dark: #a02c6e; --success: #25D366; --bg: #0a0a0a; --card: rgba(255,255,255,0.04); --text: #ffffff; --border: rgba(193,53,132,0.25); }
-  [data-theme="light"]{ --bg:#FFFAFC; --card:#FFFFFF; --text:#1D1D1F; --border:rgba(193,53,132,0.16); }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); min-height: 100vh; padding: 12px; color: var(--text); -webkit-font-smoothing: antialiased; top:0!important; position:static!important }
-  html{top:0!important}
-  /* UNIVERSAL EXTRA - NAO ALTERA SEU CODIGO */
-  #google_translate_element{display:none!important}
-  .goog-te-banner-frame.skiptranslate,iframe.goog-te-banner-frame,iframe[name="goog-te-banner-frame"]{display:none!important;visibility:hidden!important;height:0!important}
-  .skiptranslate{display:none!important}
-  .goog-te-gadget-icon{display:none!important}
-  .goog-logo-link,.goog-te-gadget span{display:none!important}
-  #goog-gt-tt,.goog-te-balloon-frame{display:none!important}
-  .goog-text-highlight{background:transparent!important;box-shadow:none!important;border:none!important}
-  .translated-ltr body,.translated-rtl body{top:0!important}
-  .preta-translate{position:fixed!important;z-index:9997!important;left:25px!important;top:85px!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:4px!important}
-  .preta-translate-btn{width:32px!important;height:32px!important;border-radius:50%!important;border:1px solid rgba(193,53,132,.35)!important;background:rgba(20,20,20,.9)!important;color:#C13584!important;cursor:pointer!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:14px!important}
-  .preta-translate-label{font-size:8px!important;font-weight:800!important;letter-spacing:.8px!important;color:#C13584!important;text-transform:uppercase!important}
-  [data-theme="light"] .preta-translate-btn{background:#fff!important;box-shadow:0 4px 15px rgba(0,0,0,.08)!important}
-  .preta-translate-menu{position:absolute!important;left:12px!important;top:52px!important;background:#111!important;border:1px solid rgba(193,53,132,.3)!important;border-radius:14px!important;padding:6px!important;display:none!important;flex-direction:column!important;gap:4px!important;min-width:175px!important;box-shadow:0 15px 40px rgba(0,0,0,.6)!important;z-index:10002!important}
-  .preta-translate-menu.show{display:flex!important}
-  [data-theme="light"] .preta-translate-menu{background:#fff!important;border-color:#eee!important}
-  .preta-translate-menu button{background:transparent!important;border:0!important;border-radius:8px!important;padding:9px 12px!important;color:#fff!important;font-weight:600!important;font-size:12px!important;cursor:pointer!important;text-align:left!important}
-  [data-theme="light"] .preta-translate-menu button{color:#222!important}
-  .preta-translate-menu button:hover{background:#C13584!important;color:#fff!important}
-  .preta-translate-menu button.active{background:#C13584!important;color:#fff!important}
-  @keyframes pulseRosa{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(193,53,132,0.7)}70%{transform:scale(1.05);box-shadow:0 0 0 15px rgba(193,53,132,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(193,53,132,0)}}
-.container { max-width: 720px; margin: 16px auto; background: var(--card); border: 1px solid var(--border); backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.6); overflow: hidden; animation: slideUp 0.6s ease; }
-  [data-theme="light"].container{background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.08)}
-  @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.btn-duvidas-topo { position: fixed; top: 20px; right: 25px; z-index: 9998; background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.4); backdrop-filter: blur(10px); color: #fff; padding: 10px 18px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; white-space: nowrap; }
-  [data-theme="light"].btn-duvidas-topo{background:#fff;color:#1D1D1F;box-shadow:0 4px 12px rgba(0,0,0,.06)}
-.btn-duvidas-topo:hover { border-color: var(--primary); transform: translateY(-2px); }
-.theme-btn{position:fixed;top:20px;left:25px;z-index:9999;width:42px;height:42px;border-radius:50%;border:1px solid rgba(193,53,132,0.4);background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);color:var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center;}
-  [data-theme="light"].theme-btn{background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.06)}
-.horario-selecionado { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 18px; border-radius: 14px; text-align: center; margin-bottom: 25px; border: 2px solid rgba(255,255,255,0.2); }
-.horario-selecionado h3 { font-size: 12px; letter-spacing: 2px; opacity: 0.8; margin-bottom: 5px; }
-.horario-selecionado p { font-size: 18px; font-weight: 800; font-family: 'Playfair Display', serif; }
-.header { background: linear-gradient(135deg, #000 0%, var(--primary) 100%); color: white; text-align: center; padding: 50px 20px 40px; position: relative; border-radius: 0 0 20px 20px; overflow: hidden; }
-.header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: 0.5; }
-.header img { max-width: 200px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
-.header h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; letter-spacing: 1px; }
-.header p { margin-top: 8px; opacity: 0.85; font-size: 14px; font-weight: 600; letter-spacing: 1px; }
-.form-body { padding: 40px 35px; }
-.form-group { margin-bottom: 24px; }
-  label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--primary); font-size: 14px; letter-spacing: 0.5px; }
-  label.required::after { content: ' *'; color: #e74c3c; }
-  input, textarea, select { width: 100%; padding: 14px 16px; border: 2px solid rgba(255,255,255,0.1); border-radius: 12px; font-size: 15px; font-family: 'Inter', sans-serif; transition: all 0.3s ease; background: rgba(0,0,0,0.3); color: #fff; }
-  [data-theme="light"] input, [data-theme="light"] textarea, [data-theme="light"] select{background:#FFFAFC;border-color:var(--border);color:#1D1D1F}
-  input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.4); }
-  [data-theme="light"] input::placeholder, [data-theme="light"] textarea::placeholder{color:rgba(29,29,31,.4)}
-  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(193, 53, 132, 0.15); background: rgba(0,0,0,0.5); }
-  [data-theme="light"] input:focus, [data-theme="light"] textarea:focus, [data-theme="light"] select:focus{background:#fff}
-  select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C13584' d='M6 9L1 4h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
-  textarea { resize: vertical; min-height: 90px; }
-.checkbox-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
-.checkbox-item { display: flex; align-items: center; background: rgba(0,0,0,0.3); padding: 14px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s ease; color: #fff; font-weight: 600; }
-  [data-theme="light"].checkbox-item{background:#fff;border-color:var(--border);color:#1D1D1F}
-.checkbox-item:hover { border-color: var(--primary); background: rgba(193,53,132,0.1); }
-.checkbox-item input { width: 18px; height: 18px; margin-right: 10px; cursor: pointer; accent-color: var(--primary); }
-.foto-box { border: 3px dashed var(--primary); border-radius: 16px; padding: 35px 20px; text-align: center; background: rgba(193,53,132,0.05); cursor: pointer; transition: all 0.3s ease; }
-.foto-box:hover { background: rgba(193,53,132,0.1); border-color: var(--primary-dark); }
-.foto-box p { color: var(--primary); font-weight: 700; margin-top: 8px; }
-  #previewContainer img { max-width: 100%; max-height: 300px; border: 3px solid var(--primary); border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
-.btn { width: 100%; padding: 16px; border: none; border-radius: 12px; font-size: 16px; font-weight: 800; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif; letter-spacing: 0.5px; }
-.btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; margin-top: 30px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); }
-.btn-primary:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
-.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-.btn-secondary { background: rgba(255,255,255,0.1); color: #fff; width: auto; padding: 10px 20px; font-size: 14px; margin-top: 10px; border: 1px solid rgba(255,255,255,0.2); }
-  [data-theme="light"].btn-secondary{background:#fff;color:#1D1D1F;border-color:var(--border)}
-.btn-secondary:hover { background: rgba(255,255,255,0.2); }
-.btn-whatsapp-sucesso { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); transition: all 0.3s; width: 100%; justify-content: center; margin-top: 15px; }
-.btn-whatsapp-sucesso:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
-.loader { display: inline-block; width: 16px; height: 16px; border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-.sucesso-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://dl.dropboxusercontent.com/scl/fi/jg66vk8ay5vzdb7da1ns4/1783904530793_image_1783904529995.jpg?rlkey=u1xdg3grc0dcf3bow3fuuga7p&raw=1'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: #0a0a0a; display: flex; align-items: center; justify-content: center; z-index: 9999; animation: fadeIn 0.4s ease; overflow: hidden; touch-action: none; }
-.sucesso-overlay::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); z-index: -1; }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.sucesso-card { background: rgba(0,0,0,0.15); border: 1.5px solid rgba(193,53,132,0.5); padding: 60px 45px; border-radius: 28px; text-align: center; max-width: 440px; width: 90%; animation: scaleUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 0 0 1px rgba(193,53,132,0.3), 0 20px 60px rgba(193,53,132,0.25); position: relative; z-index: 1; margin: 20px; }
-  @keyframes scaleUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-.sucesso-icon { width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; animation: pulseGlow 1.8s ease infinite; box-shadow: 0 0 70px rgba(193,53,132,1); }
-  @keyframes pulseGlow { 0%, 100% { transform: scale(1); box-shadow: 0 0 70px rgba(193,53,132,1); } 50% { transform: scale(1.15); box-shadow: 0 0 100px rgba(193,53,132,1); } }
-.sucesso-icon i { color: white; font-size: 50px; }
-.sucesso-titulo { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--primary); margin-bottom: 14px; text-shadow: 0 0 40px rgba(193,53,132,1); letter-spacing: 1.5px; }
-.sucesso-texto { color: rgba(255,255,255,0.98); font-size: 16px; margin-bottom: 25px; font-weight: 600; line-height: 22px; }
-.erro-msg { background: rgba(244,67,54,0.15); border-left: 4px solid #F44336; color: #ff8a80; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 600; }
-.hidden { display: none!important; }
-.signature-wrapper { background: #C13584; border: 2px solid #000; border-radius: 16px; margin: 12px 0; overflow: hidden; }
-#signatureCanvas { background: transparent; width: 100%; height: 160px; display: block; touch-action: none; cursor: crosshair; }
-  /* BOTÃO ROSA FLUTUANTE FIXO - PRETA NAILS */
- .whatsapp-float { position: fixed; bottom: 80px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
- .whatsapp-btn { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 32px; box-shadow: 0 8px 25px rgba(193,53,132,0.5); transition: all 0.3s; animation: pulseRosa 2s infinite; }
- .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(193,53,132,0.7); }
-  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(193,53,132,0.6); } 70% { box-shadow: 0 0 0 15px rgba(193,53,132,0); } 100% { box-shadow: 0 0 0 0 rgba(193,53,132,0); } }
- .whatsapp-text { font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 20px; backdrop-filter: blur(10px); letter-spacing: 0.5px; text-align: center; }
-  [data-theme="light"].whatsapp-text{background:#1D1D1F;color:#fff}
-  @media (max-width: 640px) {.form-body { padding: 30px 20px; }.header h1 { font-size: 28px; }.checkbox-group { grid-template-columns: 1fr; }.btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; }.theme-btn{top:15px;left:16px;width:38px;height:38px;}.preta-translate{left:70px!important;top:15px!important;flex-direction:row!important;gap:0!important}.preta-translate-label{display:none!important}.preta-translate-btn{width:38px!important;height:38px!important}.whatsapp-float{bottom:70px;right:20px;}.whatsapp-btn{width:55px;height:55px;font-size:28px;} }
-</style></head>
+:root { --primary: #C13584; --primary-dark: #a02c6e; --bg: #0a0a0a; --card: rgba(255,255,255,0.04); --text: #ffffff; --border: rgba(193,53,132,0.25); --muted:#aaa; --input-bg:rgba(0,0,0,0.3); --input-border:rgba(255,255,255,0.1); --input-text:#fff; --placeholder:rgba(255,255,255,0.4) }
+[data-theme="light"]{ --bg:#FFFAFC; --card:#FFFFFF; --text:#1D1D1F; --border:rgba(193,53,132,0.16); --muted:#444; --input-bg:#FFFFFF; --input-border:rgba(193,53,132,0.18); --input-text:#1D1D1F; --placeholder:rgba(29,29,31,0.4) }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);min-height:100vh;padding:12px;color:var(--text);top:0!important;transition:background .3s,color .3s}
+html{top:0!important}
+#google_translate_element{display:none!important}.goog-te-banner-frame.skiptranslate,iframe.goog-te-banner-frame{display:none!important;height:0!important}.skiptranslate{display:none!important}.goog-te-gadget-icon,.goog-logo-link,.goog-te-gadget span{display:none!important}#goog-gt-tt{display:none!important}.goog-text-highlight{background:transparent!important;box-shadow:none!important}.translated-ltr body{top:0!important}
+.preta-translate{position:fixed!important;z-index:9997!important;left:25px!important;top:85px!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:4px!important}
+.preta-translate-btn{width:32px!important;height:32px!important;border-radius:50%!important;border:1px solid rgba(193,53,132,.35)!important;background:rgba(20,20,20,.9)!important;color:#C13584!important;cursor:pointer!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:14px!important}
+.preta-translate-label{font-size:8px!important;font-weight:800!important;letter-spacing:.8px!important;color:#C13584!important;text-transform:uppercase!important}
+[data-theme="light"] .preta-translate-btn{background:#fff!important;box-shadow:0 4px 15px rgba(0,0,0,.08)!important}
+.preta-translate-menu{position:absolute!important;left:12px!important;top:52px!important;background:#111!important;border:1px solid rgba(193,53,132,.3)!important;border-radius:14px!important;padding:6px!important;display:none!important;flex-direction:column!important;gap:4px!important;min-width:175px!important;box-shadow:0 15px 40px rgba(0,0,0,.6)!important;z-index:10002!important}
+.preta-translate-menu.show{display:flex!important}
+[data-theme="light"] .preta-translate-menu{background:#fff!important;border-color:#eee!important}
+.preta-translate-menu button{background:transparent!important;border:0!important;border-radius:8px!important;padding:9px 12px!important;color:#fff!important;font-weight:600!important;font-size:12px!important;cursor:pointer!important;text-align:left!important}
+[data-theme="light"] .preta-translate-menu button{color:#222!important}
+.preta-translate-menu button:hover,.preta-translate-menu button.active{background:#C13584!important;color:#fff!important}
+@keyframes pulseRosa{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(193,53,132,0.7)}70%{transform:scale(1.05);box-shadow:0 0 0 15px rgba(193,53,132,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(193,53,132,0)}}
+.container{max-width:720px;margin:16px auto;background:var(--card);border:1px solid var(--border);backdrop-filter:blur(20px);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.6);overflow:hidden;animation:slideUp 0.6s ease}
+[data-theme="light"] .container{background:#fff!important;box-shadow:0 20px 60px rgba(0,0,0,.08)!important}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.btn-duvidas-topo{position:fixed;top:20px;right:25px;z-index:9998;background:rgba(255,255,255,0.06);border:1px solid rgba(193,53,132,0.4);backdrop-filter:blur(10px);color:#fff;padding:10px 18px;border-radius:50px;text-decoration:none;font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;white-space:nowrap}
+[data-theme="light"] .btn-duvidas-topo{background:#fff!important;color:#1D1D1F!important;box-shadow:0 4px 12px rgba(0,0,0,.06)!important}
+.btn-duvidas-topo:hover{border-color:var(--primary);transform:translateY(-2px)}
+.theme-btn{position:fixed;top:20px;left:25px;z-index:9999;width:42px;height:42px;border-radius:50%;border:1px solid rgba(193,53,132,0.4);background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);color:var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center}
+[data-theme="light"] .theme-btn{background:#fff!important;box-shadow:0 4px 12px rgba(0,0,0,.06)!important}
+.horario-selecionado{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);padding:18px;border-radius:14px;text-align:center;margin-bottom:25px;border:2px solid rgba(255,255,255,0.2);color:#fff}
+.horario-selecionado h3{font-size:12px;letter-spacing:2px;opacity:0.8;margin-bottom:5px}
+.horario-selecionado p{font-size:18px;font-weight:800;font-family:'Playfair Display',serif;color:#fff}
+.header{background:linear-gradient(135deg,#000 0%,var(--primary) 100%);color:white;text-align:center;padding:50px 20px 40px;position:relative;border-radius:0 0 20px 20px;overflow:hidden}
+.header img{max-width:200px;height:auto;margin-bottom:16px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3))}
+.header h1{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;letter-spacing:1px;color:#fff}
+.header p{margin-top:8px;opacity:0.85;font-size:14px;font-weight:600;letter-spacing:1px;color:#fff}
+.form-body{padding:40px 35px}
+.form-group{margin-bottom:24px}
+label{display:block;margin-bottom:10px;font-weight:700;color:var(--primary);font-size:14px;letter-spacing:0.5px}
+label.required::after{content:' *';color:#e74c3c}
+input,textarea,select{width:100%;padding:14px 16px;border:2px solid var(--input-border);border-radius:12px;font-size:15px;font-family:'Inter',sans-serif;transition:all 0.3s ease;background:var(--input-bg);color:var(--input-text)}
+input::placeholder,textarea::placeholder{color:var(--placeholder)}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 4px rgba(193,53,132,0.15)}
+select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C13584' d='M6 9L1 4h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+textarea{resize:vertical;min-height:90px}
+.checkbox-group{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
+.checkbox-item{display:flex;align-items:center;background:var(--input-bg);padding:14px 16px;border-radius:12px;border:2px solid var(--input-border);cursor:pointer;transition:all 0.3s ease;color:var(--text);font-weight:600}
+.checkbox-item:hover{border-color:var(--primary);background:rgba(193,53,132,0.1)}
+.checkbox-item input{width:18px;height:18px;margin-right:10px;cursor:pointer;accent-color:var(--primary)}
+.foto-box{border:3px dashed var(--primary);border-radius:16px;padding:35px 20px;text-align:center;background:rgba(193,53,132,0.05);cursor:pointer;transition:all 0.3s ease}
+.foto-box:hover{background:rgba(193,53,132,0.1);border-color:var(--primary-dark)}
+.foto-box p{color:var(--primary);font-weight:700;margin-top:8px}
+#previewContainer img{max-width:100%;max-height:300px;border:3px solid var(--primary);border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.3)}
+.btn{width:100%;padding:16px;border:none;border-radius:12px;font-size:16px;font-weight:800;cursor:pointer;transition:all 0.3s ease;font-family:'Inter',sans-serif;letter-spacing:0.5px}
+.btn-primary{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:white;margin-top:30px;box-shadow:0 10px 30px rgba(193,53,132,0.4)}
+.btn-primary:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 15px 40px rgba(193,53,132,0.6)}
+.btn-primary:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+.btn-secondary{background:rgba(255,255,255,0.1);color:#fff;width:auto;padding:10px 20px;font-size:14px;margin-top:10px;border:1px solid rgba(255,255,255,0.2)}
+[data-theme="light"] .btn-secondary{background:#fff!important;color:#1D1D1F!important;border-color:var(--border)!important}
+.btn-whatsapp-sucesso{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:16px 30px;border-radius:50px;text-decoration:none;font-weight:800;font-size:16px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(193,53,132,0.4);transition:all 0.3s;width:100%;justify-content:center;margin-top:15px}
+.loader{display:inline-block;width:16px;height:16px;border:3px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite;margin-right:8px;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sucesso-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background-image:url('https://dl.dropboxusercontent.com/scl/fi/jg66vk8ay5vzdb7da1ns4/1783904530793_image_1783904529995.jpg?rlkey=u1xdg3grc0dcf3bow3fuuga7p&raw=1');background-size:contain;background-position:center;background-repeat:no-repeat;background-color:#0a0a0a;display:flex;align-items:center;justify-content:center;z-index:9999;animation:fadeIn 0.4s ease;overflow:hidden;touch-action:none}
+.sucesso-overlay::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.2);z-index:-1}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.sucesso-card{background:rgba(0,0,0,0.15);border:1.5px solid rgba(193,53,132,0.5);padding:60px 45px;border-radius:28px;text-align:center;max-width:440px;width:90%;animation:scaleUp 0.6s cubic-bezier(0.34,1.56,0.64,1);box-shadow:0 0 0 1px rgba(193,53,132,0.3),0 20px 60px rgba(193,53,132,0.25);position:relative;z-index:1;margin:20px}
+@keyframes scaleUp{from{transform:scale(0.8);opacity:0}to{transform:scale(1);opacity:1}}
+.sucesso-icon{width:100px;height:100px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 25px;animation:pulseGlow 1.8s ease infinite;box-shadow:0 0 70px rgba(193,53,132,1)}
+@keyframes pulseGlow{0%,100%{transform:scale(1);box-shadow:0 0 70px rgba(193,53,132,1)}50%{transform:scale(1.15);box-shadow:0 0 100px rgba(193,53,132,1)}}
+.sucesso-icon i{color:white;font-size:50px}
+.sucesso-titulo{font-family:'Playfair Display',serif;font-size:34px;color:var(--primary);margin-bottom:14px;text-shadow:0 0 40px rgba(193,53,132,1);letter-spacing:1.5px}
+.sucesso-texto{color:rgba(255,255,255,0.98);font-size:16px;margin-bottom:25px;font-weight:600;line-height:22px}
+.erro-msg{background:rgba(244,67,54,0.15);border-left:4px solid #F44336;color:#ff8a80;padding:15px;border-radius:8px;margin-top:15px;font-size:14px;font-weight:600}
+.hidden{display:none!important}
+.signature-wrapper{background:#C13584;border:2px solid #000;border-radius:16px;margin:12px 0;overflow:hidden}
+#signatureCanvas{background:transparent;width:100%;height:160px;display:block;touch-action:none;cursor:crosshair}
+.whatsapp-float{position:fixed;bottom:80px;right:25px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
+.whatsapp-btn{width:60px;height:60px;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px;box-shadow:0 8px 25px rgba(193,53,132,0.5);transition:all 0.3s;animation:pulseRosa 2s infinite}
+.whatsapp-text{font-size:10px;font-weight:700;color:#fff;background:rgba(0,0,0,0.7);padding:5px 10px;border-radius:20px;backdrop-filter:blur(10px);letter-spacing:0.5px;text-align:center}
+[data-theme="light"] .whatsapp-text{background:#1D1D1F!important;color:#fff!important}
+@media (max-width:640px){.form-body{padding:30px 20px}.header h1{font-size:28px}.checkbox-group{grid-template-columns:1fr}.btn-duvidas-topo{top:15px;right:16px;padding:9px 16px;font-size:12px}.theme-btn{top:15px;left:16px;width:38px;height:38px}.preta-translate{left:70px!important;top:15px!important;flex-direction:row!important;gap:0!important}.preta-translate-label{display:none!important}.preta-translate-btn{width:38px!important;height:38px!important}.whatsapp-float{bottom:70px;right:20px}.whatsapp-btn{width:55px;height:55px;font-size:28px}}
+</style>
+</head>
 <body>
 <button class="theme-btn notranslate" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
 <div id="google_translate_element"></div>
 <div class="preta-translate notranslate" id="pretaTranslateWrap">
-  <button class="preta-translate-btn" id="pretaTranslateBtn" aria-label="Traduzir"><i class="fas fa-globe"></i></button>
-  <span class="preta-translate-label">traduzir</span>
-  <div class="preta-translate-menu" id="pretaTranslateMenu">
-    <button data-lang="pt">🇧🇷 Português</button>
-    <button data-lang="en">🇺🇸 English</button>
-    <button data-lang="es">🇪🇸 Español</button>
-    <button data-lang="fr">🇫🇷 Français</button>
-    <button data-lang="it">🇮🇹 Italiano</button>
-    <button data-lang="de">🇩🇪 Deutsch</button>
-  </div>
+<button class="preta-translate-btn" id="pretaTranslateBtn" aria-label="Traduzir"><i class="fas fa-globe"></i></button>
+<span class="preta-translate-label">traduzir</span>
+<div class="preta-translate-menu" id="pretaTranslateMenu">
+<button data-lang="pt">🇧🇷 Português</button><button data-lang="en">🇺🇸 English</button><button data-lang="es">🇪🇸 Español</button><button data-lang="fr">🇫🇷 Français</button><button data-lang="it">🇮🇹 Italiano</button><button data-lang="de">🇩🇪 Deutsch</button>
+</div>
 </div>
 <a href="duvidas.html" class="btn-duvidas-topo"><i class="fas fa-circle-question"></i> Dúvidas Frequentes</a>
 <div class="container" id="mainContainer">
-  <div class="header">
-    <img src="https://dl.dropboxusercontent.com/scl/fi/r0nz5dgz3ijxtvoc0ozpw/1781981208006_image_1781981207662.jpg?rlkey=ozppeww4pwyc1b0x4ma8gakm7&dl=1" alt="Preta NailS">
-    <h1>FORMULÁRIO DE AVALIAÇÃO INICIAL</h1>
-    <p>PREENCHA COM ATENÇÃO PARA UM ATENDIMENTO SEGURO</p>
-  </div>
-  <div class="form-body">
-    <form id="anamneseForm">
-      <div id="infoHorario" class="horario-selecionado hidden"><h3>SEU HORÁRIO ESCOLHIDO</h3><p id="textoHorario">Carregando...</p></div>
-      <div class="form-group"><label class="required">Nome Completo</label><input type="text" id="nome" required placeholder="Digite seu nome completo"></div>
-      <div class="form-group"><label class="required">Idade</label><input type="number" id="idade" required placeholder="Ex: 28" min="16" max="100"></div>
-      <div class="form-group"><label class="required">WhatsApp</label><input type="tel" id="whatsapp" required placeholder="(99) 99999-9999" maxlength="15"></div>
-      <div class="form-group">
-        <label class="required">Procedimentos Desejados</label>
-        <div class="checkbox-group" id="procedimentosGroup">
-          <label class="checkbox-item"><input type="checkbox" value="Esmaltação Simples"> Esmaltação Simples</label>
-          <label class="checkbox-item"><input type="checkbox" value="Esmaltação em Gel"> Esmaltação em Gel</label>
-          <label class="checkbox-item"><input type="checkbox" value="Alongamento de Unhas"> Alongamento de Unhas</label>
-          <label class="checkbox-item"><input type="checkbox" value="Manicure + Pedicure"> Manicure + Pedicure</label>
-          <label class="checkbox-item"><input type="checkbox" value="Spa dos Pés"> Spa dos Pés</label>
-          <label class="checkbox-item"><input type="checkbox" value="Reparação de Unhas"> Reparação de Unhas</label>
-          <label class="checkbox-item"><input type="checkbox" id="outroCheck" value="Outro"> Outro</label>
-        </div>
-      </div>
-      <div id="outroContainer" class="form-group hidden"><label>Especifique o procedimento desejado</label><input type="text" id="outroTexto" placeholder="Descreva aqui..."></div>
-      <div class="form-group"><label class="required">Possui Diabetes?</label><select id="diabetes" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
-      <div class="form-group"><label class="required">Possui Anemia?</label><select id="anemia" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
-      <div class="form-group"><label class="required">Suas mãos suam muito?</label><select id="maosSuam" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
-      <div class="form-group"><label class="required">Está grávida ou amamentando?</label><select id="gravida" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
-      <div class="form-group"><label class="required">Possui alergias?</label><select id="alergias" required onchange="toggleDetalhes(this, 'alergias_texto')"><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select><textarea id="alergias_texto" placeholder="Qual alergia?" class="hidden" style="margin-top:12px;"></textarea></div>
-      <div class="form-group"><label class="required">Medicamentos contínuos?</label><select id="medicamentos" required onchange="toggleDetalhes(this, 'medicamentos_texto')"><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select><textarea id="medicamentos_texto" placeholder="Quais?" class="hidden" style="margin-top:12px;"></textarea></div>
-      <div class="form-group"><label class="required">Já fez alongamento antes?</label><select id="alongamento" required onchange="toggleDetalhes(this, 'alongamento_texto')"><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select><textarea id="alongamento_texto" placeholder="Quando? Reação?" class="hidden" style="margin-top:12px;"></textarea></div>
-      <div class="form-group"><label>Observações</label><textarea id="observacoes" rows="3" placeholder="Algo importante..."></textarea></div>
-      <div class="form-group">
-        <label>Foto do Procedimento / Referência</label>
-        <div class="foto-box" onclick="document.getElementById('foto').click()"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C13584" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><p>Clique para enviar a foto</p></div>
-        <input type="file" id="foto" accept="image/*" class="hidden" onchange="previewFoto(this)">
-        <div id="previewContainer" class="hidden" style="text-align:center; margin-top:15px;"><img id="previewImg"><br><br><button type="button" class="btn btn-secondary" onclick="removerFoto()">Remover Foto</button></div>
-      </div>
-      <div class="form-group">
-        <label class="required">Assinatura Digital da Cliente</label>
-        <div class="signature-wrapper"><canvas id="signatureCanvas" width="700" height="200"></canvas></div>
-        <button type="button" class="btn btn-secondary" onclick="clearSignature()">Limpar Assinatura</button>
-      </div>
-      <button type="submit" class="btn btn-primary" id="submitBtn"><span id="btnText">CONFIRMAR AGENDAMENTO</span></button>
-      <div id="erroContainer" class="hidden"></div>
-    </form>
-  </div>
+<div class="header">
+<img src="https://dl.dropboxusercontent.com/scl/fi/r0nz5dgz3ijxtvoc0ozpw/1781981208006_image_1781981207662.jpg?rlkey=ozppeww4pwyc1b0x4ma8gakm7&dl=1" alt="Preta NailS">
+<h1>FORMULÁRIO DE AVALIAÇÃO INICIAL</h1>
+<p>PREENCHA COM ATENÇÃO PARA UM ATENDIMENTO SEGURO</p>
 </div>
-<div id="sucessoOverlay" class="sucesso-overlay hidden">
-  <div class="sucesso-card">
-    <div class="sucesso-icon"><i class="fas fa-check"></i></div>
-    <h2 class="sucesso-titulo">Agendamento confirmado!</h2>
-    <p class="sucesso-texto" id="sucessoTexto">Por gentileza clique no botão do WhatsApp abaixo para finalizar 💖</p>
-    <a id="btnWhatsappSucesso" href="#" target="_blank" class="btn-whatsapp-sucesso"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP AGORA</a>
-  </div>
+<div class="form-body">
+<form id="anamneseForm">
+<div id="infoHorario" class="horario-selecionado hidden"><h3>SEU HORÁRIO ESCOLHIDO</h3><p id="textoHorario">Carregando...</p></div>
+<div class="form-group"><label class="required">Nome Completo</label><input type="text" id="nome" required placeholder="Digite seu nome completo"></div>
+<div class="form-group"><label class="required">Idade</label><input type="number" id="idade" required placeholder="Ex: 28" min="16" max="100"></div>
+<div class="form-group"><label class="required">WhatsApp</label><input type="tel" id="whatsapp" required placeholder="(99) 99999-9999" maxlength="15"></div>
+<div class="form-group"><label class="required">Procedimentos Desejados</label><div class="checkbox-group" id="procedimentosGroup">
+<label class="checkbox-item"><input type="checkbox" value="Esmaltação Simples"> Esmaltação Simples</label>
+<label class="checkbox-item"><input type="checkbox" value="Esmaltação em Gel"> Esmaltação em Gel</label>
+<label class="checkbox-item"><input type="checkbox" value="Alongamento de Unhas"> Alongamento de Unhas</label>
+<label class="checkbox-item"><input type="checkbox" value="Manicure + Pedicure"> Manicure + Pedicure</label>
+<label class="checkbox-item"><input type="checkbox" value="Spa dos Pés"> Spa dos Pés</label>
+<label class="checkbox-item"><input type="checkbox" value="Reparação de Unhas"> Reparação de Unhas</label>
+<label class="checkbox-item"><input type="checkbox" id="outroCheck" value="Outro"> Outro</label>
+</div></div>
+<div id="outroContainer" class="form-group hidden"><label>Especifique o procedimento desejado</label><input type="text" id="outroTexto" placeholder="Descreva aqui..."></div>
+<div class="form-group"><label class="required">Possui Diabetes?</label><select id="diabetes" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
+<div class="form-group"><label class="required">Possui Anemia?</label><select id="anemia" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
+<div class="form-group"><label class="required">Suas mãos suam muito?</label><select id="maosSuam" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
+<div class="form-group"><label class="required">Está grávida ou amamentando?</label><select id="gravida" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
+<div class="form-group"><label class="required">Possui alergias?</label><select id="alergias" required onchange="toggleDetalhes(this, 'alergias_texto')"><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select><textarea id="alergias_texto" placeholder="Qual alergia?" class="hidden" style="margin-top:12px;"></textarea></div>
+<div class="form-group"><label class="required">Medicamentos contínuos?</label><select id="medicamentos" required onchange="toggleDetalhes(this, 'medicamentos_texto')"><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select><textarea id="medicamentos_texto" placeholder="Quais?" class="hidden" style="margin-top:12px;"></textarea></div>
+<div class="form-group"><label class="required">Já fez alongamento antes?</label><select id="alongamento" required onchange="toggleDetalhes(this, 'alongamento_texto')"><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select><textarea id="alongamento_texto" placeholder="Quando? Reação?" class="hidden" style="margin-top:12px;"></textarea></div>
+<div class="form-group"><label>Observações</label><textarea id="observacoes" rows="3" placeholder="Algo importante..."></textarea></div>
+<div class="form-group"><label>Foto do Procedimento / Referência</label><div class="foto-box" onclick="document.getElementById('foto').click()"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C13584" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><p>Clique para enviar a foto</p></div><input type="file" id="foto" accept="image/*" class="hidden" onchange="previewFoto(this)"><div id="previewContainer" class="hidden" style="text-align:center;margin-top:15px;"><img id="previewImg"><br><br><button type="button" class="btn btn-secondary" onclick="removerFoto()">Remover Foto</button></div></div>
+<div class="form-group"><label class="required">Assinatura Digital da Cliente</label><div class="signature-wrapper"><canvas id="signatureCanvas" width="700" height="200"></canvas></div><button type="button" class="btn btn-secondary" onclick="clearSignature()">Limpar Assinatura</button></div>
+<button type="submit" class="btn btn-primary" id="submitBtn"><span id="btnText">CONFIRMAR AGENDAMENTO</span></button>
+<div id="erroContainer" class="hidden"></div>
+</form>
 </div>
-
-<!-- BOTÃO ROSA FLUTUANTE - ADICIONADO AQUI -->
+</div>
+<div id="sucessoOverlay" class="sucesso-overlay hidden"><div class="sucesso-card"><div class="sucesso-icon"><i class="fas fa-check"></i></div><h2 class="sucesso-titulo">Agendamento confirmado!</h2><p class="sucesso-texto" id="sucessoTexto">Por gentileza clique no botão do WhatsApp abaixo para finalizar 💖</p><a id="btnWhatsappSucesso" href="#" target="_blank" class="btn-whatsapp-sucesso"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP AGORA</a></div></div>
 <a href="https://wa.me/5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20pelo%20formul%C3%A1rio%20e%20tenho%20d%C3%BAvidas%20%F0%9F%92%97" target="_blank" class="whatsapp-float"><div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div><div class="whatsapp-text">Dúvidas?<br>Fale comigo</div></a>
-
 <script>
+// SEU SCRIPT ORIGINAL - SEM ALTERAÇÃO
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbx7HHxLWed7STrR90uct44kdaTO9MVuJDQss4lfJ3-COwuL0ewD2ZJhCDjortsHA-g/exec";
-let fotoBase64 = null;
-let isDrawing = false;
-let hasSignature = false;
-let diaSelecionado = '';
-let horaSelecionada = '';
-
-(function pegarHorarioURL(){
-  const params = new URLSearchParams(window.location.search);
-  diaSelecionado = params.get('dia');
-  horaSelecionada = params.get('hora');
-  if(diaSelecionado && horaSelecionada){
-    document.getElementById('infoHorario').classList.remove('hidden');
-    document.getElementById('textoHorario').innerText = `${diaSelecionado} - ${horaSelecionada}`;
-  }
-})();
-
-function comprimirImagem(base64) {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.onload = () => {
-      const canvas = document.createElement('canvas');
-      const MAX = 800;
-      let w = img.width, h = img.height;
-      if (w > h) { if (w > MAX) { h *= MAX / w; w = MAX; } }
-      else { if (h > MAX) { w *= MAX / h; h = MAX; } }
-      canvas.width = w; canvas.height = h;
-      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-      resolve(canvas.toDataURL('image/jpeg', 0.6));
-    };
-    img.src = base64;
-  });
-}
-async function previewFoto(input) {
-  if (input.files && input.files[0]) {
-    const reader = new FileReader();
-    reader.onload = async e => {
-      const comprimida = await comprimirImagem(e.target.result);
-      document.getElementById('previewImg').src = comprimida;
-      document.getElementById('previewContainer').classList.remove('hidden');
-      fotoBase64 = comprimida;
-    }
-    reader.readAsDataURL(input.files[0]);
-  }
-}
-function removerFoto() {
-  document.getElementById('previewContainer').classList.add('hidden');
-  document.getElementById('foto').value = '';
-  fotoBase64 = null;
-}
-document.getElementById('outroCheck').addEventListener('change', function() {
-  const container = document.getElementById('outroContainer');
-  const campo = document.getElementById('outroTexto');
-  if (this.checked) { container.classList.remove('hidden'); campo.required = true; }
-  else { container.classList.add('hidden'); campo.required = false; campo.value = ''; }
-});
-
-const canvas = document.getElementById('signatureCanvas');
-const ctx = canvas.getContext('2d');
-ctx.strokeStyle = '#000000';
-ctx.lineWidth = 3.5;
-ctx.lineCap = 'round';
-ctx.lineJoin = 'round';
-
-function getPos(e) {
-  const rect = canvas.getBoundingClientRect();
-  const scaleX = canvas.width / rect.width;
-  const scaleY = canvas.height / rect.height;
-  if (e.touches) { return { x: (e.touches[0].clientX - rect.left) * scaleX, y: (e.touches[0].clientY - rect.top) * scaleY }; }
-  return { x: (e.clientX - rect.left) * scaleX, y: (e.clientY - rect.top) * scaleY };
-}
-function startDraw(e) { isDrawing = true; hasSignature = true; const pos = getPos(e); ctx.beginPath(); ctx.moveTo(pos.x, pos.y); e.preventDefault(); }
-function draw(e) { if (!isDrawing) return; const pos = getPos(e); ctx.lineTo(pos.x, pos.y); ctx.stroke(); e.preventDefault(); }
-function endDraw() { isDrawing = false; }
-canvas.addEventListener('mousedown', startDraw);
-canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mouseup', endDraw);
-canvas.addEventListener('mouseleave', endDraw);
-canvas.addEventListener('touchstart', startDraw, {passive:false});
-canvas.addEventListener('touchmove', draw, {passive:false});
-canvas.addEventListener('touchend', endDraw);
-function clearSignature() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  hasSignature = false;
-}
-function getAssinaturaLimpa() {
-  const temp = document.createElement('canvas');
-  temp.width = canvas.width;
-  temp.height = canvas.height;
-  const tCtx = temp.getContext('2d');
-  tCtx.fillStyle = '#FFFFFF';
-  tCtx.fillRect(0,0,temp.width,temp.height);
-  tCtx.drawImage(canvas,0,0);
-  return temp.toDataURL('image/png');
-}
-function toggleDetalhes(select, textareaId) {
-  const textarea = document.getElementById(textareaId);
-  if (select.value === 'Sim') { textarea.classList.remove('hidden'); textarea.required = true; }
-  else { textarea.classList.add('hidden'); textarea.required = false; textarea.value = ''; }
-}
-function showErro(msg) {
-  const container = document.getElementById('erroContainer');
-  container.innerHTML = `<div class="erro-msg"><i class="fas fa-exclamation-triangle"></i> ${msg}</div>`;
-  container.classList.remove('hidden');
-  window.scrollTo({ top: container.offsetTop - 20, behavior: 'smooth' });
-}
-document.getElementById('whatsapp').addEventListener('input', function(e) {
-  let valor = e.target.value.replace(/\D/g, '');
-  if (valor.length > 11) valor = valor.substring(0, 11);
-  if (valor.length <= 2) { e.target.value = valor; }
-  else if (valor.length <= 7) { e.target.value = `(${valor.substring(0,2)}) ${valor.substring(2)}`; }
-  else { e.target.value = `(${valor.substring(0,2)}) ${valor.substring(2,7)}-${valor.substring(7)}`; }
-});
-
-function mostrarSucesso(result, dados){
-  const linkDrive = result.pdf || result.url || "";
-  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-  document.getElementById('sucessoTexto').innerHTML = `Agendamento confirmado!<br><strong>${dados.dia} - ${dados.hora}</strong><br><span style="font-size:13px;opacity:0.9">Por gentileza clique no botão do WhatsApp abaixo para finalizar ${isMobile? '💖' : ''}</span>`;
-
-  let mensagem;
-  if(isMobile){
-    mensagem = `💅 NOVO AGENDAMENTO - PRETA NAILS\n\n👤 ${dados.nome}\n📱 ${dados.whatsapp}\n📅 ${dados.dia} - ${dados.hora}\n💅 ${dados.procedimento}\n📄 Ficha: ${linkDrive}\n\n✅ agendamento confirmado`;
-  } else {
-    mensagem = `NOVO AGENDAMENTO - PRETA NAILS\n\nNome: ${dados.nome}\nWhatsApp: ${dados.whatsapp}\nData: ${dados.dia} - ${dados.hora}\nProcedimento: ${dados.procedimento}\nFicha: ${linkDrive}\n\nAgendamento confirmado`;
-  }
-
-  const numeroStudio = "5511982311608";
-  document.getElementById('btnWhatsappSucesso').href = `https://wa.me/${numeroStudio}?text=${encodeURIComponent(mensagem)}`;
-  document.getElementById('sucessoOverlay').classList.remove('hidden');
-}
-
-document.getElementById('anamneseForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  document.getElementById('erroContainer').classList.add('hidden');
-  if (!hasSignature) { showErro('A assinatura digital é obrigatória. Assine no campo rosa acima.'); return; }
-  if(!diaSelecionado ||!horaSelecionada){ showErro('Erro: Horário não selecionado. Volte e escolha um horário.'); return; }
-  let procs = [];
-  document.querySelectorAll('#procedimentosGroup input[type="checkbox"]:checked').forEach(c => {
-    if (c.value === 'Outro') {
-      const outro = document.getElementById('outroTexto').value.trim();
-      if (outro) procs.push(`Outro: ${outro}`);
-    } else { procs.push(c.value); }
-  });
-  if (procs.length === 0) { showErro('Selecione pelo menos um procedimento.'); return; }
-  const btn = document.getElementById('submitBtn');
-  const btnText = document.getElementById('btnText');
-  btn.disabled = true;
-  btnText.innerHTML = '<span class="loader"></span> Aguarde enviando dados 💖';
-
-  const dados = {
-    nome: document.getElementById('nome').value.trim().toUpperCase(),
-    idade: document.getElementById('idade').value,
-    whatsapp: document.getElementById('whatsapp').value.trim(),
-    dia: diaSelecionado,
-    hora: horaSelecionada,
-    procedimento: procs.join(", "),
-    fotoMao: fotoBase64 || "",
-    assinatura: getAssinaturaLimpa(),
-    diabetes: document.getElementById('diabetes').value,
-    anemia: document.getElementById('anemia').value,
-    suor: document.getElementById('maosSuam').value,
-    gravida: document.getElementById('gravida').value,
-    alergias: document.getElementById('alergias').value,
-    alergias_texto: document.getElementById('alergias_texto').value,
-    medicamentos: document.getElementById('medicamentos').value,
-    medicamentos_texto: document.getElementById('medicamentos_texto').value,
-    alongamento: document.getElementById('alongamento').value,
-    alongamento_texto: document.getElementById('alongamento_texto').value,
-    observacoes: document.getElementById('observacoes').value
-  };
-
-  try {
-    const res = await fetch(WEB_APP_URL, { method: "POST", body: JSON.stringify(dados) });
-    const result = await res.json();
-    if(result.result === "error" && (result.type === "HORARIO_OCUPADO" || (result.error && result.error.includes("ocupado")))){
-      showErro('❌ Esse horário acabou de ser reservado por outra cliente! Volte e escolha outro horário.');
-      btn.disabled = false; btnText.textContent = 'CONFIRMAR AGENDAMENTO';
-      return;
-    }
-    mostrarSucesso(result, dados);
-  } catch (err) {
-    console.log("Retorno bloqueado mas salvou:", err);
-    mostrarSucesso({id: 'PN-' + Date.now(), pdf: '', url: ''}, dados);
-  }
-});
-
-</script>
-<script src="theme.js"></script>
-  <!-- ==================== BLOQUEIO V12.3 - MODO CLIENTE INVISÍVEL ==================== -->
-<script>
-(function() {
-  "use strict";
-  const SENHA_ADMIN = "preta2026";
-  const isGoogleBot = /googlebot|google-inspection|adsbot-google|mediapartners-google|apis-google|chrome-lighthouse|gtmetrix|lighthouse|bingbot|yandex|duckduckbot/i.test(navigator.userAgent);
-  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  const urlParams = new URLSearchParams(window.location.search);
-  if(urlParams.get('admin') === SENHA_ADMIN) sessionStorage.setItem('adminLiberado', 'true');
-  if (sessionStorage.getItem('adminLiberado') === 'true' || isLocal || isMobile || isGoogleBot) return;
-  let bloqueado = false;
-  function mostrarAlertaSeguranca() {
-    if(bloqueado) return;
-    bloqueado = true;
-    document.documentElement.innerHTML = `
-      <body style="margin:0;padding:0;background:#F8F9FA;font-family:'Google Sans', Roboto, Arial, sans-serif;color:#202124;height:100vh;display:flex;align-items:center;justify-content:center;">
-        <div style="max-width:620px;text-align:left;padding:40px;background:#fff;border:1px solid #DADCE0;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
-          <div style="display:flex;align-items:center;margin-bottom:25px;">
-            <div style="font-size:40px;margin-right:15px;">🛡️</div>
-            <div>
-              <h2 style="font-size:24px;margin:0;color:#E91E63;">Preta Nails - Navegação Segura</h2>
-              <p style="font-size:13px;margin:2px 0 0 0;color:#5F6368;">Sistema de Proteção da Loja</p>
-            </div>
-          </div>
-          <h3 style="font-size:18px;margin-bottom:12px;color:#202124;">Acesso avançado detectado</h3>
-          <p style="font-size:15px;line-height:1.6;color:#3C4043;margin-bottom:20px;">
-            Por segurança, detectamos uma tentativa de acesso ao código-fonte da <strong>Preta Nails</strong>.
-            Para proteger nossos produtos e dados, o acesso foi bloqueado.
-          </p>
-          <p style="font-size:14px;line-height:1.6;color:#5F6368;margin-bottom:25px;">
-            <strong>Você pode continuar:</strong><br>
-            - Navegando e comprando normalmente pelo <strong>celular</strong> 💅<br>
-            - Usando <strong>Ctrl+C</strong> para copiar PIX e informações
-          </p>
-          <button onclick="window.location.reload()" style="padding:12px 24px;font-size:14px;background:#E91E63;color:#fff;border:none;border-radius:4px;cursor:pointer;font-weight:500;">
-            Entendi e Voltar para Loja
-          </button>
-        </div>
-      </body>`;
-  }
-  window.liberar = function(senha) {
-    if(senha === SENHA_ADMIN) {
-      sessionStorage.setItem('adminLiberado', 'true');
-      location.reload();
-    }
-  }
-  document.addEventListener('keydown', function(e) {
-    const key = e.key.toUpperCase();
-    const code = e.keyCode || e.which;
-    const teclasLivres = ['C','V','X','A','F','R','L','T','W','D','Z'];
-    if (e.ctrlKey && teclasLivres.includes(key) &&!e.shiftKey &&!e.altKey) return true;
-    if (e.ctrlKey && e.shiftKey && key === 'R') return true;
-    if (['TAB','ENTER',' ','BACKSPACE','ARROWUP','ARROWDOWN','ARROWLEFT','ARROWRIGHT','DELETE'].includes(key)) return true;
-    if (key === 'F5' || code === 116 || key === 'F6' || code === 117) return true;
-    if (key === 'F12' || code === 123 ||
-        (key.startsWith('F') && /^F([1-4]|7|8|9|10|11|12)$/.test(key)) ||
-        (e.ctrlKey && ['U','S','P','I','J','K','E','Q','H'].includes(key)) ||
-        (e.ctrlKey && e.shiftKey && ['I','J','C','K','M','E','D'].includes(key)) ||
-        (e.altKey && ['F','U','D'].includes(key)) ) {
-      e.preventDefault();
-      e.stopPropagation();
-      mostrarAlertaSeguranca();
-      return false;
-    }
-  }, true);
-  document.addEventListener('contextmenu', e => { e.preventDefault(); mostrarAlertaSeguranca(); }, true);
-})();
-</script>
-<script>
+let fotoBase64 = null;let isDrawing = false;let hasSignature = false;let diaSelecionado = '';let horaSelecionada = '';
+(function pegarHorarioURL(){const params = new URLSearchParams(window.location.search);diaSelecionado = params.get('dia');horaSelecionada = params.get('hora');if(diaSelecionado && horaSelecionada){document.getElementById('infoHorario').classList.remove('hidden');document.getElementById('textoHorario').innerText = `${diaSelecionado} - ${horaSelecionada}`;}})();
+function comprimirImagem(base64){return new Promise((resolve)=>{const img=new Image();img.onload=()=>{const canvas=document.createElement('canvas');const MAX=800;let w=img.width,h=img.height;if(w>h){if(w>MAX){h*=MAX/w;w=MAX}}else{if(h>MAX){w*=MAX/h;h=MAX}}canvas.width=w;canvas.height=h;canvas.getContext('2d').drawImage(img,0,0,w,h);resolve(canvas.toDataURL('image/jpeg',0.6));};img.src=base64;});}
+async function previewFoto(input){if(input.files&&input.files[0]){const reader=new FileReader();reader.onload=async e=>{const comprimida=await comprimirImagem(e.target.result);document.getElementById('previewImg').src=comprimida;document.getElementById('previewContainer').classList.remove('hidden');fotoBase64=comprimida;} ;reader.readAsDataURL(input.files[0]);}}
+function removerFoto(){document.getElementById('previewContainer').classList.add('hidden');document.getElementById('foto').value='';fotoBase64=null;}
+document.getElementById('outroCheck').addEventListener('change',function(){const container=document.getElementById('outroContainer');const campo=document.getElementById('outroTexto');if(this.checked){container.classList.remove('hidden');campo.required=true;}else{container.classList.add('hidden');campo.required=false;campo.value='';}});
+const canvas=document.getElementById('signatureCanvas');const ctx=canvas.getContext('2d');ctx.strokeStyle='#000000';ctx.lineWidth=3.5;ctx.lineCap='round';ctx.lineJoin='round';
+function getPos(e){const rect=canvas.getBoundingClientRect();const scaleX=canvas.width/rect.width;const scaleY=canvas.height/rect.height;if(e.touches){return{x:(e.touches[0].clientX-rect.left)*scaleX,y:(e.touches[0].clientY-rect.top)*scaleY};}return{x:(e.clientX-rect.left)*scaleX,y:(e.clientY-rect.top)*scaleY};}
+function startDraw(e){isDrawing=true;hasSignature=true;const pos=getPos(e);ctx.beginPath();ctx.moveTo(pos.x,pos.y);e.preventDefault();}
+function draw(e){if(!isDrawing)return;const pos=getPos(e);ctx.lineTo(pos.x,pos.y);ctx.stroke();e.preventDefault();}
+function endDraw(){isDrawing=false;}
+canvas.addEventListener('mousedown',startDraw);canvas.addEventListener('mousemove',draw);canvas.addEventListener('mouseup',endDraw);canvas.addEventListener('mouseleave',endDraw);
+canvas.addEventListener('touchstart',startDraw,{passive:false});canvas.addEventListener('touchmove',draw,{passive:false});canvas.addEventListener('touchend',endDraw);
+function clearSignature(){ctx.clearRect(0,0,canvas.width,canvas.height);hasSignature=false;}
+function getAssinaturaLimpa(){const temp=document.createElement('canvas');temp.width=canvas.width;temp.height=canvas.height;const tCtx=temp.getContext('2d');tCtx.fillStyle='#FFFFFF';tCtx.fillRect(0,0,temp.width,temp.height);tCtx.drawImage(canvas,0,0);return temp.toDataURL('image/png');}
+function toggleDetalhes(select,textareaId){const textarea=document.getElementById(textareaId);if(select.value==='Sim'){textarea.classList.remove('hidden');textarea.required=true;}else{textarea.classList.add('hidden');textarea.required=false;textarea.value='';}}
+function showErro(msg){const container=document.getElementById('erroContainer');container.innerHTML=`<div class="erro-msg"><i class="fas fa-exclamation-triangle"></i> ${msg}</div>`;container.classList.remove('hidden');window.scrollTo({top:container.offsetTop-20,behavior:'smooth'});}
+document.getElementById('whatsapp').addEventListener('input',function(e){let valor=e.target.value.replace(/\D/g,'');if(valor.length>11)valor=valor.substring(0,11);if(valor.length<=2){e.target.value=valor;}else if(valor.length<=7){e.target.value=`(${valor.substring(0,2)}) ${valor.substring(2)}`;}else{e.target.value=`(${valor.substring(0,2)}) ${valor.substring(2,7)}-${valor.substring(7)}`;}});
+function mostrarSucesso(result,dados){const linkDrive=result.pdf||result.url||"";const isMobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);document.getElementById('sucessoTexto').innerHTML=`Agendamento confirmado!<br><strong>${dados.dia} - ${dados.hora}</strong><br><span style="font-size:13px;opacity:0.9">Por gentileza clique no botão do WhatsApp abaixo para finalizar ${isMobile?'💖':''}</span>`;let mensagem;if(isMobile){mensagem=`💅 NOVO AGENDAMENTO - PRETA NAILS\n\n👤 ${dados.nome}\n📱 ${dados.whatsapp}\n📅 ${dados.dia} - ${dados.hora}\n💅 ${dados.procedimento}\n📄 Ficha: ${linkDrive}\n\n✅ agendamento confirmado`;}else{mensagem=`NOVO AGENDAMENTO - PRETA NAILS\n\nNome: ${dados.nome}\nWhatsApp: ${dados.whatsapp}\nData: ${dados.dia} - ${dados.hora}\nProcedimento: ${dados.procedimento}\nFicha: ${linkDrive}\n\nAgendamento confirmado`;}const numeroStudio="5511982311608";document.getElementById('btnWhatsappSucesso').href=`https://wa.me/${numeroStudio}?text=${encodeURIComponent(mensagem)}`;document.getElementById('sucessoOverlay').classList.remove('hidden');}
+document.getElementById('anamneseForm').addEventListener('submit',async(e)=>{e.preventDefault();document.getElementById('erroContainer').classList.add('hidden');if(!hasSignature){showErro('A assinatura digital é obrigatória. Assine no campo rosa acima.');return;}if(!diaSelecionado||!horaSelecionada){showErro('Erro: Horário não selecionado. Volte e escolha um horário.');return;}let procs=[];document.querySelectorAll('#procedimentosGroup input[type="checkbox"]:checked').forEach(c=>{if(c.value==='Outro'){const outro=document.getElementById('outroTexto').value.trim();if(outro)procs.push(`Outro: ${outro}`);}else{procs.push(c.value);}});if(procs.length===0){showErro('Selecione pelo menos um procedimento.');return;}const btn=document.getElementById('submitBtn');const btnText=document.getElementById('btnText');btn.disabled=true;btnText.innerHTML='<span class="loader"></span> Aguarde enviando dados 💖';const dados={nome:document.getElementById('nome').value.trim().toUpperCase(),idade:document.getElementById('idade').value,whatsapp:document.getElementById('whatsapp').value.trim(),dia:diaSelecionado,hora:horaSelecionada,procedimento:procs.join(", "),fotoMao:fotoBase64||"",assinatura:getAssinaturaLimpa(),diabetes:document.getElementById('diabetes').value,anemia:document.getElementById('anemia').value,suor:document.getElementById('maosSuam').value,gravida:document.getElementById('gravida').value,alergias:document.getElementById('alergias').value,alergias_texto:document.getElementById('alergias_texto').value,medicamentos:document.getElementById('medicamentos').value,medicamentos_texto:document.getElementById('medicamentos_texto').value,alongamento:document.getElementById('alongamento').value,alongamento_texto:document.getElementById('alongamento_texto').value,observacoes:document.getElementById('observacoes').value};try{const res=await fetch(WEB_APP_URL,{method:"POST",body:JSON.stringify(dados)});const result=await res.json();if(result.result==="error"&&(result.type==="HORARIO_OCUPADO"||(result.error&&result.error.includes("ocupado")))){showErro('❌ Esse horário acabou de ser reservado por outra cliente! Volte e escolha outro horário.');btn.disabled=false;btnText.textContent='CONFIRMAR AGENDAMENTO';return;}mostrarSucesso(result,dados);}catch(err){console.log("Retorno bloqueado mas salvou:",err);mostrarSucesso({id:'PN-'+Date.now(),pdf:'',url:''},dados);}});
+const themeBtn=document.getElementById('themeBtn');const themeIcon=document.getElementById('themeIcon');const meta=document.getElementById('meta-theme-color');
+function upd(t){themeIcon.className=t==='light'?'fas fa-moon':'fas fa-sun';if(meta)meta.content=t==='light'?'#FFFAFC':'#0a0a0a';}
+upd(localStorage.getItem('preta-theme')||'dark');
+themeBtn.addEventListener('click',()=>{const cur=localStorage.getItem('preta-theme')||'dark';const nxt=cur==='dark'?'light':'dark';localStorage.setItem('preta-theme',nxt);if(nxt==='light'){document.documentElement.setAttribute('data-theme','light')}else{document.documentElement.removeAttribute('data-theme')}upd(nxt);});
 (function(){
-  const btn=document.getElementById('pretaTranslateBtn'); 
-  const menu=document.getElementById('pretaTranslateMenu'); 
-  const wrap=document.getElementById('pretaTranslateWrap');
-  btn.addEventListener('click',(e)=>{e.stopPropagation(); menu.classList.toggle('show');});
-  document.addEventListener('click',(e)=>{if(!wrap.contains(e.target)) menu.classList.remove('show');});
-  function getLang(){const m=document.cookie.match(/googtrans=\/pt\/(\w+)/);if(m) return m[1];return localStorage.getItem('preta-lang')||'pt';}
-  function saveLang(lang){
-    localStorage.setItem('preta-lang',lang);
-    const v='/pt/'+lang;
-    document.cookie='googtrans='+v+'; path=/; max-age=31536000; SameSite=Lax';
-    try{
-      document.cookie='googtrans='+v+'; path=/; domain=.'+location.hostname+'; max-age=31536000; SameSite=Lax';
-      document.cookie='googtrans='+v+'; path=/; domain='+location.hostname+'; max-age=31536000; SameSite=Lax';
-    }catch(e){}
-  }
-  function clearLang(){
-    localStorage.setItem('preta-lang','pt');
-    const past='Thu, 01 Jan 1970 00:00:00 UTC';
-    document.cookie='googtrans=; expires='+past+'; path=/;';
-    document.cookie='googtrans=; expires='+past+'; path=/; SameSite=Lax';
-    try{
-      document.cookie='googtrans=; expires='+past+'; path=/; domain='+location.hostname;
-      document.cookie='googtrans=; expires='+past+'; path=/; domain=.'+location.hostname;
-    }catch(e){}
-  }
-  function getCombo(){return document.querySelector('select.goog-te-combo');}
-  function applyLang(lang,isAuto){
-    if(lang==='pt'){clearLang(); if(!isAuto) location.reload(); return;}
-    saveLang(lang);
-    let tries=0;
-    const iv=setInterval(()=>{
-      const sel=getCombo();
-      if(sel){
-        clearInterval(iv);
-        sel.value=lang;
-        sel.dispatchEvent(new Event('change'));
-        menu.classList.remove('show');
-        document.body.style.top='0px';
-        document.documentElement.style.top='0px';
-        menu.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
-      }
-      if(++tries>80) clearInterval(iv);
-    },250);
-  }
-  window.googleTranslateElementInit=function(){
-    new google.translate.TranslateElement({pageLanguage:'pt',includedLanguages:'pt,en,es,fr,it,de',autoDisplay:false},'google_translate_element');
-    const saved=getLang();
-    if(saved && saved!=='pt'){
-      setTimeout(()=>applyLang(saved,true),700);
-      menu.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b.dataset.lang===saved));
-    }
-  };
-  menu.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
-  const obs=new MutationObserver(()=>{
-    document.body.style.top='0px';
-    document.documentElement.style.top='0px';
-    document.querySelectorAll('.goog-te-banner-frame').forEach(el=>el.style.display='none');
-  });
-  obs.observe(document.documentElement,{childList:true,subtree:true});
-  const s=document.createElement('script');
-  s.src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-  s.async=true;
-  document.body.appendChild(s);
+const btn=document.getElementById('pretaTranslateBtn');const menu=document.getElementById('pretaTranslateMenu');const wrap=document.getElementById('pretaTranslateWrap');
+btn.addEventListener('click',(e)=>{e.stopPropagation();menu.classList.toggle('show');});
+document.addEventListener('click',(e)=>{if(!wrap.contains(e.target))menu.classList.remove('show');});
+function getLang(){const m=document.cookie.match(/googtrans=\/pt\/(\w+)/);if(m) return m[1];return localStorage.getItem('preta-lang')||'pt';}
+function saveLang(lang){localStorage.setItem('preta-lang',lang);const v='/pt/'+lang;document.cookie='googtrans='+v+'; path=/; max-age=31536000; SameSite=Lax';}
+function clearLang(){localStorage.setItem('preta-lang','pt');document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';}
+function getCombo(){return document.querySelector('select.goog-te-combo');}
+function applyLang(lang,isAuto){if(lang==='pt'){clearLang();if(!isAuto)location.reload();return;}saveLang(lang);let tries=0;const iv=setInterval(()=>{const sel=getCombo();if(sel){clearInterval(iv);sel.value=lang;sel.dispatchEvent(new Event('change'));menu.classList.remove('show');document.body.style.top='0px';document.documentElement.style.top='0px';menu.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));}if(++tries>80)clearInterval(iv);},250);}
+window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'pt',includedLanguages:'pt,en,es,fr,it,de',autoDisplay:false},'google_translate_element');};
+menu.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+const obs=new MutationObserver(()=>{document.body.style.top='0px';document.documentElement.style.top='0px';document.querySelectorAll('.goog-te-banner-frame').forEach(el=>el.style.display='none');});
+obs.observe(document.documentElement,{childList:true,subtree:true});
+const s=document.createElement('script');s.src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';s.async=true;document.body.appendChild(s);
 })();
 </script>
-
-
-  <!-- PATCH UNIVERSAL MODO CLARO - COLAR ANTES DO </body> -->
-<style id="preta-light-fix-universal">
-  /* FORÇA MODO CLARO - CORRIGE TUDO */
-  [data-theme="light"]{
-    --bg:#FFFAFC!important;
-    --text:#1D1D1F!important;
-    --muted:#3a3a3e!important;
-    --card:#ffffff!important;
-    --border:rgba(255,45,146,.18)!important;
-  }
-  [data-theme="light"] body{
-    background:#FFFAFC!important;
-    color:#1D1D1F!important;
-  }
-  [data-theme="light"] p,
-  [data-theme="light"] li,
-  [data-theme="light"] span:not(.whatsapp-text):not(.preta-translate-label),
-  [data-theme="light"] div:not(.whatsapp-btn):not(.preta-translate-btn):not(.theme-btn),
-  [data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3, [data-theme="light"] h4,
-  [data-theme="light"] strong, [data-theme="light"] b{
-    color:#1D1D1F!important;
-  }
-  [data-theme="light"] p{
-    color:#333333!important;
-  }
-  [data-theme="light"] .muted,
-  [data-theme="light"] [style*="color:#aaa"],
-  [data-theme="light"] [style*="color: #aaa"],
-  [data-theme="light"] [style*="color:rgba(255,255,255"],
-  [data-theme="light"] [style*="opacity:.6"],
-  [data-theme="light"] [style*="opacity: .6"]{
-    color:#555555!important;
-  }
-  /* CARDS E CAIXAS NO CLARO */
-  [data-theme="light"] .card,
-  [data-theme="light"] .caixa,
-  [data-theme="light"] .autor,
-  [data-theme="light"] .seo-bloco,
-  [data-theme="light"] .promo,
-  [data-theme="light"] .footer-seo,
-  [data-theme="light"] .top-bar{
-    background:#ffffff!important;
-    border-color:rgba(255,45,146,.18)!important;
-    box-shadow:0 4px 20px rgba(0,0,0,.06)!important;
-  }
-  [data-theme="light"] .card h3,
-  [data-theme="light"] .seo-bloco h2{
-    color:#1D1D1F!important;
-  }
-  [data-theme="light"] .card p,
-  [data-theme="light"] .seo-bloco p{
-    color:#333333!important;
-  }
-  /* BADGES QUE FICARAM BRANCOS NO PRINT */
-  [data-theme="light"] .badge,
-  [data-theme="light"] .aviso,
-  [data-theme="light"] [class*="badge"]{
-    background:#fff0f6!important;
-    color:#C13584!important;
-    border-color:#ff2d92!important;
-  }
-  [data-theme="light"] .badge span,
-  [data-theme="light"] .badge i{
-    color:#C13584!important;
-  }
-  /* BOTÕES CONTINUAM ROSA */
-  [data-theme="light"] .btn,
-  [data-theme="light"] .whatsapp-btn,
-  [data-theme="light"] .whatsapp-text{
-    color:#fff!important;
-  }
-  /* RODAPÉ NO CLARO */
-  [data-theme="light"] .footer-seo p{
-    color:#666666!important;
-  }
-  /* CORRIGE SEU PRINT ESPECÍFICO - TEXTOS QUE SUMIRAM */
-  [data-theme="light"] .grid .card,
-  [data-theme="light"] .sec .card{
-    min-height:auto!important;
-  }
-  [data-theme="light"] .card:empty,
-  [data-theme="light"] .card .ico + *:empty{
-    display:none!important;
-  }
-  /* SE O CARD SÓ TEM ÍCONE ROSA E O TEXTO SUMIU, FORÇA APARECER */
-  [data-theme="light"] [style*="color:#fff0"],
-  [data-theme="light"] [style*="color:transparent"]{
-    color:#1D1D1F!important;
-  }
-</style>
-<script>
-// GARANTE QUE O MODO CLARO APLIQUE DEPOIS DE TUDO
-(function(){
-  const obs = new MutationObserver(()=>{
-    if(document.documentElement.getAttribute('data-theme')==='light'){
-      document.body.style.background='#FFFAFC';
-    }
-  });
-  obs.observe(document.documentElement,{attributes:true});
-})();
-</script>
-<!-- FIM PATCH UNIVERSAL -->
 </body>
 </html>
