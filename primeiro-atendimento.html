@@ -160,5 +160,108 @@
   })();
 </script>
 <script src="theme.js"></script>
+
+  <!-- PATCH UNIVERSAL MODO CLARO - COLAR ANTES DO </body> -->
+<style id="preta-light-fix-universal">
+  /* FORÇA MODO CLARO - CORRIGE TUDO */
+  [data-theme="light"]{
+    --bg:#FFFAFC!important;
+    --text:#1D1D1F!important;
+    --muted:#3a3a3e!important;
+    --card:#ffffff!important;
+    --border:rgba(255,45,146,.18)!important;
+  }
+  [data-theme="light"] body{
+    background:#FFFAFC!important;
+    color:#1D1D1F!important;
+  }
+  [data-theme="light"] p,
+  [data-theme="light"] li,
+  [data-theme="light"] span:not(.whatsapp-text):not(.preta-translate-label),
+  [data-theme="light"] div:not(.whatsapp-btn):not(.preta-translate-btn):not(.theme-btn),
+  [data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3, [data-theme="light"] h4,
+  [data-theme="light"] strong, [data-theme="light"] b{
+    color:#1D1D1F!important;
+  }
+  [data-theme="light"] p{
+    color:#333333!important;
+  }
+  [data-theme="light"] .muted,
+  [data-theme="light"] [style*="color:#aaa"],
+  [data-theme="light"] [style*="color: #aaa"],
+  [data-theme="light"] [style*="color:rgba(255,255,255"],
+  [data-theme="light"] [style*="opacity:.6"],
+  [data-theme="light"] [style*="opacity: .6"]{
+    color:#555555!important;
+  }
+  /* CARDS E CAIXAS NO CLARO */
+  [data-theme="light"] .card,
+  [data-theme="light"] .caixa,
+  [data-theme="light"] .autor,
+  [data-theme="light"] .seo-bloco,
+  [data-theme="light"] .promo,
+  [data-theme="light"] .footer-seo,
+  [data-theme="light"] .top-bar{
+    background:#ffffff!important;
+    border-color:rgba(255,45,146,.18)!important;
+    box-shadow:0 4px 20px rgba(0,0,0,.06)!important;
+  }
+  [data-theme="light"] .card h3,
+  [data-theme="light"] .seo-bloco h2{
+    color:#1D1D1F!important;
+  }
+  [data-theme="light"] .card p,
+  [data-theme="light"] .seo-bloco p{
+    color:#333333!important;
+  }
+  /* BADGES QUE FICARAM BRANCOS NO PRINT */
+  [data-theme="light"] .badge,
+  [data-theme="light"] .aviso,
+  [data-theme="light"] [class*="badge"]{
+    background:#fff0f6!important;
+    color:#C13584!important;
+    border-color:#ff2d92!important;
+  }
+  [data-theme="light"] .badge span,
+  [data-theme="light"] .badge i{
+    color:#C13584!important;
+  }
+  /* BOTÕES CONTINUAM ROSA */
+  [data-theme="light"] .btn,
+  [data-theme="light"] .whatsapp-btn,
+  [data-theme="light"] .whatsapp-text{
+    color:#fff!important;
+  }
+  /* RODAPÉ NO CLARO */
+  [data-theme="light"] .footer-seo p{
+    color:#666666!important;
+  }
+  /* CORRIGE SEU PRINT ESPECÍFICO - TEXTOS QUE SUMIRAM */
+  [data-theme="light"] .grid .card,
+  [data-theme="light"] .sec .card{
+    min-height:auto!important;
+  }
+  [data-theme="light"] .card:empty,
+  [data-theme="light"] .card .ico + *:empty{
+    display:none!important;
+  }
+  /* SE O CARD SÓ TEM ÍCONE ROSA E O TEXTO SUMIU, FORÇA APARECER */
+  [data-theme="light"] [style*="color:#fff0"],
+  [data-theme="light"] [style*="color:transparent"]{
+    color:#1D1D1F!important;
+  }
+</style>
+<script>
+// GARANTE QUE O MODO CLARO APLIQUE DEPOIS DE TUDO
+(function(){
+  const obs = new MutationObserver(()=>{
+    if(document.documentElement.getAttribute('data-theme')==='light'){
+      document.body.style.background='#FFFAFC';
+    }
+  });
+  obs.observe(document.documentElement,{attributes:true});
+})();
+</script>
+<!-- FIM PATCH UNIVERSAL -->
 </body>
 </html>
