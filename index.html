@@ -544,30 +544,26 @@
 <!-- FIM PATCH UNIVERSAL -->
 
 
-
-  
-<!-- BOTÃO WHATSAPP TRANSPARENTE + PULSANDO ROSA -->
+<!-- BOTÃO WHATSAPP SÓ DEGRADE PULSANDO SEM BORDA -->
 <style>
 .whatsapp-float{position:fixed!important;bottom:80px!important;right:18px!important;z-index:99999!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:6px!important;text-decoration:none!important}
 .whatsapp-btn{
   width:62px!important;height:62px!important;
-  background:linear-gradient(135deg,rgba(255,45,146,0.85) 0%,rgba(193,53,132,0.85) 100%)!important;
-  backdrop-filter:blur(8px)!important;
-  -webkit-backdrop-filter:blur(8px)!important;
+  background:linear-gradient(135deg,rgba(255,45,146,0.82) 0%,rgba(193,53,132,0.82) 100%)!important;
   border-radius:50%!important;
   display:flex!important;align-items:center!important;justify-content:center!important;
   color:#fff!important;font-size:32px!important;
-  border:1.5px solid rgba(255,255,255,0.6)!important;
+  border:none!important;
   box-shadow:0 8px 25px rgba(255,45,146,.35)!important;
-  animation:pretaPulseTransp 2s infinite!important;
+  animation:pretaPulseDegrade 2s infinite!important;
 }
-.whatsapp-text{font-size:10px!important;font-weight:800!important;text-align:center!important;padding:6px 10px!important;border-radius:20px!important;backdrop-filter:blur(8px)!important}
-:root .whatsapp-text,html:not([data-theme="light"]) .whatsapp-text{color:#fff!important;background:rgba(0,0,0,0.55)!important;border:1px solid rgba(255,45,146,.2)!important}
-[data-theme="light"] .whatsapp-text{color:#1D1D1F!important;background:rgba(255,255,255,0.75)!important;border:1px solid rgba(255,45,146,.3)!important;box-shadow:0 4px 12px rgba(0,0,0,.1)!important}
-@keyframes pretaPulseTransp{
-  0%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,45,146,.6),0 8px 25px rgba(255,45,146,.25)}
-  70%{transform:scale(1.07);box-shadow:0 0 0 16px rgba(255,45,146,0),0 8px 25px rgba(255,45,146,.25)}
-  100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,45,146,0),0 8px 25px rgba(255,45,146,.25)}
+.whatsapp-text{font-size:10px!important;font-weight:800!important;text-align:center!important;padding:6px 10px!important;border-radius:20px!important}
+:root .whatsapp-text,html:not([data-theme="light"]) .whatsapp-text{color:#fff!important;background:rgba(0,0,0,0.55)!important}
+[data-theme="light"] .whatsapp-text{color:#1D1D1F!important;background:rgba(255,255,255,0.75)!important;box-shadow:0 4px 12px rgba(0,0,0,.1)!important}
+@keyframes pretaPulseDegrade{
+  0%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,45,146,.65)}
+  70%{transform:scale(1.08);box-shadow:0 0 0 18px rgba(255,45,146,0)}
+  100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,45,146,0)}
 }
 </style>
 <a href="https://wa.me/5511982311608?text=Oi%20Sabrina!%20%F0%9F%92%96%20Vim%20do%20seu%20site%20e%20tenho%20d%C3%BAvidas" target="_blank" class="whatsapp-float notranslate" id="pretaWhatsFloat"><div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div><div class="whatsapp-text">Dúvidas?<br>Fale comigo</div></a>
