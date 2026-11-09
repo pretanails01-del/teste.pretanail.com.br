@@ -13,24 +13,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="theme.css">
   <style>
-    :root { --rosa-brilhante: #ff2d92; --rosa-escuro: #C13584; --bg: #0a0a0a; --text: #ffffff; }
-    [data-theme="light"]{ --bg:#FFFAFC; --text:#1D1D1F; }
+    :root { --rosa-brilhante: #ff2d92; --rosa-escuro: #C13584; --bg: #0a0a0a; --text: #ffffff; --card:#121212; --border:rgba(255,45,146,0.3); }
+    [data-theme="light"]{ --bg:#FFFAFC; --text:#1D1D1F; --card:#FFFFFF; --border:rgba(193,53,132,.16); }
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);top:0!important;position:static!important}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);top:0!important;position:static!important;transition:background .35s,color .35s}
     html{top:0!important}
     .theme-btn{position:fixed!important;top:25px!important;left:25px!important;z-index:9999!important;width:42px!important;height:42px!important;border-radius:50%!important;border:1px solid rgba(255,45,146,.35)!important;background:rgba(255,255,255,.06)!important;backdrop-filter:blur(10px)!important;color:#ff2d92!important;cursor:pointer!important;display:flex!important;align-items:center!important;justify-content:center!important}
     [data-theme="light"] .theme-btn{background:#fff!important;box-shadow:0 4px 12px rgba(0,0,0,.08)!important}
-    /* TRADUTOR SEM SOBREPOR - DESTRAVADO */
     #google_translate_element{display:none!important}
-    .goog-te-banner-frame.skiptranslate,iframe.goog-te-banner-frame,iframe[name="goog-te-banner-frame"]{display:none!important;visibility:hidden!important;height:0!important}
+    .goog-te-banner-frame.skiptranslate,iframe.goog-te-banner-frame{display:none!important;height:0!important}
     .skiptranslate{display:none!important}
-    .goog-te-gadget-icon{display:none!important}
-    .goog-logo-link,.goog-te-gadget span{display:none!important}
-    #goog-gt-tt,.goog-te-balloon-frame,.VIpgJd-ZVi9od-ORHb-OEVmcd,.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,.VIpgJd-ZVi9od-aZ2wEe-OiiCO,.VIpgJd-ZVi9od-aZ2wEe{display:none!important}
+    .goog-te-gadget-icon,.goog-logo-link,.goog-te-gadget span{display:none!important}
+    #goog-gt-tt,.goog-te-balloon-frame,.VIpgJd-ZVi9od-ORHb-OEVmcd,.VIpgJd-ZVi9od-aZ2wEe-wOHMyf{display:none!important}
     .goog-text-highlight{background:transparent!important;box-shadow:none!important;border:none!important}
-    font.goog-text-highlight{background:transparent!important}
     .translated-ltr body,.translated-rtl body{top:0!important}
-    .preta-translate{position:fixed!important;z-index:9997!important;left:25px!important;top:85px!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:4px!important;margin:0!important}
+    .preta-translate{position:fixed!important;z-index:9997!important;left:25px!important;top:85px!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:4px!important}
     .preta-translate-btn{width:32px!important;height:32px!important;border-radius:50%!important;border:1px solid rgba(193,53,132,.35)!important;background:rgba(20,20,20,.9)!important;color:#C13584!important;cursor:pointer!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:14px!important}
     .preta-translate-btn:hover{background:#C13584!important;color:#fff!important}
     .preta-translate-label{font-size:8px!important;font-weight:800!important;letter-spacing:.8px!important;color:#C13584!important;text-transform:uppercase!important}
@@ -41,20 +38,20 @@
     [data-theme="light"] .preta-translate-menu{background:#fff!important;border-color:#eee!important}
     .preta-translate-menu button{background:transparent!important;border:0!important;border-radius:8px!important;padding:9px 12px!important;color:#fff!important;font-weight:600!important;font-size:12px!important;cursor:pointer!important;text-align:left!important}
     [data-theme="light"] .preta-translate-menu button{color:#222!important}
-    .preta-translate-menu button:hover{background:#C13584!important;color:#fff!important}
-    .preta-translate-menu button.active{background:#C13584!important;color:#fff!important}
+    .preta-translate-menu button:hover,.preta-translate-menu button.active{background:#C13584!important;color:#fff!important}
     .full-faq-content{max-width:900px;margin:0 auto;padding:90px 25px 120px 25px}
     h1{font-family:'Playfair Display',serif;font-size:36px;line-height:1.15;margin-bottom:12px}
-    [data-theme="light"] h1{color:#1D1D1F}
     h2{font-size:25px;color:#ff2d92;margin:35px 0 15px;font-family:'Playfair Display',serif;border-left:3px solid #ff2d92;padding-left:12px}
     p{line-height:1.85;margin-bottom:16px;font-size:18px;color:#ddd}
     [data-theme="light"] p{color:#333}
     ul{margin-left:20px;line-height:2.1;color:#ddd}
     [data-theme="light"] ul{color:#333}
     strong{color:var(--rosa-brilhante)}
+    [data-theme="light"] strong{color:#C13584}
     .caixa-recado{background:linear-gradient(135deg, rgba(255,45,146,.15), rgba(0,0,0,.5));border:1px solid rgba(255,45,146,.4);border-radius:14px;padding:22px;margin-top:28px}
-    [data-theme="light"] .caixa-recado{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.06)}
+    [data-theme="light"] .caixa-recado{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.06);border-color:var(--border)}
     .autor-header{background:linear-gradient(135deg, rgba(255,45,146,.2), rgba(0,0,0,.7));border:2px solid var(--rosa-brilhante);display:flex;align-items:center;gap:14px;margin-bottom:25px;padding:18px;border-radius:12px}
+    [data-theme="light"] .autor-header{background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.06)}
     .autor-header img{width:55px;height:55px;border-radius:50%;border:3px solid #ff2d92;object-fit:cover}
     .btn-form-full{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#ff2d92 0%,#C13584 100%);color:#fff;padding:18px 35px;border-radius:50px;text-decoration:none;font-weight:800;font-size:18px;box-shadow:0 10px 30px rgba(255,45,146,.45);margin-top:10px;transition:.2s}
     .btn-voltar-inicio-rosa{display:inline-flex;align-items:center;gap:8px;color:var(--rosa-brilhante);font-size:13px;font-weight:700;text-decoration:none}
@@ -65,6 +62,7 @@
     .whatsapp-float{position:fixed;bottom:80px;right:25px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
     .whatsapp-btn{width:60px;height:60px;background:linear-gradient(135deg,#ff2d92 0%,#C13584 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:32px;box-shadow:0 8px 25px rgba(255,45,146,.5);animation:pulseRosa 2s infinite}
     .whatsapp-text{font-size:10px;font-weight:700;color:#fff;background:rgba(0,0,0,0.7);padding:5px 10px;border-radius:20px;text-align:center}
+    [data-theme="light"] .whatsapp-text{background:#1D1D1F!important;color:#fff!important}
     @keyframes pulseRosa{0%{transform:scale(1)}70%{transform:scale(1.05)}100%{transform:scale(1)}}
     .seo-forte{margin-top:35px;padding:18px 20px;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,45,146,0.15);border-radius:12px;opacity:0.55;font-size:11.5px;line-height:1.8;color:rgba(255,255,255,0.6)}
     [data-theme="light"] .seo-forte{background:#fff;border-color:rgba(255,45,146,0.12);color:rgba(0,0,0,0.45)}
@@ -77,13 +75,6 @@
       .full-faq-content{padding:120px 20px 100px 20px}
     }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org","@type":"NailSalon","name":"Preta Nails - Sabrina Lemos",
-    "address":{"@type":"PostalAddress","postalCode":"02632-090","addressLocality":"São Paulo","addressRegion":"SP","addressNeighborhood":"Jardim Peri - Próximo ao Horto Florestal"},
-    "areaServed":["Jardim Peri","Horto Florestal","Santana","Mandaqui","Tremembé","Tucuruvi","Jaçanã"]
-  }
-  </script>
 </head>
 <body>
 <button class="theme-btn notranslate" id="themeBtn" aria-label="Alternar tema"><i class="fas fa-sun" id="themeIcon"></i></button>
@@ -140,7 +131,7 @@
     <h2>Por que dá alergia e como eu evito aqui</h2>
     <p>Alergia no alongamento geralmente acontece por três motivos: produto com ácido, gel encostando na pele e cabine com tempo errado. Parece simples, mas faz toda diferença.</p>
     <p>Aqui no Jardim Peri eu começo com uma boa conversa. Faço uma anamnese completa pra entender seu histórico, se já teve alergia a esmalte, se a unha é fraca, sensível ou roída. Só depois eu escolho a técnica ideal pra você.</p>
-    <p>Só uso <strong>gel sem ácido, hipoalergênico</strong> e técnica de <strong>mold F1 e fibra sem encostar na pele</strong>, tudo esterilizado certinho a 180°C no padrão Anvisa. O acabamento fica fininho e natural, sem precisar de excesso de produto. É por isso que recebo tanta cliente de fácil acesso de Santana, Mandaqui, Tremembé e Tucuruvi aqui no Jardim Peri - elas buscam um atendimento mais seguro, sem dor e com resultado natural.</p>
+    <p>Só uso <strong>gel sem ácido, hipoalergênico</strong> e técnica de <strong>mold F1 e fibra sem encostar na pele</strong>, tudo esterilizado certinho a 180°C no padrão Anvisa. O acabamento fica fininho e natural, sem precisar de excesso de produto. Essa atenção extra garante que você saia daqui segura, leve e com unhas que realmente duram muito mais no dia a dia, sem susto depois. É por isso que recebo tanta cliente de fácil acesso de Santana, Mandaqui, Tremembé e Tucuruvi aqui no Jardim Peri - elas buscam um atendimento mais seguro, sem dor e com resultado natural.</p>
 
     <h2>Qual a diferença de aquecimento normal e alergia?</h2>
     <p>Na cabine é normal sentir um quentinho rápido de 3 a 5 segundos, que passa quando você tira a mão. Alergia é diferente: é uma queimação forte, que não passa, que deixa a região vermelha e coçando depois.</p>
@@ -166,13 +157,12 @@
     </div>
   </div>
 
-  <a href="https://wa.me/5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20tenho%20algumas%20d%C3%BAvidas." target="_blank" class="whatsapp-float">
+  <a href="https://wa.me/5511982311608?text=Ol%C3%A1!%20Tudo%20bem%2C%20Preta%20Nails%3F%20Vim%20atrav%C3%A9s%20do%20site%20e%20tenho%20d%C3%BAvidas.%20Poderia%20me%20ajudar%2C%20por%20favor%3F%20%F0%9F%92%96" target="_blank" class="whatsapp-float">
     <div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div>
-    <div class="whatsapp-text">Dúvidas ?<br>Fale comigo</div>
+    <div class="whatsapp-text">Dúvidas?<br>Fale comigo</div>
   </a>
 
 <script>
-// TEMA UNIVERSAL + TRADUTOR DESTRAVADO - SEM SOBREPOR LOGO
 (function(){
   const themeBtn=document.getElementById('themeBtn');
   const themeIcon=document.getElementById('themeIcon');
@@ -185,124 +175,14 @@
   const wrap=document.getElementById('pretaTranslateWrap');
   btn.addEventListener('click',(e)=>{e.stopPropagation(); menu.classList.toggle('show');});
   document.addEventListener('click',(e)=>{if(!wrap.contains(e.target)) menu.classList.remove('show');});
-  function getLang(){const m=document.cookie.match(/googtrans=\/pt\/(\w+)/);if(m) return m[1];return localStorage.getItem('preta-lang')||'pt';}
-  function saveLang(lang){localStorage.setItem('preta-lang',lang);const v='/pt/'+lang;document.cookie='googtrans='+v+'; path=/; max-age=31536000; SameSite=Lax';try{document.cookie='googtrans='+v+'; path=/; domain=.'+location.hostname+'; max-age=31536000; SameSite=Lax';document.cookie='googtrans='+v+'; path=/; domain='+location.hostname+'; max-age=31536000; SameSite=Lax';}catch(e){}}
-  function clearLang(){localStorage.setItem('preta-lang','pt');const past='Thu, 01 Jan 1970 00:00:00 UTC';document.cookie='googtrans=; expires='+past+'; path=/;';document.cookie='googtrans=; expires='+past+'; path=/; SameSite=Lax';try{document.cookie='googtrans=; expires='+past+'; path=/; domain='+location.hostname;document.cookie='googtrans=; expires='+past+'; path=/; domain=.'+location.hostname;}catch(e){}}
+  function saveLang(lang){localStorage.setItem('preta-lang',lang);const v='/pt/'+lang;document.cookie='googtrans='+v+'; path=/; max-age=31536000; SameSite=Lax';}
+  function clearLang(){localStorage.setItem('preta-lang','pt');document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';}
   function getCombo(){return document.querySelector('select.goog-te-combo');}
-  function applyLang(lang,isAuto){if(lang==='pt'){clearLang();if(!isAuto)location.reload();return;}saveLang(lang);let tries=0;const iv=setInterval(()=>{const sel=getCombo();if(sel){clearInterval(iv);sel.value=lang;sel.dispatchEvent(new Event('change'));menu.classList.remove('show');document.body.style.top='0px';document.documentElement.style.top='0px';menu.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));}if(++tries>80)clearInterval(iv);},250);}
-  window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'pt',includedLanguages:'pt,en,es,fr,it,de',autoDisplay:false},'google_translate_element');const saved=getLang();if(saved&&saved!=='pt'){setTimeout(()=>applyLang(saved,true),700);menu.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b.dataset.lang===saved));}};
+  function applyLang(lang,isAuto){if(lang==='pt'){clearLang();if(!isAuto)location.reload();return;}saveLang(lang);let tries=0;const iv=setInterval(()=>{const sel=getCombo();if(sel){clearInterval(iv);sel.value=lang;sel.dispatchEvent(new Event('change'));menu.classList.remove('show');document.body.style.top='0px';document.documentElement.style.top='0px';}if(++tries>80)clearInterval(iv);},250);}
+  window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'pt',includedLanguages:'pt,en,es,fr,it,de',autoDisplay:false},'google_translate_element');};
   menu.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
-  const obs=new MutationObserver(()=>{document.body.style.top='0px';document.documentElement.style.top='0px';document.querySelectorAll('.goog-te-banner-frame').forEach(el=>el.style.display='none');});
-  obs.observe(document.documentElement,{childList:true,subtree:true});
   const s=document.createElement('script');s.src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';s.async=true;document.body.appendChild(s);
 })();
 </script>
-
-
-  <!-- PATCH UNIVERSAL MODO CLARO - COLAR ANTES DO </body> -->
-<style id="preta-light-fix-universal">
-  /* FORÇA MODO CLARO - CORRIGE TUDO */
-  [data-theme="light"]{
-    --bg:#FFFAFC!important;
-    --text:#1D1D1F!important;
-    --muted:#3a3a3e!important;
-    --card:#ffffff!important;
-    --border:rgba(255,45,146,.18)!important;
-  }
-  [data-theme="light"] body{
-    background:#FFFAFC!important;
-    color:#1D1D1F!important;
-  }
-  [data-theme="light"] p,
-  [data-theme="light"] li,
-  [data-theme="light"] span:not(.whatsapp-text):not(.preta-translate-label),
-  [data-theme="light"] div:not(.whatsapp-btn):not(.preta-translate-btn):not(.theme-btn),
-  [data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3, [data-theme="light"] h4,
-  [data-theme="light"] strong, [data-theme="light"] b{
-    color:#1D1D1F!important;
-  }
-  [data-theme="light"] p{
-    color:#333333!important;
-  }
-  [data-theme="light"] .muted,
-  [data-theme="light"] [style*="color:#aaa"],
-  [data-theme="light"] [style*="color: #aaa"],
-  [data-theme="light"] [style*="color:rgba(255,255,255"],
-  [data-theme="light"] [style*="opacity:.6"],
-  [data-theme="light"] [style*="opacity: .6"]{
-    color:#555555!important;
-  }
-  /* CARDS E CAIXAS NO CLARO */
-  [data-theme="light"] .card,
-  [data-theme="light"] .caixa,
-  [data-theme="light"] .autor,
-  [data-theme="light"] .seo-bloco,
-  [data-theme="light"] .promo,
-  [data-theme="light"] .footer-seo,
-  [data-theme="light"] .top-bar{
-    background:#ffffff!important;
-    border-color:rgba(255,45,146,.18)!important;
-    box-shadow:0 4px 20px rgba(0,0,0,.06)!important;
-  }
-  [data-theme="light"] .card h3,
-  [data-theme="light"] .seo-bloco h2{
-    color:#1D1D1F!important;
-  }
-  [data-theme="light"] .card p,
-  [data-theme="light"] .seo-bloco p{
-    color:#333333!important;
-  }
-  /* BADGES QUE FICARAM BRANCOS NO PRINT */
-  [data-theme="light"] .badge,
-  [data-theme="light"] .aviso,
-  [data-theme="light"] [class*="badge"]{
-    background:#fff0f6!important;
-    color:#C13584!important;
-    border-color:#ff2d92!important;
-  }
-  [data-theme="light"] .badge span,
-  [data-theme="light"] .badge i{
-    color:#C13584!important;
-  }
-  /* BOTÕES CONTINUAM ROSA */
-  [data-theme="light"] .btn,
-  [data-theme="light"] .whatsapp-btn,
-  [data-theme="light"] .whatsapp-text{
-    color:#fff!important;
-  }
-  /* RODAPÉ NO CLARO */
-  [data-theme="light"] .footer-seo p{
-    color:#666666!important;
-  }
-  /* CORRIGE SEU PRINT ESPECÍFICO - TEXTOS QUE SUMIRAM */
-  [data-theme="light"] .grid .card,
-  [data-theme="light"] .sec .card{
-    min-height:auto!important;
-  }
-  [data-theme="light"] .card:empty,
-  [data-theme="light"] .card .ico + *:empty{
-    display:none!important;
-  }
-  /* SE O CARD SÓ TEM ÍCONE ROSA E O TEXTO SUMIU, FORÇA APARECER */
-  [data-theme="light"] [style*="color:#fff0"],
-  [data-theme="light"] [style*="color:transparent"]{
-    color:#1D1D1F!important;
-  }
-</style>
-<script>
-// GARANTE QUE O MODO CLARO APLIQUE DEPOIS DE TUDO
-(function(){
-  const obs = new MutationObserver(()=>{
-    if(document.documentElement.getAttribute('data-theme')==='light'){
-      document.body.style.background='#FFFAFC';
-    }
-  });
-  obs.observe(document.documentElement,{attributes:true});
-})();
-</script>
-<!-- FIM PATCH UNIVERSAL -->
-
-  
-  
 </body>
 </html>
