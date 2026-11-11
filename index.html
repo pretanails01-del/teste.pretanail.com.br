@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0a0a0a" id="meta-theme-color">
 <meta name="google-adsense-account" content="ca-pub-6297984503406232">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6297984503406232" crossorigin="anonymous"></script>
-<script>!function(){try{var k='preta-theme';var t=localStorage.getItem(k);if(!t||t!=='light'){localStorage.setItem(k,'dark');document.documentElement.removeAttribute('data-theme');var m=document.getElementById('meta-theme-color');if(m)m.content='#0a0a0a';}else{document.documentElement.setAttribute('data-theme','light');var m2=document.getElementById('meta-theme-color');if(m2)m2.content='#FFFAFC';}}catch(e){document.documentElement.removeAttribute('data-theme');}}();</script>
+<script>!function(){try{var k='preta-theme';var t=localStorage.getItem(k);if(t!=='light'){localStorage.setItem(k,'dark');document.documentElement.removeAttribute('data-theme');var m=document.getElementById('meta-theme-color');if(m)m.content='#0a0a0a';}else{document.documentElement.setAttribute('data-theme','light');var m2=document.getElementById('meta-theme-color');if(m2)m2.content='#FFFAFC';}}catch(e){document.documentElement.removeAttribute('data-theme');}}();</script>
 <link rel="stylesheet" href="theme.css">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -32,11 +32,10 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 #btn-instalar-app:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-2px); color:#fff }
 .btn-duvidas-topo { position: fixed; top: 25px; right: 25px; z-index: 9998; background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.4); backdrop-filter: blur(10px); color: #fff; padding: 10px 18px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; white-space: nowrap; }
 [data-theme="light"] .btn-duvidas-topo{background:#fff;color:var(--text);border-color:var(--border);box-shadow:0 4px 15px rgba(0,0,0,.06)}
-.theme-btn{position:fixed;top:25px;left:25px;z-index:9999;width:42px;height:42px;border-radius:50%;border:1px solid rgba(193,53,132,0.4);background:#111;backdrop-filter:blur(10px);color:#C13584;cursor:pointer;display:flex;align-items:center;justify-content:center;}
-.preta-translate{position:fixed;top:25px;left:80px;z-index:9999;width:42px;height:42px;border-radius:50%;border:1px solid rgba(193,53,132,0.4);background:#111;backdrop-filter:blur(10px);color:#C13584;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:.3s}
-/* UNIVERSAL - MANTÉM DARK NOS DOIS TEMAS */
-[data-theme="light"] .theme-btn{background:#111;box-shadow:0 4px 15px rgba(0,0,0,.3);color:#C13584;border:1px solid rgba(193,53,132,0.4);}
-[data-theme="light"] .preta-translate{background:#111;box-shadow:0 4px 15px rgba(0,0,0,.3);color:#C13584;border:1px solid rgba(193,53,132,0.4);}
+.theme-btn{position:fixed;top:25px;left:25px;z-index:9999;width:42px;height:42px;border-radius:50%;border:1px solid rgba(193,53,132,0.4);background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);color:var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center;}
+[data-theme="light"] .theme-btn{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.06)}
+.preta-translate{position:fixed;top:25px;left:80px;z-index:9999;width:42px;height:42px;border-radius:50%;border:1px solid rgba(193,53,132,0.4);background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);color:var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:.3s}
+[data-theme="light"] .preta-translate{background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.06)}
 .preta-translate:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
 .preta-translate-menu{position:fixed;top:75px;left:25px;z-index:10000;min-width:160px;background:#111;border:1px solid rgba(193,53,132,0.3);border-radius:14px;padding:6px;display:none;flex-direction:column;gap:4px;box-shadow:0 15px 40px rgba(0,0,0,.6)}
 [data-theme="light"] .preta-translate-menu{background:#fff;border-color:#eee;box-shadow:0 15px 40px rgba(0,0,0,.08)}
